@@ -1,0 +1,1 @@
+# chiisai-hal-specification
