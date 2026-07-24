@@ -101,11 +101,4 @@ to their definitions there.
 
 ## Feedback
 
-Corrections, clarifications, and suggestions are welcome — please open an issue at
-<https://github.com/vectorgrp>.
-
-## License
-
-Licensed under the **Apache License, Version 2.0**. You may use, reproduce, modify, and distribute
-this specification in compliance with the License. See the [LICENSE](LICENSE) file for the full
-text, or <http://www.apache.org/licenses/LICENSE-2.0>.
+Corrections, clarifications, and suggestions are welcome —TBD!!!
