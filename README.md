@@ -4,13 +4,7 @@ A standardised, open, resource‑conscious **Hardware Abstraction Layer (HAL)** 
 low‑power microcontrollers with tight memory budgets — the kind used in cost‑sensitive
 embedded systems such as sensors and actuators in automotive E/E architectures.
 
-**This repository publishes the rendered specification as a browsable HTML site.** It is the
-generated output of a documentation‑as‑code toolchain; the reStructuredText / C‑header sources are
-maintained separately.
-
-> **Status:** work in progress. Content and requirement identifiers may still change between
-> releases.
-
+**This repository publishes the rendered specification as a browsable HTML site.** 
 ---
 
 ## Viewing the specification
