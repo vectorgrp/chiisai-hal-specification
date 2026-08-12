@@ -1,4 +1,5 @@
 [![license](https://img.shields.io/badge/license-Apache%202.0-blue)](https://github.com/vectorgrp/chiisai-hal-specification/blob/main/LICENSE)
+[![documentation](https://img.shields.io/badge/documentation-HTML-blue)](README.md)
 
 # Chiisai HAL Specification
 
