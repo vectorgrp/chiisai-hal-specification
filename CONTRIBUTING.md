@@ -8,9 +8,6 @@ We are sorry, but at the moment, we do not accept external contributions until w
 
 We're working behind the scenes to get this ready in the future. Until then, we would kindly ask you to not open pull requests.
 
-We will update this document when we are ready for your submissions. Thank you and stay tuned!
+We will update this document when we are ready for your submissions. 
 
-
-Welcome, and thank you for your interest in contributing to the open source Chiisai HAL Specification project. 
-
-The Chiisai HAL Specification is developed and maintained by Vector Informatik and Infineon in collaboration. It forms part of the broader Chiisai ecosystem for small, resource-constrained microcontrollers.
+Thank you and stay tuned!
