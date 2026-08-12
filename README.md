@@ -1,5 +1,7 @@
 [![license](https://img.shields.io/badge/license-Apache%202.0-blue)](https://github.com/vectorgrp/chiisai-hal-specification/blob/main/LICENSE)
 [![documentation](https://img.shields.io/badge/documentation-HTML-blue)](README.md)
+[![vectorSite](https://img.shields.io/badge/vector-product%20site-red)](https://www.vector.com/us/en/)
+[![infineonSite](https://img.shields.io/badge/infineon-product%20site-purple)](https://www.infineon.com/)
 
 # Chiisai HAL Specification
 
