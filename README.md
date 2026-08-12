@@ -1,3 +1,5 @@
+[![license](https://img.shields.io/badge/license-Apache%202.0-blue)](https://github.com/vectorgrp/chiisai-hal-specification/blob/main/LICENSE)
+
 # Chiisai HAL Specification
 
 A standardised, open, resource‑conscious **Hardware Abstraction Layer (HAL)** for small,
