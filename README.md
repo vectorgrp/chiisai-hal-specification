@@ -14,7 +14,7 @@ embedded systems such as sensors and actuators in automotive E/E architectures.
 
 ## Viewing the specification
 
-- **Online:** *hosted site link to be added here (GitHub Pages).*
+- **Online:** *[chiisai-hal-specification](https://github.com/vectorgrp/chiisai-hal-specification)*
 - **Offline:** download or clone this repository and open **`index.html`** in a web browser. All
   pages, search, diagrams, and cross‑links work from the local files — no server or build step
   required.
@@ -58,7 +58,6 @@ keeps the standard small while remaining extensible:
 | **Port** | GPIO / pin configuration |
 | **Wdg** | Watchdog |
 
-**Out of scope** (deliberately excluded): application logic, operating‑system components and
-low‑level driver internals; and specialised peripherals such as **ADC** and **PWM**, which are
-left to silicon vendors as differentiators.
+## License
+See [LICENSE](https://github.com/vectorgrp/chiisai-hal-specification/blob/main/LICENSE) file for details.
 
