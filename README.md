@@ -59,5 +59,6 @@ keeps the standard small while remaining extensible:
 | **Wdg** | Watchdog |
 
 ## License
+This project is licensed under the Apache License 2.0.
 See [LICENSE](https://github.com/vectorgrp/chiisai-hal-specification/blob/main/LICENSE) file for details.
 
