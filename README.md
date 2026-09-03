@@ -62,3 +62,10 @@ keeps the standard small while remaining extensible:
 This project is licensed under the Apache License 2.0.
 See [LICENSE](https://github.com/vectorgrp/chiisai-hal-specification/blob/main/LICENSE) file for details.
 
+## Contact Information
+
+The Chiisai HAL Specification is maintained by the Chiisai project contributors.
+
+For questions, feedback, bug reports, or proposals for improvements, please open an issue in the project's GitHub repository
+For general inquiries regarding the specification, please contact the project maintainers: support@vector.com
+
