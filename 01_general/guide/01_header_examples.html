@@ -1,0 +1,300 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Foundation Header Examples &mdash; Chiisai HAL Specification  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css?v=4ae1632d" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-data-viewer/jsonview.bundle.css?v=f6ef2277" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-needs/libs/html/datatables.min.css?v=4b4fd840" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-needs/common_css/needstable.css?v=5e1b6797" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-needs/common_css/need_core.css?v=f5b60a78" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-needs/common_css/need_links.css?v=2150a916" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-needs/common_css/need_style.css?v=92936fa5" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-needs/common_css/need_toggle.css?v=5c6620df" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-needs/modern.css?v=803738c0" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=4f645179" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+      <script src="../../_static/sphinx-data-viewer/jsonview.bundle.js?v=18cd53c5"></script>
+      <script src="../../_static/sphinx-data-viewer/jsonview_loader.js?v=f7ff7e7d"></script>
+      <script src="../../_static/sphinx-needs/libs/html/datatables.min.js?v=8a4aee21"></script>
+      <script src="../../_static/sphinx-needs/libs/html/datatables_loader.js?v=a2cae175"></script>
+      <script src="../../_static/sphinx-needs/libs/html/sphinx_needs_collapse.js?v=dca66431"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="The Callout Stub File" href="02_callout_file.html" />
+    <link rel="prev" title="Using the Shared Contract" href="00_using_the_contract.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Chiisai HAL Specification
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../00_about/index.html">About This Specification</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">General</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../00_overview.html">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01_architecture.html">Architecture and Layering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02_conventions.html">Naming Conventions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03_integration.html">Integration Guidelines</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Guide</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="00_using_the_contract.html">Using the Shared Contract</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Foundation Header Examples</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#std-types-h">Std_Types.h</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#platform-types-h">Platform_Types.h</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#compiler-h">Compiler.h</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mip-memmap-h">Mip_MemMap.h</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="02_callout_file.html">The Callout Stub File</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/index.html">Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04_requirements.html">Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05_design_decisions.html">Design Decisions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../04_DriverModules/index.html">Chiisai HAL Driver Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix.html">Appendix</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Chiisai HAL Specification</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">General</a></li>
+          <li class="breadcrumb-item"><a href="index.html">Guide</a></li>
+      <li class="breadcrumb-item active">Foundation Header Examples</li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="foundation-header-examples">
+<h1>Foundation Header Examples<a class="headerlink" href="#foundation-header-examples" title="Link to this heading"></a></h1>
+<div class="informative admonition">
+<p class="admonition-title">Informative</p>
+<p>Generalized, vendor-neutral skeletons of the foundation headers described in
+<a class="reference internal" href="../reference/index.html"><span class="doc">Reference</span></a>. They show the structure and the relevant parts only; the concrete
+integer mapping, section attributes, and compiler keywords are target/compiler specific. <code class="docutils literal notranslate"><span class="pre">Mip</span></code> /
+<code class="docutils literal notranslate"><span class="pre">MIP</span></code> stands in for a module implementation prefix.</p>
+</div>
+<section id="std-types-h">
+<h2>Std_Types.h<a class="headerlink" href="#std-types-h" title="Link to this heading"></a></h2>
+<p>Small and portable — it just pulls in the platform and compiler headers and defines the standard
+return type and on/off constants.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#ifndef STD_TYPES_H</span>
+<span class="cp">#define STD_TYPES_H</span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Compiler.h&quot;</span><span class="c1">       /* compiler abstraction */</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Platform_Types.h&quot;</span><span class="c1"> /* platform types */</span>
+
+<span class="cp">#define E_OK     (0x00U)    </span><span class="cm">/* API completed without error */</span>
+<span class="cp">#define E_NOT_OK (0x01U)    </span><span class="cm">/* API detected an error */</span>
+
+<span class="cp">#define STD_ON   (0x01U)</span>
+<span class="cp">#define STD_OFF  (0x00U)</span>
+
+<span class="cm">/* One of E_OK / E_NOT_OK, or a module-specific extended value (0x02..0xFF). */</span>
+<span class="k">typedef</span><span class="w"> </span><span class="n">uint8</span><span class="w"> </span><span class="n">Std_ReturnType</span><span class="p">;</span>
+
+<span class="cp">#endif </span><span class="cm">/* STD_TYPES_H */</span>
+</pre></div>
+</div>
+<p><em>Normative:</em> <a class="reference internal" href="../04_requirements.html#CHI-GEN-MUST-09" title="CHI-GEN-MUST-09"><em class="xref need">CHI-GEN-MUST-09</em></a> — a driver uses the standard type system instead of native C types;
+see <a class="reference internal" href="../reference/00_types.html#gen-ref-standard-types"><span class="std std-ref">standard types</span></a>.</p>
+</section>
+<section id="platform-types-h">
+<h2>Platform_Types.h<a class="headerlink" href="#platform-types-h" title="Link to this heading"></a></h2>
+<p>The constants are fixed; the integer typedefs and the three <code class="docutils literal notranslate"><span class="pre">CPU_*</span></code> selections are chosen to match
+the target architecture (a 32-bit little-endian MCU is shown).</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#ifndef PLATFORM_TYPES_H</span>
+<span class="cp">#define PLATFORM_TYPES_H</span>
+
+<span class="cp">#define TRUE  (1U)</span>
+<span class="cp">#define FALSE (0U)</span>
+
+<span class="cp">#define CPU_TYPE_8  (8U)</span>
+<span class="cp">#define CPU_TYPE_16 (16U)</span>
+<span class="cp">#define CPU_TYPE_32 (32U)</span>
+<span class="cp">#define CPU_TYPE_64 (64U)</span>
+
+<span class="cp">#define MSB_FIRST       (0U)</span>
+<span class="cp">#define LSB_FIRST       (1U)</span>
+<span class="cp">#define HIGH_BYTE_FIRST (0U)</span>
+<span class="cp">#define LOW_BYTE_FIRST  (1U)</span>
+
+<span class="cm">/* Select the values that match the target: */</span>
+<span class="cp">#define CPU_TYPE       (CPU_TYPE_32)</span>
+<span class="cp">#define CPU_BIT_ORDER  (LSB_FIRST)</span>
+<span class="cp">#define CPU_BYTE_ORDER (LOW_BYTE_FIRST)</span>
+
+<span class="cm">/* The concrete mapping is target/compiler specific — example for a 32-bit MCU: */</span>
+<span class="k">typedef</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">char</span><span class="w">      </span><span class="n">boolean</span><span class="p">;</span>
+<span class="k">typedef</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">char</span><span class="w">      </span><span class="n">uint8</span><span class="p">;</span>
+<span class="k">typedef</span><span class="w"> </span><span class="kt">signed</span><span class="w"> </span><span class="kt">char</span><span class="w">        </span><span class="n">sint8</span><span class="p">;</span>
+<span class="k">typedef</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">short</span><span class="w">     </span><span class="n">uint16</span><span class="p">;</span>
+<span class="k">typedef</span><span class="w"> </span><span class="kt">signed</span><span class="w"> </span><span class="kt">short</span><span class="w">       </span><span class="n">sint16</span><span class="p">;</span>
+<span class="k">typedef</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">long</span><span class="w">      </span><span class="n">uint32</span><span class="p">;</span>
+<span class="k">typedef</span><span class="w"> </span><span class="kt">signed</span><span class="w"> </span><span class="kt">long</span><span class="w">        </span><span class="n">sint32</span><span class="p">;</span>
+<span class="k">typedef</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">uint64</span><span class="p">;</span>
+<span class="k">typedef</span><span class="w"> </span><span class="kt">signed</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="w">   </span><span class="n">sint64</span><span class="p">;</span>
+<span class="k">typedef</span><span class="w"> </span><span class="kt">float</span><span class="w">              </span><span class="n">float32</span><span class="p">;</span>
+<span class="k">typedef</span><span class="w"> </span><span class="kt">double</span><span class="w">             </span><span class="n">float64</span><span class="p">;</span>
+<span class="cm">/* &quot;least&quot; types: fastest integer at least as wide as the named width */</span>
+<span class="k">typedef</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">long</span><span class="w">      </span><span class="n">uint8_least</span><span class="p">;</span>
+<span class="k">typedef</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">long</span><span class="w">      </span><span class="n">uint16_least</span><span class="p">;</span>
+<span class="k">typedef</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">long</span><span class="w">      </span><span class="n">uint32_least</span><span class="p">;</span>
+<span class="k">typedef</span><span class="w"> </span><span class="kt">signed</span><span class="w"> </span><span class="kt">long</span><span class="w">        </span><span class="n">sint8_least</span><span class="p">;</span>
+<span class="k">typedef</span><span class="w"> </span><span class="kt">signed</span><span class="w"> </span><span class="kt">long</span><span class="w">        </span><span class="n">sint16_least</span><span class="p">;</span>
+<span class="k">typedef</span><span class="w"> </span><span class="kt">signed</span><span class="w"> </span><span class="kt">long</span><span class="w">        </span><span class="n">sint32_least</span><span class="p">;</span>
+
+<span class="cp">#endif </span><span class="cm">/* PLATFORM_TYPES_H */</span>
+</pre></div>
+</div>
+<p><em>Normative:</em> <a class="reference internal" href="../04_requirements.html#CHI-GEN-MUST-09" title="CHI-GEN-MUST-09"><em class="xref need">CHI-GEN-MUST-09</em></a> — the platform types and <code class="docutils literal notranslate"><span class="pre">CPU_*</span></code> descriptors are part of the
+shared type system; see <a class="reference internal" href="../reference/00_types.html#gen-ref-platform-types"><span class="std std-ref">platform types</span></a>.</p>
+</section>
+<section id="compiler-h">
+<h2>Compiler.h<a class="headerlink" href="#compiler-h" title="Link to this heading"></a></h2>
+<p>Abstracts the compiler’s inline keyword, memory classes, and the declaration macros. The
+expansions below are illustrative — the exact qualifier placement is compiler-dependent, and each
+symbol is guarded against double definition in a production header.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#ifndef COMPILER_H</span>
+<span class="cp">#define COMPILER_H</span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Compiler_Cfg.h&quot;</span><span class="c1">   /* module-specific memory and pointer classes */</span>
+
+<span class="cp">#define NULL_PTR ((void *)0)</span>
+
+<span class="cp">#define INLINE        inline           </span><span class="cm">/* or empty, if unsupported */</span>
+<span class="cp">#define LOCAL_INLINE  static inline</span>
+
+<span class="cm">/* memory classes that map to no compiler keyword */</span>
+<span class="cp">#define AUTOMATIC</span>
+<span class="cp">#define TYPEDEF</span>
+
+<span class="cm">/* variables and constants */</span>
+<span class="cp">#define VAR(variable_type, memory_class)   memory_class variable_type</span>
+<span class="cp">#define CONST(variable_type, memory_class) memory_class const variable_type</span>
+
+<span class="cm">/* pointers */</span>
+<span class="cp">#define P2VAR(type, mem_class, ptr_class)   ptr_class type * mem_class</span>
+<span class="cp">#define P2CONST(type, mem_class, ptr_class) const type ptr_class * mem_class</span>
+
+<span class="cm">/* functions */</span>
+<span class="cp">#define FUNC(return_type, memory_class)     memory_class return_type</span>
+
+<span class="cm">/* CONSTP2VAR, CONSTP2CONST, P2FUNC, CONSTP2FUNC, FUNC_P2VAR, FUNC_P2CONST</span>
+<span class="cm">   follow the same pattern — see the reference. */</span>
+
+<span class="cp">#endif </span><span class="cm">/* COMPILER_H */</span>
+</pre></div>
+</div>
+<p><em>Normative:</em> <a class="reference internal" href="../04_requirements.html#CHI-GEN-MUST-09" title="CHI-GEN-MUST-09"><em class="xref need">CHI-GEN-MUST-09</em></a> — the compiler-abstraction and declaration macros are part of the
+shared contract; see <a class="reference internal" href="../reference/01_compiler.html#gen-ref-memory-classes"><span class="std std-ref">memory class macros</span></a> and
+<a class="reference internal" href="../reference/01_compiler.html#gen-ref-declaration-macros"><span class="std std-ref">declaration macros</span></a>.</p>
+</section>
+<section id="mip-memmap-h">
+<h2>Mip_MemMap.h<a class="headerlink" href="#mip-memmap-h" title="Link to this heading"></a></h2>
+<p>The memory-mapping header is included <strong>once per section</strong>, each time with exactly one
+<code class="docutils literal notranslate"><span class="pre">MIP_START_SEC_*</span></code> or <code class="docutils literal notranslate"><span class="pre">MIP_STOP_SEC_*</span></code> selected. It therefore deliberately has <strong>no include
+guard</strong>. The block below shows one section pair; the same pattern repeats for every section keyword
+the module uses (<code class="docutils literal notranslate"><span class="pre">CODE</span></code>, <code class="docutils literal notranslate"><span class="pre">CONST_*</span></code>, <code class="docutils literal notranslate"><span class="pre">VAR_INIT_*</span></code>, <code class="docutils literal notranslate"><span class="pre">VAR_CLEARED_*</span></code>,
+<code class="docutils literal notranslate"><span class="pre">VAR_POWER_ON_CLEARED_*</span></code>, …).</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cm">/* NOTE: no include guard on purpose — this file is included many times. */</span>
+
+<span class="cp">#ifdef MIP_START_SEC_VAR_CLEARED_32</span>
+<span class="w">  </span><span class="cp">#undef MIP_START_SEC_VAR_CLEARED_32</span>
+<span class="w">  </span><span class="cm">/* place the target-specific section #pragma / attribute here, if any */</span>
+<span class="cp">#endif</span>
+
+<span class="cp">#ifdef MIP_STOP_SEC_VAR_CLEARED_32</span>
+<span class="w">  </span><span class="cp">#undef MIP_STOP_SEC_VAR_CLEARED_32</span>
+<span class="w">  </span><span class="cm">/* close the section opened above */</span>
+<span class="cp">#endif</span>
+</pre></div>
+</div>
+<p><em>Normative:</em> <a class="reference internal" href="../04_requirements.html#CHI-GEN-MUST-07" title="CHI-GEN-MUST-07"><em class="xref need">CHI-GEN-MUST-07</em></a> (memory-mapping mechanism), <a class="reference internal" href="../04_requirements.html#CHI-GEN-MUST-08" title="CHI-GEN-MUST-08"><em class="xref need">CHI-GEN-MUST-08</em></a> (allocation-keyword
+templates).</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Production headers usually add a small consistency check (e.g. a <code class="docutils literal notranslate"><span class="pre">MEMMAP_STARTED</span></code> marker) so a
+start without a matching stop, or two starts in a row, raise a <code class="docutils literal notranslate"><span class="pre">#error</span></code> at compile time. It is
+omitted here for clarity.</p>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="00_using_the_contract.html" class="btn btn-neutral float-left" title="Using the Shared Contract" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="02_callout_file.html" class="btn btn-neutral float-right" title="The Callout Stub File" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026 by Vector Informatik GmbH and Infineon Technologies AG. All rights reserved.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

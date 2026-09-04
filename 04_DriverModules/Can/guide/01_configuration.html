@@ -1,0 +1,229 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Configuration &mdash; Chiisai HAL Specification  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css?v=4ae1632d" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-data-viewer/jsonview.bundle.css?v=f6ef2277" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/libs/html/datatables.min.css?v=4b4fd840" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/common_css/needstable.css?v=5e1b6797" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/common_css/need_core.css?v=f5b60a78" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/common_css/need_links.css?v=2150a916" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/common_css/need_style.css?v=92936fa5" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/common_css/need_toggle.css?v=5c6620df" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/modern.css?v=803738c0" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=4f645179" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
+      <script src="../../../_static/sphinx-data-viewer/jsonview.bundle.js?v=18cd53c5"></script>
+      <script src="../../../_static/sphinx-data-viewer/jsonview_loader.js?v=f7ff7e7d"></script>
+      <script src="../../../_static/sphinx-needs/libs/html/datatables.min.js?v=8a4aee21"></script>
+      <script src="../../../_static/sphinx-needs/libs/html/datatables_loader.js?v=a2cae175"></script>
+      <script src="../../../_static/sphinx-needs/libs/html/sphinx_needs_collapse.js?v=dca66431"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Initialize a channel" href="02_initialise.html" />
+    <link rel="prev" title="Quickstart" href="00_quickstart.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            Chiisai HAL Specification
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../00_about/index.html">About This Specification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../01_general/index.html">General</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Chiisai HAL Driver Modules</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Can</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../general/index.html">General</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">Guide</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="00_quickstart.html">Quickstart</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="02_initialise.html">Initialize a channel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="03_transmit.html">Transmit a frame</a></li>
+<li class="toctree-l4"><a class="reference internal" href="04_receive.html">Receive a frame</a></li>
+<li class="toctree-l4"><a class="reference internal" href="05_busoff.html">Handle bus-off</a></li>
+<li class="toctree-l4"><a class="reference internal" href="06_common_mistakes.html">Common mistakes</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../reference/index.html">Reference</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../00_requirements.html">Can — Requirements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01_design_decisions.html">Design Decisions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../I2c/index.html">I2c</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Lin/index.html">Lin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Mcu/index.html">Mcu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Mem/index.html">Mem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Port/index.html">Port</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Spi/index.html">Spi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Uart/index.html">Uart</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Wdg/index.html">Wdg</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../appendix.html">Appendix</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Chiisai HAL Specification</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Chiisai HAL Driver Modules</a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Can</a></li>
+          <li class="breadcrumb-item"><a href="index.html">Guide</a></li>
+      <li class="breadcrumb-item active">Configuration</li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="configuration">
+<h1>Configuration<a class="headerlink" href="#configuration" title="Link to this heading"></a></h1>
+<div class="informative admonition">
+<p class="admonition-title">Informative</p>
+<p>How to configure the CAN driver, by example. The complete property reference — every field,
+type, and range — is in <a class="reference internal" href="../reference/01_configuration.html"><span class="doc">Configuration Reference</span></a>.</p>
+</div>
+<p>The configuration is a set of one or more channels, each with a baudrate configuration and a list
+of TX/RX mailboxes. The example below defines a single CAN FD channel using the YAML
+configuration model (the toolchain and file format are implementation-defined).</p>
+<section id="minimal-single-channel-can-fd-configuration">
+<h2>Minimal single-channel CAN FD configuration<a class="headerlink" href="#minimal-single-channel-can-fd-configuration" title="Link to this heading"></a></h2>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">general</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">enable_development_error_reporting</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w">    </span><span class="c1"># dev-error checks on during development</span>
+<span class="w">  </span><span class="nt">enable_set_baud_rate_api</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class="w">             </span><span class="c1"># no runtime baudrate switching</span>
+
+<span class="nt">config_set</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">config_set_name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;DefaultConfig&quot;</span>
+<span class="w">    </span><span class="nt">channel</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">channel_id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span><span class="w">                         </span><span class="c1"># logical channel</span>
+<span class="w">        </span><span class="nt">hw_channel</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span><span class="w">                         </span><span class="c1"># maps to the CAN0 peripheral</span>
+<span class="w">        </span><span class="nt">tx_processing</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Interrupt&quot;</span><span class="w">            </span><span class="c1"># TX handled in ISR</span>
+<span class="w">        </span><span class="nt">rx_processing</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Interrupt&quot;</span><span class="w">            </span><span class="c1"># RX handled in ISR</span>
+<span class="w">        </span><span class="nt">bus_off_processing</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Polling&quot;</span><span class="w">         </span><span class="c1"># bus-off polled in Can_CyclicFunction</span>
+<span class="w">        </span><span class="nt">input_clock_freq</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">80000000</span><span class="w">            </span><span class="c1"># 80 MHz CAN clock</span>
+<span class="w">        </span><span class="nt">baud_rate_config</span><span class="p">:</span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">baud_rate_config_id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span>
+<span class="w">            </span><span class="nt">baud_rate</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">500</span><span class="w">                    </span><span class="c1"># 500 kbit/s arbitration phase</span>
+<span class="w">            </span><span class="nt">prop_seg</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">13</span>
+<span class="w">            </span><span class="nt">seg_1</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">12</span>
+<span class="w">            </span><span class="nt">seg_2</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">6</span>
+<span class="w">            </span><span class="nt">sync_jump_width</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">6</span>
+<span class="w">            </span><span class="nt">mode</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;CANFD&quot;</span>
+<span class="w">            </span><span class="nt">fd_baud_rate_config</span><span class="p">:</span>
+<span class="w">              </span><span class="nt">fd_baud_rate</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2000</span><span class="w">              </span><span class="c1"># 2 Mbit/s data phase</span>
+<span class="w">              </span><span class="nt">tx_bit_rate_switch</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">              </span><span class="nt">prop_seg</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">4</span>
+<span class="w">              </span><span class="nt">seg_1</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3</span>
+<span class="w">              </span><span class="nt">seg_2</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2</span>
+<span class="w">              </span><span class="nt">sync_jump_width</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2</span>
+<span class="w">        </span><span class="nt">mailbox_config</span><span class="p">:</span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">mailbox_id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span>
+<span class="w">            </span><span class="nt">id_type</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Standard&quot;</span>
+<span class="w">            </span><span class="nt">hw_object_count</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+<span class="w">            </span><span class="nt">object_payload_length</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;64bytes&quot;</span>
+<span class="w">            </span><span class="nt">mailbox_type</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Transmit&quot;</span>
+<span class="w">            </span><span class="nt">fd_padding_value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0xAA</span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">mailbox_id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+<span class="w">            </span><span class="nt">id_type</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Standard&quot;</span>
+<span class="w">            </span><span class="nt">hw_object_count</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">4</span>
+<span class="w">            </span><span class="nt">object_payload_length</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;64bytes&quot;</span>
+<span class="w">            </span><span class="nt">mailbox_type</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Receive&quot;</span>
+<span class="w">            </span><span class="nt">hw_filter</span><span class="p">:</span>
+<span class="w">              </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">filter_type</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Basic&quot;</span>
+<span class="w">                </span><span class="nt">hw_filter_code</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0x100</span>
+<span class="w">                </span><span class="nt">hw_filter_mask</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0x7F0</span>
+</pre></div>
+</div>
+</section>
+<section id="key-choices-explained">
+<h2>Key choices explained<a class="headerlink" href="#key-choices-explained" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><strong>``tx_processing`` / ``rx_processing`` / ``bus_off_processing``</strong> independently pick interrupt or
+polling. Interrupt gives lowest latency; polling avoids ISR wiring and suits small MCUs. Polled
+events are serviced by <a class="reference internal" href="../reference/00_api.html"><span class="doc">API Reference</span></a> <code class="docutils literal notranslate"><span class="pre">Can_PollFunction</span></code> (TX/RX) or
+<code class="docutils literal notranslate"><span class="pre">Can_CyclicFunction</span></code> (bus-off).</p></li>
+<li><p><strong>Bit timing</strong> (<code class="docutils literal notranslate"><span class="pre">prop_seg</span></code>, <code class="docutils literal notranslate"><span class="pre">seg_1</span></code>, <code class="docutils literal notranslate"><span class="pre">seg_2</span></code>, <code class="docutils literal notranslate"><span class="pre">sync_jump_width</span></code>) is expressed in time
+quanta relative to <code class="docutils literal notranslate"><span class="pre">input_clock_freq</span></code>; the arbitration and data phases are timed separately for
+CAN FD.</p></li>
+<li><p><strong>``object_payload_length``</strong> must be large enough for your frames; for FD payloads &gt; 8 bytes a
+<code class="docutils literal notranslate"><span class="pre">fd_padding_value</span></code> is required (used to fill up to the next valid DLC — see <a class="reference internal" href="../00_requirements.html#CHI-CAN-MUST-12" title="CHI-CAN-MUST-12"><em class="xref need">CHI-CAN-MUST-12</em></a>).</p></li>
+<li><p><strong>RX filtering</strong> uses <code class="docutils literal notranslate"><span class="pre">hw_filter_code</span></code> + <code class="docutils literal notranslate"><span class="pre">hw_filter_mask</span></code>: an identifier passes when its
+filtered bits match the code under the mask.</p></li>
+</ul>
+<p>See <a class="reference internal" href="../reference/01_configuration.html"><span class="doc">Configuration Reference</span></a> for every property, its type, and its full range.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="00_quickstart.html" class="btn btn-neutral float-left" title="Quickstart" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="02_initialise.html" class="btn btn-neutral float-right" title="Initialize a channel" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026 by Vector Informatik GmbH and Infineon Technologies AG. All rights reserved.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

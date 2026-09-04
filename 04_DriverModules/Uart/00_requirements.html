@@ -1,0 +1,641 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Uart — Requirements &mdash; Chiisai HAL Specification  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css?v=4ae1632d" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-data-viewer/jsonview.bundle.css?v=f6ef2277" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-needs/libs/html/datatables.min.css?v=4b4fd840" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-needs/common_css/needstable.css?v=5e1b6797" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-needs/common_css/need_core.css?v=f5b60a78" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-needs/common_css/need_links.css?v=2150a916" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-needs/common_css/need_style.css?v=92936fa5" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-needs/common_css/need_toggle.css?v=5c6620df" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-needs/modern.css?v=803738c0" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=4f645179" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+      <script src="../../_static/sphinx-data-viewer/jsonview.bundle.js?v=18cd53c5"></script>
+      <script src="../../_static/sphinx-data-viewer/jsonview_loader.js?v=f7ff7e7d"></script>
+      <script src="../../_static/sphinx-needs/libs/html/datatables.min.js?v=8a4aee21"></script>
+      <script src="../../_static/sphinx-needs/libs/html/datatables_loader.js?v=a2cae175"></script>
+      <script src="../../_static/sphinx-needs/libs/html/sphinx_needs_collapse.js?v=dca66431"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Design Decisions" href="01_design_decisions.html" />
+    <link rel="prev" title="Errors" href="reference/02_errors.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Chiisai HAL Specification
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../00_about/index.html">About This Specification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../01_general/index.html">General</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Chiisai HAL Driver Modules</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../Can/index.html">Can</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../I2c/index.html">I2c</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lin/index.html">Lin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Mcu/index.html">Mcu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Mem/index.html">Mem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Port/index.html">Port</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Spi/index.html">Spi</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Uart</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="general/index.html">General</a></li>
+<li class="toctree-l3"><a class="reference internal" href="guide/index.html">Guide</a></li>
+<li class="toctree-l3"><a class="reference internal" href="reference/index.html">Reference</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Uart — Requirements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="01_design_decisions.html">Design Decisions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Wdg/index.html">Wdg</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix.html">Appendix</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Chiisai HAL Specification</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Chiisai HAL Driver Modules</a></li>
+          <li class="breadcrumb-item"><a href="index.html">Uart</a></li>
+      <li class="breadcrumb-item active">Uart — Requirements</li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="uart-requirements">
+<h1>Uart — Requirements<a class="headerlink" href="#uart-requirements" title="Link to this heading"></a></h1>
+<div class="normative admonition">
+<p class="admonition-title">Normative</p>
+<p>Defines what a conformant UART driver <strong>MUST</strong> do. Keywords per <a class="reference internal" href="../../00_about/01_keywords.html"><span class="doc">Requirement Keywords</span></a>;
+conformance per <a class="reference internal" href="../../00_about/02_conformance.html"><span class="doc">Conformance</span></a>. Requirements do not carry individual status —
+the set-level status applies to all of them. Signatures, error codes, and configuration
+properties are in the <a class="reference internal" href="reference/00_api.html"><span class="doc">API Reference</span></a>, <a class="reference internal" href="reference/02_errors.html"><span class="doc">Errors</span></a>, and
+<a class="reference internal" href="reference/01_configuration.html"><span class="doc">Configuration Reference</span></a> pages. Cross-module rules (types, error model, naming, memory mapping) are in
+<a class="reference internal" href="../../01_general/index.html"><span class="doc">General</span></a>.</p>
+</div>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header sd-bg-warning sd-bg-text-warning">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-alert" viewBox="0 0 16 16" aria-hidden="true"><path d="M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"></path></svg></span><span class="sd-summary-text">Mandatory (MUST) - 23 Requirements</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">The conformance contract — an implementation MUST satisfy every requirement here.</p>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Scope and event handling</div>
+<div class="need_container docutils container" id="SNCB-5eb1b242">
+<table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-UART-MUST-01">
+<tbody>
+<tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
+<div class="line"><span><span class="needs-id"><a class="reference internal" href="#CHI-UART-MUST-01" title="CHI-UART-MUST-01">CHI-UART-MUST-01</a></span> — </span><strong><span><span class="needs_title"><span class="needs_data">Basic UART protocol</span></span></span></strong></div>
+</div>
+</td>
+</tr>
+<tr class="need meta row-even"><td class="need meta"></td>
+</tr>
+<tr class="need content row-odd"><td class="need content" colspan="1"><p class="sd-card-text">The driver MUST support the basic UART protocol (asynchronous byte framing). LIN,
+multi-processor, and sub-modes such as Smart Card / IrDA are out of scope.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="need_container docutils container" id="SNCB-da0130c5">
+<table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-UART-MUST-02">
+<tbody>
+<tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
+<div class="line"><span><span class="needs-id"><a class="reference internal" href="#CHI-UART-MUST-02" title="CHI-UART-MUST-02">CHI-UART-MUST-02</a></span> — </span><strong><span><span class="needs_title"><span class="needs_data">Event handling mode</span></span></span></strong></div>
+</div>
+</td>
+</tr>
+<tr class="need meta row-even"><td class="need meta"></td>
+</tr>
+<tr class="need content row-odd"><td class="need content" colspan="1"><p class="sd-card-text">For each channel, event handling MUST be statically configurable as interrupt or polling.
+In interrupt mode <code class="docutils literal notranslate"><span class="pre">Uart_Interrupt</span></code> MUST service events; in polling mode
+<code class="docutils literal notranslate"><span class="pre">Uart_PollFunction</span></code> MUST service them.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+State machine</div>
+<div class="need_container docutils container" id="SNCB-a92dfa5a">
+<table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-UART-MUST-03">
+<tbody>
+<tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
+<div class="line"><span><span class="needs-id"><a class="reference internal" href="#CHI-UART-MUST-03" title="CHI-UART-MUST-03">CHI-UART-MUST-03</a></span> — </span><strong><span><span class="needs_title"><span class="needs_data">Driver state machine</span></span></span></strong></div>
+</div>
+</td>
+</tr>
+<tr class="need meta row-even"><td class="need meta"></td>
+</tr>
+<tr class="need content row-odd"><td class="need content" colspan="1"><p class="sd-card-text">After reset the driver MUST be in <code class="docutils literal notranslate"><span class="pre">UART_DRV_STATE_UNINIT</span></code>. <code class="docutils literal notranslate"><span class="pre">Uart_Init</span></code> MUST move it to
+<code class="docutils literal notranslate"><span class="pre">UART_DRV_STATE_INIT</span></code>; <code class="docutils literal notranslate"><span class="pre">Uart_DeInit</span></code> MUST return it to <code class="docutils literal notranslate"><span class="pre">UART_DRV_STATE_UNINIT</span></code>.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="need_container docutils container" id="SNCB-516a45c4">
+<table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-UART-MUST-04">
+<tbody>
+<tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
+<div class="line"><span><span class="needs-id"><a class="reference internal" href="#CHI-UART-MUST-04" title="CHI-UART-MUST-04">CHI-UART-MUST-04</a></span> — </span><strong><span><span class="needs_title"><span class="needs_data">TX channel state machine</span></span></span></strong></div>
+</div>
+</td>
+</tr>
+<tr class="need meta row-even"><td class="need meta"></td>
+</tr>
+<tr class="need content row-odd"><td class="need content" colspan="1"><p class="sd-card-text">Each channel’s TX state MUST follow the TX state machine in <a class="reference internal" href="general/01_concepts.html"><span class="doc">Concepts</span></a>:
+<code class="docutils literal notranslate"><span class="pre">UNINIT</span></code> → <code class="docutils literal notranslate"><span class="pre">IDLE</span></code> at init; <code class="docutils literal notranslate"><span class="pre">IDLE</span></code> → <code class="docutils literal notranslate"><span class="pre">BUSY</span></code> on <code class="docutils literal notranslate"><span class="pre">Uart_StartTxTransaction</span></code>; for a
+streaming channel <code class="docutils literal notranslate"><span class="pre">BUSY</span></code> → <code class="docutils literal notranslate"><span class="pre">READY</span></code> when the software buffer empties and <code class="docutils literal notranslate"><span class="pre">READY</span></code> →
+<code class="docutils literal notranslate"><span class="pre">IDLE</span></code> when the hardware finishes; for an HW-completion channel <code class="docutils literal notranslate"><span class="pre">BUSY</span></code> → <code class="docutils literal notranslate"><span class="pre">IDLE</span></code> when
+the hardware finishes; and <code class="docutils literal notranslate"><span class="pre">BUSY</span></code> → <code class="docutils literal notranslate"><span class="pre">IDLE</span></code> on a TX error.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="need_container docutils container" id="SNCB-91057c48">
+<table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-UART-MUST-05">
+<tbody>
+<tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
+<div class="line"><span><span class="needs-id"><a class="reference internal" href="#CHI-UART-MUST-05" title="CHI-UART-MUST-05">CHI-UART-MUST-05</a></span> — </span><strong><span><span class="needs_title"><span class="needs_data">RX channel state machine</span></span></span></strong></div>
+</div>
+</td>
+</tr>
+<tr class="need meta row-even"><td class="need meta"></td>
+</tr>
+<tr class="need content row-odd"><td class="need content" colspan="1"><p class="sd-card-text">Each channel’s RX state MUST follow the RX state machine: <code class="docutils literal notranslate"><span class="pre">UNINIT</span></code> → <code class="docutils literal notranslate"><span class="pre">IDLE</span></code> at init;
+<code class="docutils literal notranslate"><span class="pre">IDLE</span></code> → <code class="docutils literal notranslate"><span class="pre">BUSY</span></code> on <code class="docutils literal notranslate"><span class="pre">Uart_StartRxTransaction</span></code>; <code class="docutils literal notranslate"><span class="pre">BUSY</span></code> → <code class="docutils literal notranslate"><span class="pre">IDLE</span></code> on buffer-full,
+<code class="docutils literal notranslate"><span class="pre">Uart_CancelRxTransaction</span></code>, or an RX error.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Initialization and shutdown</div>
+<div class="need_container docutils container" id="SNCB-454bb24c">
+<table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-UART-MUST-06">
+<tbody>
+<tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
+<div class="line"><span><span class="needs-id"><a class="reference internal" href="#CHI-UART-MUST-06" title="CHI-UART-MUST-06">CHI-UART-MUST-06</a></span> — </span><strong><span><span class="needs_title"><span class="needs_data">Initialization</span></span></span></strong></div>
+</div>
+</td>
+</tr>
+<tr class="need meta row-even"><td class="need meta"></td>
+</tr>
+<tr class="need content row-odd"><td class="need content" colspan="1"><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">Uart_Init</span></code> MUST initialize driver state and the hardware per the configuration, leaving
+every channel’s TX and RX state <code class="docutils literal notranslate"><span class="pre">IDLE</span></code>. <code class="docutils literal notranslate"><span class="pre">configPtr</span></code> MUST be <code class="docutils literal notranslate"><span class="pre">NULL_PTR</span></code>. The driver
+MUST NOT receive any frame before <code class="docutils literal notranslate"><span class="pre">Uart_StartRxTransaction</span></code> is called.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="need_container docutils container" id="SNCB-59fa307c">
+<table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-UART-MUST-07">
+<tbody>
+<tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
+<div class="line"><span><span class="needs-id"><a class="reference internal" href="#CHI-UART-MUST-07" title="CHI-UART-MUST-07">CHI-UART-MUST-07</a></span> — </span><strong><span><span class="needs_title"><span class="needs_data">De-initialization</span></span></span></strong></div>
+</div>
+</td>
+</tr>
+<tr class="need meta row-even"><td class="need meta"></td>
+</tr>
+<tr class="need content row-odd"><td class="need content" colspan="1"><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">Uart_DeInit</span></code> MUST immediately stop ongoing transmission and reception and de-initialize
+the hardware.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Transmission</div>
+<div class="need_container docutils container" id="SNCB-37d41dc9">
+<table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-UART-MUST-08">
+<tbody>
+<tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
+<div class="line"><span><span class="needs-id"><a class="reference internal" href="#CHI-UART-MUST-08" title="CHI-UART-MUST-08">CHI-UART-MUST-08</a></span> — </span><strong><span><span class="needs_title"><span class="needs_data">Start a transmission</span></span></span></strong></div>
+</div>
+</td>
+</tr>
+<tr class="need meta row-even"><td class="need meta"></td>
+</tr>
+<tr class="need content row-odd"><td class="need content" colspan="1"><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">Uart_StartTxTransaction</span></code> MUST start transmitting <code class="docutils literal notranslate"><span class="pre">txDataLength</span></code> bytes from
+<code class="docutils literal notranslate"><span class="pre">txDataPtr</span></code> on the channel, moving it to <code class="docutils literal notranslate"><span class="pre">BUSY</span></code>. It is non-blocking and MUST be
+accepted only when the channel is <code class="docutils literal notranslate"><span class="pre">IDLE</span></code> or (streaming) <code class="docutils literal notranslate"><span class="pre">READY</span></code>. The caller’s buffer
+MUST remain valid until the matching completion / streaming callout.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="need_container docutils container" id="SNCB-9f11c7f2">
+<table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-UART-MUST-09">
+<tbody>
+<tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
+<div class="line"><span><span class="needs-id"><a class="reference internal" href="#CHI-UART-MUST-09" title="CHI-UART-MUST-09">CHI-UART-MUST-09</a></span> — </span><strong><span><span class="needs_title"><span class="needs_data">Transmit data transfer</span></span></span></strong></div>
+</div>
+</td>
+</tr>
+<tr class="need meta row-even"><td class="need meta"></td>
+</tr>
+<tr class="need content row-odd"><td class="need content" colspan="1"><p class="sd-card-text">While TX data remains, <code class="docutils literal notranslate"><span class="pre">Uart_Interrupt</span></code> / <code class="docutils literal notranslate"><span class="pre">Uart_PollFunction</span></code> MUST feed the remaining
+data to the hardware.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="need_container docutils container" id="SNCB-f2f1a9b0">
+<table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-UART-MUST-10">
+<tbody>
+<tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
+<div class="line"><span><span class="needs-id"><a class="reference internal" href="#CHI-UART-MUST-10" title="CHI-UART-MUST-10">CHI-UART-MUST-10</a></span> — </span><strong><span><span class="needs_title"><span class="needs_data">Transmission completion notification</span></span></span></strong></div>
+</div>
+</td>
+</tr>
+<tr class="need meta row-even"><td class="need meta"></td>
+</tr>
+<tr class="need content row-odd"><td class="need content" colspan="1"><p class="sd-card-text">For an HW-completion channel, when the whole buffer has been sent on the bus (FIFO and
+shift register empty) the driver MUST move the channel to <code class="docutils literal notranslate"><span class="pre">IDLE</span></code> and call
+<code class="docutils literal notranslate"><span class="pre">Uart_Callout_OnTransmission</span></code> with the transferred length.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="need_container docutils container" id="SNCB-eb947bd3">
+<table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-UART-MUST-11">
+<tbody>
+<tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
+<div class="line"><span><span class="needs-id"><a class="reference internal" href="#CHI-UART-MUST-11" title="CHI-UART-MUST-11">CHI-UART-MUST-11</a></span> — </span><strong><span><span class="needs_title"><span class="needs_data">Streaming data request notification</span></span></span></strong></div>
+</div>
+</td>
+</tr>
+<tr class="need meta row-even"><td class="need meta"></td>
+</tr>
+<tr class="need content row-odd"><td class="need content" colspan="1"><p class="sd-card-text">For a streaming channel, when the software TX buffer empties the driver MUST move the
+channel to <code class="docutils literal notranslate"><span class="pre">READY</span></code> and call <code class="docutils literal notranslate"><span class="pre">Uart_Callout_OnStreamingDataRequest</span></code> with the transferred
+length, allowing a new buffer to be staged while the hardware drains. A channel MUST use
+either <code class="docutils literal notranslate"><span class="pre">Uart_Callout_OnTransmission</span></code> or <code class="docutils literal notranslate"><span class="pre">Uart_Callout_OnStreamingDataRequest</span></code>, never both.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Reception</div>
+<div class="need_container docutils container" id="SNCB-2bc77240">
+<table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-UART-MUST-12">
+<tbody>
+<tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
+<div class="line"><span><span class="needs-id"><a class="reference internal" href="#CHI-UART-MUST-12" title="CHI-UART-MUST-12">CHI-UART-MUST-12</a></span> — </span><strong><span><span class="needs_title"><span class="needs_data">Start a reception</span></span></span></strong></div>
+</div>
+</td>
+</tr>
+<tr class="need meta row-even"><td class="need meta"></td>
+</tr>
+<tr class="need content row-odd"><td class="need content" colspan="1"><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">Uart_StartRxTransaction</span></code> MUST arm reception into <code class="docutils literal notranslate"><span class="pre">rxDataPtr</span></code> (length
+<code class="docutils literal notranslate"><span class="pre">rxDataLength</span></code>), move the channel to <code class="docutils literal notranslate"><span class="pre">BUSY</span></code>, and retain <code class="docutils literal notranslate"><span class="pre">additionalRxLenTrg</span></code>. The
+caller’s buffer MUST remain valid until the matching <code class="docutils literal notranslate"><span class="pre">Uart_Callout_OnReception</span></code>.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="need_container docutils container" id="SNCB-eec6fa2a">
+<table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-UART-MUST-13">
+<tbody>
+<tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
+<div class="line"><span><span class="needs-id"><a class="reference internal" href="#CHI-UART-MUST-13" title="CHI-UART-MUST-13">CHI-UART-MUST-13</a></span> — </span><strong><span><span class="needs_title"><span class="needs_data">Reception data transfer and notification</span></span></span></strong></div>
+</div>
+</td>
+</tr>
+<tr class="need meta row-even"><td class="need meta"></td>
+</tr>
+<tr class="need content row-odd"><td class="need content" colspan="1"><p class="sd-card-text">On RX events the driver MUST store received data into the buffer and call
+<code class="docutils literal notranslate"><span class="pre">Uart_Callout_OnReception</span></code> with the total received length when the length reaches
+<code class="docutils literal notranslate"><span class="pre">additionalRxLenTrg</span></code> (if &gt; 0) and when the buffer becomes full. If both coincide (buffer
+length a multiple of the trigger) it MUST call <code class="docutils literal notranslate"><span class="pre">Uart_Callout_OnReception</span></code> only once.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="need_container docutils container" id="SNCB-9e730d6a">
+<table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-UART-MUST-14">
+<tbody>
+<tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
+<div class="line"><span><span class="needs-id"><a class="reference internal" href="#CHI-UART-MUST-14" title="CHI-UART-MUST-14">CHI-UART-MUST-14</a></span> — </span><strong><span><span class="needs_title"><span class="needs_data">Streaming reception continuation</span></span></span></strong></div>
+</div>
+</td>
+</tr>
+<tr class="need meta row-even"><td class="need meta"></td>
+</tr>
+<tr class="need content row-odd"><td class="need content" colspan="1"><p class="sd-card-text">The driver MUST NOT stop hardware reception merely because the buffer filled: it MUST allow
+<code class="docutils literal notranslate"><span class="pre">Uart_StartRxTransaction</span></code> to be called within <code class="docutils literal notranslate"><span class="pre">Uart_Callout_OnReception</span></code> to continue
+without losing bytes, and MUST stop hardware reception after the callout returns if no new
+reception was started.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="need_container docutils container" id="SNCB-cf23e9c0">
+<table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-UART-MUST-15">
+<tbody>
+<tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
+<div class="line"><span><span class="needs-id"><a class="reference internal" href="#CHI-UART-MUST-15" title="CHI-UART-MUST-15">CHI-UART-MUST-15</a></span> — </span><strong><span><span class="needs_title"><span class="needs_data">Additional RX length trigger</span></span></span></strong></div>
+</div>
+</td>
+</tr>
+<tr class="need meta row-even"><td class="need meta"></td>
+</tr>
+<tr class="need content row-odd"><td class="need content" colspan="1"><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">Uart_SetAdditionalRxLenTrg</span></code> MUST update the retained <code class="docutils literal notranslate"><span class="pre">additionalRxLenTrg</span></code> for the
+channel. It is intended to be called from within <code class="docutils literal notranslate"><span class="pre">Uart_Callout_OnReception</span></code>.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="need_container docutils container" id="SNCB-56604e87">
+<table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-UART-MUST-16">
+<tbody>
+<tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
+<div class="line"><span><span class="needs-id"><a class="reference internal" href="#CHI-UART-MUST-16" title="CHI-UART-MUST-16">CHI-UART-MUST-16</a></span> — </span><strong><span><span class="needs_title"><span class="needs_data">Cancel a reception</span></span></span></strong></div>
+</div>
+</td>
+</tr>
+<tr class="need meta row-even"><td class="need meta"></td>
+</tr>
+<tr class="need content row-odd"><td class="need content" colspan="1"><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">Uart_CancelRxTransaction</span></code> MUST stop hardware reception and return the RX channel to
+<code class="docutils literal notranslate"><span class="pre">IDLE</span></code>, returning <code class="docutils literal notranslate"><span class="pre">E_OK</span></code> even when no reception is ongoing.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Errors, status, and scheduling</div>
+<div class="need_container docutils container" id="SNCB-17aae8df">
+<table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-UART-MUST-17">
+<tbody>
+<tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
+<div class="line"><span><span class="needs-id"><a class="reference internal" href="#CHI-UART-MUST-17" title="CHI-UART-MUST-17">CHI-UART-MUST-17</a></span> — </span><strong><span><span class="needs_title"><span class="needs_data">RX error handling</span></span></span></strong></div>
+</div>
+</td>
+</tr>
+<tr class="need meta row-even"><td class="need meta"></td>
+</tr>
+<tr class="need content row-odd"><td class="need content" colspan="1"><p class="sd-card-text">On an RX error the driver MUST stop reception, return the channel to <code class="docutils literal notranslate"><span class="pre">IDLE</span></code>, and report
+it via <code class="docutils literal notranslate"><span class="pre">LogM_Report</span></code> at runtime-error level with <code class="docutils literal notranslate"><span class="pre">UART_RTERR_RX</span></code> /
+<code class="docutils literal notranslate"><span class="pre">UART_RTERR_RX_&lt;VENDOR_SPECIFIC&gt;</span></code> (a HW buffer overflow as <code class="docutils literal notranslate"><span class="pre">UART_RTERR_RX_OVERFLOW</span></code>)
+(<a class="reference internal" href="../../01_general/04_requirements.html#CHI-GEN-MUST-10" title="CHI-GEN-MUST-10"><em class="xref need">CHI-GEN-MUST-10</em></a>).</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="need_container docutils container" id="SNCB-4a02632e">
+<table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-UART-MUST-18">
+<tbody>
+<tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
+<div class="line"><span><span class="needs-id"><a class="reference internal" href="#CHI-UART-MUST-18" title="CHI-UART-MUST-18">CHI-UART-MUST-18</a></span> — </span><strong><span><span class="needs_title"><span class="needs_data">Poll function</span></span></span></strong></div>
+</div>
+</td>
+</tr>
+<tr class="need meta row-even"><td class="need meta"></td>
+</tr>
+<tr class="need content row-odd"><td class="need content" colspan="1"><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">Uart_PollFunction</span></code> MUST provide the same event handling as <code class="docutils literal notranslate"><span class="pre">Uart_Interrupt</span></code> by polling
+the hardware, for channels configured for polling.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="need_container docutils container" id="SNCB-bb30f65a">
+<table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-UART-MUST-19">
+<tbody>
+<tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
+<div class="line"><span><span class="needs-id"><a class="reference internal" href="#CHI-UART-MUST-19" title="CHI-UART-MUST-19">CHI-UART-MUST-19</a></span> — </span><strong><span><span class="needs_title"><span class="needs_data">Channel state query</span></span></span></strong></div>
+</div>
+</td>
+</tr>
+<tr class="need meta row-even"><td class="need meta"></td>
+</tr>
+<tr class="need content row-odd"><td class="need content" colspan="1"><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">Uart_GetChannelTxState</span></code> and <code class="docutils literal notranslate"><span class="pre">Uart_GetChannelRxState</span></code> MUST return the current TX and RX
+state of the requested channel.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="need_container docutils container" id="SNCB-17fc1519">
+<table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-UART-MUST-20">
+<tbody>
+<tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
+<div class="line"><span><span class="needs-id"><a class="reference internal" href="#CHI-UART-MUST-20" title="CHI-UART-MUST-20">CHI-UART-MUST-20</a></span> — </span><strong><span><span class="needs_title"><span class="needs_data">Development error detection</span></span></span></strong></div>
+</div>
+</td>
+</tr>
+<tr class="need meta row-even"><td class="need meta"></td>
+</tr>
+<tr class="need content row-odd"><td class="need content" colspan="1"><p class="sd-card-text">When development error reporting is enabled, each API MUST detect the conditions listed in
+<a class="reference internal" href="reference/02_errors.html"><span class="doc">Errors</span></a> and report them via <code class="docutils literal notranslate"><span class="pre">LogM_Report</span></code> (<a class="reference internal" href="../../01_general/04_requirements.html#CHI-GEN-MUST-10" title="CHI-GEN-MUST-10"><em class="xref need">CHI-GEN-MUST-10</em></a>).</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Types, callouts, and configuration</div>
+<div class="need_container docutils container" id="SNCB-192f69a2">
+<table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-UART-MUST-21">
+<tbody>
+<tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
+<div class="line"><span><span class="needs-id"><a class="reference internal" href="#CHI-UART-MUST-21" title="CHI-UART-MUST-21">CHI-UART-MUST-21</a></span> — </span><strong><span><span class="needs_title"><span class="needs_data">Callout notifications</span></span></span></strong></div>
+</div>
+</td>
+</tr>
+<tr class="need meta row-even"><td class="need meta"></td>
+</tr>
+<tr class="need content row-odd"><td class="need content" colspan="1"><p class="sd-card-text">The driver MUST call <code class="docutils literal notranslate"><span class="pre">Uart_Callout_OnReception</span></code>, <code class="docutils literal notranslate"><span class="pre">Uart_Callout_OnTransmission</span></code>, and
+<code class="docutils literal notranslate"><span class="pre">Uart_Callout_OnStreamingDataRequest</span></code> with the parameters and at the points defined in
+<a class="reference internal" href="reference/00_api.html"><span class="doc">API Reference</span></a>.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="need_container docutils container" id="SNCB-fb1bd5bb">
+<table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-UART-MUST-22">
+<tbody>
+<tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
+<div class="line"><span><span class="needs-id"><a class="reference internal" href="#CHI-UART-MUST-22" title="CHI-UART-MUST-22">CHI-UART-MUST-22</a></span> — </span><strong><span><span class="needs_title"><span class="needs_data">Public types and error identifiers</span></span></span></strong></div>
+</div>
+</td>
+</tr>
+<tr class="need meta row-even"><td class="need meta"></td>
+</tr>
+<tr class="need content row-odd"><td class="need content" colspan="1"><p class="sd-card-text">The driver MUST provide <code class="docutils literal notranslate"><span class="pre">Uart_ConfigType</span></code>, <code class="docutils literal notranslate"><span class="pre">Uart_ChannelTxStateType</span></code>,
+<code class="docutils literal notranslate"><span class="pre">Uart_ChannelRxStateType</span></code>, and the development and runtime error identifiers as defined in
+<a class="reference internal" href="reference/00_api.html"><span class="doc">API Reference</span></a> and <a class="reference internal" href="reference/02_errors.html"><span class="doc">Errors</span></a>, and MUST use the shared type system from
+<a class="reference internal" href="../../01_general/index.html"><span class="doc">General</span></a> (<a class="reference internal" href="../../01_general/04_requirements.html#CHI-GEN-MUST-09" title="CHI-GEN-MUST-09"><em class="xref need">CHI-GEN-MUST-09</em></a>).</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="need_container docutils container" id="SNCB-36e20011">
+<table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-UART-MUST-23">
+<tbody>
+<tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
+<div class="line"><span><span class="needs-id"><a class="reference internal" href="#CHI-UART-MUST-23" title="CHI-UART-MUST-23">CHI-UART-MUST-23</a></span> — </span><strong><span><span class="needs_title"><span class="needs_data">Configuration model</span></span></span></strong></div>
+</div>
+</td>
+</tr>
+<tr class="need meta row-even"><td class="need meta"></td>
+</tr>
+<tr class="need content row-odd"><td class="need content" colspan="1"><p class="sd-card-text">The driver MUST support the configuration model in <a class="reference internal" href="reference/01_configuration.html"><span class="doc">Configuration Reference</span></a> — a
+<code class="docutils literal notranslate"><span class="pre">General</span></code> section and a <code class="docutils literal notranslate"><span class="pre">ConfigSet</span></code> with a <code class="docutils literal notranslate"><span class="pre">channel</span></code> list (frame format, bitrate,
+event-handling mode, and <code class="docutils literal notranslate"><span class="pre">transmission_callback_type</span></code>) — following the common model in
+<a class="reference internal" href="../../01_general/index.html"><span class="doc">General</span></a> (<a class="reference internal" href="../../01_general/04_requirements.html#CHI-GEN-MUST-12" title="CHI-GEN-MUST-12"><em class="xref need">CHI-GEN-MUST-12</em></a>).</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header sd-bg-info sd-bg-text-info">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-light-bulb" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.5c-2.363 0-4 1.69-4 3.75 0 .984.424 1.625.984 2.304l.214.253c.223.264.47.556.673.848.284.411.537.896.621 1.49a.75.75 0 0 1-1.484.211c-.04-.282-.163-.547-.37-.847a8.456 8.456 0 0 0-.542-.68c-.084-.1-.173-.205-.268-.32C3.201 7.75 2.5 6.766 2.5 5.25 2.5 2.31 4.863 0 8 0s5.5 2.31 5.5 5.25c0 1.516-.701 2.5-1.328 3.259-.095.115-.184.22-.268.319-.207.245-.383.453-.541.681-.208.3-.33.565-.37.847a.751.751 0 0 1-1.485-.212c.084-.593.337-1.078.621-1.489.203-.292.45-.584.673-.848.075-.088.147-.173.213-.253.561-.679.985-1.32.985-2.304 0-2.06-1.637-3.75-4-3.75ZM5.75 12h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM6 15.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75Z"></path></svg></span><span class="sd-summary-text">Recommended (SHOULD) - 2 Requirements</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Flow control</div>
+<div class="need_container docutils container" id="SNCB-8c3f4c67">
+<table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-UART-SHOULD-01">
+<tbody>
+<tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
+<div class="line"><span><span class="needs-id"><a class="reference internal" href="#CHI-UART-SHOULD-01" title="CHI-UART-SHOULD-01">CHI-UART-SHOULD-01</a></span> — </span><strong><span><span class="needs_title"><span class="needs_data">Hardware flow control</span></span></span></strong></div>
+</div>
+</td>
+</tr>
+<tr class="need meta row-even"><td class="need meta"></td>
+</tr>
+<tr class="need content row-odd"><td class="need content" colspan="1"><p class="sd-card-text">Where the hardware supports hardware flow control, the driver SHOULD support it
+(configurable per channel via <code class="docutils literal notranslate"><span class="pre">hw_flow_control</span></code>).</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+TX error handling</div>
+<div class="need_container docutils container" id="SNCB-e512b328">
+<table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-UART-SHOULD-02">
+<tbody>
+<tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
+<div class="line"><span><span class="needs-id"><a class="reference internal" href="#CHI-UART-SHOULD-02" title="CHI-UART-SHOULD-02">CHI-UART-SHOULD-02</a></span> — </span><strong><span><span class="needs_title"><span class="needs_data">TX error handling</span></span></span></strong></div>
+</div>
+</td>
+</tr>
+<tr class="need meta row-even"><td class="need meta"></td>
+</tr>
+<tr class="need content row-odd"><td class="need content" colspan="1"><p class="sd-card-text">Where the hardware detects and reports a TX error, the driver SHOULD stop the current
+transmission before notifying and report it via <code class="docutils literal notranslate"><span class="pre">LogM_Report</span></code> at runtime-error level with
+<code class="docutils literal notranslate"><span class="pre">UART_RTERR_TX</span></code> / <code class="docutils literal notranslate"><span class="pre">UART_RTERR_TX_&lt;VENDOR_SPECIFIC&gt;</span></code>.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</details></section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="reference/02_errors.html" class="btn btn-neutral float-left" title="Errors" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="01_design_decisions.html" class="btn btn-neutral float-right" title="Design Decisions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026 by Vector Informatik GmbH and Infineon Technologies AG. All rights reserved.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,195 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wakeup and sleep &mdash; Chiisai HAL Specification  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css?v=4ae1632d" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-data-viewer/jsonview.bundle.css?v=f6ef2277" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/libs/html/datatables.min.css?v=4b4fd840" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/common_css/needstable.css?v=5e1b6797" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/common_css/need_core.css?v=f5b60a78" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/common_css/need_links.css?v=2150a916" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/common_css/need_style.css?v=92936fa5" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/common_css/need_toggle.css?v=5c6620df" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/modern.css?v=803738c0" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=4f645179" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
+      <script src="../../../_static/sphinx-data-viewer/jsonview.bundle.js?v=18cd53c5"></script>
+      <script src="../../../_static/sphinx-data-viewer/jsonview_loader.js?v=f7ff7e7d"></script>
+      <script src="../../../_static/sphinx-needs/libs/html/datatables.min.js?v=8a4aee21"></script>
+      <script src="../../../_static/sphinx-needs/libs/html/datatables_loader.js?v=a2cae175"></script>
+      <script src="../../../_static/sphinx-needs/libs/html/sphinx_needs_collapse.js?v=dca66431"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Handle a transaction" href="04_transaction.html" />
+    <link rel="prev" title="Initialize the driver" href="02_initialise.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            Chiisai HAL Specification
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../00_about/index.html">About This Specification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../01_general/index.html">General</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Chiisai HAL Driver Modules</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../Can/index.html">Can</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../I2c/index.html">I2c</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Lin</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../general/index.html">General</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">Guide</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="00_quickstart.html">Quickstart</a></li>
+<li class="toctree-l4"><a class="reference internal" href="01_configuration.html">Configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="02_initialise.html">Initialize the driver</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Wakeup and sleep</a></li>
+<li class="toctree-l4"><a class="reference internal" href="04_transaction.html">Handle a transaction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="05_common_mistakes.html">Common mistakes</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../reference/index.html">Reference</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../00_requirements.html">Lin — Requirements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01_design_decisions.html">Design Decisions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../Mcu/index.html">Mcu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Mem/index.html">Mem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Port/index.html">Port</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Spi/index.html">Spi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Uart/index.html">Uart</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Wdg/index.html">Wdg</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../appendix.html">Appendix</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Chiisai HAL Specification</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Chiisai HAL Driver Modules</a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Lin</a></li>
+          <li class="breadcrumb-item"><a href="index.html">Guide</a></li>
+      <li class="breadcrumb-item active">Wakeup and sleep</li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="wakeup-and-sleep">
+<h1>Wakeup and sleep<a class="headerlink" href="#wakeup-and-sleep" title="Link to this heading"></a></h1>
+<div class="informative admonition">
+<p class="admonition-title">Informative</p>
+<p>How to move a channel between <code class="docutils literal notranslate"><span class="pre">SLEEP</span></code> and <code class="docutils literal notranslate"><span class="pre">OPERATIONAL</span></code> and handle wakeups. Binding rules:
+<a class="reference internal" href="../00_requirements.html#CHI-LIN-MUST-03" title="CHI-LIN-MUST-03"><em class="xref need">CHI-LIN-MUST-03</em></a>, <a class="reference internal" href="../00_requirements.html#CHI-LIN-MUST-04" title="CHI-LIN-MUST-04"><em class="xref need">CHI-LIN-MUST-04</em></a>, <a class="reference internal" href="../00_requirements.html#CHI-LIN-MUST-11" title="CHI-LIN-MUST-11"><em class="xref need">CHI-LIN-MUST-11</em></a> (and <a class="reference internal" href="../00_requirements.html#CHI-LIN-SHOULD-01" title="CHI-LIN-SHOULD-01"><em class="xref need">CHI-LIN-SHOULD-01</em></a>).</p>
+</div>
+<section id="go-operational">
+<h2>Go operational<a class="headerlink" href="#go-operational" title="Link to this heading"></a></h2>
+<p>There are two ways to leave <code class="docutils literal notranslate"><span class="pre">SLEEP</span></code>:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">Lin_Wakeup</span><span class="p">(</span><span class="mi">0u</span><span class="p">);</span><span class="w">            </span><span class="cm">/* transmits a wakeup pulse on the bus, then -&gt; OPERATIONAL */</span>
+<span class="n">Lin_WakeupInternal</span><span class="p">(</span><span class="mi">0u</span><span class="p">);</span><span class="w">    </span><span class="cm">/* goes -&gt; OPERATIONAL WITHOUT transmitting a pulse */</span>
+</pre></div>
+</div>
+<p>Use <code class="docutils literal notranslate"><span class="pre">Lin_Wakeup</span></code> to actively wake the cluster; use <code class="docutils literal notranslate"><span class="pre">Lin_WakeupInternal</span></code> when the bus is already
+awake — typically after you were notified of an externally detected wakeup (see below). Both are
+valid only in <code class="docutils literal notranslate"><span class="pre">SLEEP</span></code>; calling <code class="docutils literal notranslate"><span class="pre">Lin_Wakeup</span></code> in <code class="docutils literal notranslate"><span class="pre">OPERATIONAL</span></code> raises a development error
+(<a class="reference internal" href="../00_requirements.html#CHI-LIN-MUST-04" title="CHI-LIN-MUST-04"><em class="xref need">CHI-LIN-MUST-04</em></a>).</p>
+</section>
+<section id="react-to-a-detected-wakeup">
+<h2>React to a detected wakeup<a class="headerlink" href="#react-to-a-detected-wakeup" title="Link to this heading"></a></h2>
+<p>While a channel sleeps with wakeup detection enabled, a bus wakeup is reported to you:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">LinIf_OnWakeup</span><span class="p">(</span><span class="n">uint8</span><span class="w"> </span><span class="n">channelId</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="cm">/* a wakeup pulse was detected while asleep */</span>
+<span class="w">    </span><span class="n">Lin_WakeupInternal</span><span class="p">(</span><span class="n">channelId</span><span class="p">);</span><span class="w">   </span><span class="cm">/* join the now-awake bus, no extra pulse */</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="go-to-sleep">
+<h2>Go to sleep<a class="headerlink" href="#go-to-sleep" title="Link to this heading"></a></h2>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">Lin_GoToSleepInternal</span><span class="p">(</span><span class="mi">0u</span><span class="p">);</span><span class="w">   </span><span class="cm">/* OPERATIONAL -&gt; SLEEP; enables low-power / wakeup detection */</span>
+</pre></div>
+</div>
+<p>The channel stops participating and — where the hardware supports it — enters low-power mode with
+wakeup detection armed.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="../general/01_concepts.html"><span class="doc">Concepts</span></a> — the <em>State transition sequence</em> shows the internal and external
+wakeup paths end to end.</p>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="02_initialise.html" class="btn btn-neutral float-left" title="Initialize the driver" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="04_transaction.html" class="btn btn-neutral float-right" title="Handle a transaction" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026 by Vector Informatik GmbH and Infineon Technologies AG. All rights reserved.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

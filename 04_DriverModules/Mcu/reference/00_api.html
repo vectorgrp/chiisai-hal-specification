@@ -1,0 +1,529 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>API Reference &mdash; Chiisai HAL Specification  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css?v=4ae1632d" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-data-viewer/jsonview.bundle.css?v=f6ef2277" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/libs/html/datatables.min.css?v=4b4fd840" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/common_css/needstable.css?v=5e1b6797" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/common_css/need_core.css?v=f5b60a78" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/common_css/need_links.css?v=2150a916" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/common_css/need_style.css?v=92936fa5" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/common_css/need_toggle.css?v=5c6620df" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/modern.css?v=803738c0" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=4f645179" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
+      <script src="../../../_static/sphinx-data-viewer/jsonview.bundle.js?v=18cd53c5"></script>
+      <script src="../../../_static/sphinx-data-viewer/jsonview_loader.js?v=f7ff7e7d"></script>
+      <script src="../../../_static/sphinx-needs/libs/html/datatables.min.js?v=8a4aee21"></script>
+      <script src="../../../_static/sphinx-needs/libs/html/datatables_loader.js?v=a2cae175"></script>
+      <script src="../../../_static/sphinx-needs/libs/html/sphinx_needs_collapse.js?v=dca66431"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Configuration Reference" href="01_configuration.html" />
+    <link rel="prev" title="Reference" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            Chiisai HAL Specification
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../00_about/index.html">About This Specification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../01_general/index.html">General</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Chiisai HAL Driver Modules</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../Can/index.html">Can</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../I2c/index.html">I2c</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Lin/index.html">Lin</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Mcu</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../general/index.html">General</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../guide/index.html">Guide</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">Reference</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">API Reference</a></li>
+<li class="toctree-l4"><a class="reference internal" href="01_configuration.html">Configuration Reference</a></li>
+<li class="toctree-l4"><a class="reference internal" href="02_errors.html">Errors</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../00_requirements.html">Mcu — Requirements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01_design_decisions.html">Design Decisions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../Mem/index.html">Mem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Port/index.html">Port</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Spi/index.html">Spi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Uart/index.html">Uart</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Wdg/index.html">Wdg</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../appendix.html">Appendix</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Chiisai HAL Specification</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Chiisai HAL Driver Modules</a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Mcu</a></li>
+          <li class="breadcrumb-item"><a href="index.html">Reference</a></li>
+      <li class="breadcrumb-item active">API Reference</li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="api-reference">
+<h1>API Reference<a class="headerlink" href="#api-reference" title="Link to this heading"></a></h1>
+<div class="normative admonition">
+<p class="admonition-title">Normative</p>
+<p>The MCU driver API contract. A conformant driver <strong>MUST</strong> provide these types and functions with
+the behavior described. Function and type signatures are extracted from the driver headers with
+Doxygen/Breathe. Keywords per <a class="reference internal" href="../../../00_about/01_keywords.html"><span class="doc">Requirement Keywords</span></a>; behavioral rules in
+<a class="reference internal" href="../00_requirements.html"><span class="doc">Mcu — Requirements</span></a>; error codes in <a class="reference internal" href="02_errors.html"><span class="doc">Errors</span></a>.</p>
+</div>
+<p class="rubric">Data types at a glance</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 32.0%" />
+<col style="width: 13.0%" />
+<col style="width: 55.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Type</p></th>
+<th class="head"><p>Kind</p></th>
+<th class="head"><p>Purpose</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference internal" href="#mcu-api-mcu-configtype"><span class="std std-ref">Mcu_ConfigType</span></a></p></td>
+<td><p>struct</p></td>
+<td><p>Root configuration structure (build-time; <code class="docutils literal notranslate"><span class="pre">Mcu_Init</span></code> takes <code class="docutils literal notranslate"><span class="pre">NULL_PTR</span></code>).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mcu-api-mcu-clockidtype"><span class="std std-ref">Mcu_ClockIdType</span></a></p></td>
+<td><p>typedef</p></td>
+<td><p>Identifier of a clock configuration (index into <code class="docutils literal notranslate"><span class="pre">clock_settings</span></code>).</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">API at a glance</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 32.0%" />
+<col style="width: 30.0%" />
+<col style="width: 38.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Function</p></th>
+<th class="head"><p>Group</p></th>
+<th class="head"><p>Purpose</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference internal" href="#mcu-api-mcu-init"><span class="std std-ref">Mcu_Init</span></a></p></td>
+<td><p>Initialization</p></td>
+<td><p>Initialize the driver and core HW; capture the reset cause.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mcu-api-mcu-initclock"><span class="std std-ref">Mcu_InitClock</span></a></p></td>
+<td><p>Clock</p></td>
+<td><p>Apply a clock configuration (non-blocking).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#mcu-api-mcu-isclockdistributed"><span class="std std-ref">Mcu_IsClockDistributed</span></a></p></td>
+<td><p>Clock</p></td>
+<td><p>Report whether the clock tree has stabilised and distributed.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mcu-api-mcu-pollfunction"><span class="std std-ref">Mcu_PollFunction</span></a></p></td>
+<td><p>Clock</p></td>
+<td><p>Service clock stabilisation / distribution / supervision.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#mcu-api-mcu-getresetrawvalue"><span class="std std-ref">Mcu_GetResetRawValue</span></a></p></td>
+<td><p>Reset</p></td>
+<td><p>Return the reset cause captured at initialization.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mcu-api-mcu-performreset"><span class="std std-ref">Mcu_PerformReset</span></a></p></td>
+<td><p>Reset</p></td>
+<td><p>Issue a microcontroller reset.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Expected interfaces at a glance</p>
+<p>Integration interfaces the integrator <strong>MUST</strong> provide where applicable (<a class="reference internal" href="../00_requirements.html#CHI-MCU-MUST-10" title="CHI-MCU-MUST-10"><em class="xref need">CHI-MCU-MUST-10</em></a>,
+<a class="reference internal" href="../00_requirements.html#CHI-MCU-MUST-11" title="CHI-MCU-MUST-11"><em class="xref need">CHI-MCU-MUST-11</em></a>); all are documented in the general reference. McuDrv defines <strong>no
+callouts</strong> — it reports nothing back to the integration code, so it has no
+<code class="docutils literal notranslate"><span class="pre">Mcu_Callout_Stubs.c</span></code>.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 30.0%" />
+<col style="width: 20.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Function</p></th>
+<th class="head"><p>Kind</p></th>
+<th class="head"><p>Purpose</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference internal" href="../../../01_general/reference/02_services.html#gen-ref-logm"><span class="std std-ref">LogM_Report</span></a></p></td>
+<td><p>Common (optional)</p></td>
+<td><p>Reports development / runtime errors (e.g. <code class="docutils literal notranslate"><span class="pre">MCU_RTERR_CLOCK</span></code>) with a log level.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;Mip&gt;_EnterCriticalSection</span></code> / <code class="docutils literal notranslate"><span class="pre">&lt;Mip&gt;_ExitCriticalSection</span></code></p></td>
+<td><p>Common (optional)</p></td>
+<td><p>Bracket sections requiring exclusive access — see
+<a class="reference internal" href="../../../01_general/reference/02_services.html#gen-ref-critical-section"><span class="std std-ref">critical sections</span></a>.</p></td>
+</tr>
+</tbody>
+</table>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-list-unordered" viewBox="0 0 16 16" aria-hidden="true"><path d="M5.75 2.5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5Zm0 5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5Zm0 5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5ZM2 14a1 1 0 1 1 0-2 1 1 0 0 1 0 2Zm1-6a1 1 0 1 1-2 0 1 1 0 0 1 2 0ZM2 4a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg></span><span class="sd-summary-text">Data types</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils" id="mcu-api-mcu-configtype">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Mcu_ConfigType</div>
+<dl class="cpp struct">
+<dt class="sig sig-object cpp" id="_CPPv414Mcu_ConfigType">
+<span id="_CPPv314Mcu_ConfigType"></span><span id="_CPPv214Mcu_ConfigType"></span><span id="Mcu_ConfigType"></span><span class="target" id="struct_mcu___config_type"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Mcu_ConfigType</span></span></span><a class="headerlink" href="#_CPPv414Mcu_ConfigType" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">Configuration structure type. </p>
+</dd></dl>
+
+<p class="sd-card-text">Configuration variants are selected at build time; <code class="docutils literal notranslate"><span class="pre">Mcu_Init</span></code> currently takes <code class="docutils literal notranslate"><span class="pre">NULL_PTR</span></code>.
+<em>Available via:</em> <code class="docutils literal notranslate"><span class="pre">Mcu.h</span></code></p>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils" id="mcu-api-mcu-clockidtype">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Mcu_ClockIdType</div>
+<dl class="cpp type">
+<dt class="sig sig-object cpp" id="_CPPv415Mcu_ClockIdType">
+<span id="_CPPv315Mcu_ClockIdType"></span><span id="_CPPv215Mcu_ClockIdType"></span><span id="Mcu_ClockIdType"></span><span class="target" id="_mcu___driver_types_8h_1a7115b9aa99face6d909698dd4c5027e5"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="n"><span class="pre">uint8</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Mcu_ClockIdType</span></span></span><a class="headerlink" href="#_CPPv415Mcu_ClockIdType" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">Represents identifier of clock configuration. </p>
+</dd></dl>
+
+<p class="sd-card-text">Identifies a clock configuration — its index in the configured <code class="docutils literal notranslate"><span class="pre">clock_settings</span></code> list.
+<em>Available via:</em> <code class="docutils literal notranslate"><span class="pre">Mcu_DriverTypes.h</span></code></p>
+</div>
+</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0ZM1.5 8a6.5 6.5 0 1 0 13 0 6.5 6.5 0 0 0-13 0Zm4.879-2.773 4.264 2.559a.25.25 0 0 1 0 .428l-4.264 2.559A.25.25 0 0 1 6 10.559V5.442a.25.25 0 0 1 .379-.215Z"></path></svg></span><span class="sd-summary-text">Initialization</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils" id="mcu-api-mcu-init">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Mcu_Init</div>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv48Mcu_InitPK14Mcu_ConfigType">
+<span id="_CPPv38Mcu_InitPK14Mcu_ConfigType"></span><span id="_CPPv28Mcu_InitPK14Mcu_ConfigType"></span><span id="Mcu_Init__Mcu_ConfigTypeCP"></span><span class="target" id="_mcu_8h_1a57a073dd2a2e6c01b0a2f9493a8e55ca"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Mcu_Init</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv414Mcu_ConfigType" title="Mcu_ConfigType"><span class="n"><span class="pre">Mcu_ConfigType</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">configPtr</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv48Mcu_InitPK14Mcu_ConfigType" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">Initializes the driver and HW. </p>
+<p class="sd-card-text"><dl class="simple">
+<dt><strong>Sync/Async:</strong></dt><dd><p class="sd-card-text">Synchronous </p>
+</dd>
+<dt><strong>Reentrancy:</strong></dt><dd><p class="sd-card-text">Non reentrant </p>
+</dd>
+<dt><strong>Service ID [hex]:</strong></dt><dd><p class="sd-card-text">0x00 </p>
+</dd>
+<dt><strong>Development error(s):</strong></dt><dd><p class="sd-card-text"><ul class="simple">
+<li><p class="sd-card-text"><a class="reference internal" href="02_errors.html#group___mcu___development_errors_1ga324b9521183e4226030d1a5628d8378c"><span class="std std-ref">MCU_DEVERR_INVALID_STATE</span></a> McuDrv is NOT in MCU_DRV_STATE_UNINIT</p></li>
+<li><p class="sd-card-text"><a class="reference internal" href="02_errors.html#group___mcu___development_errors_1gacaaad51ad8ca7abd1f3c5df6d1264d85"><span class="std std-ref">MCU_DEVERR_PARAM_POINTER</span></a> configPtr is NOT null pointer </p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p class="sd-card-text"><strong>configPtr</strong> – <strong>[in]</strong> Pointer to the configuration structure. This parameter is intended for future extensions to support runtime-selectable configuration variants, which allow the selection and initialization of specific variants during runtime. As this functionality is not currently supported, a NULL_PTR SHALL be provided. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p class="sd-card-text">None. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<p class="sd-card-text"><strong>When to call:</strong> once, before any other MCU function, with the driver in
+<code class="docutils literal notranslate"><span class="pre">MCU_DRV_STATE_UNINIT</span></code>. <code class="docutils literal notranslate"><span class="pre">configPtr</span></code> MUST be <code class="docutils literal notranslate"><span class="pre">NULL_PTR</span></code>.</p>
+<p class="sd-card-text"><strong>Effect:</strong> initialises the driver and core HW registers (mode, reset management,
+multi-peripheral registers — not clocks, not I/O pins); captures and clears the reset cause;
+moves the driver to <code class="docutils literal notranslate"><span class="pre">MCU_DRV_STATE_INIT</span></code>. <strong>Errors:</strong> see <a class="reference internal" href="02_errors.html"><span class="doc">Errors</span></a>.
+<em>Available via:</em> <code class="docutils literal notranslate"><span class="pre">Mcu.h</span></code></p>
+</div>
+</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-clock" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0ZM1.5 8a6.5 6.5 0 1 0 13 0 6.5 6.5 0 0 0-13 0Zm7-3.25v2.992l2.028.812a.75.75 0 0 1-.557 1.392l-2.5-1A.751.751 0 0 1 7 8.25v-3.5a.75.75 0 0 1 1.5 0Z"></path></svg></span><span class="sd-summary-text">Clock</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils" id="mcu-api-mcu-initclock">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Mcu_InitClock</div>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv413Mcu_InitClock15Mcu_ClockIdType">
+<span id="_CPPv313Mcu_InitClock15Mcu_ClockIdType"></span><span id="_CPPv213Mcu_InitClock15Mcu_ClockIdType"></span><span id="Mcu_InitClock__Mcu_ClockIdType"></span><span class="target" id="_mcu_8h_1a866e486ce30c6a360d1ca62f1925d699"></span><span class="n"><span class="pre">Std_ReturnType</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Mcu_InitClock</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv415Mcu_ClockIdType" title="Mcu_ClockIdType"><span class="n"><span class="pre">Mcu_ClockIdType</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">clockId</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv413Mcu_InitClock15Mcu_ClockIdType" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">Initializes the <a class="reference internal" href="../../../appendix.html#term-MCU"><span class="xref std std-term">MCU</span></a> specific clock settings according to the configuration specified by clockId parameter. </p>
+<p class="sd-card-text"><dl class="simple">
+<dt><strong>Sync/Async:</strong></dt><dd><p class="sd-card-text">Synchronous </p>
+</dd>
+<dt><strong>Reentrancy:</strong></dt><dd><p class="sd-card-text">Non reentrant </p>
+</dd>
+<dt><strong>Service ID [hex]:</strong></dt><dd><p class="sd-card-text">0x01 </p>
+</dd>
+<dt><strong>Development error(s):</strong></dt><dd><p class="sd-card-text"><ul class="simple">
+<li><p class="sd-card-text"><a class="reference internal" href="02_errors.html#group___mcu___development_errors_1ga324b9521183e4226030d1a5628d8378c"><span class="std std-ref">MCU_DEVERR_INVALID_STATE</span></a> McuDrv is NOT in MCU_DRV_STATE_INIT</p></li>
+<li><p class="sd-card-text"><a class="reference internal" href="02_errors.html#group___mcu___development_errors_1gab4a7aaa56e37922625549048902f0382"><span class="std std-ref">MCU_DEVERR_PARAM_CLOCK</span></a> clockId is out of configured range </p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p class="sd-card-text"><strong>clockId</strong> – <strong>[in]</strong> Identifier of a clock configuration to be applied. </p>
+</dd>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p class="sd-card-text"><strong>E_OK</strong> – Request has been accepted </p></li>
+<li><p class="sd-card-text"><strong>E_NOT_OK</strong> – Request has not been accepted </p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p class="sd-card-text">Std_ReturnType. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<p class="sd-card-text"><strong>When to call:</strong> after <code class="docutils literal notranslate"><span class="pre">Mcu_Init</span></code>, to apply the clock configuration <code class="docutils literal notranslate"><span class="pre">clockId</span></code>. <strong>Returns:</strong>
+<code class="docutils literal notranslate"><span class="pre">E_OK</span></code> if accepted, else <code class="docutils literal notranslate"><span class="pre">E_NOT_OK</span></code>. It does <strong>not</strong> busy-wait for stabilisation — drive
+that from <code class="docutils literal notranslate"><span class="pre">Mcu_PollFunction</span></code>. <strong>Errors:</strong> see <a class="reference internal" href="02_errors.html"><span class="doc">Errors</span></a>. <em>Available via:</em> <code class="docutils literal notranslate"><span class="pre">Mcu.h</span></code></p>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils" id="mcu-api-mcu-isclockdistributed">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Mcu_IsClockDistributed</div>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv422Mcu_IsClockDistributedv">
+<span id="_CPPv322Mcu_IsClockDistributedv"></span><span id="_CPPv222Mcu_IsClockDistributedv"></span><span id="Mcu_IsClockDistributed__void"></span><span class="target" id="_mcu_8h_1a0609b92434c9f51ed770caf5c8788eee"></span><span class="n"><span class="pre">boolean</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Mcu_IsClockDistributed</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv422Mcu_IsClockDistributedv" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">Returns the status of clocks. </p>
+<p class="sd-card-text"><dl class="simple">
+<dt><strong>Sync/Async:</strong></dt><dd><p class="sd-card-text">Synchronous </p>
+</dd>
+<dt><strong>Reentrancy:</strong></dt><dd><p class="sd-card-text">Reentrant </p>
+</dd>
+<dt><strong>Service ID [hex]:</strong></dt><dd><p class="sd-card-text">0x02 </p>
+</dd>
+<dt><strong>Development error(s):</strong></dt><dd><p class="sd-card-text"><ul class="simple">
+<li><p class="sd-card-text"><a class="reference internal" href="02_errors.html#group___mcu___development_errors_1ga324b9521183e4226030d1a5628d8378c"><span class="std std-ref">MCU_DEVERR_INVALID_STATE</span></a> McuDrv is NOT in MCU_DRV_STATE_INIT </p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p class="sd-card-text"><strong>None</strong> – </p>
+</dd>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p class="sd-card-text"><strong>TRUE</strong> – all clocks that were set by Mcu_InitClock have been stabilized and distributed to the <a class="reference internal" href="../../../appendix.html#term-MCU"><span class="xref std std-term">MCU</span></a> clock tree. </p></li>
+<li><p class="sd-card-text"><strong>FALSE</strong> – Clocks have not yet been distributed. </p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p class="sd-card-text">boolean. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<p class="sd-card-text"><strong>Effect:</strong> returns <code class="docutils literal notranslate"><span class="pre">TRUE</span></code> once every clock set by <code class="docutils literal notranslate"><span class="pre">Mcu_InitClock</span></code> has stabilised and been
+distributed; <code class="docutils literal notranslate"><span class="pre">FALSE</span></code> while still stabilising. Before <code class="docutils literal notranslate"><span class="pre">Mcu_Init</span></code> (or after a reset, before
+<code class="docutils literal notranslate"><span class="pre">Mcu_InitClock</span></code>) it returns <code class="docutils literal notranslate"><span class="pre">TRUE</span></code>. <strong>Errors:</strong> see <a class="reference internal" href="02_errors.html"><span class="doc">Errors</span></a>. <em>Available via:</em> <code class="docutils literal notranslate"><span class="pre">Mcu.h</span></code></p>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils" id="mcu-api-mcu-pollfunction">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Mcu_PollFunction</div>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv416Mcu_PollFunctionv">
+<span id="_CPPv316Mcu_PollFunctionv"></span><span id="_CPPv216Mcu_PollFunctionv"></span><span id="Mcu_PollFunction__void"></span><span class="target" id="_mcu_8h_1a7faa8bac801e2ce04b0b06be0ec17956"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Mcu_PollFunction</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv416Mcu_PollFunctionv" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">Handle events with polling method. </p>
+<p class="sd-card-text"><dl class="simple">
+<dt><strong>Sync/Async:</strong></dt><dd><p class="sd-card-text">Synchronous </p>
+</dd>
+<dt><strong>Reentrancy:</strong></dt><dd><p class="sd-card-text">Non reentrant </p>
+</dd>
+<dt><strong>Service ID [hex]:</strong></dt><dd><p class="sd-card-text">0x05 </p>
+</dd>
+</dl>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p class="sd-card-text"><strong>None</strong> – </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p class="sd-card-text">None. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<p class="sd-card-text"><strong>When to call:</strong> cyclically — during clock bring-up to drive stabilisation and distribution,
+and at runtime for any configured clock supervision. <em>Available via:</em> <code class="docutils literal notranslate"><span class="pre">Mcu.h</span></code></p>
+</div>
+</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-sync" viewBox="0 0 16 16" aria-hidden="true"><path d="M1.705 8.005a.75.75 0 0 1 .834.656 5.5 5.5 0 0 0 9.592 2.97l-1.204-1.204a.25.25 0 0 1 .177-.427h3.646a.25.25 0 0 1 .25.25v3.646a.25.25 0 0 1-.427.177l-1.38-1.38A7.002 7.002 0 0 1 1.05 8.84a.75.75 0 0 1 .656-.834ZM8 2.5a5.487 5.487 0 0 0-4.131 1.869l1.204 1.204A.25.25 0 0 1 4.896 6H1.25A.25.25 0 0 1 1 5.75V2.104a.25.25 0 0 1 .427-.177l1.38 1.38A7.002 7.002 0 0 1 14.95 7.16a.75.75 0 0 1-1.49.178A5.5 5.5 0 0 0 8 2.5Z"></path></svg></span><span class="sd-summary-text">Reset</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils" id="mcu-api-mcu-getresetrawvalue">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Mcu_GetResetRawValue</div>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv420Mcu_GetResetRawValuev">
+<span id="_CPPv320Mcu_GetResetRawValuev"></span><span id="_CPPv220Mcu_GetResetRawValuev"></span><span id="Mcu_GetResetRawValue__void"></span><span class="target" id="_mcu_8h_1a3578a8aad319387b101ac99654dd6a61"></span><span class="n"><span class="pre">uint32</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Mcu_GetResetRawValue</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv420Mcu_GetResetRawValuev" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">Returns raw reset reason gathering from the HW. </p>
+<p class="sd-card-text"><dl class="simple">
+<dt><strong>Sync/Async:</strong></dt><dd><p class="sd-card-text">Synchronous </p>
+</dd>
+<dt><strong>Reentrancy:</strong></dt><dd><p class="sd-card-text">Reentrant </p>
+</dd>
+<dt><strong>Service ID [hex]:</strong></dt><dd><p class="sd-card-text">0x03 </p>
+</dd>
+<dt><strong>Development error(s):</strong></dt><dd><p class="sd-card-text"><ul class="simple">
+<li><p class="sd-card-text"><a class="reference internal" href="02_errors.html#group___mcu___development_errors_1ga324b9521183e4226030d1a5628d8378c"><span class="std std-ref">MCU_DEVERR_INVALID_STATE</span></a> McuDrv is NOT in MCU_DRV_STATE_INIT </p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p class="sd-card-text"><strong>None</strong> – </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p class="sd-card-text">uint32 Bitwise ORed value of the reset reason. Bit meaning depends on used HW. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<p class="sd-card-text"><strong>Effect:</strong> returns the reset cause captured by <code class="docutils literal notranslate"><span class="pre">Mcu_Init</span></code> as a bitwise-ORed <code class="docutils literal notranslate"><span class="pre">uint32</span></code> (bit
+meanings are HW-defined). Returns <code class="docutils literal notranslate"><span class="pre">0</span></code> if called before <code class="docutils literal notranslate"><span class="pre">Mcu_Init</span></code>, and
+<code class="docutils literal notranslate"><span class="pre">MCU_RESET_POWER_ON</span></code> on hardware without reset-reason detection. <strong>Errors:</strong> see <a class="reference internal" href="02_errors.html"><span class="doc">Errors</span></a>.
+<em>Available via:</em> <code class="docutils literal notranslate"><span class="pre">Mcu.h</span></code></p>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils" id="mcu-api-mcu-performreset">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Mcu_PerformReset</div>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv416Mcu_PerformResetv">
+<span id="_CPPv316Mcu_PerformResetv"></span><span id="_CPPv216Mcu_PerformResetv"></span><span id="Mcu_PerformReset__void"></span><span class="target" id="_mcu_8h_1ae087e14a7dc60c3f70403db881e86ad6"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Mcu_PerformReset</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv416Mcu_PerformResetv" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">Performs a reset operation of the microcontroller. Note that ensuring no preemption during Mcu_PerformReset must be ensured by caller side. (e.g. disabling all interrupts before calling). </p>
+<p class="sd-card-text"><dl class="simple">
+<dt><strong>Sync/Async:</strong></dt><dd><p class="sd-card-text">Synchronous </p>
+</dd>
+<dt><strong>Reentrancy:</strong></dt><dd><p class="sd-card-text">Non reentrant </p>
+</dd>
+<dt><strong>Service ID [hex]:</strong></dt><dd><p class="sd-card-text">0x04 </p>
+</dd>
+<dt><strong>Development error(s):</strong></dt><dd><p class="sd-card-text"><ul class="simple">
+<li><p class="sd-card-text"><a class="reference internal" href="02_errors.html#group___mcu___development_errors_1ga324b9521183e4226030d1a5628d8378c"><span class="std std-ref">MCU_DEVERR_INVALID_STATE</span></a> McuDrv is NOT in MCU_DRV_STATE_INIT </p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p class="sd-card-text"><strong>None</strong> – </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p class="sd-card-text">None. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<p class="sd-card-text"><strong>When to call:</strong> to reset the microcontroller. The caller MUST ensure no preemption during the
+call (e.g. disable all interrupts first). Does not return under normal operation. <strong>Errors:</strong>
+see <a class="reference internal" href="02_errors.html"><span class="doc">Errors</span></a>. <em>Available via:</em> <code class="docutils literal notranslate"><span class="pre">Mcu.h</span></code></p>
+</div>
+</div>
+</div>
+</details></section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Reference" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="01_configuration.html" class="btn btn-neutral float-right" title="Configuration Reference" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026 by Vector Informatik GmbH and Infineon Technologies AG. All rights reserved.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

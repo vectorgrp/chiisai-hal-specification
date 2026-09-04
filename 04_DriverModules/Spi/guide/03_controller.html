@@ -1,0 +1,208 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Controller transactions &mdash; Chiisai HAL Specification  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css?v=4ae1632d" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-data-viewer/jsonview.bundle.css?v=f6ef2277" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/libs/html/datatables.min.css?v=4b4fd840" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/common_css/needstable.css?v=5e1b6797" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/common_css/need_core.css?v=f5b60a78" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/common_css/need_links.css?v=2150a916" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/common_css/need_style.css?v=92936fa5" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/common_css/need_toggle.css?v=5c6620df" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/modern.css?v=803738c0" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=4f645179" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
+      <script src="../../../_static/sphinx-data-viewer/jsonview.bundle.js?v=18cd53c5"></script>
+      <script src="../../../_static/sphinx-data-viewer/jsonview_loader.js?v=f7ff7e7d"></script>
+      <script src="../../../_static/sphinx-needs/libs/html/datatables.min.js?v=8a4aee21"></script>
+      <script src="../../../_static/sphinx-needs/libs/html/datatables_loader.js?v=a2cae175"></script>
+      <script src="../../../_static/sphinx-needs/libs/html/sphinx_needs_collapse.js?v=dca66431"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Target transactions" href="04_target.html" />
+    <link rel="prev" title="Initialize the driver" href="02_initialise.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            Chiisai HAL Specification
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../00_about/index.html">About This Specification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../01_general/index.html">General</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Chiisai HAL Driver Modules</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../Can/index.html">Can</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../I2c/index.html">I2c</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Lin/index.html">Lin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Mcu/index.html">Mcu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Mem/index.html">Mem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Port/index.html">Port</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Spi</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../general/index.html">General</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">Guide</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="00_quickstart.html">Quickstart</a></li>
+<li class="toctree-l4"><a class="reference internal" href="01_configuration.html">Configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="02_initialise.html">Initialize the driver</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Controller transactions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="04_target.html">Target transactions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="05_common_mistakes.html">Common mistakes</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../reference/index.html">Reference</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../00_requirements.html">Spi — Requirements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01_design_decisions.html">Design Decisions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../Uart/index.html">Uart</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Wdg/index.html">Wdg</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../appendix.html">Appendix</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Chiisai HAL Specification</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Chiisai HAL Driver Modules</a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Spi</a></li>
+          <li class="breadcrumb-item"><a href="index.html">Guide</a></li>
+      <li class="breadcrumb-item active">Controller transactions</li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="controller-transactions">
+<h1>Controller transactions<a class="headerlink" href="#controller-transactions" title="Link to this heading"></a></h1>
+<div class="informative admonition">
+<p class="admonition-title">Informative</p>
+<p>How a controller-mode channel transfers data on the bus. Binding rules: <a class="reference internal" href="../00_requirements.html#CHI-SPI-MUST-01" title="CHI-SPI-MUST-01"><em class="xref need">CHI-SPI-MUST-01</em></a>,
+<a class="reference internal" href="../00_requirements.html#CHI-SPI-MUST-11" title="CHI-SPI-MUST-11"><em class="xref need">CHI-SPI-MUST-11</em></a>…<a class="reference internal" href="../00_requirements.html#CHI-SPI-MUST-14" title="CHI-SPI-MUST-14"><em class="xref need">CHI-SPI-MUST-14</em></a>, and <a class="reference internal" href="../00_requirements.html#CHI-SPI-MUST-16" title="CHI-SPI-MUST-16"><em class="xref need">CHI-SPI-MUST-16</em></a> in <a class="reference internal" href="../00_requirements.html"><span class="doc">Spi — Requirements</span></a>.</p>
+</div>
+<section id="full-duplex-transfer">
+<h2>Full-duplex transfer<a class="headerlink" href="#full-duplex-transfer" title="Link to this heading"></a></h2>
+<p>A controller transaction is full-duplex: you provide a TX buffer set, an RX buffer set, or both.
+Supply <code class="docutils literal notranslate"><span class="pre">NULL_PTR</span></code> for a direction you do not need — a null RX set discards the received data; a
+TX chunk with a null <code class="docutils literal notranslate"><span class="pre">bufferDataPtr</span></code> sends the configured <code class="docutils literal notranslate"><span class="pre">default_data</span></code>.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">static</span><span class="w"> </span><span class="n">uint8</span><span class="w"> </span><span class="n">cmd</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mh">0x9Fu</span><span class="w"> </span><span class="p">};</span><span class="w">            </span><span class="cm">/* e.g. a read-id command */</span>
+<span class="k">static</span><span class="w"> </span><span class="n">uint8</span><span class="w"> </span><span class="n">resp</span><span class="p">[</span><span class="mi">3</span><span class="p">];</span>
+
+<span class="k">static</span><span class="w"> </span><span class="n">Spi_BufferType</span><span class="w"> </span><span class="n">txChunks</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">cmd</span><span class="p">,</span><span class="w"> </span><span class="mi">1u</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">};</span>
+<span class="k">static</span><span class="w"> </span><span class="n">Spi_BufferType</span><span class="w"> </span><span class="n">rxChunks</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">resp</span><span class="p">,</span><span class="w"> </span><span class="mi">3u</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">};</span>
+<span class="k">static</span><span class="w"> </span><span class="n">Spi_BufferSetType</span><span class="w"> </span><span class="n">txSet</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">txChunks</span><span class="p">,</span><span class="w"> </span><span class="mi">1u</span><span class="w"> </span><span class="p">};</span>
+<span class="k">static</span><span class="w"> </span><span class="n">Spi_BufferSetType</span><span class="w"> </span><span class="n">rxSet</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">rxChunks</span><span class="p">,</span><span class="w"> </span><span class="mi">1u</span><span class="w"> </span><span class="p">};</span>
+
+<span class="cm">/* transfer on channel 0, chip select 0 */</span>
+<span class="n">Spi_StartTransaction</span><span class="p">(</span><span class="mi">0u</span><span class="p">,</span><span class="w"> </span><span class="mi">0u</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">txSet</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">rxSet</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>The call starts a transaction on an <code class="docutils literal notranslate"><span class="pre">IDLE</span></code> channel (moving it to <code class="docutils literal notranslate"><span class="pre">BUSY</span></code>) and returns
+immediately; the transfer completes asynchronously. Keep the buffer sets and their data valid until
+the completion callout fires.</p>
+</section>
+<section id="completion">
+<h2>Completion<a class="headerlink" href="#completion" title="Link to this heading"></a></h2>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">Spi_Callout_OnTransactionEnd</span><span class="p">(</span><span class="n">uint8</span><span class="w"> </span><span class="n">channelId</span><span class="p">,</span><span class="w"> </span><span class="n">uint8</span><span class="w"> </span><span class="n">csId</span><span class="p">,</span><span class="w"> </span><span class="n">uint16</span><span class="w"> </span><span class="n">length</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="cm">/* the transaction finished; `length` elements were transferred */</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="chip-select-control-gpio">
+<h2>Chip-select control (GPIO)<a class="headerlink" href="#chip-select-control-gpio" title="Link to this heading"></a></h2>
+<p>When a device is configured with <code class="docutils literal notranslate"><span class="pre">cs_ctrl:</span> <span class="pre">ViaGPIO</span></code>, the driver does <strong>not</strong> touch the CS pin. It
+asks the integration code to toggle it, just before the transfer and at the end:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">Spi_Callout_CsControl</span><span class="p">(</span><span class="n">uint8</span><span class="w"> </span><span class="n">channelId</span><span class="p">,</span><span class="w"> </span><span class="n">uint8</span><span class="w"> </span><span class="n">csId</span><span class="p">,</span><span class="w"> </span><span class="n">boolean</span><span class="w"> </span><span class="n">status</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="cm">/* status == TRUE  -&gt; assert the CS line for (channelId, csId)</span>
+<span class="cm">       status == FALSE -&gt; release it */</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>With <code class="docutils literal notranslate"><span class="pre">cs_ctrl:</span> <span class="pre">ViaHW</span></code> the SPI hardware drives CS and this callout is not used.</p>
+</section>
+<section id="bus-errors">
+<h2>Bus errors<a class="headerlink" href="#bus-errors" title="Link to this heading"></a></h2>
+<p>A bus error detected during a transfer is reported through <a class="reference internal" href="../../../01_general/reference/02_services.html#gen-ref-logm"><span class="std std-ref">LogM_Report</span></a> at
+runtime-error level with a vendor-specific <code class="docutils literal notranslate"><span class="pre">SPI_RTERR_*</span></code> code (<a class="reference internal" href="../00_requirements.html#CHI-SPI-MUST-18" title="CHI-SPI-MUST-18"><em class="xref need">CHI-SPI-MUST-18</em></a>); errors
+not tied to a specific chip select carry <code class="docutils literal notranslate"><span class="pre">SPI_CS_UNSPECIFIED</span></code>.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="02_initialise.html" class="btn btn-neutral float-left" title="Initialize the driver" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="04_target.html" class="btn btn-neutral float-right" title="Target transactions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026 by Vector Informatik GmbH and Infineon Technologies AG. All rights reserved.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

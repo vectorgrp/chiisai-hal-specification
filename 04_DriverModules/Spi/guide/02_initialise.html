@@ -1,0 +1,188 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Initialize the driver &mdash; Chiisai HAL Specification  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css?v=4ae1632d" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-data-viewer/jsonview.bundle.css?v=f6ef2277" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/libs/html/datatables.min.css?v=4b4fd840" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/common_css/needstable.css?v=5e1b6797" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/common_css/need_core.css?v=f5b60a78" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/common_css/need_links.css?v=2150a916" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/common_css/need_style.css?v=92936fa5" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/common_css/need_toggle.css?v=5c6620df" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/modern.css?v=803738c0" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=4f645179" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
+      <script src="../../../_static/sphinx-data-viewer/jsonview.bundle.js?v=18cd53c5"></script>
+      <script src="../../../_static/sphinx-data-viewer/jsonview_loader.js?v=f7ff7e7d"></script>
+      <script src="../../../_static/sphinx-needs/libs/html/datatables.min.js?v=8a4aee21"></script>
+      <script src="../../../_static/sphinx-needs/libs/html/datatables_loader.js?v=a2cae175"></script>
+      <script src="../../../_static/sphinx-needs/libs/html/sphinx_needs_collapse.js?v=dca66431"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Controller transactions" href="03_controller.html" />
+    <link rel="prev" title="Configuration" href="01_configuration.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            Chiisai HAL Specification
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../00_about/index.html">About This Specification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../01_general/index.html">General</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Chiisai HAL Driver Modules</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../Can/index.html">Can</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../I2c/index.html">I2c</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Lin/index.html">Lin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Mcu/index.html">Mcu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Mem/index.html">Mem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Port/index.html">Port</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Spi</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../general/index.html">General</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">Guide</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="00_quickstart.html">Quickstart</a></li>
+<li class="toctree-l4"><a class="reference internal" href="01_configuration.html">Configuration</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Initialize the driver</a></li>
+<li class="toctree-l4"><a class="reference internal" href="03_controller.html">Controller transactions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="04_target.html">Target transactions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="05_common_mistakes.html">Common mistakes</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../reference/index.html">Reference</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../00_requirements.html">Spi — Requirements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01_design_decisions.html">Design Decisions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../Uart/index.html">Uart</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Wdg/index.html">Wdg</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../appendix.html">Appendix</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Chiisai HAL Specification</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Chiisai HAL Driver Modules</a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Spi</a></li>
+          <li class="breadcrumb-item"><a href="index.html">Guide</a></li>
+      <li class="breadcrumb-item active">Initialize the driver</li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="initialize-the-driver">
+<h1>Initialize the driver<a class="headerlink" href="#initialize-the-driver" title="Link to this heading"></a></h1>
+<div class="informative admonition">
+<p class="admonition-title">Informative</p>
+<p>How to bring the SPI driver up and down. Binding rules: <a class="reference internal" href="../00_requirements.html#CHI-SPI-MUST-09" title="CHI-SPI-MUST-09"><em class="xref need">CHI-SPI-MUST-09</em></a> and
+<a class="reference internal" href="../00_requirements.html#CHI-SPI-MUST-10" title="CHI-SPI-MUST-10"><em class="xref need">CHI-SPI-MUST-10</em></a> in <a class="reference internal" href="../00_requirements.html"><span class="doc">Spi — Requirements</span></a>; signatures in <a class="reference internal" href="../reference/00_api.html"><span class="doc">API Reference</span></a>.</p>
+</div>
+<section id="prerequisites">
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Link to this heading"></a></h2>
+<p>Before <code class="docutils literal notranslate"><span class="pre">Spi_Init</span></code>, another module must have configured the channel’s <strong>input clock, port pins,
+and interrupt controller</strong>. The SPI driver assumes these are ready (see <a class="reference internal" href="../general/00_overview.html"><span class="doc">Overview</span></a>).</p>
+</section>
+<section id="bring-the-driver-up">
+<h2>Bring the driver up<a class="headerlink" href="#bring-the-driver-up" title="Link to this heading"></a></h2>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">Spi_Init</span><span class="p">(</span><span class="n">NULL_PTR</span><span class="p">);</span><span class="w">          </span><span class="cm">/* driver: UNINIT -&gt; INIT; every channel -&gt; IDLE */</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">configPtr</span></code> <strong>must be</strong> <code class="docutils literal notranslate"><span class="pre">NULL_PTR</span></code> — the configuration variant is selected at build time, not
+passed at runtime. After <code class="docutils literal notranslate"><span class="pre">Spi_Init</span></code> returns, the driver is in <code class="docutils literal notranslate"><span class="pre">SPI_DRV_STATE_INIT</span></code> and each
+channel is in <code class="docutils literal notranslate"><span class="pre">SPI_CH_STATE_IDLE</span></code>. A target channel begins detecting chip-select activation.
+Interrupts are enabled only for channels configured as <code class="docutils literal notranslate"><span class="pre">Interrupt</span></code>.</p>
+</section>
+<section id="shut-down">
+<h2>Shut down<a class="headerlink" href="#shut-down" title="Link to this heading"></a></h2>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">Spi_DeInit</span><span class="p">();</span><span class="w">                </span><span class="cm">/* aborts any ongoing transaction; driver -&gt; UNINIT */</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Spi_DeInit</span></code> immediately stops any ongoing transfer and de-initialises the hardware. Prefer to
+call it with the channel in <code class="docutils literal notranslate"><span class="pre">SPI_CH_STATE_IDLE</span></code> — aborting mid-transaction can leave a target in
+an undefined state. Poll the current state of a channel with <code class="docutils literal notranslate"><span class="pre">Spi_GetChannelState</span></code> if you need to
+observe it.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="03_controller.html"><span class="doc">Controller transactions</span></a> and <a class="reference internal" href="04_target.html"><span class="doc">Target transactions</span></a> — running transactions once a channel is initialized.</p>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="01_configuration.html" class="btn btn-neutral float-left" title="Configuration" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="03_controller.html" class="btn btn-neutral float-right" title="Controller transactions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026 by Vector Informatik GmbH and Infineon Technologies AG. All rights reserved.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

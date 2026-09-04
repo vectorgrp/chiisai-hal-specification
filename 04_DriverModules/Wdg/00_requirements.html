@@ -1,0 +1,404 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wdg — Requirements &mdash; Chiisai HAL Specification  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css?v=4ae1632d" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-data-viewer/jsonview.bundle.css?v=f6ef2277" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-needs/libs/html/datatables.min.css?v=4b4fd840" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-needs/common_css/needstable.css?v=5e1b6797" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-needs/common_css/need_core.css?v=f5b60a78" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-needs/common_css/need_links.css?v=2150a916" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-needs/common_css/need_style.css?v=92936fa5" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-needs/common_css/need_toggle.css?v=5c6620df" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-needs/modern.css?v=803738c0" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=4f645179" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+      <script src="../../_static/sphinx-data-viewer/jsonview.bundle.js?v=18cd53c5"></script>
+      <script src="../../_static/sphinx-data-viewer/jsonview_loader.js?v=f7ff7e7d"></script>
+      <script src="../../_static/sphinx-needs/libs/html/datatables.min.js?v=8a4aee21"></script>
+      <script src="../../_static/sphinx-needs/libs/html/datatables_loader.js?v=a2cae175"></script>
+      <script src="../../_static/sphinx-needs/libs/html/sphinx_needs_collapse.js?v=dca66431"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Design Decisions" href="01_design_decisions.html" />
+    <link rel="prev" title="Errors" href="reference/02_errors.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Chiisai HAL Specification
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../00_about/index.html">About This Specification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../01_general/index.html">General</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Chiisai HAL Driver Modules</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../Can/index.html">Can</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../I2c/index.html">I2c</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lin/index.html">Lin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Mcu/index.html">Mcu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Mem/index.html">Mem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Port/index.html">Port</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Spi/index.html">Spi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Uart/index.html">Uart</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Wdg</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="general/index.html">General</a></li>
+<li class="toctree-l3"><a class="reference internal" href="guide/index.html">Guide</a></li>
+<li class="toctree-l3"><a class="reference internal" href="reference/index.html">Reference</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Wdg — Requirements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="01_design_decisions.html">Design Decisions</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix.html">Appendix</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Chiisai HAL Specification</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Chiisai HAL Driver Modules</a></li>
+          <li class="breadcrumb-item"><a href="index.html">Wdg</a></li>
+      <li class="breadcrumb-item active">Wdg — Requirements</li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="wdg-requirements">
+<h1>Wdg — Requirements<a class="headerlink" href="#wdg-requirements" title="Link to this heading"></a></h1>
+<div class="normative admonition">
+<p class="admonition-title">Normative</p>
+<p>Defines what a conformant watchdog driver <strong>MUST</strong> do. Keywords per <a class="reference internal" href="../../00_about/01_keywords.html"><span class="doc">Requirement Keywords</span></a>;
+conformance per <a class="reference internal" href="../../00_about/02_conformance.html"><span class="doc">Conformance</span></a>. Requirements do not carry individual status — the
+set-level status applies to all of them. Signatures, error codes, and configuration properties are
+in the <a class="reference internal" href="reference/00_api.html"><span class="doc">API Reference</span></a>, <a class="reference internal" href="reference/02_errors.html"><span class="doc">Errors</span></a>, and <a class="reference internal" href="reference/01_configuration.html"><span class="doc">Configuration Reference</span></a>
+pages. Cross-module rules (types, error model, naming, memory mapping) are in
+<a class="reference internal" href="../../01_general/index.html"><span class="doc">General</span></a>.</p>
+</div>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header sd-bg-warning sd-bg-text-warning">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-alert" viewBox="0 0 16 16" aria-hidden="true"><path d="M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"></path></svg></span><span class="sd-summary-text">Mandatory (MUST) - 9 Requirements</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">The conformance contract — an implementation MUST satisfy every requirement here.</p>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Implementation model</div>
+<div class="need_container docutils container" id="SNCB-ca170088">
+<table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-WDG-MUST-01">
+<tbody>
+<tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
+<div class="line"><span><span class="needs-id"><a class="reference internal" href="#CHI-WDG-MUST-01" title="CHI-WDG-MUST-01">CHI-WDG-MUST-01</a></span> — </span><strong><span><span class="needs_title"><span class="needs_data">Direct timeout management</span></span></span></strong></div>
+</div>
+</td>
+</tr>
+<tr class="need meta row-even"><td class="need meta"></td>
+</tr>
+<tr class="need content row-odd"><td class="need content" colspan="1"><p class="sd-card-text">The driver MUST support <strong>direct timeout management</strong> as its primary implementation: the
+timeout is written directly into the watchdog hardware counter, using no timer resource and
+no periodic triggering. (This requires hardware whose timeout counter can be rewritten at
+runtime with millisecond resolution.)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="need_container docutils container" id="SNCB-503e16a4">
+<table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-WDG-MUST-02">
+<tbody>
+<tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
+<div class="line"><span><span class="needs-id"><a class="reference internal" href="#CHI-WDG-MUST-02" title="CHI-WDG-MUST-02">CHI-WDG-MUST-02</a></span> — </span><strong><span><span class="needs_title"><span class="needs_data">Internal watchdog control</span></span></span></strong></div>
+</div>
+</td>
+</tr>
+<tr class="need meta row-even"><td class="need meta"></td>
+</tr>
+<tr class="need content row-odd"><td class="need content" colspan="1"><p class="sd-card-text">Where a WdgDrv instance controls an <strong>internal</strong> watchdog, it MUST drive the watchdog
+hardware directly.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="need_container docutils container" id="SNCB-c100ef29">
+<table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-WDG-MUST-03">
+<tbody>
+<tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
+<div class="line"><span><span class="needs-id"><a class="reference internal" href="#CHI-WDG-MUST-03" title="CHI-WDG-MUST-03">CHI-WDG-MUST-03</a></span> — </span><strong><span><span class="needs_title"><span class="needs_data">External watchdog control</span></span></span></strong></div>
+</div>
+</td>
+</tr>
+<tr class="need meta row-even"><td class="need meta"></td>
+</tr>
+<tr class="need content row-odd"><td class="need content" colspan="1"><p class="sd-card-text">Where a WdgDrv instance controls an <strong>external</strong> watchdog, it MUST drive the hardware through
+another software component (e.g. an SPI or I2C driver). The implementation MUST resolve any
+request conflict between <code class="docutils literal notranslate"><span class="pre">Wdg_SetMode</span></code> and <code class="docutils literal notranslate"><span class="pre">Wdg_FeedHw</span></code> on that shared component.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Initialization</div>
+<div class="need_container docutils container" id="SNCB-869447c5">
+<table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-WDG-MUST-04">
+<tbody>
+<tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
+<div class="line"><span><span class="needs-id"><a class="reference internal" href="#CHI-WDG-MUST-04" title="CHI-WDG-MUST-04">CHI-WDG-MUST-04</a></span> — </span><strong><span><span class="needs_title"><span class="needs_data">Initialization</span></span></span></strong></div>
+</div>
+</td>
+</tr>
+<tr class="need meta row-even"><td class="need meta"></td>
+</tr>
+<tr class="need content row-odd"><td class="need content" colspan="1"><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">Wdg_Init</span></code> MUST initialize the driver and the watchdog hardware, applying the configured
+default mode and initial timeout. <code class="docutils literal notranslate"><span class="pre">configPtr</span></code> MUST be <code class="docutils literal notranslate"><span class="pre">NULL_PTR</span></code>.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Mode and timeout</div>
+<div class="need_container docutils container" id="SNCB-f522dc46">
+<table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-WDG-MUST-05">
+<tbody>
+<tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
+<div class="line"><span><span class="needs-id"><a class="reference internal" href="#CHI-WDG-MUST-05" title="CHI-WDG-MUST-05">CHI-WDG-MUST-05</a></span> — </span><strong><span><span class="needs_title"><span class="needs_data">Mode switching</span></span></span></strong></div>
+</div>
+</td>
+</tr>
+<tr class="need meta row-even"><td class="need meta"></td>
+</tr>
+<tr class="need content row-odd"><td class="need content" colspan="1"><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">Wdg_SetMode</span></code> MUST transition the watchdog to the requested mode, update the hardware
+settings accordingly, and reset the timeout to that mode’s default. It MUST return
+<code class="docutils literal notranslate"><span class="pre">E_NOT_OK</span></code> if a development error is detected.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="need_container docutils container" id="SNCB-6366d87d">
+<table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-WDG-MUST-06">
+<tbody>
+<tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
+<div class="line"><span><span class="needs-id"><a class="reference internal" href="#CHI-WDG-MUST-06" title="CHI-WDG-MUST-06">CHI-WDG-MUST-06</a></span> — </span><strong><span><span class="needs_title"><span class="needs_data">Timeout update</span></span></span></strong></div>
+</div>
+</td>
+</tr>
+<tr class="need meta row-even"><td class="need meta"></td>
+</tr>
+<tr class="need content row-odd"><td class="need content" colspan="1"><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">Wdg_UpdateTimeout</span></code> MUST delay the watchdog reset until the given timeout (milliseconds)
+elapses. A <code class="docutils literal notranslate"><span class="pre">timeout</span></code> of <code class="docutils literal notranslate"><span class="pre">0</span></code> MUST cause an (almost) immediate reset.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Errors, types, and configuration</div>
+<div class="need_container docutils container" id="SNCB-5edb4663">
+<table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-WDG-MUST-07">
+<tbody>
+<tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
+<div class="line"><span><span class="needs-id"><a class="reference internal" href="#CHI-WDG-MUST-07" title="CHI-WDG-MUST-07">CHI-WDG-MUST-07</a></span> — </span><strong><span><span class="needs_title"><span class="needs_data">Development error detection</span></span></span></strong></div>
+</div>
+</td>
+</tr>
+<tr class="need meta row-even"><td class="need meta"></td>
+</tr>
+<tr class="need content row-odd"><td class="need content" colspan="1"><p class="sd-card-text">When development error reporting is enabled, each API MUST detect the conditions listed in
+<a class="reference internal" href="reference/02_errors.html"><span class="doc">Errors</span></a> and report them via <code class="docutils literal notranslate"><span class="pre">LogM_Report</span></code> (<a class="reference internal" href="../../01_general/04_requirements.html#CHI-GEN-MUST-10" title="CHI-GEN-MUST-10"><em class="xref need">CHI-GEN-MUST-10</em></a>).</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="need_container docutils container" id="SNCB-0213c402">
+<table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-WDG-MUST-08">
+<tbody>
+<tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
+<div class="line"><span><span class="needs-id"><a class="reference internal" href="#CHI-WDG-MUST-08" title="CHI-WDG-MUST-08">CHI-WDG-MUST-08</a></span> — </span><strong><span><span class="needs_title"><span class="needs_data">Public types and error identifiers</span></span></span></strong></div>
+</div>
+</td>
+</tr>
+<tr class="need meta row-even"><td class="need meta"></td>
+</tr>
+<tr class="need content row-odd"><td class="need content" colspan="1"><p class="sd-card-text">The driver MUST provide <code class="docutils literal notranslate"><span class="pre">Wdg_ConfigType</span></code>, <code class="docutils literal notranslate"><span class="pre">Wdg_ModeType</span></code> (<code class="docutils literal notranslate"><span class="pre">WDG_MODE_OFF</span></code> /
+<code class="docutils literal notranslate"><span class="pre">WDG_MODE_NORMAL</span></code> / <code class="docutils literal notranslate"><span class="pre">WDG_MODE_ALTERNATIVE</span></code>), and the development error identifiers as
+defined in <a class="reference internal" href="reference/00_api.html"><span class="doc">API Reference</span></a> and <a class="reference internal" href="reference/02_errors.html"><span class="doc">Errors</span></a>, and MUST use the shared type
+system from <a class="reference internal" href="../../01_general/index.html"><span class="doc">General</span></a> (<a class="reference internal" href="../../01_general/04_requirements.html#CHI-GEN-MUST-09" title="CHI-GEN-MUST-09"><em class="xref need">CHI-GEN-MUST-09</em></a>).</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="need_container docutils container" id="SNCB-71fcf3f3">
+<table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-WDG-MUST-09">
+<tbody>
+<tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
+<div class="line"><span><span class="needs-id"><a class="reference internal" href="#CHI-WDG-MUST-09" title="CHI-WDG-MUST-09">CHI-WDG-MUST-09</a></span> — </span><strong><span><span class="needs_title"><span class="needs_data">Configuration model</span></span></span></strong></div>
+</div>
+</td>
+</tr>
+<tr class="need meta row-even"><td class="need meta"></td>
+</tr>
+<tr class="need content row-odd"><td class="need content" colspan="1"><p class="sd-card-text">The driver MUST support the configuration model in <a class="reference internal" href="reference/01_configuration.html"><span class="doc">Configuration Reference</span></a> — a
+<code class="docutils literal notranslate"><span class="pre">General</span></code> section and a <code class="docutils literal notranslate"><span class="pre">ConfigSet</span></code> with the default mode, initial and maximum timeouts,
+and per-mode settings — following the common model in <a class="reference internal" href="../../01_general/index.html"><span class="doc">General</span></a>
+(<a class="reference internal" href="../../01_general/04_requirements.html#CHI-GEN-MUST-12" title="CHI-GEN-MUST-12"><em class="xref need">CHI-GEN-MUST-12</em></a>).</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header sd-bg-info sd-bg-text-info">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-light-bulb" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.5c-2.363 0-4 1.69-4 3.75 0 .984.424 1.625.984 2.304l.214.253c.223.264.47.556.673.848.284.411.537.896.621 1.49a.75.75 0 0 1-1.484.211c-.04-.282-.163-.547-.37-.847a8.456 8.456 0 0 0-.542-.68c-.084-.1-.173-.205-.268-.32C3.201 7.75 2.5 6.766 2.5 5.25 2.5 2.31 4.863 0 8 0s5.5 2.31 5.5 5.25c0 1.516-.701 2.5-1.328 3.259-.095.115-.184.22-.268.319-.207.245-.383.453-.541.681-.208.3-.33.565-.37.847a.751.751 0 0 1-1.485-.212c.084-.593.337-1.078.621-1.489.203-.292.45-.584.673-.848.075-.088.147-.173.213-.253.561-.679.985-1.32.985-2.304 0-2.06-1.637-3.75-4-3.75ZM5.75 12h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM6 15.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75Z"></path></svg></span><span class="sd-summary-text">Recommended (SHOULD) - 3 Requirements</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Logical timeout management</div>
+<div class="need_container docutils container" id="SNCB-33c91fb0">
+<table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-WDG-SHOULD-01">
+<tbody>
+<tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
+<div class="line"><span><span class="needs-id"><a class="reference internal" href="#CHI-WDG-SHOULD-01" title="CHI-WDG-SHOULD-01">CHI-WDG-SHOULD-01</a></span> — </span><strong><span><span class="needs_title"><span class="needs_data">Logical timeout management</span></span></span></strong></div>
+</div>
+</td>
+</tr>
+<tr class="need meta row-even"><td class="need meta"></td>
+</tr>
+<tr class="need content row-odd"><td class="need content" colspan="1"><p class="sd-card-text">Where the hardware is too restrictive for direct timeout management (e.g. a write-once
+counter, or coarse/discontinuous timeout values), the driver SHOULD support <strong>logical
+timeout management</strong> — keeping the timeout in software and using a periodic timer to trigger
+the hardware via <code class="docutils literal notranslate"><span class="pre">Wdg_FeedHw</span></code>.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="need_container docutils container" id="SNCB-17d291e4">
+<table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-WDG-SHOULD-02">
+<tbody>
+<tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
+<div class="line"><span><span class="needs-id"><a class="reference internal" href="#CHI-WDG-SHOULD-02" title="CHI-WDG-SHOULD-02">CHI-WDG-SHOULD-02</a></span> — </span><strong><span><span class="needs_title"><span class="needs_data">Watchdog feed</span></span></span></strong></div>
+</div>
+</td>
+</tr>
+<tr class="need meta row-even"><td class="need meta"></td>
+</tr>
+<tr class="need content row-odd"><td class="need content" colspan="1"><p class="sd-card-text">For logical timeout management, <code class="docutils literal notranslate"><span class="pre">Wdg_FeedHw</span></code> SHOULD trigger the watchdog hardware,
+decrementing the timeout by the (configured, per-mode) call interval and MUST NOT trigger the
+hardware once the timeout has expired. The periodic call of <code class="docutils literal notranslate"><span class="pre">Wdg_FeedHw</span></code> is the upper
+layer’s responsibility — the driver does not set up timer hardware.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Previous-timeout evaluation</div>
+<div class="need_container docutils container" id="SNCB-765a1084">
+<table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-WDG-SHOULD-03">
+<tbody>
+<tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
+<div class="line"><span><span class="needs-id"><a class="reference internal" href="#CHI-WDG-SHOULD-03" title="CHI-WDG-SHOULD-03">CHI-WDG-SHOULD-03</a></span> — </span><strong><span><span class="needs_title"><span class="needs_data">Previous-timeout evaluation</span></span></span></strong></div>
+</div>
+</td>
+</tr>
+<tr class="need meta row-even"><td class="need meta"></td>
+</tr>
+<tr class="need content row-odd"><td class="need content" colspan="1"><p class="sd-card-text">For logical timeout management, <code class="docutils literal notranslate"><span class="pre">Wdg_SetMode</span></code> and <code class="docutils literal notranslate"><span class="pre">Wdg_UpdateTimeout</span></code> SHOULD evaluate the
+previous timeout before acting: if it has already expired, the mode / timeout MUST NOT be
+updated (the timeout value is treated as <code class="docutils literal notranslate"><span class="pre">0</span></code>).</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</details></section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="reference/02_errors.html" class="btn btn-neutral float-left" title="Errors" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="01_design_decisions.html" class="btn btn-neutral float-right" title="Design Decisions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026 by Vector Informatik GmbH and Infineon Technologies AG. All rights reserved.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

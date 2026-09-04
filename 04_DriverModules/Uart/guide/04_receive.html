@@ -1,0 +1,218 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Receive &mdash; Chiisai HAL Specification  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css?v=4ae1632d" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-data-viewer/jsonview.bundle.css?v=f6ef2277" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/libs/html/datatables.min.css?v=4b4fd840" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/common_css/needstable.css?v=5e1b6797" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/common_css/need_core.css?v=f5b60a78" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/common_css/need_links.css?v=2150a916" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/common_css/need_style.css?v=92936fa5" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/common_css/need_toggle.css?v=5c6620df" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/modern.css?v=803738c0" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=4f645179" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
+      <script src="../../../_static/sphinx-data-viewer/jsonview.bundle.js?v=18cd53c5"></script>
+      <script src="../../../_static/sphinx-data-viewer/jsonview_loader.js?v=f7ff7e7d"></script>
+      <script src="../../../_static/sphinx-needs/libs/html/datatables.min.js?v=8a4aee21"></script>
+      <script src="../../../_static/sphinx-needs/libs/html/datatables_loader.js?v=a2cae175"></script>
+      <script src="../../../_static/sphinx-needs/libs/html/sphinx_needs_collapse.js?v=dca66431"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Common mistakes" href="05_common_mistakes.html" />
+    <link rel="prev" title="Transmit" href="03_transmit.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            Chiisai HAL Specification
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../00_about/index.html">About This Specification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../01_general/index.html">General</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Chiisai HAL Driver Modules</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../Can/index.html">Can</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../I2c/index.html">I2c</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Lin/index.html">Lin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Mcu/index.html">Mcu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Mem/index.html">Mem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Port/index.html">Port</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Spi/index.html">Spi</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Uart</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../general/index.html">General</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">Guide</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="00_quickstart.html">Quickstart</a></li>
+<li class="toctree-l4"><a class="reference internal" href="01_configuration.html">Configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="02_initialise.html">Initialize the driver</a></li>
+<li class="toctree-l4"><a class="reference internal" href="03_transmit.html">Transmit</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Receive</a></li>
+<li class="toctree-l4"><a class="reference internal" href="05_common_mistakes.html">Common mistakes</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../reference/index.html">Reference</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../00_requirements.html">Uart — Requirements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01_design_decisions.html">Design Decisions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../Wdg/index.html">Wdg</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../appendix.html">Appendix</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Chiisai HAL Specification</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Chiisai HAL Driver Modules</a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Uart</a></li>
+          <li class="breadcrumb-item"><a href="index.html">Guide</a></li>
+      <li class="breadcrumb-item active">Receive</li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="receive">
+<h1>Receive<a class="headerlink" href="#receive" title="Link to this heading"></a></h1>
+<div class="informative admonition">
+<p class="admonition-title">Informative</p>
+<p>How a channel receives data, using the mid-transfer trigger and streaming reception. Binding
+rules: <a class="reference internal" href="../00_requirements.html#CHI-UART-MUST-12" title="CHI-UART-MUST-12"><em class="xref need">CHI-UART-MUST-12</em></a>…<a class="reference internal" href="../00_requirements.html#CHI-UART-MUST-17" title="CHI-UART-MUST-17"><em class="xref need">CHI-UART-MUST-17</em></a> in <a class="reference internal" href="../00_requirements.html"><span class="doc">Uart — Requirements</span></a>.</p>
+</div>
+<section id="start-a-reception">
+<h2>Start a reception<a class="headerlink" href="#start-a-reception" title="Link to this heading"></a></h2>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">static</span><span class="w"> </span><span class="n">uint8</span><span class="w"> </span><span class="n">rxBuf</span><span class="p">[</span><span class="mi">16</span><span class="p">];</span>
+
+<span class="cm">/* notify only when the 16-byte buffer is full */</span>
+<span class="n">Uart_StartRxTransaction</span><span class="p">(</span><span class="mi">0u</span><span class="p">,</span><span class="w"> </span><span class="n">rxBuf</span><span class="p">,</span><span class="w"> </span><span class="mi">16u</span><span class="p">,</span><span class="w"> </span><span class="mi">0u</span><span class="p">);</span><span class="w">   </span><span class="cm">/* channel, buffer, length&gt;0, trigger */</span>
+</pre></div>
+</div>
+<p>Reception runs asynchronously into <code class="docutils literal notranslate"><span class="pre">rxBuf</span></code>. Keep the buffer valid until
+<code class="docutils literal notranslate"><span class="pre">Uart_Callout_OnReception</span></code> fires. The last parameter is <code class="docutils literal notranslate"><span class="pre">additionalRxLenTrg</span></code> (below).</p>
+</section>
+<section id="mid-transfer-trigger-additionalrxlentrg">
+<h2>Mid-transfer trigger (<code class="docutils literal notranslate"><span class="pre">additionalRxLenTrg</span></code>)<a class="headerlink" href="#mid-transfer-trigger-additionalrxlentrg" title="Link to this heading"></a></h2>
+<p>Set <code class="docutils literal notranslate"><span class="pre">additionalRxLenTrg</span> <span class="pre">&gt;</span> <span class="pre">0</span></code> to also be notified <strong>before</strong> the buffer fills — handy to inspect a
+command header, then decide how much more to read:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cm">/* notify at 4 bytes (header), and again when the 16-byte buffer is full */</span>
+<span class="n">Uart_StartRxTransaction</span><span class="p">(</span><span class="mi">0u</span><span class="p">,</span><span class="w"> </span><span class="n">rxBuf</span><span class="p">,</span><span class="w"> </span><span class="mi">16u</span><span class="p">,</span><span class="w"> </span><span class="mi">4u</span><span class="p">);</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">Uart_Callout_OnReception</span><span class="p">(</span><span class="n">uint8</span><span class="w"> </span><span class="n">channelId</span><span class="p">,</span><span class="w"> </span><span class="n">uint16</span><span class="w"> </span><span class="n">length</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">length</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">4u</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="cm">/* header arrived; re-arm the trigger for the announced payload size */</span>
+<span class="w">        </span><span class="n">Uart_SetAdditionalRxLenTrg</span><span class="p">(</span><span class="n">channelId</span><span class="p">,</span><span class="w"> </span><span class="n">payloadLen</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>If the buffer length is a multiple of the trigger and both fire at once,
+<code class="docutils literal notranslate"><span class="pre">Uart_Callout_OnReception</span></code> is called <strong>once</strong>. <code class="docutils literal notranslate"><span class="pre">Uart_SetAdditionalRxLenTrg</span></code> may be called
+<strong>only</strong> from within <code class="docutils literal notranslate"><span class="pre">Uart_Callout_OnReception</span></code>.</p>
+</section>
+<section id="streaming-reception-no-dropped-bytes">
+<h2>Streaming reception (no dropped bytes)<a class="headerlink" href="#streaming-reception-no-dropped-bytes" title="Link to this heading"></a></h2>
+<p>The driver does <strong>not</strong> stop the hardware when the buffer fills — so you can hand over the next
+buffer from inside the callout without losing incoming bytes:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">Uart_Callout_OnReception</span><span class="p">(</span><span class="n">uint8</span><span class="w"> </span><span class="n">channelId</span><span class="p">,</span><span class="w"> </span><span class="n">uint16</span><span class="w"> </span><span class="n">length</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="cm">/* keep receiving into a fresh buffer */</span>
+<span class="w">    </span><span class="n">Uart_StartRxTransaction</span><span class="p">(</span><span class="n">channelId</span><span class="p">,</span><span class="w"> </span><span class="n">nextBuf</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">nextBuf</span><span class="p">),</span><span class="w"> </span><span class="mi">0u</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>If you do <strong>not</strong> call <code class="docutils literal notranslate"><span class="pre">Uart_StartRxTransaction</span></code> in the callout, the driver stops reception after
+the callout returns.</p>
+</section>
+<section id="cancel-a-reception">
+<h2>Cancel a reception<a class="headerlink" href="#cancel-a-reception" title="Link to this heading"></a></h2>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">Uart_CancelRxTransaction</span><span class="p">(</span><span class="mi">0u</span><span class="p">);</span><span class="w">   </span><span class="cm">/* stop HW reception now */</span>
+</pre></div>
+</div>
+<p>Use it to stop the streaming hardware explicitly — for example after interpreting a command chunk
+and deciding no more data is needed. It returns <code class="docutils literal notranslate"><span class="pre">E_OK</span></code> even if no reception was ongoing.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>On an RX error (including HW buffer overflow) the driver stops reception and reports it via
+<a class="reference internal" href="../../../01_general/reference/02_services.html#gen-ref-logm"><span class="std std-ref">LogM_Report</span></a> at runtime-error level with <code class="docutils literal notranslate"><span class="pre">UART_RTERR_RX</span></code> /
+<code class="docutils literal notranslate"><span class="pre">UART_RTERR_RX_OVERFLOW</span></code> (<a class="reference internal" href="../00_requirements.html#CHI-UART-MUST-17" title="CHI-UART-MUST-17"><em class="xref need">CHI-UART-MUST-17</em></a>).</p>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="03_transmit.html" class="btn btn-neutral float-left" title="Transmit" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="05_common_mistakes.html" class="btn btn-neutral float-right" title="Common mistakes" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026 by Vector Informatik GmbH and Infineon Technologies AG. All rights reserved.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

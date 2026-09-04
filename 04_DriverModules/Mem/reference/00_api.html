@@ -1,0 +1,1068 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>API Reference &mdash; Chiisai HAL Specification  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css?v=4ae1632d" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-data-viewer/jsonview.bundle.css?v=f6ef2277" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/libs/html/datatables.min.css?v=4b4fd840" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/common_css/needstable.css?v=5e1b6797" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/common_css/need_core.css?v=f5b60a78" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/common_css/need_links.css?v=2150a916" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/common_css/need_style.css?v=92936fa5" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/common_css/need_toggle.css?v=5c6620df" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/modern.css?v=803738c0" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=4f645179" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
+      <script src="../../../_static/sphinx-data-viewer/jsonview.bundle.js?v=18cd53c5"></script>
+      <script src="../../../_static/sphinx-data-viewer/jsonview_loader.js?v=f7ff7e7d"></script>
+      <script src="../../../_static/sphinx-needs/libs/html/datatables.min.js?v=8a4aee21"></script>
+      <script src="../../../_static/sphinx-needs/libs/html/datatables_loader.js?v=a2cae175"></script>
+      <script src="../../../_static/sphinx-needs/libs/html/sphinx_needs_collapse.js?v=dca66431"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Configuration Reference" href="01_configuration.html" />
+    <link rel="prev" title="Reference" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            Chiisai HAL Specification
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../00_about/index.html">About This Specification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../01_general/index.html">General</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Chiisai HAL Driver Modules</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../Can/index.html">Can</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../I2c/index.html">I2c</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Lin/index.html">Lin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Mcu/index.html">Mcu</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Mem</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../general/index.html">General</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../guide/index.html">Guide</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">Reference</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">API Reference</a></li>
+<li class="toctree-l4"><a class="reference internal" href="01_configuration.html">Configuration Reference</a></li>
+<li class="toctree-l4"><a class="reference internal" href="02_errors.html">Errors</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../00_requirements.html">Mem — Requirements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01_design_decisions.html">Design Decisions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../Port/index.html">Port</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Spi/index.html">Spi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Uart/index.html">Uart</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Wdg/index.html">Wdg</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../appendix.html">Appendix</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Chiisai HAL Specification</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Chiisai HAL Driver Modules</a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Mem</a></li>
+          <li class="breadcrumb-item"><a href="index.html">Reference</a></li>
+      <li class="breadcrumb-item active">API Reference</li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="api-reference">
+<h1>API Reference<a class="headerlink" href="#api-reference" title="Link to this heading"></a></h1>
+<div class="normative admonition">
+<p class="admonition-title">Normative</p>
+<p>The memory driver API contract. A conformant driver <strong>MUST</strong> provide these types and functions
+with the behavior described. Signatures and member documentation are extracted from the driver
+headers with Doxygen/Breathe. Keywords per <a class="reference internal" href="../../../00_about/01_keywords.html"><span class="doc">Requirement Keywords</span></a>; behavioral rules in
+<a class="reference internal" href="../00_requirements.html"><span class="doc">Mem — Requirements</span></a>; error codes in <a class="reference internal" href="02_errors.html"><span class="doc">Errors</span></a>.</p>
+</div>
+<p class="rubric">Data types at a glance</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 32.0%" />
+<col style="width: 14.0%" />
+<col style="width: 54.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Type</p></th>
+<th class="head"><p>Kind</p></th>
+<th class="head"><p>Purpose</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference internal" href="#mem-api-mem-configtype"><span class="std std-ref">Mem_ConfigType</span></a></p></td>
+<td><p>struct</p></td>
+<td><p>Root configuration (build-time; <code class="docutils literal notranslate"><span class="pre">Mem_Init</span></code> takes <code class="docutils literal notranslate"><span class="pre">NULL_PTR</span></code>).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mem-api-mem-instanceidtype"><span class="std std-ref">Mem_InstanceIdType</span></a></p></td>
+<td><p>typedef</p></td>
+<td><p>Identifies a memory instance.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#mem-api-mem-addresstype"><span class="std std-ref">Mem_AddressType</span></a> / <a class="reference internal" href="#mem-api-mem-lengthtype"><span class="std std-ref">Mem_LengthType</span></a></p></td>
+<td><p>typedef</p></td>
+<td><p>32-bit device address / length.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mem-api-mem-datatype"><span class="std std-ref">Mem_DataType</span></a></p></td>
+<td><p>typedef</p></td>
+<td><p>Read/write buffer element.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#mem-api-mem-jobresulttype"><span class="std std-ref">Mem_JobResultType</span></a></p></td>
+<td><p>enum</p></td>
+<td><p>Asynchronous job status / result.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mem-api-mem-hwserviceidtype"><span class="std std-ref">Mem_HwServiceIdType</span></a></p></td>
+<td><p>typedef</p></td>
+<td><p>Selector for a hardware-specific service.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#mem-api-mem-binaryheadertype"><span class="std std-ref">Mem_BinaryHeaderType</span></a></p></td>
+<td><p>struct</p></td>
+<td><p>Binary-image header + service function-pointer table.</p></td>
+</tr>
+</tbody>
+</table>
+<p><code class="docutils literal notranslate"><span class="pre">E_MEM_SERVICE_NOT_AVAIL</span></code> extends <code class="docutils literal notranslate"><span class="pre">Std_ReturnType</span></code> for optional services that a device does not
+implement.</p>
+<p class="rubric">API at a glance</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 34.0%" />
+<col style="width: 30.0%" />
+<col style="width: 36.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Function</p></th>
+<th class="head"><p>Group</p></th>
+<th class="head"><p>Purpose</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference internal" href="#mem-api-mem-init"><span class="std std-ref">Mem_Init</span></a></p></td>
+<td><p>Initialization and shutdown</p></td>
+<td><p>Initialize the driver.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mem-api-mem-deinit"><span class="std std-ref">Mem_DeInit</span></a></p></td>
+<td><p>Initialization and shutdown</p></td>
+<td><p>Cancel any job and de-initialize.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#mem-api-mem-read"><span class="std std-ref">Mem_Read</span></a></p></td>
+<td><p>Memory jobs</p></td>
+<td><p>Start an asynchronous read.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mem-api-mem-write"><span class="std std-ref">Mem_Write</span></a></p></td>
+<td><p>Memory jobs</p></td>
+<td><p>Start an asynchronous write.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#mem-api-mem-erase"><span class="std std-ref">Mem_Erase</span></a></p></td>
+<td><p>Memory jobs</p></td>
+<td><p>Start an asynchronous erase.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mem-api-mem-verifyblank"><span class="std std-ref">Mem_VerifyBlank</span></a></p></td>
+<td><p>Memory jobs</p></td>
+<td><p>Start an asynchronous blank check.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#mem-api-mem-getjobresult"><span class="std std-ref">Mem_GetJobResult</span></a></p></td>
+<td><p>Job control and status</p></td>
+<td><p>Read the most recent job result.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mem-api-mem-suspendjob"><span class="std std-ref">Mem_SuspendJob</span></a></p></td>
+<td><p>Job control and status</p></td>
+<td><p>Suspend the active job.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#mem-api-mem-resumejob"><span class="std std-ref">Mem_ResumeJob</span></a></p></td>
+<td><p>Job control and status</p></td>
+<td><p>Resume a suspended job.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mem-api-mem-onerror"><span class="std std-ref">Mem_OnError</span></a></p></td>
+<td><p>Job control and status</p></td>
+<td><p>ECC-handler entry point (cancels the job).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#mem-api-mem-hwspecificservice"><span class="std std-ref">Mem_HwSpecificService</span></a></p></td>
+<td><p>Hardware service and scheduling</p></td>
+<td><p>Dispatch a hardware-specific service.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mem-api-mem-pollfunction"><span class="std std-ref">Mem_PollFunction</span></a></p></td>
+<td><p>Hardware service and scheduling</p></td>
+<td><p>Advance asynchronous jobs.</p></td>
+</tr>
+</tbody>
+</table>
+<p>The only integrator-provided interface is <a class="reference internal" href="../../../01_general/reference/02_services.html#gen-ref-logm"><span class="std std-ref">LogM_Report</span></a> (and, where used, the
+<a class="reference internal" href="../../../01_general/reference/02_services.html#gen-ref-critical-section"><span class="std std-ref">critical-section services</span></a>), documented in the general reference.</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-list-unordered" viewBox="0 0 16 16" aria-hidden="true"><path d="M5.75 2.5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5Zm0 5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5Zm0 5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5ZM2 14a1 1 0 1 1 0-2 1 1 0 0 1 0 2Zm1-6a1 1 0 1 1-2 0 1 1 0 0 1 2 0ZM2 4a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg></span><span class="sd-summary-text">Data types</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils" id="mem-api-mem-configtype">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Mem_ConfigType</div>
+<dl class="cpp struct">
+<dt class="sig sig-object cpp" id="_CPPv414Mem_ConfigType">
+<span id="_CPPv314Mem_ConfigType"></span><span id="_CPPv214Mem_ConfigType"></span><span id="Mem_ConfigType"></span><span class="target" id="struct_mem___config_type"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Mem_ConfigType</span></span></span><a class="headerlink" href="#_CPPv414Mem_ConfigType" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">Runtime-Selectable configuration structure type. </p>
+</dd></dl>
+
+<p class="sd-card-text">Configuration variants are selected at build time; <code class="docutils literal notranslate"><span class="pre">Mem_Init</span></code> currently takes <code class="docutils literal notranslate"><span class="pre">NULL_PTR</span></code>.
+<em>Available via:</em> <code class="docutils literal notranslate"><span class="pre">Mem.h</span></code></p>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils" id="mem-api-mem-instanceidtype">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Mem_InstanceIdType</div>
+<dl class="cpp type">
+<dt class="sig sig-object cpp" id="_CPPv418Mem_InstanceIdType">
+<span id="_CPPv318Mem_InstanceIdType"></span><span id="_CPPv218Mem_InstanceIdType"></span><span id="Mem_InstanceIdType"></span><span class="target" id="_mem_if___driver_types_8h_1ae2ec2ab6fbc0e772feb1596938c51e24"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="n"><span class="pre">uint8</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Mem_InstanceIdType</span></span></span><a class="headerlink" href="#_CPPv418Mem_InstanceIdType" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">Identifies the memory instance. </p>
+</dd></dl>
+
+<p class="sd-card-text"><em>Available via:</em> <code class="docutils literal notranslate"><span class="pre">MemIf_DriverTypes.h</span></code></p>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils" id="mem-api-mem-addresstype">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Mem_AddressType</div>
+<dl class="cpp type">
+<dt class="sig sig-object cpp" id="_CPPv415Mem_AddressType">
+<span id="_CPPv315Mem_AddressType"></span><span id="_CPPv215Mem_AddressType"></span><span id="Mem_AddressType"></span><span class="target" id="_mem_if___driver_types_8h_1afe24327ebf58423e8059654dbd16b6a6"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="n"><span class="pre">uint32</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Mem_AddressType</span></span></span><a class="headerlink" href="#_CPPv415Mem_AddressType" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">Physical memory device address type. </p>
+</dd></dl>
+
+<p class="sd-card-text"><em>Available via:</em> <code class="docutils literal notranslate"><span class="pre">MemIf_DriverTypes.h</span></code></p>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils" id="mem-api-mem-lengthtype">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Mem_LengthType</div>
+<dl class="cpp type">
+<dt class="sig sig-object cpp" id="_CPPv414Mem_LengthType">
+<span id="_CPPv314Mem_LengthType"></span><span id="_CPPv214Mem_LengthType"></span><span id="Mem_LengthType"></span><span class="target" id="_mem_if___driver_types_8h_1a7c99474ac9a0f6116411b7a3ad90db0d"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="n"><span class="pre">uint32</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Mem_LengthType</span></span></span><a class="headerlink" href="#_CPPv414Mem_LengthType" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">Physical memory device length type. </p>
+</dd></dl>
+
+<p class="sd-card-text"><em>Available via:</em> <code class="docutils literal notranslate"><span class="pre">MemIf_DriverTypes.h</span></code></p>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils" id="mem-api-mem-datatype">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Mem_DataType</div>
+<dl class="cpp type">
+<dt class="sig sig-object cpp" id="_CPPv412Mem_DataType">
+<span id="_CPPv312Mem_DataType"></span><span id="_CPPv212Mem_DataType"></span><span id="Mem_DataType"></span><span class="target" id="_mem_if___driver_types_8h_1a45fb9fe4175a934ef4adbc0c9539ba92"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="n"><span class="pre">uint8</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Mem_DataType</span></span></span><a class="headerlink" href="#_CPPv412Mem_DataType" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">Read data user buffer type. </p>
+</dd></dl>
+
+<p class="sd-card-text"><em>Available via:</em> <code class="docutils literal notranslate"><span class="pre">MemIf_DriverTypes.h</span></code></p>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils" id="mem-api-mem-jobresulttype">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Mem_JobResultType</div>
+<dl class="cpp enum">
+<dt class="sig sig-object cpp" id="_CPPv417Mem_JobResultType">
+<span id="_CPPv317Mem_JobResultType"></span><span id="_CPPv217Mem_JobResultType"></span><span class="target" id="_mem_if___driver_types_8h_1a4db0d5d9fa7728fe1952db221f7c3562"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Mem_JobResultType</span></span></span><a class="headerlink" href="#_CPPv417Mem_JobResultType" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">Asynchronous job result type. </p>
+<p class="sd-card-text"><em>Values:</em></p>
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N17Mem_JobResultType16MEM_JOB_FINISHEDE">
+<span id="_CPPv3N17Mem_JobResultType16MEM_JOB_FINISHEDE"></span><span id="_CPPv2N17Mem_JobResultType16MEM_JOB_FINISHEDE"></span><span class="target" id="_mem_if___driver_types_8h_1a4db0d5d9fa7728fe1952db221f7c3562a57d2dde3fc5dc871d28c5c74eade023c"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">MEM_JOB_FINISHED</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0x00</span></span><a class="headerlink" href="#_CPPv4N17Mem_JobResultType16MEM_JOB_FINISHEDE" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">The last job has been finished successfully </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N17Mem_JobResultType15MEM_JOB_PENDINGE">
+<span id="_CPPv3N17Mem_JobResultType15MEM_JOB_PENDINGE"></span><span id="_CPPv2N17Mem_JobResultType15MEM_JOB_PENDINGE"></span><span class="target" id="_mem_if___driver_types_8h_1a4db0d5d9fa7728fe1952db221f7c3562a76331fc45332b2f0fa187a9e064d64e7"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">MEM_JOB_PENDING</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0x01</span></span><a class="headerlink" href="#_CPPv4N17Mem_JobResultType15MEM_JOB_PENDINGE" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">A job is currently being processed </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N17Mem_JobResultType14MEM_JOB_FAILEDE">
+<span id="_CPPv3N17Mem_JobResultType14MEM_JOB_FAILEDE"></span><span id="_CPPv2N17Mem_JobResultType14MEM_JOB_FAILEDE"></span><span class="target" id="_mem_if___driver_types_8h_1a4db0d5d9fa7728fe1952db221f7c3562a0d2aee802fac2db92148a6e0fa51478c"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">MEM_JOB_FAILED</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0x02</span></span><a class="headerlink" href="#_CPPv4N17Mem_JobResultType14MEM_JOB_FAILEDE" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">Job failed for some unspecific reason </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N17Mem_JobResultType25MEM_JOB_PAGE_INCONSISTENTE">
+<span id="_CPPv3N17Mem_JobResultType25MEM_JOB_PAGE_INCONSISTENTE"></span><span id="_CPPv2N17Mem_JobResultType25MEM_JOB_PAGE_INCONSISTENTE"></span><span class="target" id="_mem_if___driver_types_8h_1a4db0d5d9fa7728fe1952db221f7c3562abbbd1bfac7fe070b848706b5cfb182ed"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">MEM_JOB_PAGE_INCONSISTENT</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0x03</span></span><a class="headerlink" href="#_CPPv4N17Mem_JobResultType25MEM_JOB_PAGE_INCONSISTENTE" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">The checked page is not blank </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N17Mem_JobResultType29MEM_JOB_ERROR_ECC_UNCORRECTEDE">
+<span id="_CPPv3N17Mem_JobResultType29MEM_JOB_ERROR_ECC_UNCORRECTEDE"></span><span id="_CPPv2N17Mem_JobResultType29MEM_JOB_ERROR_ECC_UNCORRECTEDE"></span><span class="target" id="_mem_if___driver_types_8h_1a4db0d5d9fa7728fe1952db221f7c3562a1d86684779e4a2f1bb39ac8e6cb6905d"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">MEM_JOB_ERROR_ECC_UNCORRECTED</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0x04</span></span><a class="headerlink" href="#_CPPv4N17Mem_JobResultType29MEM_JOB_ERROR_ECC_UNCORRECTEDE" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">Uncorrectable <a class="reference internal" href="../../../appendix.html#term-ECC"><span class="xref std std-term">ECC</span></a> errors occurred during memory access </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N17Mem_JobResultType27MEM_JOB_ERROR_ECC_CORRECTEDE">
+<span id="_CPPv3N17Mem_JobResultType27MEM_JOB_ERROR_ECC_CORRECTEDE"></span><span id="_CPPv2N17Mem_JobResultType27MEM_JOB_ERROR_ECC_CORRECTEDE"></span><span class="target" id="_mem_if___driver_types_8h_1a4db0d5d9fa7728fe1952db221f7c3562a29761ca22a0996f21c6725474ee5045d"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">MEM_JOB_ERROR_ECC_CORRECTED</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0x05</span></span><a class="headerlink" href="#_CPPv4N17Mem_JobResultType27MEM_JOB_ERROR_ECC_CORRECTEDE" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">Correctable <a class="reference internal" href="../../../appendix.html#term-ECC"><span class="xref std std-term">ECC</span></a> errors occurred during memory access </p>
+</dd></dl>
+
+</dd></dl>
+
+<p class="sd-card-text"><em>Available via:</em> <code class="docutils literal notranslate"><span class="pre">MemIf_DriverTypes.h</span></code></p>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils" id="mem-api-mem-hwserviceidtype">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Mem_HwServiceIdType</div>
+<dl class="cpp type">
+<dt class="sig sig-object cpp" id="_CPPv419Mem_HwServiceIdType">
+<span id="_CPPv319Mem_HwServiceIdType"></span><span id="_CPPv219Mem_HwServiceIdType"></span><span id="Mem_HwServiceIdType"></span><span class="target" id="_mem_if___driver_types_8h_1a1382ba9e25a22b18e1797acb32d80944"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="n"><span class="pre">uint8</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Mem_HwServiceIdType</span></span></span><a class="headerlink" href="#_CPPv419Mem_HwServiceIdType" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">Hardware specific service request identifier type. </p>
+</dd></dl>
+
+<p class="sd-card-text">A plain identifier; the set of valid ids is implementation-defined. <em>Available via:</em>
+<code class="docutils literal notranslate"><span class="pre">MemIf_DriverTypes.h</span></code></p>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils" id="mem-api-mem-binaryheadertype">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Mem_BinaryHeaderType</div>
+<dl class="cpp struct">
+<dt class="sig sig-object cpp" id="_CPPv420Mem_BinaryHeaderType">
+<span id="_CPPv320Mem_BinaryHeaderType"></span><span id="_CPPv220Mem_BinaryHeaderType"></span><span id="Mem_BinaryHeaderType"></span><span class="target" id="struct_mem___binary_header_type"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Mem_BinaryHeaderType</span></span></span><a class="headerlink" href="#_CPPv420Mem_BinaryHeaderType" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">This structure contains elements for accessing the Mem driver service functions and consistency information. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N20Mem_BinaryHeaderType8uniqueIdE">
+<span id="_CPPv3N20Mem_BinaryHeaderType8uniqueIdE"></span><span id="_CPPv2N20Mem_BinaryHeaderType8uniqueIdE"></span><span id="Mem_BinaryHeaderType::uniqueId__uint64"></span><span class="target" id="struct_mem___binary_header_type_1abf7aae39fbe554a10702d38f949f2966"></span><span class="n"><span class="pre">uint64</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">uniqueId</span></span></span><a class="headerlink" href="#_CPPv4N20Mem_BinaryHeaderType8uniqueIdE" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">Unique ID </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N20Mem_BinaryHeaderType5flagsE">
+<span id="_CPPv3N20Mem_BinaryHeaderType5flagsE"></span><span id="_CPPv2N20Mem_BinaryHeaderType5flagsE"></span><span id="Mem_BinaryHeaderType::flags__uint64"></span><span class="target" id="struct_mem___binary_header_type_1af3a7e204ad97e30fd289d278a4e567c9"></span><span class="n"><span class="pre">uint64</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">flags</span></span></span><a class="headerlink" href="#_CPPv4N20Mem_BinaryHeaderType5flagsE" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">Header flags </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N20Mem_BinaryHeaderType6headerE">
+<span id="_CPPv3N20Mem_BinaryHeaderType6headerE"></span><span id="_CPPv2N20Mem_BinaryHeaderType6headerE"></span><span id="Mem_BinaryHeaderType::header__uint32"></span><span class="target" id="struct_mem___binary_header_type_1a707c0054f4fae4f3132437bc06e35066"></span><span class="n"><span class="pre">uint32</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">header</span></span></span><a class="headerlink" href="#_CPPv4N20Mem_BinaryHeaderType6headerE" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">Address of Mem driver header structure </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N20Mem_BinaryHeaderType9delimiterE">
+<span id="_CPPv3N20Mem_BinaryHeaderType9delimiterE"></span><span id="_CPPv2N20Mem_BinaryHeaderType9delimiterE"></span><span id="Mem_BinaryHeaderType::delimiter__uint32"></span><span class="target" id="struct_mem___binary_header_type_1ae39474ed6f70b8627e1510cf998b170b"></span><span class="n"><span class="pre">uint32</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">delimiter</span></span></span><a class="headerlink" href="#_CPPv4N20Mem_BinaryHeaderType9delimiterE" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">Address of Mem driver delimiter field </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N20Mem_BinaryHeaderType8initFuncE">
+<span id="_CPPv3N20Mem_BinaryHeaderType8initFuncE"></span><span id="_CPPv2N20Mem_BinaryHeaderType8initFuncE"></span><span id="Mem_BinaryHeaderType::initFunc__Mem_InitFuncType"></span><span class="target" id="struct_mem___binary_header_type_1a155a6be6bad8fed684a7d51b946f18a4"></span><span class="n"><span class="pre">Mem_InitFuncType</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">initFunc</span></span></span><a class="headerlink" href="#_CPPv4N20Mem_BinaryHeaderType8initFuncE" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">Mem_Init function pointer </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N20Mem_BinaryHeaderType10deInitFuncE">
+<span id="_CPPv3N20Mem_BinaryHeaderType10deInitFuncE"></span><span id="_CPPv2N20Mem_BinaryHeaderType10deInitFuncE"></span><span id="Mem_BinaryHeaderType::deInitFunc__Mem_DeInitFuncType"></span><span class="target" id="struct_mem___binary_header_type_1aec0283f90ec99b219651d47710ac06c0"></span><span class="n"><span class="pre">Mem_DeInitFuncType</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">deInitFunc</span></span></span><a class="headerlink" href="#_CPPv4N20Mem_BinaryHeaderType10deInitFuncE" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">Mem_DeInit function pointer </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N20Mem_BinaryHeaderType16pollFunctionFuncE">
+<span id="_CPPv3N20Mem_BinaryHeaderType16pollFunctionFuncE"></span><span id="_CPPv2N20Mem_BinaryHeaderType16pollFunctionFuncE"></span><span id="Mem_BinaryHeaderType::pollFunctionFunc__Mem_PollFunctionFuncType"></span><span class="target" id="struct_mem___binary_header_type_1af2fd3f661234135b6fce284a8a88e8ab"></span><span class="n"><span class="pre">Mem_PollFunctionFuncType</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">pollFunctionFunc</span></span></span><a class="headerlink" href="#_CPPv4N20Mem_BinaryHeaderType16pollFunctionFuncE" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">Mem_PollFunction function pointer </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N20Mem_BinaryHeaderType16getJobResultFuncE">
+<span id="_CPPv3N20Mem_BinaryHeaderType16getJobResultFuncE"></span><span id="_CPPv2N20Mem_BinaryHeaderType16getJobResultFuncE"></span><span id="Mem_BinaryHeaderType::getJobResultFunc__Mem_GetJobResultFuncType"></span><span class="target" id="struct_mem___binary_header_type_1a72a732cae3a35bfb9967c449e1a43b3e"></span><span class="n"><span class="pre">Mem_GetJobResultFuncType</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getJobResultFunc</span></span></span><a class="headerlink" href="#_CPPv4N20Mem_BinaryHeaderType16getJobResultFuncE" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">Mem_GetJobResult function pointer </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N20Mem_BinaryHeaderType8readFuncE">
+<span id="_CPPv3N20Mem_BinaryHeaderType8readFuncE"></span><span id="_CPPv2N20Mem_BinaryHeaderType8readFuncE"></span><span id="Mem_BinaryHeaderType::readFunc__Mem_ReadFuncType"></span><span class="target" id="struct_mem___binary_header_type_1a5a65ce5baa18645271ac53538506fc74"></span><span class="n"><span class="pre">Mem_ReadFuncType</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">readFunc</span></span></span><a class="headerlink" href="#_CPPv4N20Mem_BinaryHeaderType8readFuncE" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">Mem_Read function pointer </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N20Mem_BinaryHeaderType9writeFuncE">
+<span id="_CPPv3N20Mem_BinaryHeaderType9writeFuncE"></span><span id="_CPPv2N20Mem_BinaryHeaderType9writeFuncE"></span><span id="Mem_BinaryHeaderType::writeFunc__Mem_WriteFuncType"></span><span class="target" id="struct_mem___binary_header_type_1ae5cc42767480ba8abf99707450fc24c2"></span><span class="n"><span class="pre">Mem_WriteFuncType</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">writeFunc</span></span></span><a class="headerlink" href="#_CPPv4N20Mem_BinaryHeaderType9writeFuncE" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">Mem_Write function pointer </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N20Mem_BinaryHeaderType9eraseFuncE">
+<span id="_CPPv3N20Mem_BinaryHeaderType9eraseFuncE"></span><span id="_CPPv2N20Mem_BinaryHeaderType9eraseFuncE"></span><span id="Mem_BinaryHeaderType::eraseFunc__Mem_EraseFuncType"></span><span class="target" id="struct_mem___binary_header_type_1aeff6f838f206644c5efdf4147e1ba163"></span><span class="n"><span class="pre">Mem_EraseFuncType</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">eraseFunc</span></span></span><a class="headerlink" href="#_CPPv4N20Mem_BinaryHeaderType9eraseFuncE" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">Mem_Erase function pointer </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N20Mem_BinaryHeaderType11onErrorFuncE">
+<span id="_CPPv3N20Mem_BinaryHeaderType11onErrorFuncE"></span><span id="_CPPv2N20Mem_BinaryHeaderType11onErrorFuncE"></span><span id="Mem_BinaryHeaderType::onErrorFunc__Mem_OnErrorFuncType"></span><span class="target" id="struct_mem___binary_header_type_1a430510bb1af25847d4d7038036b8e559"></span><span class="n"><span class="pre">Mem_OnErrorFuncType</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">onErrorFunc</span></span></span><a class="headerlink" href="#_CPPv4N20Mem_BinaryHeaderType11onErrorFuncE" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">Mem_OnError function pointer </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N20Mem_BinaryHeaderType15verifyBlankFuncE">
+<span id="_CPPv3N20Mem_BinaryHeaderType15verifyBlankFuncE"></span><span id="_CPPv2N20Mem_BinaryHeaderType15verifyBlankFuncE"></span><span id="Mem_BinaryHeaderType::verifyBlankFunc__Mem_VerifyBlankFuncType"></span><span class="target" id="struct_mem___binary_header_type_1a1496e1392b3b5ea4384d4db1b7cbde46"></span><span class="n"><span class="pre">Mem_VerifyBlankFuncType</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">verifyBlankFunc</span></span></span><a class="headerlink" href="#_CPPv4N20Mem_BinaryHeaderType15verifyBlankFuncE" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">Mem_VerifyBlank function pointer </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N20Mem_BinaryHeaderType14suspendJobFuncE">
+<span id="_CPPv3N20Mem_BinaryHeaderType14suspendJobFuncE"></span><span id="_CPPv2N20Mem_BinaryHeaderType14suspendJobFuncE"></span><span id="Mem_BinaryHeaderType::suspendJobFunc__Mem_SuspendJobFuncType"></span><span class="target" id="struct_mem___binary_header_type_1a9208b891e9caebfb5374cf4049bb4970"></span><span class="n"><span class="pre">Mem_SuspendJobFuncType</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">suspendJobFunc</span></span></span><a class="headerlink" href="#_CPPv4N20Mem_BinaryHeaderType14suspendJobFuncE" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">Mem_SuspendJob function pointer </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N20Mem_BinaryHeaderType13resumeJobFuncE">
+<span id="_CPPv3N20Mem_BinaryHeaderType13resumeJobFuncE"></span><span id="_CPPv2N20Mem_BinaryHeaderType13resumeJobFuncE"></span><span id="Mem_BinaryHeaderType::resumeJobFunc__Mem_ResumeJobFuncType"></span><span class="target" id="struct_mem___binary_header_type_1aef466d071080cb2e27c42872c3dad461"></span><span class="n"><span class="pre">Mem_ResumeJobFuncType</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">resumeJobFunc</span></span></span><a class="headerlink" href="#_CPPv4N20Mem_BinaryHeaderType13resumeJobFuncE" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">Mem_ResumeJob function pointer </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N20Mem_BinaryHeaderType21hwSpecificServiceFuncE">
+<span id="_CPPv3N20Mem_BinaryHeaderType21hwSpecificServiceFuncE"></span><span id="_CPPv2N20Mem_BinaryHeaderType21hwSpecificServiceFuncE"></span><span id="Mem_BinaryHeaderType::hwSpecificServiceFunc__Mem_HwSpecificServiceFuncType"></span><span class="target" id="struct_mem___binary_header_type_1aae595859aad8b497fea63bacdcbbe004"></span><span class="n"><span class="pre">Mem_HwSpecificServiceFuncType</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">hwSpecificServiceFunc</span></span></span><a class="headerlink" href="#_CPPv4N20Mem_BinaryHeaderType21hwSpecificServiceFuncE" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">Hardware specific service function pointer </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<p class="sd-card-text">The binary-image header and service function-pointer table (see
+<a class="reference internal" href="../general/01_concepts.html"><span class="doc">Concepts</span></a>). Each API has a matching <code class="docutils literal notranslate"><span class="pre">Mem_*FuncType</span></code> function-pointer type.
+<em>Available via:</em> <code class="docutils literal notranslate"><span class="pre">MemIf_DriverTypes.h</span></code></p>
+</div>
+</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0ZM1.5 8a6.5 6.5 0 1 0 13 0 6.5 6.5 0 0 0-13 0Zm4.879-2.773 4.264 2.559a.25.25 0 0 1 0 .428l-4.264 2.559A.25.25 0 0 1 6 10.559V5.442a.25.25 0 0 1 .379-.215Z"></path></svg></span><span class="sd-summary-text">Initialization and shutdown</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils" id="mem-api-mem-init">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Mem_Init</div>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv48Mem_InitPKv">
+<span id="_CPPv38Mem_InitPKv"></span><span id="_CPPv28Mem_InitPKv"></span><span id="Mem_Init__voidCP"></span><span class="target" id="_mem_8h_1adb89916c437d67dd50d8577d76063687"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Mem_Init</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">configPtr</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv48Mem_InitPKv" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">Initialization function - initializes all variables and sets the module state to initialized. </p>
+<p class="sd-card-text"><dl class="simple">
+<dt><strong>Sync/Async:</strong></dt><dd><p class="sd-card-text">Synchronous </p>
+</dd>
+<dt><strong>Reentrancy:</strong></dt><dd><p class="sd-card-text">Non reentrant </p>
+</dd>
+<dt><strong>Service ID [hex]:</strong></dt><dd><p class="sd-card-text">0x01 </p>
+</dd>
+<dt><strong>Development error(s):</strong></dt><dd><p class="sd-card-text"><ul class="simple">
+<li><p class="sd-card-text"><a class="reference internal" href="02_errors.html#group___mem___development_errors_1ga9a00229b412485007edef917e8f0fe02"><span class="std std-ref">MEM_DEVERR_PARAM_PTR</span></a> configPtr argument is not NULL pointer </p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p class="sd-card-text"><strong>configPtr</strong> – <strong>[in]</strong> <p class="sd-card-text">Pointer to the configuration structure. This parameter is intended for future extensions to support runtime-selectable configuration variants, which allow the selection and initialization of specific variants during runtime. As this functionality is not currently supported, a NULL_PTR SHALL be provided.</p>
+<p class="sd-card-text">Note:To support the common function pointer type definitions, this parameter is given as void pointer even though the actual type is <a class="reference internal" href="../../../appendix.html#term-Mip"><span class="xref std std-term">|&lt;Mip&gt;|</span></a>_ConfigType.</p>
+</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p class="sd-card-text">None. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<p class="sd-card-text"><strong>When to call:</strong> once, before any other memory function. <code class="docutils literal notranslate"><span class="pre">configPtr</span></code> MUST be <code class="docutils literal notranslate"><span class="pre">NULL_PTR</span></code>.
+<strong>Effect:</strong> initialises the driver; each instance’s job result becomes <code class="docutils literal notranslate"><span class="pre">MEM_JOB_FINISHED</span></code>.
+<strong>Errors:</strong> see <a class="reference internal" href="02_errors.html"><span class="doc">Errors</span></a>. <em>Available via:</em> <code class="docutils literal notranslate"><span class="pre">Mem.h</span></code></p>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils" id="mem-api-mem-deinit">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Mem_DeInit</div>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv410Mem_DeInitv">
+<span id="_CPPv310Mem_DeInitv"></span><span id="_CPPv210Mem_DeInitv"></span><span id="Mem_DeInit__void"></span><span class="target" id="_mem_8h_1a8b5eb7036cf789a5af07523dd8952659"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Mem_DeInit</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv410Mem_DeInitv" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">De-initialize module. If there is still an access job pending, it is immediately terminated (using hardware cancel operation) and the Mem driver module state is set to uninitialized. Therefore, Mem must be re-initialized before it will accept any new job requests after this service is processed. </p>
+<p class="sd-card-text"><dl class="simple">
+<dt><strong>Sync/Async:</strong></dt><dd><p class="sd-card-text">Synchronous </p>
+</dd>
+<dt><strong>Reentrancy:</strong></dt><dd><p class="sd-card-text">Non reentrant </p>
+</dd>
+<dt><strong>Service ID [hex]:</strong></dt><dd><p class="sd-card-text">0x0b </p>
+</dd>
+</dl>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p class="sd-card-text"><strong>None</strong> – </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p class="sd-card-text">None. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<p class="sd-card-text"><strong>Effect:</strong> cancels any pending job (via the hardware) and de-initialises the driver.
+<em>Available via:</em> <code class="docutils literal notranslate"><span class="pre">Mem.h</span></code></p>
+</div>
+</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-database" viewBox="0 0 16 16" aria-hidden="true"><path d="M1 3.5c0-.626.292-1.165.7-1.59.406-.422.956-.767 1.579-1.041C4.525.32 6.195 0 8 0c1.805 0 3.475.32 4.722.869.622.274 1.172.62 1.578 1.04.408.426.7.965.7 1.591v9c0 .626-.292 1.165-.7 1.59-.406.422-.956.767-1.579 1.041C11.476 15.68 9.806 16 8 16c-1.805 0-3.475-.32-4.721-.869-.623-.274-1.173-.62-1.579-1.04-.408-.426-.7-.965-.7-1.591Zm1.5 0c0 .133.058.318.282.551.227.237.591.483 1.101.707C4.898 5.205 6.353 5.5 8 5.5c1.646 0 3.101-.295 4.118-.742.508-.224.873-.471 1.1-.708.224-.232.282-.417.282-.55 0-.133-.058-.318-.282-.551-.227-.237-.591-.483-1.101-.707C11.102 1.795 9.647 1.5 8 1.5c-1.646 0-3.101.295-4.118.742-.508.224-.873.471-1.1.708-.224.232-.282.417-.282.55Zm0 4.5c0 .133.058.318.282.551.227.237.591.483 1.101.707C4.898 9.705 6.353 10 8 10c1.646 0 3.101-.295 4.118-.742.508-.224.873-.471 1.1-.708.224-.232.282-.417.282-.55V5.724c-.241.15-.503.286-.778.407C11.475 6.68 9.805 7 8 7c-1.805 0-3.475-.32-4.721-.869a6.15 6.15 0 0 1-.779-.407Zm0 2.225V12.5c0 .133.058.318.282.55.227.237.592.484 1.1.708 1.016.447 2.471.742 4.118.742 1.647 0 3.102-.295 4.117-.742.51-.224.874-.47 1.101-.707.224-.233.282-.418.282-.551v-2.275c-.241.15-.503.285-.778.406-1.247.549-2.917.869-4.722.869-1.805 0-3.475-.32-4.721-.869a6.327 6.327 0 0 1-.779-.406Z"></path></svg></span><span class="sd-summary-text">Memory jobs</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils" id="mem-api-mem-read">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Mem_Read</div>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv48Mem_Read18Mem_InstanceIdType15Mem_AddressTypeP12Mem_DataType14Mem_LengthType">
+<span id="_CPPv38Mem_Read18Mem_InstanceIdType15Mem_AddressTypeP12Mem_DataType14Mem_LengthType"></span><span id="_CPPv28Mem_Read18Mem_InstanceIdType15Mem_AddressTypeP12Mem_DataType14Mem_LengthType"></span><span id="Mem_Read__Mem_InstanceIdType.Mem_AddressType.Mem_DataTypeP.Mem_LengthType"></span><span class="target" id="_mem_8h_1a9997c3de0906f4444a27bf1931f7e3c4"></span><span class="n"><span class="pre">Std_ReturnType</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Mem_Read</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv418Mem_InstanceIdType" title="Mem_InstanceIdType"><span class="n"><span class="pre">Mem_InstanceIdType</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">instanceId</span></span>, <a class="reference internal" href="#_CPPv415Mem_AddressType" title="Mem_AddressType"><span class="n"><span class="pre">Mem_AddressType</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">address</span></span>, <a class="reference internal" href="#_CPPv412Mem_DataType" title="Mem_DataType"><span class="n"><span class="pre">Mem_DataType</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">dataPtr</span></span>, <a class="reference internal" href="#_CPPv414Mem_LengthType" title="Mem_LengthType"><span class="n"><span class="pre">Mem_LengthType</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">length</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv48Mem_Read18Mem_InstanceIdType15Mem_AddressTypeP12Mem_DataType14Mem_LengthType" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">Triggers a read job to copy the data from the source address into the referenced destination data buffer. The result of this service can be retrieved using the Mem_GetJobResult <a class="reference internal" href="../../../appendix.html#term-API"><span class="xref std std-term">API</span></a>. If the read operation was successful, the result of the job is MEM_JOB_FINISHED. If the read operation failed, the result of the job is either MEM_JOB_FAILED in case of a general error or MEM_JOB_ERROR_ECC_CORRECTED/MEM_JOB_ERROR_ECC_UNCORRECTED in case of a correctable/uncorrectable <a class="reference internal" href="../../../appendix.html#term-ECC"><span class="xref std std-term">ECC</span></a> error. </p>
+<p class="sd-card-text"><dl class="simple">
+<dt><strong>Sync/Async:</strong></dt><dd><p class="sd-card-text">Asynchronous </p>
+</dd>
+<dt><strong>Reentrancy:</strong></dt><dd><p class="sd-card-text">Non reentrant </p>
+</dd>
+<dt><strong>Service ID [hex]:</strong></dt><dd><p class="sd-card-text">0x05 </p>
+</dd>
+<dt><strong>Development error(s):</strong></dt><dd><p class="sd-card-text"><ul class="simple">
+<li><p class="sd-card-text"><a class="reference internal" href="02_errors.html#group___mem___development_errors_1ga96c6608f475e2e7fd5f9d53c46f6e99a"><span class="std std-ref">MEM_DEVERR_UNINIT</span></a> MemDrv is not initialized</p></li>
+<li><p class="sd-card-text"><a class="reference internal" href="02_errors.html#group___mem___development_errors_1ga23549576a836c1b6f8814dddd409bc9d"><span class="std std-ref">MEM_DEVERR_PARAM_INSTANCE_ID</span></a> instanceId is not consistent with the configuration.</p></li>
+<li><p class="sd-card-text"><a class="reference internal" href="02_errors.html#group___mem___development_errors_1ga9a00229b412485007edef917e8f0fe02"><span class="std std-ref">MEM_DEVERR_PARAM_PTR</span></a> dataPtr is a NULL pointer</p></li>
+<li><p class="sd-card-text"><a class="reference internal" href="02_errors.html#group___mem___development_errors_1ga9a4b45687a096f68726c3e1f02424739"><span class="std std-ref">MEM_DEVERR_PARAM_ADDR</span></a> address is invalid</p></li>
+<li><p class="sd-card-text"><a class="reference internal" href="02_errors.html#group___mem___development_errors_1ga771dba732230b91f3e79dda9fa57f46f"><span class="std std-ref">MEM_DEVERR_PARAM_LENGTH</span></a> length is invalid</p></li>
+<li><p class="sd-card-text"><a class="reference internal" href="02_errors.html#group___mem___development_errors_1ga0bb28bc7435b9da3bdf5f52338695b96"><span class="std std-ref">MEM_DEVERR_JOB_PENDING</span></a> A previous Mem job is still being processed </p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p class="sd-card-text"><strong>instanceId</strong> – <strong>[in]</strong> ID of the related memory driver instance. </p></li>
+<li><p class="sd-card-text"><strong>address</strong> – <strong>[in]</strong> Physical address to read data from. </p></li>
+<li><p class="sd-card-text"><strong>length</strong> – <strong>[in]</strong> Read length in bytes. </p></li>
+<li><p class="sd-card-text"><strong>dataPtr</strong> – <strong>[out]</strong> Destination memory pointer to store the read data. </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p class="sd-card-text"><strong>E_OK</strong> – The requested job has been accepted by the module. </p></li>
+<li><p class="sd-card-text"><strong>E_NOT_OK</strong> – The requested job has not been accepted by the module. </p></li>
+<li><p class="sd-card-text"><strong>E_MEM_SERVICE_NOT_AVAIL</strong> – The service </p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p class="sd-card-text">Std_ReturnType </p>
+</dd>
+</dl>
+</dd></dl>
+
+<p class="sd-card-text"><strong>Effect:</strong> starts an asynchronous read of <code class="docutils literal notranslate"><span class="pre">length</span></code> bytes into <code class="docutils literal notranslate"><span class="pre">dataPtr</span></code>. Returns <code class="docutils literal notranslate"><span class="pre">E_OK</span></code>
+if accepted. The caller MUST keep <code class="docutils literal notranslate"><span class="pre">dataPtr</span></code> valid until the job finishes. <strong>Errors:</strong> see
+<a class="reference internal" href="02_errors.html"><span class="doc">Errors</span></a>. <em>Available via:</em> <code class="docutils literal notranslate"><span class="pre">Mem.h</span></code></p>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils" id="mem-api-mem-write">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Mem_Write</div>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv49Mem_Write18Mem_InstanceIdType15Mem_AddressTypePK12Mem_DataType14Mem_LengthType">
+<span id="_CPPv39Mem_Write18Mem_InstanceIdType15Mem_AddressTypePK12Mem_DataType14Mem_LengthType"></span><span id="_CPPv29Mem_Write18Mem_InstanceIdType15Mem_AddressTypePK12Mem_DataType14Mem_LengthType"></span><span id="Mem_Write__Mem_InstanceIdType.Mem_AddressType.Mem_DataTypeCP.Mem_LengthType"></span><span class="target" id="_mem_8h_1ace9615556e2eab3e8e9e8a5bb571b566"></span><span class="n"><span class="pre">Std_ReturnType</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Mem_Write</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv418Mem_InstanceIdType" title="Mem_InstanceIdType"><span class="n"><span class="pre">Mem_InstanceIdType</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">instanceId</span></span>, <a class="reference internal" href="#_CPPv415Mem_AddressType" title="Mem_AddressType"><span class="n"><span class="pre">Mem_AddressType</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">address</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv412Mem_DataType" title="Mem_DataType"><span class="n"><span class="pre">Mem_DataType</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">dataPtr</span></span>, <a class="reference internal" href="#_CPPv414Mem_LengthType" title="Mem_LengthType"><span class="n"><span class="pre">Mem_LengthType</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">length</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv49Mem_Write18Mem_InstanceIdType15Mem_AddressTypePK12Mem_DataType14Mem_LengthType" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">Triggers a write job to store the passed data to the provided address area with given address and length. The result of this service can be retrieved using the Mem_GetJobResult <a class="reference internal" href="../../../appendix.html#term-API"><span class="xref std std-term">API</span></a>. If the write operation was successful, the job result is MEM_JOB_FINISHED. If there was an issue writing the data, the result is MEM_JOB_FAILED. </p>
+<p class="sd-card-text"><dl class="simple">
+<dt><strong>Sync/Async:</strong></dt><dd><p class="sd-card-text">Asynchronous </p>
+</dd>
+<dt><strong>Reentrancy:</strong></dt><dd><p class="sd-card-text">Non Reentrant </p>
+</dd>
+<dt><strong>Service ID [hex]:</strong></dt><dd><p class="sd-card-text">0x06 </p>
+</dd>
+<dt><strong>Development error(s):</strong></dt><dd><p class="sd-card-text"><ul class="simple">
+<li><p class="sd-card-text"><a class="reference internal" href="02_errors.html#group___mem___development_errors_1ga96c6608f475e2e7fd5f9d53c46f6e99a"><span class="std std-ref">MEM_DEVERR_UNINIT</span></a> MemDrv is not initialized</p></li>
+<li><p class="sd-card-text"><a class="reference internal" href="02_errors.html#group___mem___development_errors_1ga23549576a836c1b6f8814dddd409bc9d"><span class="std std-ref">MEM_DEVERR_PARAM_INSTANCE_ID</span></a> instanceId is not consistent with the configuration.</p></li>
+<li><p class="sd-card-text"><a class="reference internal" href="02_errors.html#group___mem___development_errors_1ga9a00229b412485007edef917e8f0fe02"><span class="std std-ref">MEM_DEVERR_PARAM_PTR</span></a> dataPtr is a NULL pointer</p></li>
+<li><p class="sd-card-text"><a class="reference internal" href="02_errors.html#group___mem___development_errors_1ga9a4b45687a096f68726c3e1f02424739"><span class="std std-ref">MEM_DEVERR_PARAM_ADDR</span></a> address is invalid</p></li>
+<li><p class="sd-card-text"><a class="reference internal" href="02_errors.html#group___mem___development_errors_1ga771dba732230b91f3e79dda9fa57f46f"><span class="std std-ref">MEM_DEVERR_PARAM_LENGTH</span></a> length is invalid</p></li>
+<li><p class="sd-card-text"><a class="reference internal" href="02_errors.html#group___mem___development_errors_1ga0bb28bc7435b9da3bdf5f52338695b96"><span class="std std-ref">MEM_DEVERR_JOB_PENDING</span></a> A previous Mem job is still being processed </p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p class="sd-card-text"><strong>instanceId</strong> – <strong>[in]</strong> ID of the related memory driver instance. </p></li>
+<li><p class="sd-card-text"><strong>address</strong> – <strong>[in]</strong> Physical write address (aligned to page size) </p></li>
+<li><p class="sd-card-text"><strong>dataPtr</strong> – <strong>[in]</strong> Source data pointer </p></li>
+<li><p class="sd-card-text"><strong>length</strong> – <strong>[in]</strong> Write length in bytes (aligned to page size). </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p class="sd-card-text"><strong>E_OK</strong> – The requested job has been accepted by the module. </p></li>
+<li><p class="sd-card-text"><strong>E_NOT_OK</strong> – The requested job has not been accepted by the module. </p></li>
+<li><p class="sd-card-text"><strong>E_MEM_SERVICE_NOT_AVAIL</strong> – The service function is not implemented. </p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p class="sd-card-text">Std_ReturnType </p>
+</dd>
+</dl>
+</dd></dl>
+
+<p class="sd-card-text"><strong>Effect:</strong> starts an asynchronous write; <code class="docutils literal notranslate"><span class="pre">address</span></code> and <code class="docutils literal notranslate"><span class="pre">length</span></code> MUST be write-page aligned.
+The caller MUST keep <code class="docutils literal notranslate"><span class="pre">dataPtr</span></code> valid until the job finishes. <strong>Errors:</strong> see <a class="reference internal" href="02_errors.html"><span class="doc">Errors</span></a>.
+<em>Available via:</em> <code class="docutils literal notranslate"><span class="pre">Mem.h</span></code></p>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils" id="mem-api-mem-erase">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Mem_Erase</div>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv49Mem_Erase18Mem_InstanceIdType15Mem_AddressType14Mem_LengthType">
+<span id="_CPPv39Mem_Erase18Mem_InstanceIdType15Mem_AddressType14Mem_LengthType"></span><span id="_CPPv29Mem_Erase18Mem_InstanceIdType15Mem_AddressType14Mem_LengthType"></span><span id="Mem_Erase__Mem_InstanceIdType.Mem_AddressType.Mem_LengthType"></span><span class="target" id="_mem_8h_1a84b3e78aae0e4ba267d4c739ded7dcd9"></span><span class="n"><span class="pre">Std_ReturnType</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Mem_Erase</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv418Mem_InstanceIdType" title="Mem_InstanceIdType"><span class="n"><span class="pre">Mem_InstanceIdType</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">instanceId</span></span>, <a class="reference internal" href="#_CPPv415Mem_AddressType" title="Mem_AddressType"><span class="n"><span class="pre">Mem_AddressType</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">address</span></span>, <a class="reference internal" href="#_CPPv414Mem_LengthType" title="Mem_LengthType"><span class="n"><span class="pre">Mem_LengthType</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">length</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv49Mem_Erase18Mem_InstanceIdType15Mem_AddressType14Mem_LengthType" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">Triggers an erase job of the given <a class="reference internal" href="../../../appendix.html#term-Sector"><span class="xref std std-term">sector</span></a>/<a class="reference internal" href="../../../appendix.html#term-Sector-Batch"><span class="xref std std-term">sector batch</span></a> defined by address and length. The result of this service can be retrieved using the Mem_GetJobResult <a class="reference internal" href="../../../appendix.html#term-API"><span class="xref std std-term">API</span></a>. If the erase operation was successful, the result of the job is MEM_JOB_FINISHED. If the erase operation failed, e.g. due to a hardware issue, the result of the job is MEM_JOB_FAILED. </p>
+<p class="sd-card-text"><dl class="simple">
+<dt><strong>Sync/Async:</strong></dt><dd><p class="sd-card-text">Asynchronous </p>
+</dd>
+<dt><strong>Reentrancy:</strong></dt><dd><p class="sd-card-text">Non Reentrant </p>
+</dd>
+<dt><strong>Service ID [hex]:</strong></dt><dd><p class="sd-card-text">0x07 </p>
+</dd>
+<dt><strong>Development error(s):</strong></dt><dd><p class="sd-card-text"><ul class="simple">
+<li><p class="sd-card-text"><a class="reference internal" href="02_errors.html#group___mem___development_errors_1ga96c6608f475e2e7fd5f9d53c46f6e99a"><span class="std std-ref">MEM_DEVERR_UNINIT</span></a> MemDrv is not initialized</p></li>
+<li><p class="sd-card-text"><a class="reference internal" href="02_errors.html#group___mem___development_errors_1ga23549576a836c1b6f8814dddd409bc9d"><span class="std std-ref">MEM_DEVERR_PARAM_INSTANCE_ID</span></a> instanceId is not consistent with the configuration.</p></li>
+<li><p class="sd-card-text"><a class="reference internal" href="02_errors.html#group___mem___development_errors_1ga9a4b45687a096f68726c3e1f02424739"><span class="std std-ref">MEM_DEVERR_PARAM_ADDR</span></a> address is invalid</p></li>
+<li><p class="sd-card-text"><a class="reference internal" href="02_errors.html#group___mem___development_errors_1ga771dba732230b91f3e79dda9fa57f46f"><span class="std std-ref">MEM_DEVERR_PARAM_LENGTH</span></a> length is invalid</p></li>
+<li><p class="sd-card-text"><a class="reference internal" href="02_errors.html#group___mem___development_errors_1ga0bb28bc7435b9da3bdf5f52338695b96"><span class="std std-ref">MEM_DEVERR_JOB_PENDING</span></a> A previous Mem job is still being processed </p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p class="sd-card-text"><strong>instanceId</strong> – <strong>[in]</strong> ID of the related memory driver instance. </p></li>
+<li><p class="sd-card-text"><strong>address</strong> – <strong>[in]</strong> Physical erase address (aligned to <a class="reference internal" href="../../../appendix.html#term-Sector"><span class="xref std std-term">sector</span></a> size). </p></li>
+<li><p class="sd-card-text"><strong>length</strong> – <strong>[in]</strong> Erase length in bytes (aligned to <a class="reference internal" href="../../../appendix.html#term-Sector"><span class="xref std std-term">sector</span></a> size) </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p class="sd-card-text"><strong>E_OK</strong> – The requested job has been accepted by the module. </p></li>
+<li><p class="sd-card-text"><strong>E_NOT_OK</strong> – The requested job has not been accepted by the module. </p></li>
+<li><p class="sd-card-text"><strong>E_MEM_SERVICE_NOT_AVAIL</strong> – The service function is not implemented. </p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p class="sd-card-text">Std_ReturnType </p>
+</dd>
+</dl>
+</dd></dl>
+
+<p class="sd-card-text"><strong>Effect:</strong> starts an asynchronous erase; <code class="docutils literal notranslate"><span class="pre">address</span></code> and <code class="docutils literal notranslate"><span class="pre">length</span></code> MUST be sector aligned.
+<strong>Errors:</strong> see <a class="reference internal" href="02_errors.html"><span class="doc">Errors</span></a>. <em>Available via:</em> <code class="docutils literal notranslate"><span class="pre">Mem.h</span></code></p>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils" id="mem-api-mem-verifyblank">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Mem_VerifyBlank</div>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv415Mem_VerifyBlank18Mem_InstanceIdType15Mem_AddressType14Mem_LengthType">
+<span id="_CPPv315Mem_VerifyBlank18Mem_InstanceIdType15Mem_AddressType14Mem_LengthType"></span><span id="_CPPv215Mem_VerifyBlank18Mem_InstanceIdType15Mem_AddressType14Mem_LengthType"></span><span id="Mem_VerifyBlank__Mem_InstanceIdType.Mem_AddressType.Mem_LengthType"></span><span class="target" id="_mem_8h_1ad028f1efd705d2d75102c46596f946a9"></span><span class="n"><span class="pre">Std_ReturnType</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Mem_VerifyBlank</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv418Mem_InstanceIdType" title="Mem_InstanceIdType"><span class="n"><span class="pre">Mem_InstanceIdType</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">instanceId</span></span>, <a class="reference internal" href="#_CPPv415Mem_AddressType" title="Mem_AddressType"><span class="n"><span class="pre">Mem_AddressType</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">address</span></span>, <a class="reference internal" href="#_CPPv414Mem_LengthType" title="Mem_LengthType"><span class="n"><span class="pre">Mem_LengthType</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">length</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv415Mem_VerifyBlank18Mem_InstanceIdType15Mem_AddressType14Mem_LengthType" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">Triggers a job to check the erased state of the page which is referenced by address. The result of this service can be retrieved using the Mem_GetJobResult <a class="reference internal" href="../../../appendix.html#term-API"><span class="xref std std-term">API</span></a>. If the checked page is blank, the result of the job is MEM_JOB_FINISHED. Otherwise, if the page is not blank, the result is MEM_JOB_PAGE_INCONSISTENT. </p>
+<p class="sd-card-text"><dl class="simple">
+<dt><strong>Sync/Async:</strong></dt><dd><p class="sd-card-text">Asynchronous </p>
+</dd>
+<dt><strong>Reentrancy:</strong></dt><dd><p class="sd-card-text">Non Reentrant </p>
+</dd>
+<dt><strong>Service ID [hex]:</strong></dt><dd><p class="sd-card-text">0x9 </p>
+</dd>
+<dt><strong>Development error(s):</strong></dt><dd><p class="sd-card-text"><ul class="simple">
+<li><p class="sd-card-text"><a class="reference internal" href="02_errors.html#group___mem___development_errors_1ga96c6608f475e2e7fd5f9d53c46f6e99a"><span class="std std-ref">MEM_DEVERR_UNINIT</span></a> MemDrv is not initialized</p></li>
+<li><p class="sd-card-text"><a class="reference internal" href="02_errors.html#group___mem___development_errors_1ga23549576a836c1b6f8814dddd409bc9d"><span class="std std-ref">MEM_DEVERR_PARAM_INSTANCE_ID</span></a> instanceId is not consistent with the configuration.</p></li>
+<li><p class="sd-card-text"><a class="reference internal" href="02_errors.html#group___mem___development_errors_1ga9a4b45687a096f68726c3e1f02424739"><span class="std std-ref">MEM_DEVERR_PARAM_ADDR</span></a> address is invalid</p></li>
+<li><p class="sd-card-text"><a class="reference internal" href="02_errors.html#group___mem___development_errors_1ga771dba732230b91f3e79dda9fa57f46f"><span class="std std-ref">MEM_DEVERR_PARAM_LENGTH</span></a> length is invalid</p></li>
+<li><p class="sd-card-text"><a class="reference internal" href="02_errors.html#group___mem___development_errors_1ga0bb28bc7435b9da3bdf5f52338695b96"><span class="std std-ref">MEM_DEVERR_JOB_PENDING</span></a> A previous Mem job is still being processed </p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p class="sd-card-text"><strong>instanceId</strong> – <strong>[in]</strong> ID of the related memory driver instance. </p></li>
+<li><p class="sd-card-text"><strong>address</strong> – <strong>[in]</strong> Physical blank check address. </p></li>
+<li><p class="sd-card-text"><strong>length</strong> – <strong>[in]</strong> Blank check length. </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p class="sd-card-text"><strong>E_OK</strong> – The requested job has been accepted by the module. </p></li>
+<li><p class="sd-card-text"><strong>E_NOT_OK</strong> – The requested job has not been accepted by the module. </p></li>
+<li><p class="sd-card-text"><strong>E_MEM_SERVICE_NOT_AVAIL</strong> – The service function is not implemented. </p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p class="sd-card-text">Std_ReturnType </p>
+</dd>
+</dl>
+</dd></dl>
+
+<p class="sd-card-text"><strong>Effect:</strong> starts an asynchronous blank check; a non-blank area yields
+<code class="docutils literal notranslate"><span class="pre">MEM_JOB_PAGE_INCONSISTENT</span></code>. <strong>Errors:</strong> see <a class="reference internal" href="02_errors.html"><span class="doc">Errors</span></a>. <em>Available via:</em> <code class="docutils literal notranslate"><span class="pre">Mem.h</span></code></p>
+</div>
+</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-pulse" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 2c.306 0 .582.187.696.471L10 10.731l1.304-3.26A.751.751 0 0 1 12 7h3.25a.75.75 0 0 1 0 1.5h-2.742l-1.812 4.528a.751.751 0 0 1-1.392 0L6 4.77 4.696 8.03A.75.75 0 0 1 4 8.5H.75a.75.75 0 0 1 0-1.5h2.742l1.812-4.529A.751.751 0 0 1 6 2Z"></path></svg></span><span class="sd-summary-text">Job control and status</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils" id="mem-api-mem-getjobresult">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Mem_GetJobResult</div>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv416Mem_GetJobResult18Mem_InstanceIdType">
+<span id="_CPPv316Mem_GetJobResult18Mem_InstanceIdType"></span><span id="_CPPv216Mem_GetJobResult18Mem_InstanceIdType"></span><span id="Mem_GetJobResult__Mem_InstanceIdType"></span><span class="target" id="_mem_8h_1ab2c1df8a1fdb62cab91a43c5a8a30b27"></span><a class="reference internal" href="#_CPPv417Mem_JobResultType" title="Mem_JobResultType"><span class="n"><span class="pre">Mem_JobResultType</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Mem_GetJobResult</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv418Mem_InstanceIdType" title="Mem_InstanceIdType"><span class="n"><span class="pre">Mem_InstanceIdType</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">instanceId</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv416Mem_GetJobResult18Mem_InstanceIdType" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">Service to return result of the most recent job. </p>
+<p class="sd-card-text"><dl class="simple">
+<dt><strong>Sync/Async:</strong></dt><dd><p class="sd-card-text">Synchronous </p>
+</dd>
+<dt><strong>Reentrancy:</strong></dt><dd><p class="sd-card-text">Non reentrant </p>
+</dd>
+<dt><strong>Service ID [hex]:</strong></dt><dd><p class="sd-card-text">0x04 </p>
+</dd>
+<dt><strong>Development error(s):</strong></dt><dd><p class="sd-card-text"><ul class="simple">
+<li><p class="sd-card-text"><a class="reference internal" href="02_errors.html#group___mem___development_errors_1ga23549576a836c1b6f8814dddd409bc9d"><span class="std std-ref">MEM_DEVERR_PARAM_INSTANCE_ID</span></a> instanceId is not consistent with the configuration. </p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p class="sd-card-text"><strong>instanceId</strong> – <strong>[in]</strong> ID of the related memory driver instance. </p>
+</dd>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p class="sd-card-text"><strong>MEM_JOB_FINISHED</strong> – The last job has been finished successfully. </p></li>
+<li><p class="sd-card-text"><strong>MEM_JOB_PENDING</strong> – A job is currently being processed. </p></li>
+<li><p class="sd-card-text"><strong>MEM_JOB_FAILED</strong> – Job failed for some unspecific reason. </p></li>
+<li><p class="sd-card-text"><strong>MEM_JOB_PAGE_INCONSISTENT</strong> – The checked page is not blank. </p></li>
+<li><p class="sd-card-text"><strong>MEM_JOB_ERROR_ECC_UNCORRECTED</strong> – Uncorrectable <a class="reference internal" href="../../../appendix.html#term-ECC"><span class="xref std std-term">ECC</span></a> errors occurred during memory access. </p></li>
+<li><p class="sd-card-text"><strong>MEM_JOB_ERROR_ECC_CORRECTED</strong> – Correctable <a class="reference internal" href="../../../appendix.html#term-ECC"><span class="xref std std-term">ECC</span></a> errors occurred during memory access. </p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p class="sd-card-text"><a class="reference internal" href="#_mem_if___driver_types_8h_1a4db0d5d9fa7728fe1952db221f7c3562"><span class="std std-ref">Mem_JobResultType</span></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<p class="sd-card-text"><strong>Effect:</strong> returns the <a class="reference internal" href="#mem-api-mem-jobresulttype"><span class="std std-ref">result</span></a> of the most recent job for
+the instance (overwritten by each new job). <em>Available via:</em> <code class="docutils literal notranslate"><span class="pre">Mem.h</span></code></p>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils" id="mem-api-mem-suspendjob">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Mem_SuspendJob</div>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv414Mem_SuspendJob18Mem_InstanceIdType">
+<span id="_CPPv314Mem_SuspendJob18Mem_InstanceIdType"></span><span id="_CPPv214Mem_SuspendJob18Mem_InstanceIdType"></span><span id="Mem_SuspendJob__Mem_InstanceIdType"></span><span class="target" id="_mem_8h_1abeb053c4346b1244d93dccd76b39e974"></span><span class="n"><span class="pre">Std_ReturnType</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Mem_SuspendJob</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv418Mem_InstanceIdType" title="Mem_InstanceIdType"><span class="n"><span class="pre">Mem_InstanceIdType</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">instanceId</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv414Mem_SuspendJob18Mem_InstanceIdType" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">Suspend active memory operation using hardware mechanism. </p>
+<p class="sd-card-text"><dl class="simple">
+<dt><strong>Sync/Async:</strong></dt><dd><p class="sd-card-text">Synchronous </p>
+</dd>
+<dt><strong>Reentrancy:</strong></dt><dd><p class="sd-card-text">Non reentrant </p>
+</dd>
+<dt><strong>Service ID [hex]:</strong></dt><dd><p class="sd-card-text">0x0c </p>
+</dd>
+<dt><strong>Development error(s):</strong></dt><dd><p class="sd-card-text"><ul class="simple">
+<li><p class="sd-card-text"><a class="reference internal" href="02_errors.html#group___mem___development_errors_1ga96c6608f475e2e7fd5f9d53c46f6e99a"><span class="std std-ref">MEM_DEVERR_UNINIT</span></a> MemDrv is not initialized</p></li>
+<li><p class="sd-card-text"><a class="reference internal" href="02_errors.html#group___mem___development_errors_1ga23549576a836c1b6f8814dddd409bc9d"><span class="std std-ref">MEM_DEVERR_PARAM_INSTANCE_ID</span></a> instanceId is not consistent with the configuration. </p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p class="sd-card-text"><strong>instanceId</strong> – <strong>[in]</strong> ID of the related memory driver instance. </p>
+</dd>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p class="sd-card-text"><strong>E_OK</strong> – The requested job has been accepted by the module. </p></li>
+<li><p class="sd-card-text"><strong>E_NOT_OK</strong> – The requested job has not been accepted by the module. </p></li>
+<li><p class="sd-card-text"><strong>E_MEM_SERVICE_NOT_AVAIL</strong> – The service function is not implemented. </p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p class="sd-card-text">Std_ReturnType </p>
+</dd>
+</dl>
+</dd></dl>
+
+<p class="sd-card-text"><strong>Effect:</strong> suspends the active job via the hardware. Returns <code class="docutils literal notranslate"><span class="pre">E_MEM_SERVICE_NOT_AVAIL</span></code> where
+unsupported. <strong>Errors:</strong> see <a class="reference internal" href="02_errors.html"><span class="doc">Errors</span></a>. <em>Available via:</em> <code class="docutils literal notranslate"><span class="pre">Mem.h</span></code></p>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils" id="mem-api-mem-resumejob">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Mem_ResumeJob</div>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv413Mem_ResumeJob18Mem_InstanceIdType">
+<span id="_CPPv313Mem_ResumeJob18Mem_InstanceIdType"></span><span id="_CPPv213Mem_ResumeJob18Mem_InstanceIdType"></span><span id="Mem_ResumeJob__Mem_InstanceIdType"></span><span class="target" id="_mem_8h_1af22a1d7475b39e308dba108e56b17972"></span><span class="n"><span class="pre">Std_ReturnType</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Mem_ResumeJob</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv418Mem_InstanceIdType" title="Mem_InstanceIdType"><span class="n"><span class="pre">Mem_InstanceIdType</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">instanceId</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv413Mem_ResumeJob18Mem_InstanceIdType" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">Resume suspended memory operation using hardware mechanism. </p>
+<p class="sd-card-text"><dl class="simple">
+<dt><strong>Sync/Async:</strong></dt><dd><p class="sd-card-text">Synchronous </p>
+</dd>
+<dt><strong>Reentrancy:</strong></dt><dd><p class="sd-card-text">Non reentrant </p>
+</dd>
+<dt><strong>Service ID [hex]:</strong></dt><dd><p class="sd-card-text">0x0d </p>
+</dd>
+<dt><strong>Development error(s):</strong></dt><dd><p class="sd-card-text"><ul class="simple">
+<li><p class="sd-card-text"><a class="reference internal" href="02_errors.html#group___mem___development_errors_1ga96c6608f475e2e7fd5f9d53c46f6e99a"><span class="std std-ref">MEM_DEVERR_UNINIT</span></a> MemDrv is not initialized</p></li>
+<li><p class="sd-card-text"><a class="reference internal" href="02_errors.html#group___mem___development_errors_1ga23549576a836c1b6f8814dddd409bc9d"><span class="std std-ref">MEM_DEVERR_PARAM_INSTANCE_ID</span></a> instanceId is not consistent with the configuration. </p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p class="sd-card-text"><strong>instanceId</strong> – <strong>[in]</strong> ID of the related memory driver instance. </p>
+</dd>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p class="sd-card-text"><strong>E_OK</strong> – The requested job has been accepted by the module. </p></li>
+<li><p class="sd-card-text"><strong>E_NOT_OK</strong> – The requested job has not been accepted by the module. </p></li>
+<li><p class="sd-card-text"><strong>E_MEM_SERVICE_NOT_AVAIL</strong> – The service function is not implemented. </p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p class="sd-card-text">Std_ReturnType </p>
+</dd>
+</dl>
+</dd></dl>
+
+<p class="sd-card-text"><strong>Effect:</strong> resumes a suspended job. Returns <code class="docutils literal notranslate"><span class="pre">E_MEM_SERVICE_NOT_AVAIL</span></code> where unsupported.
+<strong>Errors:</strong> see <a class="reference internal" href="02_errors.html"><span class="doc">Errors</span></a>. <em>Available via:</em> <code class="docutils literal notranslate"><span class="pre">Mem.h</span></code></p>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils" id="mem-api-mem-onerror">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Mem_OnError</div>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv411Mem_OnError18Mem_InstanceIdType">
+<span id="_CPPv311Mem_OnError18Mem_InstanceIdType"></span><span id="_CPPv211Mem_OnError18Mem_InstanceIdType"></span><span id="Mem_OnError__Mem_InstanceIdType"></span><span class="target" id="_mem_8h_1afa7884e58a537064a662a9446ecc0491"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Mem_OnError</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv418Mem_InstanceIdType" title="Mem_InstanceIdType"><span class="n"><span class="pre">Mem_InstanceIdType</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">instanceId</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv411Mem_OnError18Mem_InstanceIdType" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">This service can be used to log an access error in case the MemDrv cannot provide the access error information - typically for <a class="reference internal" href="../../../appendix.html#term-ECC"><span class="xref std std-term">ECC</span></a> faults. It is called by the system <a class="reference internal" href="../../../appendix.html#term-ECC"><span class="xref std std-term">ECC</span></a> handler to notify an <a class="reference internal" href="../../../appendix.html#term-ECC"><span class="xref std std-term">ECC</span></a> error to the memory upper layers. </p>
+<p class="sd-card-text"><dl class="simple">
+<dt><strong>Sync/Async:</strong></dt><dd><p class="sd-card-text">Synchronous </p>
+</dd>
+<dt><strong>Reentrancy:</strong></dt><dd><p class="sd-card-text">Non reentrant </p>
+</dd>
+<dt><strong>Service ID [hex]:</strong></dt><dd><p class="sd-card-text">0x08 </p>
+</dd>
+<dt><strong>Development error(s):</strong></dt><dd><p class="sd-card-text"><ul class="simple">
+<li><p class="sd-card-text"><a class="reference internal" href="02_errors.html#group___mem___development_errors_1ga96c6608f475e2e7fd5f9d53c46f6e99a"><span class="std std-ref">MEM_DEVERR_UNINIT</span></a> MemDrv is not initialized</p></li>
+<li><p class="sd-card-text"><a class="reference internal" href="02_errors.html#group___mem___development_errors_1ga23549576a836c1b6f8814dddd409bc9d"><span class="std std-ref">MEM_DEVERR_PARAM_INSTANCE_ID</span></a> instanceId is not consistent with the configuration. </p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p class="sd-card-text"><strong>instanceId</strong> – <strong>[in]</strong> ID of the related memory driver instance. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p class="sd-card-text">None. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<p class="sd-card-text"><strong>When to call:</strong> by the system’s ECC handler on an uncorrectable ECC error. <strong>Effect:</strong>
+cancels the current job and sets <code class="docutils literal notranslate"><span class="pre">MEM_JOB_ERROR_ECC_UNCORRECTED</span></code>. <em>Available via:</em> <code class="docutils literal notranslate"><span class="pre">Mem.h</span></code></p>
+</div>
+</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-clock" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0ZM1.5 8a6.5 6.5 0 1 0 13 0 6.5 6.5 0 0 0-13 0Zm7-3.25v2.992l2.028.812a.75.75 0 0 1-.557 1.392l-2.5-1A.751.751 0 0 1 7 8.25v-3.5a.75.75 0 0 1 1.5 0Z"></path></svg></span><span class="sd-summary-text">Hardware service and scheduling</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils" id="mem-api-mem-hwspecificservice">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Mem_HwSpecificService</div>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv421Mem_HwSpecificService18Mem_InstanceIdType19Mem_HwServiceIdTypeP12Mem_DataTypeP14Mem_LengthType">
+<span id="_CPPv321Mem_HwSpecificService18Mem_InstanceIdType19Mem_HwServiceIdTypeP12Mem_DataTypeP14Mem_LengthType"></span><span id="_CPPv221Mem_HwSpecificService18Mem_InstanceIdType19Mem_HwServiceIdTypeP12Mem_DataTypeP14Mem_LengthType"></span><span id="Mem_HwSpecificService__Mem_InstanceIdType.Mem_HwServiceIdType.Mem_DataTypeP.Mem_LengthTypeP"></span><span class="target" id="_mem_8h_1a6f5415c2b6649f1459164ab690e50c0b"></span><span class="n"><span class="pre">Std_ReturnType</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Mem_HwSpecificService</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv418Mem_InstanceIdType" title="Mem_InstanceIdType"><span class="n"><span class="pre">Mem_InstanceIdType</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">instanceId</span></span>, <a class="reference internal" href="#_CPPv419Mem_HwServiceIdType" title="Mem_HwServiceIdType"><span class="n"><span class="pre">Mem_HwServiceIdType</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">hwServiceId</span></span>, <a class="reference internal" href="#_CPPv412Mem_DataType" title="Mem_DataType"><span class="n"><span class="pre">Mem_DataType</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">dataPtr</span></span>, <a class="reference internal" href="#_CPPv414Mem_LengthType" title="Mem_LengthType"><span class="n"><span class="pre">Mem_LengthType</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">lengthPtr</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv421Mem_HwSpecificService18Mem_InstanceIdType19Mem_HwServiceIdTypeP12Mem_DataTypeP14Mem_LengthType" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">Triggers a hardware specific memory driver job. dataPtr can be used to pass and return data to/from this service. This service is just a dispatcher to the hardware specific routine implementation referenced by hwServiceId. The result of this service can be retrieved using the Mem_GetJobResult <a class="reference internal" href="../../../appendix.html#term-API"><span class="xref std std-term">API</span></a>. If the hardware specific routine was successful, the result of the job is MEM_JOB_FINISHED. If the hardware specific routine failed, the result of the job is MEM_JOB_FAILED. </p>
+<p class="sd-card-text"><dl class="simple">
+<dt><strong>Sync/Async:</strong></dt><dd><p class="sd-card-text">Asynchronous </p>
+</dd>
+<dt><strong>Reentrancy:</strong></dt><dd><p class="sd-card-text">Non Reentrant </p>
+</dd>
+<dt><strong>Service ID [hex]:</strong></dt><dd><p class="sd-card-text">0x0a </p>
+</dd>
+<dt><strong>Development error(s):</strong></dt><dd><p class="sd-card-text"><ul class="simple">
+<li><p class="sd-card-text"><a class="reference internal" href="02_errors.html#group___mem___development_errors_1ga96c6608f475e2e7fd5f9d53c46f6e99a"><span class="std std-ref">MEM_DEVERR_UNINIT</span></a> MemDrv is not initialized</p></li>
+<li><p class="sd-card-text"><a class="reference internal" href="02_errors.html#group___mem___development_errors_1ga23549576a836c1b6f8814dddd409bc9d"><span class="std std-ref">MEM_DEVERR_PARAM_INSTANCE_ID</span></a> instanceId is not consistent with the configuration.</p></li>
+<li><p class="sd-card-text"><a class="reference internal" href="02_errors.html#group___mem___development_errors_1ga9a00229b412485007edef917e8f0fe02"><span class="std std-ref">MEM_DEVERR_PARAM_PTR</span></a> dataPtr is a NULL pointer</p></li>
+<li><p class="sd-card-text"><a class="reference internal" href="02_errors.html#group___mem___development_errors_1ga9a00229b412485007edef917e8f0fe02"><span class="std std-ref">MEM_DEVERR_PARAM_PTR</span></a> lengthPtr is a NULL pointer </p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p class="sd-card-text"><strong>instanceId</strong> – <strong>[in]</strong> ID of the related memory driver instance. </p></li>
+<li><p class="sd-card-text"><strong>hwServiceId</strong> – <strong>[in]</strong> Hardware specific service request identifier for dispatching the request. </p></li>
+<li><p class="sd-card-text"><strong>dataPtr</strong> – <strong>[in]</strong> Request specific data pointer. </p></li>
+<li><p class="sd-card-text"><strong>lengthPtr</strong> – <strong>[in]</strong> Size pointer of the data passed by dataPtr. </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p class="sd-card-text"><strong>E_OK</strong> – The requested job has been accepted by the module. </p></li>
+<li><p class="sd-card-text"><strong>E_NOT_OK</strong> – The requested job has not been accepted by the module. </p></li>
+<li><p class="sd-card-text"><strong>E_MEM_SERVICE_NOT_AVAIL</strong> – The service function is not implemented. </p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p class="sd-card-text">Std_ReturnType </p>
+</dd>
+</dl>
+</dd></dl>
+
+<p class="sd-card-text"><strong>Effect:</strong> dispatches the device-specific service identified by <code class="docutils literal notranslate"><span class="pre">hwServiceId</span></code>; an
+unsupported id returns <code class="docutils literal notranslate"><span class="pre">E_MEM_SERVICE_NOT_AVAIL</span></code>. <strong>Errors:</strong> see <a class="reference internal" href="02_errors.html"><span class="doc">Errors</span></a>.
+<em>Available via:</em> <code class="docutils literal notranslate"><span class="pre">Mem.h</span></code></p>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils" id="mem-api-mem-pollfunction">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Mem_PollFunction</div>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv416Mem_PollFunctionv">
+<span id="_CPPv316Mem_PollFunctionv"></span><span id="_CPPv216Mem_PollFunctionv"></span><span id="Mem_PollFunction__void"></span><span class="target" id="_mem_8h_1a3c6d61facba6a58f7ee30989c494dd97"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Mem_PollFunction</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv416Mem_PollFunctionv" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">Service to handle the requested jobs and the internal management operations. </p>
+<p class="sd-card-text"><dl class="simple">
+<dt><strong>Sync/Async:</strong></dt><dd><p class="sd-card-text">Synchronous </p>
+</dd>
+<dt><strong>Reentrancy:</strong></dt><dd><p class="sd-card-text">Non Reentrant </p>
+</dd>
+<dt><strong>Service ID [hex]:</strong></dt><dd><p class="sd-card-text">0x03 </p>
+</dd>
+</dl>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p class="sd-card-text"><strong>None</strong> – </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p class="sd-card-text">None. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<p class="sd-card-text"><strong>When to call:</strong> cyclically while a job is pending; it advances the active job and updates its
+result. <em>Available via:</em> <code class="docutils literal notranslate"><span class="pre">Mem.h</span></code></p>
+</div>
+</div>
+</div>
+</details></section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Reference" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="01_configuration.html" class="btn btn-neutral float-right" title="Configuration Reference" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026 by Vector Informatik GmbH and Infineon Technologies AG. All rights reserved.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

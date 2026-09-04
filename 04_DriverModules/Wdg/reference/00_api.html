@@ -1,0 +1,462 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>API Reference &mdash; Chiisai HAL Specification  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css?v=4ae1632d" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-data-viewer/jsonview.bundle.css?v=f6ef2277" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/libs/html/datatables.min.css?v=4b4fd840" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/common_css/needstable.css?v=5e1b6797" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/common_css/need_core.css?v=f5b60a78" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/common_css/need_links.css?v=2150a916" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/common_css/need_style.css?v=92936fa5" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/common_css/need_toggle.css?v=5c6620df" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/modern.css?v=803738c0" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=4f645179" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
+      <script src="../../../_static/sphinx-data-viewer/jsonview.bundle.js?v=18cd53c5"></script>
+      <script src="../../../_static/sphinx-data-viewer/jsonview_loader.js?v=f7ff7e7d"></script>
+      <script src="../../../_static/sphinx-needs/libs/html/datatables.min.js?v=8a4aee21"></script>
+      <script src="../../../_static/sphinx-needs/libs/html/datatables_loader.js?v=a2cae175"></script>
+      <script src="../../../_static/sphinx-needs/libs/html/sphinx_needs_collapse.js?v=dca66431"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Configuration Reference" href="01_configuration.html" />
+    <link rel="prev" title="Reference" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            Chiisai HAL Specification
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../00_about/index.html">About This Specification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../01_general/index.html">General</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Chiisai HAL Driver Modules</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../Can/index.html">Can</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../I2c/index.html">I2c</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Lin/index.html">Lin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Mcu/index.html">Mcu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Mem/index.html">Mem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Port/index.html">Port</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Spi/index.html">Spi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Uart/index.html">Uart</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Wdg</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../general/index.html">General</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../guide/index.html">Guide</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">Reference</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">API Reference</a></li>
+<li class="toctree-l4"><a class="reference internal" href="01_configuration.html">Configuration Reference</a></li>
+<li class="toctree-l4"><a class="reference internal" href="02_errors.html">Errors</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../00_requirements.html">Wdg — Requirements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01_design_decisions.html">Design Decisions</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../appendix.html">Appendix</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Chiisai HAL Specification</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Chiisai HAL Driver Modules</a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Wdg</a></li>
+          <li class="breadcrumb-item"><a href="index.html">Reference</a></li>
+      <li class="breadcrumb-item active">API Reference</li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="api-reference">
+<h1>API Reference<a class="headerlink" href="#api-reference" title="Link to this heading"></a></h1>
+<div class="normative admonition">
+<p class="admonition-title">Normative</p>
+<p>The watchdog driver API contract. A conformant driver <strong>MUST</strong> provide these types and functions
+with the behavior described. Function and type signatures are extracted from the driver headers
+with Doxygen/Breathe. Keywords per <a class="reference internal" href="../../../00_about/01_keywords.html"><span class="doc">Requirement Keywords</span></a>; behavioral rules in
+<a class="reference internal" href="../00_requirements.html"><span class="doc">Wdg — Requirements</span></a>; error codes in <a class="reference internal" href="02_errors.html"><span class="doc">Errors</span></a>.</p>
+</div>
+<p class="rubric">Data types at a glance</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 32.0%" />
+<col style="width: 13.0%" />
+<col style="width: 55.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Type</p></th>
+<th class="head"><p>Kind</p></th>
+<th class="head"><p>Purpose</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference internal" href="#wdg-api-wdg-configtype"><span class="std std-ref">Wdg_ConfigType</span></a></p></td>
+<td><p>struct</p></td>
+<td><p>Root configuration structure (build-time; <code class="docutils literal notranslate"><span class="pre">Wdg_Init</span></code> takes <code class="docutils literal notranslate"><span class="pre">NULL_PTR</span></code>).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#wdg-api-wdg-modetype"><span class="std std-ref">Wdg_ModeType</span></a></p></td>
+<td><p>enum</p></td>
+<td><p>Watchdog mode (OFF / NORMAL / ALTERNATIVE).</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">API at a glance</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 32.0%" />
+<col style="width: 30.0%" />
+<col style="width: 38.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Function</p></th>
+<th class="head"><p>Group</p></th>
+<th class="head"><p>Purpose</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference internal" href="#wdg-api-wdg-init"><span class="std std-ref">Wdg_Init</span></a></p></td>
+<td><p>Initialization</p></td>
+<td><p>Initialize the driver and watchdog HW in the default mode.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#wdg-api-wdg-setmode"><span class="std std-ref">Wdg_SetMode</span></a></p></td>
+<td><p>Mode and timeout</p></td>
+<td><p>Switch the watchdog mode.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#wdg-api-wdg-updatetimeout"><span class="std std-ref">Wdg_UpdateTimeout</span></a></p></td>
+<td><p>Mode and timeout</p></td>
+<td><p>Refresh the reset timeout.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#wdg-api-wdg-feedhw"><span class="std std-ref">Wdg_FeedHw</span></a></p></td>
+<td><p>Mode and timeout</p></td>
+<td><p>Trigger the HW periodically (logical strategy only).</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Expected interfaces at a glance</p>
+<p>Integration interfaces the integrator <strong>MUST</strong> provide where applicable (<a class="reference internal" href="../00_requirements.html#CHI-WDG-MUST-06" title="CHI-WDG-MUST-06"><em class="xref need">CHI-WDG-MUST-06</em></a>); all are
+documented in the general reference. Interface names are configurable via the driver configuration.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 30.0%" />
+<col style="width: 20.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Function</p></th>
+<th class="head"><p>Kind</p></th>
+<th class="head"><p>Purpose</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference internal" href="../../../01_general/reference/02_services.html#gen-ref-logm"><span class="std std-ref">LogM_Report</span></a></p></td>
+<td><p>Common (optional)</p></td>
+<td><p>Reports development errors with a log level.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;Mip&gt;_EnterCriticalSection</span></code> / <code class="docutils literal notranslate"><span class="pre">&lt;Mip&gt;_ExitCriticalSection</span></code></p></td>
+<td><p>Common (optional)</p></td>
+<td><p>Bracket sections requiring exclusive access — see
+<a class="reference internal" href="../../../01_general/reference/02_services.html#gen-ref-critical-section"><span class="std std-ref">critical sections</span></a>.</p></td>
+</tr>
+</tbody>
+</table>
+<p>For an <strong>external</strong> watchdog the driver may additionally depend on a bus interface driver (e.g. SPI
+or I2C) it is configured to control the hardware through.</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-list-unordered" viewBox="0 0 16 16" aria-hidden="true"><path d="M5.75 2.5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5Zm0 5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5Zm0 5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5ZM2 14a1 1 0 1 1 0-2 1 1 0 0 1 0 2Zm1-6a1 1 0 1 1-2 0 1 1 0 0 1 2 0ZM2 4a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg></span><span class="sd-summary-text">Data types</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils" id="wdg-api-wdg-configtype">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Wdg_ConfigType</div>
+<dl class="cpp struct">
+<dt class="sig sig-object cpp" id="_CPPv414Wdg_ConfigType">
+<span id="_CPPv314Wdg_ConfigType"></span><span id="_CPPv214Wdg_ConfigType"></span><span id="Wdg_ConfigType"></span><span class="target" id="struct_wdg___config_type"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Wdg_ConfigType</span></span></span><a class="headerlink" href="#_CPPv414Wdg_ConfigType" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">Configuration structure type. </p>
+</dd></dl>
+
+<p class="sd-card-text">Configuration variants are selected at build time; <code class="docutils literal notranslate"><span class="pre">Wdg_Init</span></code> currently takes <code class="docutils literal notranslate"><span class="pre">NULL_PTR</span></code>.
+<em>Available via:</em> <code class="docutils literal notranslate"><span class="pre">Wdg.h</span></code></p>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils" id="wdg-api-wdg-modetype">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Wdg_ModeType</div>
+<dl class="cpp enum">
+<dt class="sig sig-object cpp" id="_CPPv412Wdg_ModeType">
+<span id="_CPPv312Wdg_ModeType"></span><span id="_CPPv212Wdg_ModeType"></span><span class="target" id="_wdg_if___driver_types_8h_1ae888a9383ae15b931e33c8fa1224ed4b"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Wdg_ModeType</span></span></span><a class="headerlink" href="#_CPPv412Wdg_ModeType" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">Mode type of watchdog hardware. </p>
+<p class="sd-card-text"><em>Values:</em></p>
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N12Wdg_ModeType12WDG_MODE_OFFE">
+<span id="_CPPv3N12Wdg_ModeType12WDG_MODE_OFFE"></span><span id="_CPPv2N12Wdg_ModeType12WDG_MODE_OFFE"></span><span class="target" id="_wdg_if___driver_types_8h_1ae888a9383ae15b931e33c8fa1224ed4bad5ac295a82e43c1b83dc98ac97961d76"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">WDG_MODE_OFF</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0x00</span></span><a class="headerlink" href="#_CPPv4N12Wdg_ModeType12WDG_MODE_OFFE" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">Watchdog hardware is disabled (switched off) </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N12Wdg_ModeType15WDG_MODE_NORMALE">
+<span id="_CPPv3N12Wdg_ModeType15WDG_MODE_NORMALE"></span><span id="_CPPv2N12Wdg_ModeType15WDG_MODE_NORMALE"></span><span class="target" id="_wdg_if___driver_types_8h_1ae888a9383ae15b931e33c8fa1224ed4ba0eeb0182b65dfd358f824afacfd30ae2"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">WDG_MODE_NORMAL</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0x01</span></span><a class="headerlink" href="#_CPPv4N12Wdg_ModeType15WDG_MODE_NORMALE" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">Watchdog hardware is in normal mode. Typically used during application running. </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N12Wdg_ModeType20WDG_MODE_ALTERNATIVEE">
+<span id="_CPPv3N12Wdg_ModeType20WDG_MODE_ALTERNATIVEE"></span><span id="_CPPv2N12Wdg_ModeType20WDG_MODE_ALTERNATIVEE"></span><span class="target" id="_wdg_if___driver_types_8h_1ae888a9383ae15b931e33c8fa1224ed4ba17374376eb3464e20be3baf7ac019293"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">WDG_MODE_ALTERNATIVE</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0x02</span></span><a class="headerlink" href="#_CPPv4N12Wdg_ModeType20WDG_MODE_ALTERNATIVEE" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">Watchdog hardware is in alternative mode. Typically used during startup or standby sequence. </p>
+</dd></dl>
+
+</dd></dl>
+
+<p class="sd-card-text"><em>Available via:</em> <code class="docutils literal notranslate"><span class="pre">WdgIf_DriverTypes.h</span></code></p>
+</div>
+</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0ZM1.5 8a6.5 6.5 0 1 0 13 0 6.5 6.5 0 0 0-13 0Zm4.879-2.773 4.264 2.559a.25.25 0 0 1 0 .428l-4.264 2.559A.25.25 0 0 1 6 10.559V5.442a.25.25 0 0 1 .379-.215Z"></path></svg></span><span class="sd-summary-text">Initialization</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils" id="wdg-api-wdg-init">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Wdg_Init</div>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv48Wdg_InitPK14Wdg_ConfigType">
+<span id="_CPPv38Wdg_InitPK14Wdg_ConfigType"></span><span id="_CPPv28Wdg_InitPK14Wdg_ConfigType"></span><span id="Wdg_Init__Wdg_ConfigTypeCP"></span><span class="target" id="_wdg_8h_1a4097cb39090cbab091b59bdf9974e5db"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Wdg_Init</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv414Wdg_ConfigType" title="Wdg_ConfigType"><span class="n"><span class="pre">Wdg_ConfigType</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">configPtr</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv48Wdg_InitPK14Wdg_ConfigType" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">Initializes the module. </p>
+<p class="sd-card-text"><dl class="simple">
+<dt><strong>Sync/Async:</strong></dt><dd><p class="sd-card-text">Synchronous </p>
+</dd>
+<dt><strong>Reentrancy:</strong></dt><dd><p class="sd-card-text">Non Reentrant </p>
+</dd>
+<dt><strong>Service ID [hex]:</strong></dt><dd><p class="sd-card-text">0x00 </p>
+</dd>
+<dt><strong>Development error(s):</strong></dt><dd><p class="sd-card-text"><ul class="simple">
+<li><p class="sd-card-text"><a class="reference internal" href="02_errors.html#group___wdg___development_errors_1ga756938b04c35659103a1c4fdb7e790c4"><span class="std std-ref">WDG_DEVERR_DRIVER_STATE</span></a> WdgDrv is initialized already</p></li>
+<li><p class="sd-card-text"><a class="reference internal" href="02_errors.html#group___wdg___development_errors_1gadb5699c5e39466fd3c2d96fcc2e362b7"><span class="std std-ref">WDG_DEVERR_PARAM_POINTER</span></a> configPtr argument is not NULL pointer </p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p class="sd-card-text"><strong>configPtr</strong> – <strong>[in]</strong> Pointer to the configuration structure. This parameter is intended for future extensions to support runtime-selectable configuration variants, which allow the selection and initialization of specific variants during runtime. As this functionality is not currently supported, a NULL_PTR SHALL be provided. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p class="sd-card-text">None. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<p class="sd-card-text"><strong>When to call:</strong> once, before any other watchdog function. <code class="docutils literal notranslate"><span class="pre">configPtr</span></code> MUST be <code class="docutils literal notranslate"><span class="pre">NULL_PTR</span></code>.</p>
+<p class="sd-card-text"><strong>Effect:</strong> initialises the driver and watchdog hardware, applying the configured default mode
+and initial timeout. <strong>Errors:</strong> see <a class="reference internal" href="02_errors.html"><span class="doc">Errors</span></a>. <em>Available via:</em> <code class="docutils literal notranslate"><span class="pre">Wdg.h</span></code></p>
+</div>
+</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-clock" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0ZM1.5 8a6.5 6.5 0 1 0 13 0 6.5 6.5 0 0 0-13 0Zm7-3.25v2.992l2.028.812a.75.75 0 0 1-.557 1.392l-2.5-1A.751.751 0 0 1 7 8.25v-3.5a.75.75 0 0 1 1.5 0Z"></path></svg></span><span class="sd-summary-text">Mode and timeout</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils" id="wdg-api-wdg-setmode">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Wdg_SetMode</div>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv411Wdg_SetMode12Wdg_ModeType">
+<span id="_CPPv311Wdg_SetMode12Wdg_ModeType"></span><span id="_CPPv211Wdg_SetMode12Wdg_ModeType"></span><span id="Wdg_SetMode__Wdg_ModeType"></span><span class="target" id="_wdg_8h_1afd9c9181e051034995e84bf1a428f038"></span><span class="n"><span class="pre">Std_ReturnType</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Wdg_SetMode</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv412Wdg_ModeType" title="Wdg_ModeType"><span class="n"><span class="pre">Wdg_ModeType</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">mode</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv411Wdg_SetMode12Wdg_ModeType" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">Switches the watchdog into the specified mode. </p>
+<p class="sd-card-text"><dl class="simple">
+<dt><strong>Sync/Async:</strong></dt><dd><p class="sd-card-text">Synchronous </p>
+</dd>
+<dt><strong>Reentrancy:</strong></dt><dd><p class="sd-card-text">Non Reentrant </p>
+</dd>
+<dt><strong>Service ID [hex]:</strong></dt><dd><p class="sd-card-text">0x01 </p>
+</dd>
+<dt><strong>Development error(s):</strong></dt><dd><p class="sd-card-text"><ul class="simple">
+<li><p class="sd-card-text"><a class="reference internal" href="02_errors.html#group___wdg___development_errors_1ga756938b04c35659103a1c4fdb7e790c4"><span class="std std-ref">WDG_DEVERR_DRIVER_STATE</span></a> WdgDrv is not initialized</p></li>
+<li><p class="sd-card-text"><a class="reference internal" href="02_errors.html#group___wdg___development_errors_1ga720ed6adc2cf9c883692cc63a672d464"><span class="std std-ref">WDG_DEVERR_PARAM_MODE</span></a> The given mode is not supported </p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p class="sd-card-text"><strong>mode</strong> – <strong>[in]</strong> Watchdog mode to be switched to </p>
+</dd>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p class="sd-card-text"><strong>E_OK</strong> – Other than development error </p></li>
+<li><p class="sd-card-text"><strong>E_NOT_OK</strong> – In case of development error. </p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p class="sd-card-text">Std_ReturnType. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<p class="sd-card-text"><strong>Effect:</strong> switches the watchdog to <code class="docutils literal notranslate"><span class="pre">mode</span></code>, applies its hardware settings, and resets the
+timeout to the mode’s default. <strong>Returns:</strong> <code class="docutils literal notranslate"><span class="pre">E_OK</span></code> if accepted, else <code class="docutils literal notranslate"><span class="pre">E_NOT_OK</span></code> (development
+error). For the logical strategy, if the previous timeout has already expired the mode is not
+changed. <strong>Errors:</strong> see <a class="reference internal" href="02_errors.html"><span class="doc">Errors</span></a>. <em>Available via:</em> <code class="docutils literal notranslate"><span class="pre">Wdg.h</span></code></p>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils" id="wdg-api-wdg-updatetimeout">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Wdg_UpdateTimeout</div>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv417Wdg_UpdateTimeout6uint16">
+<span id="_CPPv317Wdg_UpdateTimeout6uint16"></span><span id="_CPPv217Wdg_UpdateTimeout6uint16"></span><span id="Wdg_UpdateTimeout__uint16"></span><span class="target" id="_wdg_8h_1a05a94103d4f086e9839a523564b3c769"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Wdg_UpdateTimeout</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint16</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">timeout</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv417Wdg_UpdateTimeout6uint16" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">Specifies how long watchdog reset is suspended. Watchdog reset gets delayed till the new timeout has been expired. </p>
+<p class="sd-card-text"><dl class="simple">
+<dt><strong>Sync/Async:</strong></dt><dd><p class="sd-card-text">Synchronous </p>
+</dd>
+<dt><strong>Reentrancy:</strong></dt><dd><p class="sd-card-text">Non Reentrant </p>
+</dd>
+<dt><strong>Service ID [hex]:</strong></dt><dd><p class="sd-card-text">0x03 </p>
+</dd>
+<dt><strong>Development error(s):</strong></dt><dd><p class="sd-card-text"><ul class="simple">
+<li><p class="sd-card-text"><a class="reference internal" href="02_errors.html#group___wdg___development_errors_1ga756938b04c35659103a1c4fdb7e790c4"><span class="std std-ref">WDG_DEVERR_DRIVER_STATE</span></a> WdgDrv is not initialized</p></li>
+<li><p class="sd-card-text"><a class="reference internal" href="02_errors.html#group___wdg___development_errors_1ga1bd7de9e827bf68dd3d94ba31746da53"><span class="std std-ref">WDG_DEVERR_PARAM_TIMEOUT</span></a> Given timeout value is over than supported maximum timeout value in the configuration and current mode. </p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p class="sd-card-text"><strong>timeout</strong> – <strong>[in]</strong> Timeout value (milliseconds) for watchdog hardware timeout. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p class="sd-card-text">None. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<p class="sd-card-text"><strong>Effect:</strong> delays the watchdog reset until <code class="docutils literal notranslate"><span class="pre">timeout</span></code> milliseconds elapse (bounded by the
+configured <code class="docutils literal notranslate"><span class="pre">maximum_timeout</span></code>). <code class="docutils literal notranslate"><span class="pre">timeout</span> <span class="pre">=</span> <span class="pre">0</span></code> requests an (almost) immediate reset. For the
+logical strategy, an already-expired previous timeout is not overwritten. <strong>Errors:</strong> see
+<a class="reference internal" href="02_errors.html"><span class="doc">Errors</span></a>. <em>Available via:</em> <code class="docutils literal notranslate"><span class="pre">Wdg.h</span></code></p>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils" id="wdg-api-wdg-feedhw">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Wdg_FeedHw</div>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv410Wdg_FeedHwv">
+<span id="_CPPv310Wdg_FeedHwv"></span><span id="_CPPv210Wdg_FeedHwv"></span><span id="Wdg_FeedHw__void"></span><span class="target" id="_wdg_8h_1a7386387c163cefed0e31c29fc830f9b0"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Wdg_FeedHw</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv410Wdg_FeedHwv" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">Trigger watchdog hardware. Intended to be called from periodic timer handler. This <a class="reference internal" href="../../../appendix.html#term-interface"><span class="xref std std-term">interface</span></a> is only required for “logical timeout management”. “Direct timeout management” does not use this <a class="reference internal" href="../../../appendix.html#term-interface"><span class="xref std std-term">interface</span></a>. </p>
+<p class="sd-card-text"><dl class="simple">
+<dt><strong>Sync/Async:</strong></dt><dd><p class="sd-card-text">Synchronous </p>
+</dd>
+<dt><strong>Reentrancy:</strong></dt><dd><p class="sd-card-text">Non Reentrant </p>
+</dd>
+<dt><strong>Service ID [hex]:</strong></dt><dd><p class="sd-card-text">0x05 </p>
+</dd>
+<dt><strong>Development error(s):</strong></dt><dd><p class="sd-card-text"><ul class="simple">
+<li><p class="sd-card-text"><a class="reference internal" href="02_errors.html#group___wdg___development_errors_1ga756938b04c35659103a1c4fdb7e790c4"><span class="std std-ref">WDG_DEVERR_DRIVER_STATE</span></a> WdgDrv is not initialized </p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p class="sd-card-text"><strong>None</strong> – </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p class="sd-card-text">None. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<p class="sd-card-text"><strong>When to call:</strong> periodically, from the upper layer’s timer handler — <strong>logical strategy
+only</strong> (the direct strategy does not use it). It decrements the logical timeout by the call
+interval and re-triggers the hardware only while the timeout has not expired. Setting up the
+timer is the upper layer’s responsibility. <strong>Errors:</strong> see <a class="reference internal" href="02_errors.html"><span class="doc">Errors</span></a>. <em>Available via:</em>
+<code class="docutils literal notranslate"><span class="pre">Wdg.h</span></code></p>
+</div>
+</div>
+</div>
+</details></section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Reference" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="01_configuration.html" class="btn btn-neutral float-right" title="Configuration Reference" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026 by Vector Informatik GmbH and Infineon Technologies AG. All rights reserved.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

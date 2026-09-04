@@ -1,0 +1,655 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mem — Requirements &mdash; Chiisai HAL Specification  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css?v=4ae1632d" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-data-viewer/jsonview.bundle.css?v=f6ef2277" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-needs/libs/html/datatables.min.css?v=4b4fd840" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-needs/common_css/needstable.css?v=5e1b6797" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-needs/common_css/need_core.css?v=f5b60a78" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-needs/common_css/need_links.css?v=2150a916" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-needs/common_css/need_style.css?v=92936fa5" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-needs/common_css/need_toggle.css?v=5c6620df" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-needs/modern.css?v=803738c0" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=4f645179" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+      <script src="../../_static/sphinx-data-viewer/jsonview.bundle.js?v=18cd53c5"></script>
+      <script src="../../_static/sphinx-data-viewer/jsonview_loader.js?v=f7ff7e7d"></script>
+      <script src="../../_static/sphinx-needs/libs/html/datatables.min.js?v=8a4aee21"></script>
+      <script src="../../_static/sphinx-needs/libs/html/datatables_loader.js?v=a2cae175"></script>
+      <script src="../../_static/sphinx-needs/libs/html/sphinx_needs_collapse.js?v=dca66431"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Design Decisions" href="01_design_decisions.html" />
+    <link rel="prev" title="Errors" href="reference/02_errors.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Chiisai HAL Specification
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../00_about/index.html">About This Specification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../01_general/index.html">General</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Chiisai HAL Driver Modules</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../Can/index.html">Can</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../I2c/index.html">I2c</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lin/index.html">Lin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Mcu/index.html">Mcu</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Mem</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="general/index.html">General</a></li>
+<li class="toctree-l3"><a class="reference internal" href="guide/index.html">Guide</a></li>
+<li class="toctree-l3"><a class="reference internal" href="reference/index.html">Reference</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Mem — Requirements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="01_design_decisions.html">Design Decisions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Port/index.html">Port</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Spi/index.html">Spi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Uart/index.html">Uart</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Wdg/index.html">Wdg</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix.html">Appendix</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Chiisai HAL Specification</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Chiisai HAL Driver Modules</a></li>
+          <li class="breadcrumb-item"><a href="index.html">Mem</a></li>
+      <li class="breadcrumb-item active">Mem — Requirements</li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="mem-requirements">
+<h1>Mem — Requirements<a class="headerlink" href="#mem-requirements" title="Link to this heading"></a></h1>
+<div class="normative admonition">
+<p class="admonition-title">Normative</p>
+<p>Defines what a conformant memory driver <strong>MUST</strong> do. Requirements are clustered by severity —
+expand a cluster below. Keywords per <a class="reference internal" href="../../00_about/01_keywords.html"><span class="doc">Requirement Keywords</span></a>; conformance per
+<a class="reference internal" href="../../00_about/02_conformance.html"><span class="doc">Conformance</span></a>. Requirements do not carry individual status — the set-level status
+applies to all of them. Signatures, error codes, and configuration properties are in the
+<a class="reference internal" href="reference/00_api.html"><span class="doc">API Reference</span></a>, <a class="reference internal" href="reference/02_errors.html"><span class="doc">Errors</span></a>, and <a class="reference internal" href="reference/01_configuration.html"><span class="doc">Configuration Reference</span></a> pages.
+Cross-module rules (types, error model, naming, memory mapping) are in <a class="reference internal" href="../../01_general/index.html"><span class="doc">General</span></a>.</p>
+</div>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header sd-bg-warning sd-bg-text-warning">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-alert" viewBox="0 0 16 16" aria-hidden="true"><path d="M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"></path></svg></span><span class="sd-summary-text">Mandatory (MUST) - 27 Requirements</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">The conformance contract — an implementation MUST satisfy every requirement here.</p>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Lifecycle and jobs</div>
+<div class="need_container docutils container" id="SNCB-b263a270">
+<table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-MEM-MUST-01">
+<tbody>
+<tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
+<div class="line"><span><span class="needs-id"><a class="reference internal" href="#CHI-MEM-MUST-01" title="CHI-MEM-MUST-01">CHI-MEM-MUST-01</a></span> — </span><strong><span><span class="needs_title"><span class="needs_data">Initialization and de-initialization</span></span></span></strong></div>
+</div>
+</td>
+</tr>
+<tr class="need meta row-even"><td class="need meta"></td>
+</tr>
+<tr class="need content row-odd"><td class="need content" colspan="1"><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">Mem_Init</span></code> MUST initialize the driver (<code class="docutils literal notranslate"><span class="pre">configPtr</span></code> MUST be <code class="docutils literal notranslate"><span class="pre">NULL_PTR</span></code>) and leave each
+instance’s job result at <code class="docutils literal notranslate"><span class="pre">MEM_JOB_FINISHED</span></code>; <code class="docutils literal notranslate"><span class="pre">Mem_DeInit</span></code> MUST cancel any pending job
+and de-initialize the driver.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="need_container docutils container" id="SNCB-8228a133">
+<table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-MEM-MUST-02">
+<tbody>
+<tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
+<div class="line"><span><span class="needs-id"><a class="reference internal" href="#CHI-MEM-MUST-02" title="CHI-MEM-MUST-02">CHI-MEM-MUST-02</a></span> — </span><strong><span><span class="needs_title"><span class="needs_data">Single-job model</span></span></span></strong></div>
+</div>
+</td>
+</tr>
+<tr class="need meta row-even"><td class="need meta"></td>
+</tr>
+<tr class="need content row-odd"><td class="need content" colspan="1"><p class="sd-card-text">The driver MUST process at most one job at a time per instance and MUST NOT implement a job
+queue.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="need_container docutils container" id="SNCB-970c961e">
+<table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-MEM-MUST-03">
+<tbody>
+<tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
+<div class="line"><span><span class="needs-id"><a class="reference internal" href="#CHI-MEM-MUST-03" title="CHI-MEM-MUST-03">CHI-MEM-MUST-03</a></span> — </span><strong><span><span class="needs_title"><span class="needs_data">Job request acceptance</span></span></span></strong></div>
+</div>
+</td>
+</tr>
+<tr class="need meta row-even"><td class="need meta"></td>
+</tr>
+<tr class="need content row-odd"><td class="need content" colspan="1"><p class="sd-card-text">A service request that cannot be accepted (for example while a job is pending) MUST be
+rejected with <code class="docutils literal notranslate"><span class="pre">E_NOT_OK</span></code> and MUST NOT disturb the running job.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="need_container docutils container" id="SNCB-a34c5a2d">
+<table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-MEM-MUST-04">
+<tbody>
+<tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
+<div class="line"><span><span class="needs-id"><a class="reference internal" href="#CHI-MEM-MUST-04" title="CHI-MEM-MUST-04">CHI-MEM-MUST-04</a></span> — </span><strong><span><span class="needs_title"><span class="needs_data">Asynchronous execution</span></span></span></strong></div>
+</div>
+</td>
+</tr>
+<tr class="need meta row-even"><td class="need meta"></td>
+</tr>
+<tr class="need content row-odd"><td class="need content" colspan="1"><p class="sd-card-text">Accepted jobs MUST be executed asynchronously, advanced by <code class="docutils literal notranslate"><span class="pre">Mem_PollFunction</span></code>, which the
+driver MUST provide.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="need_container docutils container" id="SNCB-91daf7be">
+<table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-MEM-MUST-05">
+<tbody>
+<tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
+<div class="line"><span><span class="needs-id"><a class="reference internal" href="#CHI-MEM-MUST-05" title="CHI-MEM-MUST-05">CHI-MEM-MUST-05</a></span> — </span><strong><span><span class="needs_title"><span class="needs_data">Job status and result</span></span></span></strong></div>
+</div>
+</td>
+</tr>
+<tr class="need meta row-even"><td class="need meta"></td>
+</tr>
+<tr class="need content row-odd"><td class="need content" colspan="1"><p class="sd-card-text">The driver MUST track each instance’s job status and expose the most recent result via
+<code class="docutils literal notranslate"><span class="pre">Mem_GetJobResult</span></code> (overwritten by each new job).</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="need_container docutils container" id="SNCB-3c2c62ff">
+<table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-MEM-MUST-06">
+<tbody>
+<tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
+<div class="line"><span><span class="needs-id"><a class="reference internal" href="#CHI-MEM-MUST-06" title="CHI-MEM-MUST-06">CHI-MEM-MUST-06</a></span> — </span><strong><span><span class="needs_title"><span class="needs_data">Job status transitions</span></span></span></strong></div>
+</div>
+</td>
+</tr>
+<tr class="need meta row-even"><td class="need meta"></td>
+</tr>
+<tr class="need content row-odd"><td class="need content" colspan="1"><p class="sd-card-text">On acceptance the result MUST become <code class="docutils literal notranslate"><span class="pre">MEM_JOB_PENDING</span></code>; on success <code class="docutils literal notranslate"><span class="pre">MEM_JOB_FINISHED</span></code>;
+on failure <code class="docutils literal notranslate"><span class="pre">MEM_JOB_FAILED</span></code>; and a blank check of a non-blank area MUST yield
+<code class="docutils literal notranslate"><span class="pre">MEM_JOB_PAGE_INCONSISTENT</span></code>.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Memory services</div>
+<div class="need_container docutils container" id="SNCB-e877b303">
+<table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-MEM-MUST-07">
+<tbody>
+<tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
+<div class="line"><span><span class="needs-id"><a class="reference internal" href="#CHI-MEM-MUST-07" title="CHI-MEM-MUST-07">CHI-MEM-MUST-07</a></span> — </span><strong><span><span class="needs_title"><span class="needs_data">Read</span></span></span></strong></div>
+</div>
+</td>
+</tr>
+<tr class="need meta row-even"><td class="need meta"></td>
+</tr>
+<tr class="need content row-odd"><td class="need content" colspan="1"><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">Mem_Read</span></code> MUST start an asynchronous read into the caller’s buffer, and MUST detect the
+development errors in <a class="reference internal" href="reference/02_errors.html"><span class="doc">Errors</span></a>.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="need_container docutils container" id="SNCB-6794f308">
+<table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-MEM-MUST-08">
+<tbody>
+<tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
+<div class="line"><span><span class="needs-id"><a class="reference internal" href="#CHI-MEM-MUST-08" title="CHI-MEM-MUST-08">CHI-MEM-MUST-08</a></span> — </span><strong><span><span class="needs_title"><span class="needs_data">Write</span></span></span></strong></div>
+</div>
+</td>
+</tr>
+<tr class="need meta row-even"><td class="need meta"></td>
+</tr>
+<tr class="need content row-odd"><td class="need content" colspan="1"><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">Mem_Write</span></code> MUST start an asynchronous write (write-page aligned), and MUST detect the
+development errors in <a class="reference internal" href="reference/02_errors.html"><span class="doc">Errors</span></a>.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="need_container docutils container" id="SNCB-e9f775dd">
+<table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-MEM-MUST-09">
+<tbody>
+<tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
+<div class="line"><span><span class="needs-id"><a class="reference internal" href="#CHI-MEM-MUST-09" title="CHI-MEM-MUST-09">CHI-MEM-MUST-09</a></span> — </span><strong><span><span class="needs_title"><span class="needs_data">Erase</span></span></span></strong></div>
+</div>
+</td>
+</tr>
+<tr class="need meta row-even"><td class="need meta"></td>
+</tr>
+<tr class="need content row-odd"><td class="need content" colspan="1"><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">Mem_Erase</span></code> MUST start an asynchronous erase (sector aligned), and MUST detect the
+development errors in <a class="reference internal" href="reference/02_errors.html"><span class="doc">Errors</span></a>.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="need_container docutils container" id="SNCB-e3fe58be">
+<table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-MEM-MUST-10">
+<tbody>
+<tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
+<div class="line"><span><span class="needs-id"><a class="reference internal" href="#CHI-MEM-MUST-10" title="CHI-MEM-MUST-10">CHI-MEM-MUST-10</a></span> — </span><strong><span><span class="needs_title"><span class="needs_data">Blank check</span></span></span></strong></div>
+</div>
+</td>
+</tr>
+<tr class="need meta row-even"><td class="need meta"></td>
+</tr>
+<tr class="need content row-odd"><td class="need content" colspan="1"><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">Mem_VerifyBlank</span></code> MUST start an asynchronous blank check, yielding
+<code class="docutils literal notranslate"><span class="pre">MEM_JOB_PAGE_INCONSISTENT</span></code> when the area is not blank, and MUST detect its development
+errors.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="need_container docutils container" id="SNCB-7d72ca82">
+<table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-MEM-MUST-11">
+<tbody>
+<tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
+<div class="line"><span><span class="needs-id"><a class="reference internal" href="#CHI-MEM-MUST-11" title="CHI-MEM-MUST-11">CHI-MEM-MUST-11</a></span> — </span><strong><span><span class="needs_title"><span class="needs_data">Suspend and resume</span></span></span></strong></div>
+</div>
+</td>
+</tr>
+<tr class="need meta row-even"><td class="need meta"></td>
+</tr>
+<tr class="need content row-odd"><td class="need content" colspan="1"><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">Mem_SuspendJob</span></code> and <code class="docutils literal notranslate"><span class="pre">Mem_ResumeJob</span></code> MUST suspend and resume the active job using the
+hardware. Where the device does not support it they MUST return <code class="docutils literal notranslate"><span class="pre">E_MEM_SERVICE_NOT_AVAIL</span></code>.
+Suspending with nothing suspendable, or resuming with nothing suspended, MUST be rejected.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="need_container docutils container" id="SNCB-86624e0a">
+<table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-MEM-MUST-12">
+<tbody>
+<tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
+<div class="line"><span><span class="needs-id"><a class="reference internal" href="#CHI-MEM-MUST-12" title="CHI-MEM-MUST-12">CHI-MEM-MUST-12</a></span> — </span><strong><span><span class="needs_title"><span class="needs_data">Hardware-specific service</span></span></span></strong></div>
+</div>
+</td>
+</tr>
+<tr class="need meta row-even"><td class="need meta"></td>
+</tr>
+<tr class="need content row-odd"><td class="need content" colspan="1"><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">Mem_HwSpecificService</span></code> MUST dispatch the device-specific routine identified by
+<code class="docutils literal notranslate"><span class="pre">hwServiceId</span></code>, returning <code class="docutils literal notranslate"><span class="pre">E_MEM_SERVICE_NOT_AVAIL</span></code> for an unsupported id.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="need_container docutils container" id="SNCB-13fe8846">
+<table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-MEM-MUST-13">
+<tbody>
+<tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
+<div class="line"><span><span class="needs-id"><a class="reference internal" href="#CHI-MEM-MUST-13" title="CHI-MEM-MUST-13">CHI-MEM-MUST-13</a></span> — </span><strong><span><span class="needs_title"><span class="needs_data">ECC error notification</span></span></span></strong></div>
+</div>
+</td>
+</tr>
+<tr class="need meta row-even"><td class="need meta"></td>
+</tr>
+<tr class="need content row-odd"><td class="need content" colspan="1"><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">Mem_OnError</span></code> MUST, when called by the ECC handler, cancel the current job and set
+<code class="docutils literal notranslate"><span class="pre">MEM_JOB_ERROR_ECC_UNCORRECTED</span></code>.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="need_container docutils container" id="SNCB-70d38490">
+<table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-MEM-MUST-14">
+<tbody>
+<tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
+<div class="line"><span><span class="needs-id"><a class="reference internal" href="#CHI-MEM-MUST-14" title="CHI-MEM-MUST-14">CHI-MEM-MUST-14</a></span> — </span><strong><span><span class="needs_title"><span class="needs_data">Optional service availability</span></span></span></strong></div>
+</div>
+</td>
+</tr>
+<tr class="need meta row-even"><td class="need meta"></td>
+</tr>
+<tr class="need content row-odd"><td class="need content" colspan="1"><p class="sd-card-text">A service a given instance does not implement MUST return <code class="docutils literal notranslate"><span class="pre">E_MEM_SERVICE_NOT_AVAIL</span></code> rather
+than fail silently.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Operation constraints</div>
+<div class="need_container docutils container" id="SNCB-7c4b30b4">
+<table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-MEM-MUST-15">
+<tbody>
+<tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
+<div class="line"><span><span class="needs-id"><a class="reference internal" href="#CHI-MEM-MUST-15" title="CHI-MEM-MUST-15">CHI-MEM-MUST-15</a></span> — </span><strong><span><span class="needs_title"><span class="needs_data">No result verification</span></span></span></strong></div>
+</div>
+</td>
+</tr>
+<tr class="need meta row-even"><td class="need meta"></td>
+</tr>
+<tr class="need content row-odd"><td class="need content" colspan="1"><p class="sd-card-text">The driver MUST NOT read back to verify the result of a write or erase.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="need_container docutils container" id="SNCB-f92543df">
+<table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-MEM-MUST-16">
+<tbody>
+<tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
+<div class="line"><span><span class="needs-id"><a class="reference internal" href="#CHI-MEM-MUST-16" title="CHI-MEM-MUST-16">CHI-MEM-MUST-16</a></span> — </span><strong><span><span class="needs_title"><span class="needs_data">No alignment or buffering</span></span></span></strong></div>
+</div>
+</td>
+</tr>
+<tr class="need meta row-even"><td class="need meta"></td>
+</tr>
+<tr class="need content row-odd"><td class="need content" colspan="1"><p class="sd-card-text">The driver MUST NOT perform address/length alignment or buffer sub-page writes; the caller
+MUST provide aligned parameters, and misalignment MUST be a development error.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="need_container docutils container" id="SNCB-beef1311">
+<table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-MEM-MUST-17">
+<tbody>
+<tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
+<div class="line"><span><span class="needs-id"><a class="reference internal" href="#CHI-MEM-MUST-17" title="CHI-MEM-MUST-17">CHI-MEM-MUST-17</a></span> — </span><strong><span><span class="needs_title"><span class="needs_data">Address range</span></span></span></strong></div>
+</div>
+</td>
+</tr>
+<tr class="need meta row-even"><td class="need meta"></td>
+</tr>
+<tr class="need content row-odd"><td class="need content" colspan="1"><p class="sd-card-text">The driver MUST support the device’s address space within a 32-bit address and length.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="need_container docutils container" id="SNCB-5c79d3ce">
+<table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-MEM-MUST-18">
+<tbody>
+<tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
+<div class="line"><span><span class="needs-id"><a class="reference internal" href="#CHI-MEM-MUST-18" title="CHI-MEM-MUST-18">CHI-MEM-MUST-18</a></span> — </span><strong><span><span class="needs_title"><span class="needs_data">Configuration validation</span></span></span></strong></div>
+</div>
+</td>
+</tr>
+<tr class="need meta row-even"><td class="need meta"></td>
+</tr>
+<tr class="need content row-odd"><td class="need content" colspan="1"><p class="sd-card-text">The configuration MUST be validated at or before build time; the driver need not check it at
+runtime.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Multiple instances and invocation</div>
+<div class="need_container docutils container" id="SNCB-9977c2d7">
+<table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-MEM-MUST-19">
+<tbody>
+<tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
+<div class="line"><span><span class="needs-id"><a class="reference internal" href="#CHI-MEM-MUST-19" title="CHI-MEM-MUST-19">CHI-MEM-MUST-19</a></span> — </span><strong><span><span class="needs_title"><span class="needs_data">Multiple memory instances</span></span></span></strong></div>
+</div>
+</td>
+</tr>
+<tr class="need meta row-even"><td class="need meta"></td>
+</tr>
+<tr class="need content row-odd"><td class="need content" colspan="1"><p class="sd-card-text">The driver MUST support multiple memory instances of the same device, addressed by
+<code class="docutils literal notranslate"><span class="pre">Mem_InstanceIdType</span></code>.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="need_container docutils container" id="SNCB-27d41bf2">
+<table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-MEM-MUST-20">
+<tbody>
+<tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
+<div class="line"><span><span class="needs-id"><a class="reference internal" href="#CHI-MEM-MUST-20" title="CHI-MEM-MUST-20">CHI-MEM-MUST-20</a></span> — </span><strong><span><span class="needs_title"><span class="needs_data">Direct and indirect invocation</span></span></span></strong></div>
+</div>
+</td>
+</tr>
+<tr class="need meta row-even"><td class="need meta"></td>
+</tr>
+<tr class="need content row-odd"><td class="need content" colspan="1"><p class="sd-card-text">Services MUST be invocable directly, and — for a binary image — indirectly through the
+service function-pointer table.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="need_container docutils container" id="SNCB-3d430569">
+<table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-MEM-MUST-21">
+<tbody>
+<tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
+<div class="line"><span><span class="needs-id"><a class="reference internal" href="#CHI-MEM-MUST-21" title="CHI-MEM-MUST-21">CHI-MEM-MUST-21</a></span> — </span><strong><span><span class="needs_title"><span class="needs_data">Self-contained binary image</span></span></span></strong></div>
+</div>
+</td>
+</tr>
+<tr class="need meta row-even"><td class="need meta"></td>
+</tr>
+<tr class="need content row-odd"><td class="need content" colspan="1"><p class="sd-card-text">When built as a separate relocatable image the driver MUST be self-contained: it MUST NOT
+call external libraries and MUST NOT perform development-error reporting.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Binary image format</div>
+<div class="need_container docutils container" id="SNCB-3763ae28">
+<table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-MEM-MUST-22">
+<tbody>
+<tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
+<div class="line"><span><span class="needs-id"><a class="reference internal" href="#CHI-MEM-MUST-22" title="CHI-MEM-MUST-22">CHI-MEM-MUST-22</a></span> — </span><strong><span><span class="needs_title"><span class="needs_data">Binary byte order</span></span></span></strong></div>
+</div>
+</td>
+</tr>
+<tr class="need meta row-even"><td class="need meta"></td>
+</tr>
+<tr class="need content row-odd"><td class="need content" colspan="1"><p class="sd-card-text">The binary image MUST use the CPU byte order.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="need_container docutils container" id="SNCB-9af5ca7b">
+<table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-MEM-MUST-23">
+<tbody>
+<tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
+<div class="line"><span><span class="needs-id"><a class="reference internal" href="#CHI-MEM-MUST-23" title="CHI-MEM-MUST-23">CHI-MEM-MUST-23</a></span> — </span><strong><span><span class="needs_title"><span class="needs_data">Header structure</span></span></span></strong></div>
+</div>
+</td>
+</tr>
+<tr class="need meta row-even"><td class="need meta"></td>
+</tr>
+<tr class="need content row-odd"><td class="need content" colspan="1"><p class="sd-card-text">The image MUST begin with a header carrying a unique id, flags, the header address, and the
+delimiter address, followed by the service function-pointer table.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="need_container docutils container" id="SNCB-480c64d1">
+<table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-MEM-MUST-24">
+<tbody>
+<tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
+<div class="line"><span><span class="needs-id"><a class="reference internal" href="#CHI-MEM-MUST-24" title="CHI-MEM-MUST-24">CHI-MEM-MUST-24</a></span> — </span><strong><span><span class="needs_title"><span class="needs_data">ABI version</span></span></span></strong></div>
+</div>
+</td>
+</tr>
+<tr class="need meta row-even"><td class="need meta"></td>
+</tr>
+<tr class="need content row-odd"><td class="need content" colspan="1"><p class="sd-card-text">The header’s ABI version MUST be <code class="docutils literal notranslate"><span class="pre">0001</span></code>.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="need_container docutils container" id="SNCB-81ccb12d">
+<table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-MEM-MUST-25">
+<tbody>
+<tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
+<div class="line"><span><span class="needs-id"><a class="reference internal" href="#CHI-MEM-MUST-25" title="CHI-MEM-MUST-25">CHI-MEM-MUST-25</a></span> — </span><strong><span><span class="needs_title"><span class="needs_data">Header and delimiter addresses</span></span></span></strong></div>
+</div>
+</td>
+</tr>
+<tr class="need meta row-even"><td class="need meta"></td>
+</tr>
+<tr class="need content row-odd"><td class="need content" colspan="1"><p class="sd-card-text">For a relocatable image the header address and delimiter address MUST be consistent with the
+image’s own layout as specified in <a class="reference internal" href="general/01_concepts.html"><span class="doc">Concepts</span></a>.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="need_container docutils container" id="SNCB-06e389f1">
+<table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-MEM-MUST-26">
+<tbody>
+<tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
+<div class="line"><span><span class="needs-id"><a class="reference internal" href="#CHI-MEM-MUST-26" title="CHI-MEM-MUST-26">CHI-MEM-MUST-26</a></span> — </span><strong><span><span class="needs_title"><span class="needs_data">Delimiter value</span></span></span></strong></div>
+</div>
+</td>
+</tr>
+<tr class="need meta row-even"><td class="need meta"></td>
+</tr>
+<tr class="need content row-odd"><td class="need content" colspan="1"><p class="sd-card-text">The delimiter value MUST be the ones’ complement of the unique id.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Configuration</div>
+<div class="need_container docutils container" id="SNCB-55b42ed2">
+<table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-MEM-MUST-27">
+<tbody>
+<tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
+<div class="line"><span><span class="needs-id"><a class="reference internal" href="#CHI-MEM-MUST-27" title="CHI-MEM-MUST-27">CHI-MEM-MUST-27</a></span> — </span><strong><span><span class="needs_title"><span class="needs_data">Configuration model</span></span></span></strong></div>
+</div>
+</td>
+</tr>
+<tr class="need meta row-even"><td class="need meta"></td>
+</tr>
+<tr class="need content row-odd"><td class="need content" colspan="1"><p class="sd-card-text">The driver MUST support the configuration model in <a class="reference internal" href="reference/01_configuration.html"><span class="doc">Configuration Reference</span></a> — a
+<code class="docutils literal notranslate"><span class="pre">General</span></code> section and a <code class="docutils literal notranslate"><span class="pre">ConfigSet</span></code> of <code class="docutils literal notranslate"><span class="pre">MemInstance</span></code> entries — following the common
+model in <a class="reference internal" href="../../01_general/index.html"><span class="doc">General</span></a> (<a class="reference internal" href="../../01_general/04_requirements.html#CHI-GEN-MUST-12" title="CHI-GEN-MUST-12"><em class="xref need">CHI-GEN-MUST-12</em></a>).</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header sd-bg-info sd-bg-text-info">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-info" viewBox="0 0 16 16" aria-hidden="true"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg></span><span class="sd-summary-text">Recommended (SHOULD) - 1 Requirement</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Strongly advised; an implementation that deviates should understand the implications.</p>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+ECC handling</div>
+<div class="need_container docutils container" id="SNCB-0a851455">
+<table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-MEM-SHOULD-01">
+<tbody>
+<tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
+<div class="line"><span><span class="needs-id"><a class="reference internal" href="#CHI-MEM-SHOULD-01" title="CHI-MEM-SHOULD-01">CHI-MEM-SHOULD-01</a></span> — </span><strong><span><span class="needs_title"><span class="needs_data">ECC error handling</span></span></span></strong></div>
+</div>
+</td>
+</tr>
+<tr class="need meta row-even"><td class="need meta"></td>
+</tr>
+<tr class="need content row-odd"><td class="need content" colspan="1"><p class="sd-card-text">On an <strong>uncorrectable</strong> ECC error the driver SHOULD cancel the job and set
+<code class="docutils literal notranslate"><span class="pre">MEM_JOB_ERROR_ECC_UNCORRECTED</span></code>; on a <strong>correctable</strong> ECC error it SHOULD complete the job
+and set <code class="docutils literal notranslate"><span class="pre">MEM_JOB_ERROR_ECC_CORRECTED</span></code>.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</details></section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="reference/02_errors.html" class="btn btn-neutral float-left" title="Errors" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="01_design_decisions.html" class="btn btn-neutral float-right" title="Design Decisions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026 by Vector Informatik GmbH and Infineon Technologies AG. All rights reserved.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

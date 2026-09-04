@@ -1,0 +1,247 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Design Decisions &mdash; Chiisai HAL Specification  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=4ae1632d" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx-data-viewer/jsonview.bundle.css?v=f6ef2277" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx-needs/libs/html/datatables.min.css?v=4b4fd840" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx-needs/common_css/needstable.css?v=5e1b6797" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx-needs/common_css/need_core.css?v=f5b60a78" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx-needs/common_css/need_links.css?v=2150a916" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx-needs/common_css/need_style.css?v=92936fa5" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx-needs/common_css/need_toggle.css?v=5c6620df" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx-needs/modern.css?v=803738c0" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=4f645179" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../_static/design-tabs.js?v=f930bc37"></script>
+      <script src="../_static/sphinx-data-viewer/jsonview.bundle.js?v=18cd53c5"></script>
+      <script src="../_static/sphinx-data-viewer/jsonview_loader.js?v=f7ff7e7d"></script>
+      <script src="../_static/sphinx-needs/libs/html/datatables.min.js?v=8a4aee21"></script>
+      <script src="../_static/sphinx-needs/libs/html/datatables_loader.js?v=a2cae175"></script>
+      <script src="../_static/sphinx-needs/libs/html/sphinx_needs_collapse.js?v=dca66431"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Chiisai HAL Driver Modules" href="../04_DriverModules/index.html" />
+    <link rel="prev" title="Requirements" href="04_requirements.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Chiisai HAL Specification
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../00_about/index.html">About This Specification</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">General</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="00_overview.html">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01_architecture.html">Architecture and Layering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02_conventions.html">Naming Conventions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03_integration.html">Integration Guidelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide/index.html">Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reference/index.html">Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04_requirements.html">Requirements</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Design Decisions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#why-do-some-modules-have-no-upper-layer-interface-layer">Why do some modules have no upper-layer interface layer?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#why-keep-the-interface-layer-for-can-lin-mem-and-wdg">Why keep the interface layer for <code class="docutils literal notranslate"><span class="pre">Can</span></code>, <code class="docutils literal notranslate"><span class="pre">Lin</span></code>, <code class="docutils literal notranslate"><span class="pre">Mem</span></code> and <code class="docutils literal notranslate"><span class="pre">Wdg</span></code>?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#why-are-callouts-named-mip-callout-on-event">Why are callouts named <code class="docutils literal notranslate"><span class="pre">&lt;Mip&gt;_Callout_On&lt;Event&gt;</span></code>?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#why-is-the-callout-code-generated-into-its-own-file">Why is the callout code generated into its own file?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#why-do-the-user-code-markers-carry-the-full-callout-name">Why do the user-code markers carry the full callout name?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#where-the-naming-rule-is-defined">Where the naming rule is defined</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../04_DriverModules/index.html">Chiisai HAL Driver Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix.html">Appendix</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Chiisai HAL Specification</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">General</a></li>
+      <li class="breadcrumb-item active">Design Decisions</li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="design-decisions">
+<h1>Design Decisions<a class="headerlink" href="#design-decisions" title="Link to this heading"></a></h1>
+<div class="informative admonition">
+<p class="admonition-title">Informative</p>
+<p>The rationale behind the cross-module rules in <a class="reference internal" href="04_requirements.html"><span class="doc">Requirements</span></a>. This helps implementers and
+integrators understand <em>why</em> the contract looks the way it does; it is not itself a requirement.
+Each entry points to the requirement it explains. Per-module rationale lives in each module’s own
+design-decision page.</p>
+</div>
+<section id="why-do-some-modules-have-no-upper-layer-interface-layer">
+<h2>Why do some modules have no upper-layer interface layer?<a class="headerlink" href="#why-do-some-modules-have-no-upper-layer-interface-layer" title="Link to this heading"></a></h2>
+<p><em>Governs</em> <a class="reference internal" href="04_requirements.html#CHI-GEN-MUST-04" title="CHI-GEN-MUST-04"><em class="xref need">CHI-GEN-MUST-04</em></a>, <a class="reference internal" href="04_requirements.html#CHI-GEN-MUST-14" title="CHI-GEN-MUST-14"><em class="xref need">CHI-GEN-MUST-14</em></a>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">Can</span></code>, <code class="docutils literal notranslate"><span class="pre">Lin</span></code>, <code class="docutils literal notranslate"><span class="pre">Mem</span></code> and <code class="docutils literal notranslate"><span class="pre">Wdg</span></code> sit below an established interface stack (<code class="docutils literal notranslate"><span class="pre">CanIf</span></code>, <code class="docutils literal notranslate"><span class="pre">LinIf</span></code>,
+<code class="docutils literal notranslate"><span class="pre">MemIf</span></code>, <code class="docutils literal notranslate"><span class="pre">WdgIf</span></code>) that genuinely exists as a separate software component: it multiplexes several
+drivers, holds state of its own, and is specified elsewhere. Modelling an interface layer above those
+drivers describes something real.</p>
+<p>For <code class="docutils literal notranslate"><span class="pre">I2c</span></code>, <code class="docutils literal notranslate"><span class="pre">Mcu</span></code>, <code class="docutils literal notranslate"><span class="pre">Port</span></code>, <code class="docutils literal notranslate"><span class="pre">Spi</span></code> and <code class="docutils literal notranslate"><span class="pre">Uart</span></code> there is no such component. Nothing standard
+sits between the driver and whatever the integrator happens to build on top, so an <code class="docutils literal notranslate"><span class="pre">&lt;Ma&gt;If</span></code> layer
+would be a layer with no implementation, no owner, and no other user — the integrator would end up
+writing the “interface” themselves anyway, just under a name that suggests a stack they do not have.
+The alternative that was rejected was to keep the <code class="docutils literal notranslate"><span class="pre">&lt;Ma&gt;If</span></code> naming for these modules purely for
+symmetry; that keeps the documentation tidy at the cost of misleading every integrator about what
+they are expected to supply.</p>
+<p>So these five modules declare <strong>callouts</strong> instead: functions the driver calls, declared in the
+module’s own header, implemented by the integrator in a generated stub file. The same information
+crosses the same boundary; only the fiction of a stack is gone.</p>
+<p><strong>Implication for implementers:</strong> do not ship an <code class="docutils literal notranslate"><span class="pre">&lt;Ma&gt;If.h</span></code> for these modules. Declare the callout
+prototypes in <code class="docutils literal notranslate"><span class="pre">&lt;Mip&gt;.h</span></code> and publish the specification’s types in <code class="docutils literal notranslate"><span class="pre">&lt;Ma&gt;_DriverTypes.h</span></code>.</p>
+</section>
+<section id="why-keep-the-interface-layer-for-can-lin-mem-and-wdg">
+<h2>Why keep the interface layer for <code class="docutils literal notranslate"><span class="pre">Can</span></code>, <code class="docutils literal notranslate"><span class="pre">Lin</span></code>, <code class="docutils literal notranslate"><span class="pre">Mem</span></code> and <code class="docutils literal notranslate"><span class="pre">Wdg</span></code>?<a class="headerlink" href="#why-keep-the-interface-layer-for-can-lin-mem-and-wdg" title="Link to this heading"></a></h2>
+<p><em>Relates to</em> <a class="reference internal" href="04_requirements.html#CHI-GEN-MUST-04" title="CHI-GEN-MUST-04"><em class="xref need">CHI-GEN-MUST-04</em></a>, <a class="reference internal" href="04_requirements.html#CHI-GEN-MUST-15" title="CHI-GEN-MUST-15"><em class="xref need">CHI-GEN-MUST-15</em></a>.</p>
+<p>Because for those modules the layer is not a fiction. The consequence — accepted deliberately — is
+that the specification carries <strong>two</strong> models side by side, and that is a permanent state rather than
+a migration in progress. The rule for deciding which applies is a property of the module: does an
+upper-layer interface stack exist for it? Nothing about a project or a delivery changes the answer.</p>
+<p><strong>Implication for implementers:</strong> read the module’s own specification to learn which model it uses;
+do not infer it from another module.</p>
+</section>
+<section id="why-are-callouts-named-mip-callout-on-event">
+<h2>Why are callouts named <code class="docutils literal notranslate"><span class="pre">&lt;Mip&gt;_Callout_On&lt;Event&gt;</span></code>?<a class="headerlink" href="#why-are-callouts-named-mip-callout-on-event" title="Link to this heading"></a></h2>
+<p><em>Governs</em> <a class="reference internal" href="04_requirements.html#CHI-GEN-MUST-15" title="CHI-GEN-MUST-15"><em class="xref need">CHI-GEN-MUST-15</em></a>.</p>
+<p>Three properties were wanted at once. A callout is an ordinary global function of the module, so it
+should follow the ordinary function scheme <code class="docutils literal notranslate"><span class="pre">&lt;Mip&gt;_&lt;Fn&gt;</span></code> (<a class="reference internal" href="04_requirements.html#CHI-GEN-MUST-02" title="CHI-GEN-MUST-02"><em class="xref need">CHI-GEN-MUST-02</em></a>) — this also makes
+<a class="reference internal" href="04_requirements.html#CHI-GEN-MUST-14" title="CHI-GEN-MUST-14"><em class="xref need">CHI-GEN-MUST-14</em></a> natural, since the prototype belongs in <code class="docutils literal notranslate"><span class="pre">&lt;Mip&gt;.h</span></code>. The <code class="docutils literal notranslate"><span class="pre">On&lt;Event&gt;</span></code>
+vocabulary is worth preserving across modules: an integrator who has seen <code class="docutils literal notranslate"><span class="pre">CanIf_OnReception</span></code>
+should recognise <code class="docutils literal notranslate"><span class="pre">Uart_Callout_OnReception</span></code> immediately. And, decisively, a reader must be able to
+tell <strong>who implements a function</strong> from its name.</p>
+<p>The plain composition <code class="docutils literal notranslate"><span class="pre">&lt;Mip&gt;_On&lt;Event&gt;</span></code> satisfied the first two but failed the third. Driver
+services and integrator callouts would have shared one prefix, so <code class="docutils literal notranslate"><span class="pre">I2c_OnReception</span></code> would sit in
+the same namespace as <code class="docutils literal notranslate"><span class="pre">I2c_StartRxTransaction</span></code> with nothing but the documentation to say that
+opposite parties implement them. Worse, some modules already provide an <strong>inbound notification
+service</strong> — a function the integration code calls to tell the driver about something the hardware
+cannot report itself, such as <code class="docutils literal notranslate"><span class="pre">Spi_OnCs</span></code> for an externally detected chip-select edge, or
+<code class="docutils literal notranslate"><span class="pre">Mem_OnError</span></code> for an ECC fault from the system handler. Those wear <code class="docutils literal notranslate"><span class="pre">On&lt;Event&gt;</span></code> names while
+pointing in the <em>opposite</em> direction to a callout, so the name would have been actively misleading.</p>
+<p>Reserving a <code class="docutils literal notranslate"><span class="pre">Callout</span></code> infix resolves all three: <code class="docutils literal notranslate"><span class="pre">&lt;Mip&gt;_Callout_On&lt;Event&gt;</span></code> is recognisably a
+module function, recognisably an <code class="docutils literal notranslate"><span class="pre">On&lt;Event&gt;</span></code> notification, and unmistakably the integrator’s to
+implement. It also settles the inbound services without renaming them — they simply lack the infix.</p>
+<p><strong>Implication for implementers:</strong> put <code class="docutils literal notranslate"><span class="pre">Callout</span></code> directly after the module prefix; keep the event
+half of the name identical to the event name other modules use for the same kind of event; and do
+not give a driver service a name containing <code class="docutils literal notranslate"><span class="pre">_Callout_</span></code>.</p>
+</section>
+<section id="why-is-the-callout-code-generated-into-its-own-file">
+<h2>Why is the callout code generated into its own file?<a class="headerlink" href="#why-is-the-callout-code-generated-into-its-own-file" title="Link to this heading"></a></h2>
+<p><em>Governs</em> <a class="reference internal" href="04_requirements.html#CHI-GEN-MUST-16" title="CHI-GEN-MUST-16"><em class="xref need">CHI-GEN-MUST-16</em></a>.</p>
+<p>The integrator needs a definite place to write code, and the generator needs to be able to run again
+without destroying it. A single generated file per module with explicit user-code blocks satisfies
+both: the integrator never has to create a file or work out where a callout is expected, and the
+generator owns everything outside the blocks. Emitting one default implementation per callout also
+means a project links successfully before any integration code is written.</p>
+<p>Callouts that the active configuration does not enable are still emitted, excluded from compilation.
+Dropping them instead would silently delete the integrator’s code whenever an event is temporarily
+disabled.</p>
+<p><strong>Implication for implementers:</strong> generate <code class="docutils literal notranslate"><span class="pre">&lt;Mip&gt;_Callout_Stubs.c</span></code> for every module that defines
+callouts, including the disabled ones, and never rewrite the contents of a user-code block.</p>
+</section>
+<section id="why-do-the-user-code-markers-carry-the-full-callout-name">
+<h2>Why do the user-code markers carry the full callout name?<a class="headerlink" href="#why-do-the-user-code-markers-carry-the-full-callout-name" title="Link to this heading"></a></h2>
+<p><em>Relates to</em> <a class="reference internal" href="04_requirements.html#CHI-GEN-MUST-16" title="CHI-GEN-MUST-16"><em class="xref need">CHI-GEN-MUST-16</em></a>.</p>
+<p>The marker has to identify which callout a block of user code belongs to. Naming the callout in full
+matches the convention integrators already know from comparable generated stub files, and it makes
+the file readable on its own — the marker says exactly which function’s body you are looking at.</p>
+<p>The alternative considered was to key the marker on the event name only (<code class="docutils literal notranslate"><span class="pre">&lt;USERBLOCK</span> <span class="pre">OnReception&gt;</span></code>),
+which would survive a future renaming of the callout scheme. It was rejected in favour of the more
+familiar and more self-describing form. The accepted consequence: if a module specification ever
+renames a callout, the marker text changes with it, so a regeneration would no longer match user code
+written against the old name. Such a rename therefore has to be accompanied by a migration of
+existing stub files — it is not a specification-only change.</p>
+<p><strong>Implication for implementers:</strong> derive the marker from the callout symbol, and — if you ever
+rename a callout — ship a migration for the stub files in the field, or accept the old marker as an
+alias when reading.</p>
+</section>
+<section id="where-the-naming-rule-is-defined">
+<h2>Where the naming rule is defined<a class="headerlink" href="#where-the-naming-rule-is-defined" title="Link to this heading"></a></h2>
+<p><em>Relates to</em> <a class="reference internal" href="04_requirements.html#CHI-GEN-MUST-15" title="CHI-GEN-MUST-15"><em class="xref need">CHI-GEN-MUST-15</em></a>.</p>
+<p>The callout naming scheme is stated in exactly one normative place, <a class="reference internal" href="04_requirements.html#CHI-GEN-MUST-15" title="CHI-GEN-MUST-15"><em class="xref need">CHI-GEN-MUST-15</em></a>, and
+illustrated in exactly one informative place, <a class="reference internal" href="02_conventions.html"><span class="doc">Naming Conventions</span></a>. Module pages cite those rather
+than restating the rule, and the cross-references in each module’s API reference are anchored on the
+event rather than on the full symbol. This is deliberate: it keeps the scheme changeable later at the
+cost of one requirement, one convention page, and a mechanical symbol sweep, instead of a rewrite of
+every module’s prose.</p>
+<p><strong>Implication for implementers:</strong> when documenting a module, link to the convention instead of
+repeating it.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="04_requirements.html" class="btn btn-neutral float-left" title="Requirements" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../04_DriverModules/index.html" class="btn btn-neutral float-right" title="Chiisai HAL Driver Modules" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026 by Vector Informatik GmbH and Infineon Technologies AG. All rights reserved.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,796 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>API Reference &mdash; Chiisai HAL Specification  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css?v=4ae1632d" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-data-viewer/jsonview.bundle.css?v=f6ef2277" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/libs/html/datatables.min.css?v=4b4fd840" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/common_css/needstable.css?v=5e1b6797" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/common_css/need_core.css?v=f5b60a78" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/common_css/need_links.css?v=2150a916" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/common_css/need_style.css?v=92936fa5" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/common_css/need_toggle.css?v=5c6620df" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/modern.css?v=803738c0" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=4f645179" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
+      <script src="../../../_static/sphinx-data-viewer/jsonview.bundle.js?v=18cd53c5"></script>
+      <script src="../../../_static/sphinx-data-viewer/jsonview_loader.js?v=f7ff7e7d"></script>
+      <script src="../../../_static/sphinx-needs/libs/html/datatables.min.js?v=8a4aee21"></script>
+      <script src="../../../_static/sphinx-needs/libs/html/datatables_loader.js?v=a2cae175"></script>
+      <script src="../../../_static/sphinx-needs/libs/html/sphinx_needs_collapse.js?v=dca66431"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Configuration Reference" href="01_configuration.html" />
+    <link rel="prev" title="Reference" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            Chiisai HAL Specification
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../00_about/index.html">About This Specification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../01_general/index.html">General</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Chiisai HAL Driver Modules</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../Can/index.html">Can</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../I2c/index.html">I2c</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Lin/index.html">Lin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Mcu/index.html">Mcu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Mem/index.html">Mem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Port/index.html">Port</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Spi</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../general/index.html">General</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../guide/index.html">Guide</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">Reference</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">API Reference</a></li>
+<li class="toctree-l4"><a class="reference internal" href="01_configuration.html">Configuration Reference</a></li>
+<li class="toctree-l4"><a class="reference internal" href="02_errors.html">Errors</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../00_requirements.html">Spi — Requirements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01_design_decisions.html">Design Decisions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../Uart/index.html">Uart</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Wdg/index.html">Wdg</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../appendix.html">Appendix</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Chiisai HAL Specification</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Chiisai HAL Driver Modules</a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Spi</a></li>
+          <li class="breadcrumb-item"><a href="index.html">Reference</a></li>
+      <li class="breadcrumb-item active">API Reference</li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="api-reference">
+<h1>API Reference<a class="headerlink" href="#api-reference" title="Link to this heading"></a></h1>
+<div class="normative admonition">
+<p class="admonition-title">Normative</p>
+<p>The SPI driver API contract. A conformant driver <strong>MUST</strong> provide these types and functions with
+the behavior described. Function and type signatures are extracted from the driver headers with
+Doxygen/Breathe; only the interrupt handler is hand-framed, because its name is
+vendor-specific. Keywords per <a class="reference internal" href="../../../00_about/01_keywords.html"><span class="doc">Requirement Keywords</span></a>;
+behavioral rules in <a class="reference internal" href="../00_requirements.html"><span class="doc">Spi — Requirements</span></a>; error codes in <a class="reference internal" href="02_errors.html"><span class="doc">Errors</span></a>.</p>
+</div>
+<p class="rubric">Data types at a glance</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 32.0%" />
+<col style="width: 13.0%" />
+<col style="width: 55.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Type</p></th>
+<th class="head"><p>Kind</p></th>
+<th class="head"><p>Purpose</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference internal" href="#spi-api-spi-configtype"><span class="std std-ref">Spi_ConfigType</span></a></p></td>
+<td><p>struct</p></td>
+<td><p>Root configuration structure (build-time; <code class="docutils literal notranslate"><span class="pre">Spi_Init</span></code> takes <code class="docutils literal notranslate"><span class="pre">NULL_PTR</span></code>).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#spi-api-spi-bufferdatatype"><span class="std std-ref">Spi_BufferDataType</span></a></p></td>
+<td><p>typedef</p></td>
+<td><p>Element type of an application data buffer.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#spi-api-spi-buffertype"><span class="std std-ref">Spi_BufferType</span></a></p></td>
+<td><p>struct</p></td>
+<td><p>One chunk of a TX/RX buffer (pointer + length).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#spi-api-spi-buffersettype"><span class="std std-ref">Spi_BufferSetType</span></a></p></td>
+<td><p>struct</p></td>
+<td><p>A set of buffer chunks transferred in one chip-select sequence.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#spi-api-spi-channelstatetype"><span class="std std-ref">Spi_ChannelStateType</span></a></p></td>
+<td><p>enum</p></td>
+<td><p>Channel state (UNINIT / IDLE / READY / BUSY).</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">API at a glance</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 32.0%" />
+<col style="width: 30.0%" />
+<col style="width: 38.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Function</p></th>
+<th class="head"><p>Group</p></th>
+<th class="head"><p>Purpose</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference internal" href="#spi-api-spi-init"><span class="std std-ref">Spi_Init</span></a></p></td>
+<td><p>Initialization and shutdown</p></td>
+<td><p>Initialize the driver and every channel.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#spi-api-spi-deinit"><span class="std std-ref">Spi_DeInit</span></a></p></td>
+<td><p>Initialization and shutdown</p></td>
+<td><p>Abort transfers and de-initialize the driver.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#spi-api-spi-starttransaction"><span class="std std-ref">Spi_StartTransaction</span></a></p></td>
+<td><p>Transactions</p></td>
+<td><p>Start (controller) or stage (target) a buffer-set transfer.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#spi-api-spi-canceltransaction"><span class="std std-ref">Spi_CancelTransaction</span></a></p></td>
+<td><p>Transactions</p></td>
+<td><p>Cancel a staged (not-yet-started) target transaction.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#spi-api-spi-oncs"><span class="std std-ref">Spi_OnCs</span></a></p></td>
+<td><p>Transactions</p></td>
+<td><p>Target CS notification when the hardware cannot detect it.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#spi-api-spi-getchannelstate"><span class="std std-ref">Spi_GetChannelState</span></a></p></td>
+<td><p>Status and scheduling</p></td>
+<td><p>Read a channel’s current state.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#spi-api-spi-pollfunction"><span class="std std-ref">Spi_PollFunction</span></a></p></td>
+<td><p>Status and scheduling</p></td>
+<td><p>Service events for polled channels.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#spi-api-spi-interrupt"><span class="std std-ref">Spi_Interrupt</span></a></p></td>
+<td><p>Status and scheduling</p></td>
+<td><p>Driver interrupt service routine.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Callouts and expected interfaces at a glance</p>
+<p>The functions the integrator <strong>MUST</strong> provide (<a class="reference internal" href="../00_requirements.html#CHI-SPI-MUST-21" title="CHI-SPI-MUST-21"><em class="xref need">CHI-SPI-MUST-21</em></a>); see the
+<a class="reference internal" href="#spi-api-callouts"><span class="std std-ref">Callouts</span></a> group below. SpiDrv has no upper-layer interface stack, so it
+reports its events through <strong>callouts</strong> that the integrator implements in the generated
+<code class="docutils literal notranslate"><span class="pre">Spi_Callout_Stubs.c</span></code> (see <a class="reference internal" href="../../../01_general/guide/02_callout_file.html"><span class="doc">The Callout Stub File</span></a>).</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 30.0%" />
+<col style="width: 20.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Function</p></th>
+<th class="head"><p>Kind</p></th>
+<th class="head"><p>Purpose</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference internal" href="#spi-api-callout-ontransactionend"><span class="std std-ref">Spi_Callout_OnTransactionEnd</span></a></p></td>
+<td><p>Callout</p></td>
+<td><p>A transaction completed; reports the transferred length.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#spi-api-callout-cscontrol"><span class="std std-ref">Spi_Callout_CsControl</span></a></p></td>
+<td><p>Callout</p></td>
+<td><p>Requests GPIO chip-select assert/release from the integration code.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="../../../01_general/reference/02_services.html#gen-ref-logm"><span class="std std-ref">LogM_Report</span></a></p></td>
+<td><p>Common</p></td>
+<td><p>Reports development / runtime errors with a log level.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;Mip&gt;_EnterCriticalSection</span></code> / <code class="docutils literal notranslate"><span class="pre">&lt;Mip&gt;_ExitCriticalSection</span></code></p></td>
+<td><p>Common (optional)</p></td>
+<td><p>Bracket sections requiring exclusive access — see
+<a class="reference internal" href="../../../01_general/reference/02_services.html#gen-ref-critical-section"><span class="std std-ref">critical sections</span></a>.</p></td>
+</tr>
+</tbody>
+</table>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-list-unordered" viewBox="0 0 16 16" aria-hidden="true"><path d="M5.75 2.5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5Zm0 5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5Zm0 5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5ZM2 14a1 1 0 1 1 0-2 1 1 0 0 1 0 2Zm1-6a1 1 0 1 1-2 0 1 1 0 0 1 2 0ZM2 4a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg></span><span class="sd-summary-text">Data types</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils" id="spi-api-spi-configtype">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Spi_ConfigType</div>
+<dl class="cpp struct">
+<dt class="sig sig-object cpp" id="_CPPv414Spi_ConfigType">
+<span id="_CPPv314Spi_ConfigType"></span><span id="_CPPv214Spi_ConfigType"></span><span id="Spi_ConfigType"></span><span class="target" id="struct_spi___config_type"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Spi_ConfigType</span></span></span><a class="headerlink" href="#_CPPv414Spi_ConfigType" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">Configuration structure type. </p>
+</dd></dl>
+
+<p class="sd-card-text">Configuration variants are selected at build time; <code class="docutils literal notranslate"><span class="pre">Spi_Init</span></code> currently takes <code class="docutils literal notranslate"><span class="pre">NULL_PTR</span></code>.
+<em>Available via:</em> <code class="docutils literal notranslate"><span class="pre">Spi.h</span></code></p>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils" id="spi-api-spi-bufferdatatype">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Spi_BufferDataType</div>
+<dl class="cpp type">
+<dt class="sig sig-object cpp" id="_CPPv418Spi_BufferDataType">
+<span id="_CPPv318Spi_BufferDataType"></span><span id="_CPPv218Spi_BufferDataType"></span><span id="Spi_BufferDataType"></span><span class="target" id="_spi___driver_types_8h_1a2b54233d8afbb10b339ef21eef6d6bb6"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="n"><span class="pre">uint8</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Spi_BufferDataType</span></span></span><a class="headerlink" href="#_CPPv418Spi_BufferDataType" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">Type of application data buffer elements. </p>
+</dd></dl>
+
+<p class="sd-card-text">The driver casts elements to a wider type when the configured <code class="docutils literal notranslate"><span class="pre">data_width</span></code> exceeds 8 bits
+(<code class="docutils literal notranslate"><span class="pre">uint16</span></code> for 9–16 bits, <code class="docutils literal notranslate"><span class="pre">uint32</span></code> for 17–32 bits). <em>Available via:</em> <code class="docutils literal notranslate"><span class="pre">Spi_DriverTypes.h</span></code></p>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils" id="spi-api-spi-buffertype">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Spi_BufferType</div>
+<dl class="cpp struct">
+<dt class="sig sig-object cpp" id="_CPPv414Spi_BufferType">
+<span id="_CPPv314Spi_BufferType"></span><span id="_CPPv214Spi_BufferType"></span><span id="Spi_BufferType"></span><span class="target" id="struct_spi___buffer_type"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Spi_BufferType</span></span></span><a class="headerlink" href="#_CPPv414Spi_BufferType" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">This type represents a chunk of <a class="reference internal" href="../../../appendix.html#term-TX"><span class="xref std std-term">TX</span></a>/<a class="reference internal" href="../../../appendix.html#term-RX"><span class="xref std std-term">RX</span></a> buffer. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N14Spi_BufferType13bufferDataPtrE">
+<span id="_CPPv3N14Spi_BufferType13bufferDataPtrE"></span><span id="_CPPv2N14Spi_BufferType13bufferDataPtrE"></span><span id="Spi_BufferType::bufferDataPtr__Spi_BufferDataTypeP"></span><span class="target" id="struct_spi___buffer_type_1a8d9d9e317c4abe29e6a4662660870ac4"></span><a class="reference internal" href="#_CPPv418Spi_BufferDataType" title="Spi_BufferDataType"><span class="n"><span class="pre">Spi_BufferDataType</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">bufferDataPtr</span></span></span><a class="headerlink" href="#_CPPv4N14Spi_BufferType13bufferDataPtrE" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text"><p class="sd-card-text">Pointer to data buffer. Can be null pointer and the behavior varies to TX/RX.</p>
+<p class="sd-card-text">TX: If bufferDataPtr is null pointer, sends default data for length</p>
+
+ RX: If bufferDataPtr is null pointer, ignore received data for length </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N14Spi_BufferType6lengthE">
+<span id="_CPPv3N14Spi_BufferType6lengthE"></span><span id="_CPPv2N14Spi_BufferType6lengthE"></span><span id="Spi_BufferType::length__uint16"></span><span class="target" id="struct_spi___buffer_type_1ab0e24788891204ee231b807fb310a9a0"></span><span class="n"><span class="pre">uint16</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">length</span></span></span><a class="headerlink" href="#_CPPv4N14Spi_BufferType6lengthE" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">Length of the buffer element. Must be ≥ 1. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<p class="sd-card-text"><em>Available via:</em> <code class="docutils literal notranslate"><span class="pre">Spi_DriverTypes.h</span></code></p>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils" id="spi-api-spi-buffersettype">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Spi_BufferSetType</div>
+<dl class="cpp struct">
+<dt class="sig sig-object cpp" id="_CPPv417Spi_BufferSetType">
+<span id="_CPPv317Spi_BufferSetType"></span><span id="_CPPv217Spi_BufferSetType"></span><span id="Spi_BufferSetType"></span><span class="target" id="struct_spi___buffer_set_type"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Spi_BufferSetType</span></span></span><a class="headerlink" href="#_CPPv417Spi_BufferSetType" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">This type represents total data to be transferred in one <a class="reference internal" href="../../../appendix.html#term-CS"><span class="xref std std-term">CS</span></a> sequence. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N17Spi_BufferSetType9bufferPtrE">
+<span id="_CPPv3N17Spi_BufferSetType9bufferPtrE"></span><span id="_CPPv2N17Spi_BufferSetType9bufferPtrE"></span><span id="Spi_BufferSetType::bufferPtr__Spi_BufferTypeP"></span><span class="target" id="struct_spi___buffer_set_type_1a22583e119ac0db101cd931e4789335b4"></span><a class="reference internal" href="#_CPPv414Spi_BufferType" title="Spi_BufferType"><span class="n"><span class="pre">Spi_BufferType</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">bufferPtr</span></span></span><a class="headerlink" href="#_CPPv4N17Spi_BufferSetType9bufferPtrE" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">Pointer to buffer type array. Must not be null pointer. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N17Spi_BufferSetType11numOfBufferE">
+<span id="_CPPv3N17Spi_BufferSetType11numOfBufferE"></span><span id="_CPPv2N17Spi_BufferSetType11numOfBufferE"></span><span id="Spi_BufferSetType::numOfBuffer__uint8"></span><span class="target" id="struct_spi___buffer_set_type_1ac5235afba7efcb25ccd25f246aa0a02e"></span><span class="n"><span class="pre">uint8</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">numOfBuffer</span></span></span><a class="headerlink" href="#_CPPv4N17Spi_BufferSetType11numOfBufferE" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">Number of buffers in the array. Must be ≥ 1. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<p class="sd-card-text"><em>Available via:</em> <code class="docutils literal notranslate"><span class="pre">Spi_DriverTypes.h</span></code></p>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils" id="spi-api-spi-channelstatetype">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Spi_ChannelStateType</div>
+<dl class="cpp enum">
+<dt class="sig sig-object cpp" id="_CPPv420Spi_ChannelStateType">
+<span id="_CPPv320Spi_ChannelStateType"></span><span id="_CPPv220Spi_ChannelStateType"></span><span class="target" id="_spi___driver_types_8h_1a20268692a849e21f989311bb18d1332e"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Spi_ChannelStateType</span></span></span><a class="headerlink" href="#_CPPv420Spi_ChannelStateType" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">Specifies the SpiDrv internal state. </p>
+<p class="sd-card-text"><em>Values:</em></p>
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N20Spi_ChannelStateType19SPI_CH_STATE_UNINITE">
+<span id="_CPPv3N20Spi_ChannelStateType19SPI_CH_STATE_UNINITE"></span><span id="_CPPv2N20Spi_ChannelStateType19SPI_CH_STATE_UNINITE"></span><span class="target" id="_spi___driver_types_8h_1a20268692a849e21f989311bb18d1332eab57784fee1bb39f4c995dcdda78d21d1"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SPI_CH_STATE_UNINIT</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0x00</span></span><a class="headerlink" href="#_CPPv4N20Spi_ChannelStateType19SPI_CH_STATE_UNINITE" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">Not yet initialized </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N20Spi_ChannelStateType17SPI_CH_STATE_IDLEE">
+<span id="_CPPv3N20Spi_ChannelStateType17SPI_CH_STATE_IDLEE"></span><span id="_CPPv2N20Spi_ChannelStateType17SPI_CH_STATE_IDLEE"></span><span class="target" id="_spi___driver_types_8h_1a20268692a849e21f989311bb18d1332ea8b5d746f19623b89e64606b327c91f0b"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SPI_CH_STATE_IDLE</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0x01</span></span><a class="headerlink" href="#_CPPv4N20Spi_ChannelStateType17SPI_CH_STATE_IDLEE" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">Not in transaction </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N20Spi_ChannelStateType18SPI_CH_STATE_READYE">
+<span id="_CPPv3N20Spi_ChannelStateType18SPI_CH_STATE_READYE"></span><span id="_CPPv2N20Spi_ChannelStateType18SPI_CH_STATE_READYE"></span><span class="target" id="_spi___driver_types_8h_1a20268692a849e21f989311bb18d1332ea277d97960c46c511d07072feab2c6812"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SPI_CH_STATE_READY</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0x02</span></span><a class="headerlink" href="#_CPPv4N20Spi_ChannelStateType18SPI_CH_STATE_READYE" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">Only for <a class="reference internal" href="../../../appendix.html#term-Target-Responder-Node"><span class="xref std std-term">Target Mode</span></a>. Buffer has been set for next transaction by Spi_StartTransaction. </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N20Spi_ChannelStateType17SPI_CH_STATE_BUSYE">
+<span id="_CPPv3N20Spi_ChannelStateType17SPI_CH_STATE_BUSYE"></span><span id="_CPPv2N20Spi_ChannelStateType17SPI_CH_STATE_BUSYE"></span><span class="target" id="_spi___driver_types_8h_1a20268692a849e21f989311bb18d1332ea34e99e19690892e792876ef326b202e0"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SPI_CH_STATE_BUSY</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0x03</span></span><a class="headerlink" href="#_CPPv4N20Spi_ChannelStateType17SPI_CH_STATE_BUSYE" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">In transaction </p>
+</dd></dl>
+
+</dd></dl>
+
+<p class="sd-card-text">Also note <code class="docutils literal notranslate"><span class="pre">SPI_CS_UNSPECIFIED</span></code> — the <code class="docutils literal notranslate"><span class="pre">csId</span></code> a target passes to <code class="docutils literal notranslate"><span class="pre">Spi_StartTransaction</span></code>,
+and the <code class="docutils literal notranslate"><span class="pre">csId</span></code> for a controller-level error not tied to a chip select.
+<em>Available via:</em> <code class="docutils literal notranslate"><span class="pre">Spi_DriverTypes.h</span></code></p>
+</div>
+</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0ZM1.5 8a6.5 6.5 0 1 0 13 0 6.5 6.5 0 0 0-13 0Zm4.879-2.773 4.264 2.559a.25.25 0 0 1 0 .428l-4.264 2.559A.25.25 0 0 1 6 10.559V5.442a.25.25 0 0 1 .379-.215Z"></path></svg></span><span class="sd-summary-text">Initialization and shutdown</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils" id="spi-api-spi-init">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Spi_Init</div>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv48Spi_InitPK14Spi_ConfigType">
+<span id="_CPPv38Spi_InitPK14Spi_ConfigType"></span><span id="_CPPv28Spi_InitPK14Spi_ConfigType"></span><span id="Spi_Init__Spi_ConfigTypeCP"></span><span class="target" id="_spi_8h_1ad7dd4f5d097776bc4278d6e6a9b259ee"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Spi_Init</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv414Spi_ConfigType" title="Spi_ConfigType"><span class="n"><span class="pre">Spi_ConfigType</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">configPtr</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv48Spi_InitPK14Spi_ConfigType" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">Initialize driver and HW. </p>
+<p class="sd-card-text"><dl class="simple">
+<dt><strong>Sync/Async:</strong></dt><dd><p class="sd-card-text">Synchronous </p>
+</dd>
+<dt><strong>Reentrancy:</strong></dt><dd><p class="sd-card-text">Non reentrant </p>
+</dd>
+<dt><strong>Service ID [hex]:</strong></dt><dd><p class="sd-card-text">0x00 </p>
+</dd>
+<dt><strong>Development error(s):</strong></dt><dd><p class="sd-card-text"><ul class="simple">
+<li><p class="sd-card-text"><a class="reference internal" href="02_errors.html#group___spi___development_errors_1ga045b42f36c5aecd02523a7558db35f82"><span class="std std-ref">SPI_DEVERR_INVALID_CH_STATE</span></a> Spi driver is not in SPI_DRV_STATE_UNINIT.</p></li>
+<li><p class="sd-card-text"><a class="reference internal" href="02_errors.html#group___spi___development_errors_1gafdc58b768b048e546b67f7df89f0f561"><span class="std std-ref">SPI_DEVERR_PARAM_POINTER</span></a> configPtr is not NULL_PTR. </p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p class="sd-card-text"><strong>configPtr</strong> – <strong>[in]</strong> Pointer to the configuration structure. This parameter is intended for future extensions to support runtime-selectable configuration variants, which allow the selection and initialization of specific variants during runtime. As this functionality is not currently supported, a NULL_PTR SHALL be provided. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p class="sd-card-text">None. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<p class="sd-card-text"><strong>When to call:</strong> once, before any other SPI function, with the driver in
+<code class="docutils literal notranslate"><span class="pre">SPI_DRV_STATE_UNINIT</span></code>. <code class="docutils literal notranslate"><span class="pre">configPtr</span></code> MUST be <code class="docutils literal notranslate"><span class="pre">NULL_PTR</span></code>.</p>
+<p class="sd-card-text"><strong>Effect:</strong> initialises the driver and hardware; leaves every channel in <code class="docutils literal notranslate"><span class="pre">IDLE</span></code> (a target
+channel begins detecting chip-select activation); enables interrupts for interrupt channels.
+<strong>Errors:</strong> see <a class="reference internal" href="02_errors.html"><span class="doc">Errors</span></a>. <em>Available via:</em> <code class="docutils literal notranslate"><span class="pre">Spi.h</span></code></p>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils" id="spi-api-spi-deinit">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Spi_DeInit</div>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv410Spi_DeInitv">
+<span id="_CPPv310Spi_DeInitv"></span><span id="_CPPv210Spi_DeInitv"></span><span id="Spi_DeInit__void"></span><span class="target" id="_spi_8h_1ae8095c0551d526f437ff45f036e5cf74"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Spi_DeInit</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv410Spi_DeInitv" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">Abort on-going transaction and de-initialize <a class="reference internal" href="../../../appendix.html#term-SPI"><span class="xref std std-term">SPI</span></a> hardware. Typically used when micro controller will be switched to other state (e.g. low power mode) or recovery from <a class="reference internal" href="../../../appendix.html#term-SPI"><span class="xref std std-term">SPI</span></a> communication erroneous state. </p>
+<p class="sd-card-text"><dl class="simple">
+<dt><strong>Sync/Async:</strong></dt><dd><p class="sd-card-text">Synchronous </p>
+</dd>
+<dt><strong>Reentrancy:</strong></dt><dd><p class="sd-card-text">Non reentrant </p>
+</dd>
+<dt><strong>Service ID [hex]:</strong></dt><dd><p class="sd-card-text">0x01 </p>
+</dd>
+</dl>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p class="sd-card-text"><strong>None</strong> – </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p class="sd-card-text">None. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<p class="sd-card-text"><strong>Effect:</strong> immediately aborts any ongoing transfer and de-initialises the driver, returning
+it to <code class="docutils literal notranslate"><span class="pre">SPI_DRV_STATE_UNINIT</span></code>. Prefer calling it with the channel <code class="docutils literal notranslate"><span class="pre">IDLE</span></code>.
+<em>Available via:</em> <code class="docutils literal notranslate"><span class="pre">Spi.h</span></code></p>
+</div>
+</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-arrow-switch" viewBox="0 0 16 16" aria-hidden="true"><path d="M5.22 14.78a.75.75 0 0 0 1.06-1.06L4.56 12h8.69a.75.75 0 0 0 0-1.5H4.56l1.72-1.72a.75.75 0 0 0-1.06-1.06l-3 3a.75.75 0 0 0 0 1.06l3 3Zm5.56-6.5a.75.75 0 1 1-1.06-1.06l1.72-1.72H2.75a.75.75 0 0 1 0-1.5h8.69L9.72 2.28a.75.75 0 0 1 1.06-1.06l3 3a.75.75 0 0 1 0 1.06l-3 3Z"></path></svg></span><span class="sd-summary-text">Transactions</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils" id="spi-api-spi-starttransaction">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Spi_StartTransaction</div>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv420Spi_StartTransaction5uint85uint8PK17Spi_BufferSetTypeP17Spi_BufferSetType">
+<span id="_CPPv320Spi_StartTransaction5uint85uint8PK17Spi_BufferSetTypeP17Spi_BufferSetType"></span><span id="_CPPv220Spi_StartTransaction5uint85uint8PK17Spi_BufferSetTypeP17Spi_BufferSetType"></span><span id="Spi_StartTransaction__uint8.uint8.Spi_BufferSetTypeCP.Spi_BufferSetTypeP"></span><span class="target" id="_spi_8h_1a032cb92755c5cb504dfa749a912f3fd8"></span><span class="n"><span class="pre">Std_ReturnType</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Spi_StartTransaction</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint8</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">channelId</span></span>, <span class="n"><span class="pre">uint8</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">csId</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv417Spi_BufferSetType" title="Spi_BufferSetType"><span class="n"><span class="pre">Spi_BufferSetType</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">txBuffSetPtr</span></span>, <a class="reference internal" href="#_CPPv417Spi_BufferSetType" title="Spi_BufferSetType"><span class="n"><span class="pre">Spi_BufferSetType</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">rxBuffSetPtr</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv420Spi_StartTransaction5uint85uint8PK17Spi_BufferSetTypeP17Spi_BufferSetType" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">This service starts transaction. If the channel is in controller mode, this function initiates the transaction. This function is non-blocking and returns immediately after initiating the transfer. If the channel is in <a class="reference internal" href="../../../appendix.html#term-Target-Responder-Node"><span class="xref std std-term">Target Mode</span></a>, this function will provide <a class="reference internal" href="../../../appendix.html#term-TX"><span class="xref std std-term">TX</span></a>/<a class="reference internal" href="../../../appendix.html#term-RX"><span class="xref std std-term">RX</span></a> buffers to the HW that are used for the next transaction. </p>
+<p class="sd-card-text"><dl class="simple">
+<dt><strong>Sync/Async:</strong></dt><dd><p class="sd-card-text">Asynchronous </p>
+</dd>
+<dt><strong>Reentrancy:</strong></dt><dd><p class="sd-card-text">Conditionally reentrant (reentrant when called with different channelId) </p>
+</dd>
+<dt><strong>Service ID [hex]:</strong></dt><dd><p class="sd-card-text">0x02 </p>
+</dd>
+<dt><strong>Development error(s):</strong></dt><dd><p class="sd-card-text"><ul class="simple">
+<li><p class="sd-card-text"><a class="reference internal" href="02_errors.html#group___spi___development_errors_1gae1579705bf4ffa8b3f3b31b9c210de8b"><span class="std std-ref">SPI_DEVERR_UNINIT</span></a> SpiDrv state is SPI_DRV_STATE_UNINIT.</p></li>
+<li><p class="sd-card-text"><a class="reference internal" href="02_errors.html#group___spi___development_errors_1gab9ea9374c1702b6c34855528bba3072d"><span class="std std-ref">SPI_DEVERR_PARAM_CHANNELID</span></a> channelId is out of range.</p></li>
+<li><p class="sd-card-text"><a class="reference internal" href="02_errors.html#group___spi___development_errors_1gaf9e52bdac920ff892ca3f48088c5108e"><span class="std std-ref">SPI_DEVERR_PARAM_CS</span></a> csId is out of range.</p></li>
+<li><p class="sd-card-text"><a class="reference internal" href="02_errors.html#group___spi___development_errors_1gaa884549173dc4a70bfade2ca3b4aa1a9"><span class="std std-ref">SPI_DEVERR_PARAM_LENGTH</span></a> Total transfer length in txBuffSetPtr and rxBuffSetPtr is inconsistent.</p></li>
+<li><p class="sd-card-text"><a class="reference internal" href="02_errors.html#group___spi___development_errors_1ga045b42f36c5aecd02523a7558db35f82"><span class="std std-ref">SPI_DEVERR_INVALID_CH_STATE</span></a> Called when the channel state is NOT SPI_CH_STATE_IDLE. </p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p class="sd-card-text"><strong>channelId</strong> – <strong>[in]</strong> ID of the <a class="reference internal" href="../../../appendix.html#term-SPI"><span class="xref std std-term">SPI</span></a> channel to be addressed. </p></li>
+<li><p class="sd-card-text"><strong>csId</strong> – <strong>[in]</strong> chip select ID in the channel. SPI_CS_UNSPECIFIED shall be set when the channel is <a class="reference internal" href="../../../appendix.html#term-Target-Responder-Node"><span class="xref std std-term">Target Mode</span></a>. Note: If the channel is <a class="reference internal" href="../../../appendix.html#term-Target-Responder-Node"><span class="xref std std-term">Target Node</span></a>, SpiDrv must not check the csId parameter. Even if the csId is not SPI_CS_UNSPECIFIED, SpiDrv must not log the development error </p></li>
+<li><p class="sd-card-text"><strong>txBuffSetPtr</strong> – <strong>[in]</strong> Pointer to a buffer set to be transferred. </p></li>
+<li><p class="sd-card-text"><strong>rxBuffSetPtr</strong> – <strong>[out]</strong> Pointer to a buffer set to fill with received data. </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p class="sd-card-text"><strong>E_OK</strong> – Start transaction has been accepted </p></li>
+<li><p class="sd-card-text"><strong>E_NOT_OK</strong> – Development error occurred </p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p class="sd-card-text">Std_ReturnType. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<p class="sd-card-text"><strong>When to call:</strong> on an <code class="docutils literal notranslate"><span class="pre">IDLE</span></code> controller channel to start a transfer (with the target’s
+<code class="docutils literal notranslate"><span class="pre">csId</span></code>), or on a target channel to stage the next transfer (with <code class="docutils literal notranslate"><span class="pre">SPI_CS_UNSPECIFIED</span></code>).
+<strong>Returns:</strong> <code class="docutils literal notranslate"><span class="pre">E_OK</span></code> if accepted, else <code class="docutils literal notranslate"><span class="pre">E_NOT_OK</span></code> (development error). The caller MUST keep
+the buffer sets valid until <code class="docutils literal notranslate"><span class="pre">Spi_Callout_OnTransactionEnd</span></code>. A TX chunk with a null
+<code class="docutils literal notranslate"><span class="pre">bufferDataPtr</span></code> sends <code class="docutils literal notranslate"><span class="pre">default_data</span></code>; a null RX pointer discards the received data. <strong>Errors:</strong> see
+<a class="reference internal" href="02_errors.html"><span class="doc">Errors</span></a>. <em>Available via:</em> <code class="docutils literal notranslate"><span class="pre">Spi.h</span></code></p>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils" id="spi-api-spi-canceltransaction">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Spi_CancelTransaction</div>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv421Spi_CancelTransaction5uint8">
+<span id="_CPPv321Spi_CancelTransaction5uint8"></span><span id="_CPPv221Spi_CancelTransaction5uint8"></span><span id="Spi_CancelTransaction__uint8"></span><span class="target" id="_spi_8h_1a1c5a64dc5948969638de9bb7a99f4245"></span><span class="n"><span class="pre">Std_ReturnType</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Spi_CancelTransaction</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint8</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">channelId</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv421Spi_CancelTransaction5uint8" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">This <a class="reference internal" href="../../../appendix.html#term-interface"><span class="xref std std-term">interface</span></a> is <a class="reference internal" href="../../../appendix.html#term-Target-Responder-Node"><span class="xref std std-term">Target Mode</span></a> only. Cancel transaction set by Spi_StartTransaction. Cancellation does not mean canceling on-going transaction. This <a class="reference internal" href="../../../appendix.html#term-interface"><span class="xref std std-term">interface</span></a> just cancel the transaction setup not yet transferred to the bus. </p>
+<p class="sd-card-text"><dl class="simple">
+<dt><strong>Sync/Async:</strong></dt><dd><p class="sd-card-text">Synchronous </p>
+</dd>
+<dt><strong>Reentrancy:</strong></dt><dd><p class="sd-card-text">Conditionally reentrant (reentrant when called with different channelId) </p>
+</dd>
+<dt><strong>Service ID [hex]:</strong></dt><dd><p class="sd-card-text">0x08 </p>
+</dd>
+<dt><strong>Development error(s):</strong></dt><dd><p class="sd-card-text"><ul class="simple">
+<li><p class="sd-card-text"><a class="reference internal" href="02_errors.html#group___spi___development_errors_1gae1579705bf4ffa8b3f3b31b9c210de8b"><span class="std std-ref">SPI_DEVERR_UNINIT</span></a> Called when the internal state is SPI_CH_STATE_UNINIT</p></li>
+<li><p class="sd-card-text"><a class="reference internal" href="02_errors.html#group___spi___development_errors_1gab9ea9374c1702b6c34855528bba3072d"><span class="std std-ref">SPI_DEVERR_PARAM_CHANNELID</span></a> channelId is out of range from configured channelIds. </p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p class="sd-card-text"><strong>channelId</strong> – <strong>[in]</strong> ID of the <a class="reference internal" href="../../../appendix.html#term-SPI"><span class="xref std std-term">SPI</span></a> channel to be addressed. </p>
+</dd>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p class="sd-card-text"><strong>E_OK</strong> – Request has been accepted, including no transaction setup to be cancelled. </p></li>
+<li><p class="sd-card-text"><strong>E_NOT_OK</strong> – Development error occurred or request has not been accepted due to the transaction is already started. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<p class="sd-card-text"><strong>When to call:</strong> on a target channel to cancel a staged transaction that has not started on
+the bus. <strong>Returns:</strong> <code class="docutils literal notranslate"><span class="pre">E_OK</span></code> if accepted (including when nothing was staged); <code class="docutils literal notranslate"><span class="pre">E_NOT_OK</span></code>
+if the transaction has already started. <strong>Errors:</strong> see <a class="reference internal" href="02_errors.html"><span class="doc">Errors</span></a>. <em>Available via:</em> <code class="docutils literal notranslate"><span class="pre">Spi.h</span></code></p>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils" id="spi-api-spi-oncs">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Spi_OnCs</div>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv48Spi_OnCs5uint85uint87boolean">
+<span id="_CPPv38Spi_OnCs5uint85uint87boolean"></span><span id="_CPPv28Spi_OnCs5uint85uint87boolean"></span><span id="Spi_OnCs__uint8.uint8.boolean"></span><span class="target" id="_spi_8h_1a2388172125b5fb41e71732feba24af3c"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Spi_OnCs</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint8</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">channelId</span></span>, <span class="n"><span class="pre">uint8</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">csId</span></span>, <span class="n"><span class="pre">boolean</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">status</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv48Spi_OnCs5uint85uint87boolean" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text"><a class="reference internal" href="../../../appendix.html#term-Target-Responder-Node"><span class="xref std std-term">Target Mode</span></a> only and optional <a class="reference internal" href="../../../appendix.html#term-interface"><span class="xref std std-term">interface</span></a> if the <a class="reference internal" href="../../../appendix.html#term-SPI"><span class="xref std std-term">SPI</span></a> HW cannot detect <a class="reference internal" href="../../../appendix.html#term-CS"><span class="xref std std-term">CS</span></a> control. This service is a callback notification that is triggered by <a class="reference internal" href="../../../appendix.html#term-CS"><span class="xref std std-term">CS</span></a> edge detection in the integration code. FALSE (deactivation) is mandatory if this <a class="reference internal" href="../../../appendix.html#term-interface"><span class="xref std std-term">interface</span></a> is used. TRUE (activation) is optional if required. </p>
+<p class="sd-card-text"><dl class="simple">
+<dt><strong>Sync/Async:</strong></dt><dd><p class="sd-card-text">Synchronous </p>
+</dd>
+<dt><strong>Reentrancy:</strong></dt><dd><p class="sd-card-text">Conditionally reentrant (reentrant when called with different channelId) </p>
+</dd>
+<dt><strong>Service ID [hex]:</strong></dt><dd><p class="sd-card-text">0x05 </p>
+</dd>
+<dt><strong>Development error(s):</strong></dt><dd><p class="sd-card-text"><ul class="simple">
+<li><p class="sd-card-text"><a class="reference internal" href="02_errors.html#group___spi___development_errors_1gab9ea9374c1702b6c34855528bba3072d"><span class="std std-ref">SPI_DEVERR_PARAM_CHANNELID</span></a> channelId is out of range from configured channelIds.</p></li>
+<li><p class="sd-card-text"><a class="reference internal" href="02_errors.html#group___spi___development_errors_1gaf9e52bdac920ff892ca3f48088c5108e"><span class="std std-ref">SPI_DEVERR_PARAM_CS</span></a> csId is out of range.</p></li>
+<li><p class="sd-card-text"><a class="reference internal" href="02_errors.html#group___spi___development_errors_1gae1579705bf4ffa8b3f3b31b9c210de8b"><span class="std std-ref">SPI_DEVERR_UNINIT</span></a> Called when the internal state is SPI_CH_STATE_UNINIT </p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p class="sd-card-text"><strong>channelId</strong> – <strong>[in]</strong> ID of the <a class="reference internal" href="../../../appendix.html#term-SPI"><span class="xref std std-term">SPI</span></a> channel to be addressed. </p></li>
+<li><p class="sd-card-text"><strong>csId</strong> – <strong>[in]</strong> <a class="reference internal" href="../../../appendix.html#term-CS"><span class="xref std std-term">CS</span></a> ID in the channel. </p></li>
+<li><p class="sd-card-text"><strong>status</strong> – <strong>[in]</strong> status of the chip select, TRUE: <a class="reference internal" href="../../../appendix.html#term-CS"><span class="xref std std-term">CS</span></a> activated, FALSE: <a class="reference internal" href="../../../appendix.html#term-CS"><span class="xref std std-term">CS</span></a> deactivated </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p class="sd-card-text">None. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<p class="sd-card-text"><strong>When to call:</strong> target mode only, from the integration code (typically a GPIO edge
+interrupt) when the SPI hardware cannot detect chip-select control. <code class="docutils literal notranslate"><span class="pre">FALSE</span></code> (deactivation)
+is mandatory; <code class="docutils literal notranslate"><span class="pre">TRUE</span></code> (activation) is optional. On deactivation the driver completes the
+transaction and calls <code class="docutils literal notranslate"><span class="pre">Spi_Callout_OnTransactionEnd</span></code>. <strong>Errors:</strong> see <a class="reference internal" href="02_errors.html"><span class="doc">Errors</span></a>.
+<em>Available via:</em> <code class="docutils literal notranslate"><span class="pre">Spi.h</span></code></p>
+</div>
+</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-clock" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0ZM1.5 8a6.5 6.5 0 1 0 13 0 6.5 6.5 0 0 0-13 0Zm7-3.25v2.992l2.028.812a.75.75 0 0 1-.557 1.392l-2.5-1A.751.751 0 0 1 7 8.25v-3.5a.75.75 0 0 1 1.5 0Z"></path></svg></span><span class="sd-summary-text">Status and scheduling</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils" id="spi-api-spi-getchannelstate">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Spi_GetChannelState</div>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv419Spi_GetChannelState5uint8">
+<span id="_CPPv319Spi_GetChannelState5uint8"></span><span id="_CPPv219Spi_GetChannelState5uint8"></span><span id="Spi_GetChannelState__uint8"></span><span class="target" id="_spi_8h_1aa9a8df9830b18b23dfe5d53d01fec882"></span><a class="reference internal" href="#_CPPv420Spi_ChannelStateType" title="Spi_ChannelStateType"><span class="n"><span class="pre">Spi_ChannelStateType</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Spi_GetChannelState</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint8</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">channelId</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv419Spi_GetChannelState5uint8" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">Returns the channel state. </p>
+<p class="sd-card-text"><dl class="simple">
+<dt><strong>Sync/Async:</strong></dt><dd><p class="sd-card-text">Synchronous </p>
+</dd>
+<dt><strong>Reentrancy:</strong></dt><dd><p class="sd-card-text">Reentrant </p>
+</dd>
+<dt><strong>Service ID [hex]:</strong></dt><dd><p class="sd-card-text">0x04 </p>
+</dd>
+<dt><strong>Development error(s):</strong></dt><dd><p class="sd-card-text"><ul class="simple">
+<li><p class="sd-card-text"><a class="reference internal" href="02_errors.html#group___spi___development_errors_1gab9ea9374c1702b6c34855528bba3072d"><span class="std std-ref">SPI_DEVERR_PARAM_CHANNELID</span></a> channelId is out of range from configured channelIds. </p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p class="sd-card-text"><strong>channelId</strong> – <strong>[in]</strong> ID of the <a class="reference internal" href="../../../appendix.html#term-SPI"><span class="xref std std-term">SPI</span></a> channel to be addressed. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p class="sd-card-text">Informs the channel internal status </p>
+</dd>
+</dl>
+</dd></dl>
+
+<p class="sd-card-text"><strong>Effect:</strong> returns the current <a class="reference internal" href="#spi-api-spi-channelstatetype"><span class="std std-ref">state</span></a> of the channel.
+<strong>Errors:</strong> see <a class="reference internal" href="02_errors.html"><span class="doc">Errors</span></a>. <em>Available via:</em> <code class="docutils literal notranslate"><span class="pre">Spi.h</span></code></p>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils" id="spi-api-spi-pollfunction">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Spi_PollFunction</div>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv416Spi_PollFunctionv">
+<span id="_CPPv316Spi_PollFunctionv"></span><span id="_CPPv216Spi_PollFunctionv"></span><span id="Spi_PollFunction__void"></span><span class="target" id="_spi_8h_1a741e2a43cc58dd9d83f9e0a6ce2fd6c2"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Spi_PollFunction</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv416Spi_PollFunctionv" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">Handle interrupt event with polling method. This <a class="reference internal" href="../../../appendix.html#term-interface"><span class="xref std std-term">interface</span></a> is optional. Typically <a class="reference internal" href="../../../appendix.html#term-SPI"><span class="xref std std-term">SPI</span></a> is handled by interrupt especially <a class="reference internal" href="../../../appendix.html#term-Target-Responder-Node"><span class="xref std std-term">Target Node</span></a>. If polling method is applicable, e.g. call cycle of poll function is fast enough, handle transaction by DMA, SpiDrv provides this <a class="reference internal" href="../../../appendix.html#term-interface"><span class="xref std std-term">interface</span></a>. </p>
+<p class="sd-card-text"><dl class="simple">
+<dt><strong>Sync/Async:</strong></dt><dd><p class="sd-card-text">Synchronous </p>
+</dd>
+<dt><strong>Reentrancy:</strong></dt><dd><p class="sd-card-text">Non reentrant </p>
+</dd>
+<dt><strong>Service ID [hex]:</strong></dt><dd><p class="sd-card-text">0x07 </p>
+</dd>
+</dl>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p class="sd-card-text"><strong>None</strong> – </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p class="sd-card-text">None. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<p class="sd-card-text"><strong>When to call:</strong> cyclically, for channels configured for polling. Handles the same events as
+<code class="docutils literal notranslate"><span class="pre">Spi_Interrupt</span></code>. This service is optional — provided only where polling is applicable.
+<em>Available via:</em> <code class="docutils literal notranslate"><span class="pre">Spi.h</span></code></p>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils" id="spi-api-spi-interrupt">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Spi_Interrupt</div>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="n">Spi_Interrupt</span><span class="o">&lt;</span><span class="n">vectorNr</span><span class="o">&gt;</span><span class="p">[</span><span class="o">&lt;</span><span class="n">VendorSpecificSuffix</span><span class="o">&gt;</span><span class="p">](</span><span class="kt">void</span><span class="p">)</span>
+</pre></div>
+</div>
+<p class="sd-card-text"><strong>Effect:</strong> the driver interrupt service routine; pumps the buffer-set transfer and fires the
+chip-select and completion callouts. Define it with the <code class="docutils literal notranslate"><span class="pre">ISR()</span></code> macro (see
+<a class="reference internal" href="../../../01_general/reference/02_services.html#gen-ref-isr"><span class="std std-ref">the general reference</span></a>). <em>Available via:</em> <code class="docutils literal notranslate"><span class="pre">Spi.h</span></code></p>
+</div>
+</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" id="spi-api-callouts">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-plug" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 8H2.5a1 1 0 0 0-1 1v5.25a.75.75 0 0 1-1.5 0V9a2.5 2.5 0 0 1 2.5-2.5H4V5.133a1.75 1.75 0 0 1 1.533-1.737l2.831-.353.76-.913c.332-.4.825-.63 1.344-.63h.782c.966 0 1.75.784 1.75 1.75V4h2.25a.75.75 0 0 1 0 1.5H13v4h2.25a.75.75 0 0 1 0 1.5H13v.75a1.75 1.75 0 0 1-1.75 1.75h-.782c-.519 0-1.012-.23-1.344-.63l-.761-.912-2.83-.354A1.75 1.75 0 0 1 4 9.867Zm6.276-4.91-.95 1.14a.753.753 0 0 1-.483.265l-3.124.39a.25.25 0 0 0-.219.248v4.734c0 .126.094.233.219.249l3.124.39a.752.752 0 0 1 .483.264l.95 1.14a.25.25 0 0 0 .192.09h.782a.25.25 0 0 0 .25-.25v-8.5a.25.25 0 0 0-.25-.25h-.782a.25.25 0 0 0-.192.09Z"></path></svg></span><span class="sd-summary-text">Callouts the integrator provides</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">The driver calls these callouts; the integrator MUST provide them (<a class="reference internal" href="../00_requirements.html#CHI-SPI-MUST-21" title="CHI-SPI-MUST-21"><em class="xref need">CHI-SPI-MUST-21</em></a>) by
+filling in the matching user code block in <code class="docutils literal notranslate"><span class="pre">Spi_Callout_Stubs.c</span></code>
+(see <a class="reference internal" href="../../../01_general/guide/02_callout_file.html"><span class="doc">The Callout Stub File</span></a>). The prototypes are declared in <code class="docutils literal notranslate"><span class="pre">Spi.h</span></code>.
+<a class="reference internal" href="../../../01_general/reference/02_services.html#gen-ref-logm"><span class="std std-ref">LogM_Report</span></a> and the <a class="reference internal" href="../../../01_general/reference/02_services.html#gen-ref-critical-section"><span class="std std-ref">critical-section services</span></a> are documented in the general
+reference.</p>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils" id="spi-api-callout-ontransactionend">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Spi_Callout_OnTransactionEnd</div>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv428Spi_Callout_OnTransactionEnd5uint85uint86uint16">
+<span id="_CPPv328Spi_Callout_OnTransactionEnd5uint85uint86uint16"></span><span id="_CPPv228Spi_Callout_OnTransactionEnd5uint85uint86uint16"></span><span id="Spi_Callout_OnTransactionEnd__uint8.uint8.uint16"></span><span class="target" id="_spi_8h_1a7e60f37acaa3ba5b145b90897dafb50a"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Spi_Callout_OnTransactionEnd</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint8</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">channelId</span></span>, <span class="n"><span class="pre">uint8</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">csId</span></span>, <span class="n"><span class="pre">uint16</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">length</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv428Spi_Callout_OnTransactionEnd5uint85uint86uint16" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">Informs transaction end. </p>
+<p class="sd-card-text"><dl class="simple">
+<dt><strong>Sync/Async:</strong></dt><dd><p class="sd-card-text">Synchronous </p>
+</dd>
+<dt><strong>Reentrancy:</strong></dt><dd><p class="sd-card-text">Conditionally reentrant (reentrant when called with different channelId) </p>
+</dd>
+</dl>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p class="sd-card-text"><strong>channelId</strong> – <strong>[in]</strong> ID of the <a class="reference internal" href="../../../appendix.html#term-SPI"><span class="xref std std-term">SPI</span></a> channel to be addressed. </p></li>
+<li><p class="sd-card-text"><strong>csId</strong> – <strong>[in]</strong> Informs <a class="reference internal" href="../../../appendix.html#term-Target-Responder-Node"><span class="xref std std-term">Target Node</span></a> <a class="reference internal" href="../../../appendix.html#term-CS"><span class="xref std std-term">CS</span></a> ID </p></li>
+<li><p class="sd-card-text"><strong>length</strong> – <strong>[in]</strong> Total transfer length in the transaction </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p class="sd-card-text">None. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<p class="sd-card-text">Informs the integration code that a transaction ended; <code class="docutils literal notranslate"><span class="pre">length</span></code> elements were transferred
+(<code class="docutils literal notranslate"><span class="pre">0</span></code> if a target transferred nothing). <em>Available via:</em> <code class="docutils literal notranslate"><span class="pre">Spi.h</span></code>; implement it in <code class="docutils literal notranslate"><span class="pre">Spi_Callout_Stubs.c</span></code></p>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils" id="spi-api-callout-cscontrol">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Spi_Callout_CsControl</div>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv421Spi_Callout_CsControl5uint85uint87boolean">
+<span id="_CPPv321Spi_Callout_CsControl5uint85uint87boolean"></span><span id="_CPPv221Spi_Callout_CsControl5uint85uint87boolean"></span><span id="Spi_Callout_CsControl__uint8.uint8.boolean"></span><span class="target" id="_spi_8h_1a5c198d7276af049306105ac45ce43d9f"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Spi_Callout_CsControl</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint8</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">channelId</span></span>, <span class="n"><span class="pre">uint8</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">csId</span></span>, <span class="n"><span class="pre">boolean</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">status</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv421Spi_Callout_CsControl5uint85uint87boolean" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">Delegates <a class="reference internal" href="../../../appendix.html#term-CS"><span class="xref std std-term">CS</span></a> control by <a class="reference internal" href="../../../appendix.html#term-GPIO"><span class="xref std std-term">GPIO</span></a> to the integration code. This service is called only if the <a class="reference internal" href="../../../appendix.html#term-CS"><span class="xref std std-term">CS</span></a> control is configured as <a class="reference internal" href="../../../appendix.html#term-GPIO"><span class="xref std std-term">GPIO</span></a> control. If the <a class="reference internal" href="../../../appendix.html#term-CS"><span class="xref std std-term">CS</span></a> control is configured as <a class="reference internal" href="../../../appendix.html#term-GPIO"><span class="xref std std-term">GPIO</span></a>, then the integration code must implement this service by overwriting the default implementation. </p>
+<p class="sd-card-text"><dl class="simple">
+<dt><strong>Sync/Async:</strong></dt><dd><p class="sd-card-text">Synchronous </p>
+</dd>
+<dt><strong>Reentrancy:</strong></dt><dd><p class="sd-card-text">Conditionally reentrant (when called with different channelIds) </p>
+</dd>
+</dl>
+</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p class="sd-card-text">The SpiDrv shall provide a definition for this service following to callout definition rule described in <a class="reference internal" href="../general/00_overview.html#spi-2-link-to-related-documents"><span class="std std-ref">[1].</span></a></p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p class="sd-card-text"><strong>channelId</strong> – <strong>[in]</strong> ID of the <a class="reference internal" href="../../../appendix.html#term-SPI"><span class="xref std std-term">SPI</span></a> channel to be addressed. </p></li>
+<li><p class="sd-card-text"><strong>csId</strong> – <strong>[in]</strong> Informs <a class="reference internal" href="../../../appendix.html#term-Target-Responder-Node"><span class="xref std std-term">Target Node</span></a> <a class="reference internal" href="../../../appendix.html#term-CS"><span class="xref std std-term">CS</span></a> ID. </p></li>
+<li><p class="sd-card-text"><strong>status</strong> – <strong>[in]</strong> TRUE: <a class="reference internal" href="../../../appendix.html#term-CS"><span class="xref std std-term">CS</span></a> activation request, FALSE: <a class="reference internal" href="../../../appendix.html#term-CS"><span class="xref std std-term">CS</span></a> deactivation request. </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p class="sd-card-text">None. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<p class="sd-card-text">Delegates GPIO chip-select control to the integration code — called only when the chip select
+is configured as <code class="docutils literal notranslate"><span class="pre">ViaGPIO</span></code>. <code class="docutils literal notranslate"><span class="pre">status</span> <span class="pre">==</span> <span class="pre">TRUE</span></code> requests assert, <code class="docutils literal notranslate"><span class="pre">FALSE</span></code> requests release.
+The integration code overrides the driver’s default definition. <em>Available via:</em> <code class="docutils literal notranslate"><span class="pre">Spi.h</span></code>; implement it in <code class="docutils literal notranslate"><span class="pre">Spi_Callout_Stubs.c</span></code></p>
+</div>
+</div>
+</div>
+</details></section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Reference" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="01_configuration.html" class="btn btn-neutral float-right" title="Configuration Reference" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026 by Vector Informatik GmbH and Infineon Technologies AG. All rights reserved.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

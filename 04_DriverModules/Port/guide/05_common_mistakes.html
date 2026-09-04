@@ -1,0 +1,182 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Common mistakes &mdash; Chiisai HAL Specification  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css?v=4ae1632d" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-data-viewer/jsonview.bundle.css?v=f6ef2277" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/libs/html/datatables.min.css?v=4b4fd840" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/common_css/needstable.css?v=5e1b6797" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/common_css/need_core.css?v=f5b60a78" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/common_css/need_links.css?v=2150a916" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/common_css/need_style.css?v=92936fa5" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/common_css/need_toggle.css?v=5c6620df" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/modern.css?v=803738c0" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=4f645179" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
+      <script src="../../../_static/sphinx-data-viewer/jsonview.bundle.js?v=18cd53c5"></script>
+      <script src="../../../_static/sphinx-data-viewer/jsonview_loader.js?v=f7ff7e7d"></script>
+      <script src="../../../_static/sphinx-needs/libs/html/datatables.min.js?v=8a4aee21"></script>
+      <script src="../../../_static/sphinx-needs/libs/html/datatables_loader.js?v=a2cae175"></script>
+      <script src="../../../_static/sphinx-needs/libs/html/sphinx_needs_collapse.js?v=dca66431"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Reference" href="../reference/index.html" />
+    <link rel="prev" title="Edge detection" href="04_edges.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            Chiisai HAL Specification
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../00_about/index.html">About This Specification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../01_general/index.html">General</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Chiisai HAL Driver Modules</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../Can/index.html">Can</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../I2c/index.html">I2c</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Lin/index.html">Lin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Mcu/index.html">Mcu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Mem/index.html">Mem</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Port</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../general/index.html">General</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">Guide</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="00_quickstart.html">Quickstart</a></li>
+<li class="toctree-l4"><a class="reference internal" href="01_configuration.html">Configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="02_initialise.html">Initialize the driver</a></li>
+<li class="toctree-l4"><a class="reference internal" href="03_pins.html">Reading and writing pins</a></li>
+<li class="toctree-l4"><a class="reference internal" href="04_edges.html">Edge detection</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Common mistakes</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../reference/index.html">Reference</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../00_requirements.html">Port — Requirements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01_design_decisions.html">Design Decisions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../Spi/index.html">Spi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Uart/index.html">Uart</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Wdg/index.html">Wdg</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../appendix.html">Appendix</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Chiisai HAL Specification</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Chiisai HAL Driver Modules</a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Port</a></li>
+          <li class="breadcrumb-item"><a href="index.html">Guide</a></li>
+      <li class="breadcrumb-item active">Common mistakes</li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="common-mistakes">
+<h1>Common mistakes<a class="headerlink" href="#common-mistakes" title="Link to this heading"></a></h1>
+<div class="informative admonition">
+<p class="admonition-title">Informative</p>
+<p>Pitfalls when <em>using</em> the Port driver, and how to avoid them. Each maps to a rule in
+<a class="reference internal" href="../00_requirements.html"><span class="doc">Port — Requirements</span></a> or an error in <a class="reference internal" href="../reference/02_errors.html"><span class="doc">Errors</span></a>.</p>
+</div>
+<ul class="simple">
+<li><p><strong>Passing a real pointer to</strong> <code class="docutils literal notranslate"><span class="pre">Port_Init</span></code>. <code class="docutils literal notranslate"><span class="pre">configPtr</span></code> MUST be <code class="docutils literal notranslate"><span class="pre">NULL_PTR</span></code> — a non-null
+pointer raises <code class="docutils literal notranslate"><span class="pre">PORT_DEVERR_PARAM_POINTER</span></code> (<a class="reference internal" href="../00_requirements.html#CHI-PORT-MUST-02" title="CHI-PORT-MUST-02"><em class="xref need">CHI-PORT-MUST-02</em></a>). The configuration is
+selected at build time.</p></li>
+<li><p><strong>Expecting to reconfigure a pin at runtime.</strong> A pin’s function <code class="docutils literal notranslate"><span class="pre">mode</span></code> and <code class="docutils literal notranslate"><span class="pre">direction</span></code> are
+fixed by <code class="docutils literal notranslate"><span class="pre">Port_Init</span></code>; there is no API to change them later. Only edge detection is
+runtime-settable (<a class="reference internal" href="../00_requirements.html#CHI-PORT-MUST-01" title="CHI-PORT-MUST-01"><em class="xref need">CHI-PORT-MUST-01</em></a>).</p></li>
+<li><p><strong>Using raw pin/port numbers.</strong> Address pins and ports through the generated symbols
+(<code class="docutils literal notranslate"><span class="pre">PORT_PIN_&lt;...&gt;</span></code> / <code class="docutils literal notranslate"><span class="pre">PORT_PORT_&lt;...&gt;</span></code>); a pin id is <code class="docutils literal notranslate"><span class="pre">(portId</span> <span class="pre">&lt;&lt;</span> <span class="pre">8)</span> <span class="pre">|</span> <span class="pre">pinIndex</span></code> and an
+unconfigured pin raises <code class="docutils literal notranslate"><span class="pre">PORT_DEVERR_PARAM_PIN</span></code> (<a class="reference internal" href="../00_requirements.html#CHI-PORT-MUST-11" title="CHI-PORT-MUST-11"><em class="xref need">CHI-PORT-MUST-11</em></a>).</p></li>
+<li><p><strong>Rewriting a whole port to change one pin.</strong> Use <code class="docutils literal notranslate"><span class="pre">Port_SetMaskedPortValue</span></code> with a mask so only
+the intended pins change and the update is atomic; a plain full-port write clobbers the others
+(<a class="reference internal" href="../00_requirements.html#CHI-PORT-MUST-06" title="CHI-PORT-MUST-06"><em class="xref need">CHI-PORT-MUST-06</em></a>).</p></li>
+<li><p><strong>Assuming defined behavior when writing an input pin.</strong> <code class="docutils literal notranslate"><span class="pre">Port_SetPinValue</span></code> on an input pin is
+implementation-defined — don’t rely on it to steer pull-ups/downs portably (<a class="reference internal" href="../00_requirements.html#CHI-PORT-MUST-04" title="CHI-PORT-MUST-04"><em class="xref need">CHI-PORT-MUST-04</em></a>).</p></li>
+<li><p><strong>Forgetting edge detection starts disabled.</strong> <code class="docutils literal notranslate"><span class="pre">Port_Init</span></code> disables detection on every pin; call
+<code class="docutils literal notranslate"><span class="pre">Port_SetEdgeDetection</span></code> to enable it before expecting <code class="docutils literal notranslate"><span class="pre">Port_Callout_OnEdgeDetection</span></code> (<a class="reference internal" href="../00_requirements.html#CHI-PORT-MUST-07" title="CHI-PORT-MUST-07"><em class="xref need">CHI-PORT-MUST-07</em></a>).</p></li>
+<li><p><strong>Not servicing polled pins.</strong> A pin configured for <code class="docutils literal notranslate"><span class="pre">Polling</span></code> needs <code class="docutils literal notranslate"><span class="pre">Port_PollFunction</span></code> called
+cyclically, or its edge events never fire (<a class="reference internal" href="../00_requirements.html#CHI-PORT-MUST-09" title="CHI-PORT-MUST-09"><em class="xref need">CHI-PORT-MUST-09</em></a>).</p></li>
+<li><p><strong>Treating a read error as a valid LOW.</strong> On error the Get APIs return <code class="docutils literal notranslate"><span class="pre">PORT_PIN_VALUE_LOW</span></code> (or
+all-LOW for a port) — indistinguishable from a genuine low, so validate the pin id first
+(<a class="reference internal" href="../00_requirements.html#CHI-PORT-MUST-03" title="CHI-PORT-MUST-03"><em class="xref need">CHI-PORT-MUST-03</em></a>).</p></li>
+</ul>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="04_edges.html" class="btn btn-neutral float-left" title="Edge detection" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../reference/index.html" class="btn btn-neutral float-right" title="Reference" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026 by Vector Informatik GmbH and Infineon Technologies AG. All rights reserved.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

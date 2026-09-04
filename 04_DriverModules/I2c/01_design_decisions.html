@@ -1,0 +1,209 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Design Decisions &mdash; Chiisai HAL Specification  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css?v=4ae1632d" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-data-viewer/jsonview.bundle.css?v=f6ef2277" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-needs/libs/html/datatables.min.css?v=4b4fd840" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-needs/common_css/needstable.css?v=5e1b6797" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-needs/common_css/need_core.css?v=f5b60a78" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-needs/common_css/need_links.css?v=2150a916" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-needs/common_css/need_style.css?v=92936fa5" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-needs/common_css/need_toggle.css?v=5c6620df" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-needs/modern.css?v=803738c0" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=4f645179" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+      <script src="../../_static/sphinx-data-viewer/jsonview.bundle.js?v=18cd53c5"></script>
+      <script src="../../_static/sphinx-data-viewer/jsonview_loader.js?v=f7ff7e7d"></script>
+      <script src="../../_static/sphinx-needs/libs/html/datatables.min.js?v=8a4aee21"></script>
+      <script src="../../_static/sphinx-needs/libs/html/datatables_loader.js?v=a2cae175"></script>
+      <script src="../../_static/sphinx-needs/libs/html/sphinx_needs_collapse.js?v=dca66431"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Lin" href="../Lin/index.html" />
+    <link rel="prev" title="I2c — Requirements" href="00_requirements.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Chiisai HAL Specification
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../00_about/index.html">About This Specification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../01_general/index.html">General</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Chiisai HAL Driver Modules</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../Can/index.html">Can</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">I2c</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="general/index.html">General</a></li>
+<li class="toctree-l3"><a class="reference internal" href="guide/index.html">Guide</a></li>
+<li class="toctree-l3"><a class="reference internal" href="reference/index.html">Reference</a></li>
+<li class="toctree-l3"><a class="reference internal" href="00_requirements.html">I2c — Requirements</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Design Decisions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#why-does-i2cdrv-have-no-i2cif-interface-layer">Why does I2cDrv have no <code class="docutils literal notranslate"><span class="pre">I2cIf</span></code> interface layer?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#why-7-bit-addressing-only">Why 7-bit addressing only?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#why-report-nack-as-a-callout-but-bus-arbitration-failure-as-a-runtime-error">Why report NACK as a callout but bus/arbitration failure as a runtime error?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#why-does-the-target-stage-its-response-in-a-callout">Why does the target stage its response in a callout?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#why-does-i2c-init-take-only-null-ptr">Why does <code class="docutils literal notranslate"><span class="pre">I2c_Init</span></code> take only <code class="docutils literal notranslate"><span class="pre">NULL_PTR</span></code>?</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Lin/index.html">Lin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Mcu/index.html">Mcu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Mem/index.html">Mem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Port/index.html">Port</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Spi/index.html">Spi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Uart/index.html">Uart</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Wdg/index.html">Wdg</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix.html">Appendix</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Chiisai HAL Specification</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Chiisai HAL Driver Modules</a></li>
+          <li class="breadcrumb-item"><a href="index.html">I2c</a></li>
+      <li class="breadcrumb-item active">Design Decisions</li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="design-decisions">
+<h1>Design Decisions<a class="headerlink" href="#design-decisions" title="Link to this heading"></a></h1>
+<div class="informative admonition">
+<p class="admonition-title">Informative</p>
+<p>The rationale behind the I2C driver contract. This helps implementers get the behavior right;
+it is not itself a requirement. Each entry points to the requirement it explains.</p>
+</div>
+<section id="why-does-i2cdrv-have-no-i2cif-interface-layer">
+<h2>Why does I2cDrv have no <code class="docutils literal notranslate"><span class="pre">I2cIf</span></code> interface layer?<a class="headerlink" href="#why-does-i2cdrv-have-no-i2cif-interface-layer" title="Link to this heading"></a></h2>
+<p><em>Relates to</em> <a class="reference internal" href="../../01_general/04_requirements.html#CHI-GEN-MUST-15" title="CHI-GEN-MUST-15"><em class="xref need">CHI-GEN-MUST-15</em></a>, <a class="reference internal" href="../../01_general/04_requirements.html#CHI-GEN-MUST-16" title="CHI-GEN-MUST-16"><em class="xref need">CHI-GEN-MUST-16</em></a>.</p>
+<p>There is no standardized interface stack above an I2C driver the way <code class="docutils literal notranslate"><span class="pre">CanIf</span></code> sits above a CAN
+driver, so an <code class="docutils literal notranslate"><span class="pre">I2cIf</span></code> layer would have had no implementation and no owner — the integrator would
+have written it themselves under a name implying otherwise. I2cDrv therefore declares its events as
+<strong>callouts</strong> in <code class="docutils literal notranslate"><span class="pre">I2c.h</span></code>, which the integrator implements in the generated
+<code class="docutils literal notranslate"><span class="pre">I2c_Callout_Stubs.c</span></code>. The full reasoning, and why <code class="docutils literal notranslate"><span class="pre">Can</span></code> / <code class="docutils literal notranslate"><span class="pre">Lin</span></code> / <code class="docutils literal notranslate"><span class="pre">Mem</span></code> / <code class="docutils literal notranslate"><span class="pre">Wdg</span></code> keep
+their interface layer, is in <a class="reference internal" href="../../01_general/05_design_decisions.html"><span class="doc">Design Decisions</span></a>.</p>
+<p><strong>Implication for implementers:</strong> publish the specification’s types in <code class="docutils literal notranslate"><span class="pre">I2c_DriverTypes.h</span></code> and the
+callout prototypes in <code class="docutils literal notranslate"><span class="pre">I2c.h</span></code>; do not ship an <code class="docutils literal notranslate"><span class="pre">I2cIf.h</span></code>.</p>
+</section>
+<section id="why-7-bit-addressing-only">
+<h2>Why 7-bit addressing only?<a class="headerlink" href="#why-7-bit-addressing-only" title="Link to this heading"></a></h2>
+<p><em>Governs</em> <a class="reference internal" href="00_requirements.html#CHI-I2C-MUST-22" title="CHI-I2C-MUST-22"><em class="xref need">CHI-I2C-MUST-22</em></a>.</p>
+<p>The overwhelming majority of I2C devices on small ECUs use 7-bit addresses. Supporting 10-bit
+addressing and the general-call address would enlarge the address handling and filtering logic for a
+case these targets rarely need. Restricting to 7-bit keeps the driver small and the address model
+simple; a design that needs more can extend it.</p>
+<p><strong>Implication for implementers:</strong> treat <code class="docutils literal notranslate"><span class="pre">deviceAddr</span></code> / <code class="docutils literal notranslate"><span class="pre">device_address</span></code> as <code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">127]</span></code>; do not
+implement 10-bit or general-call handling.</p>
+</section>
+<section id="why-report-nack-as-a-callout-but-bus-arbitration-failure-as-a-runtime-error">
+<h2>Why report NACK as a callout but bus/arbitration failure as a runtime error?<a class="headerlink" href="#why-report-nack-as-a-callout-but-bus-arbitration-failure-as-a-runtime-error" title="Link to this heading"></a></h2>
+<p><em>Governs</em> <a class="reference internal" href="00_requirements.html#CHI-I2C-MUST-17" title="CHI-I2C-MUST-17"><em class="xref need">CHI-I2C-MUST-17</em></a>.</p>
+<p>A NACK is a normal, per-transaction outcome (the device is absent or busy) that the integration code
+must handle case by case — so it is delivered through <code class="docutils literal notranslate"><span class="pre">I2c_Callout_OnError</span></code> alongside the
+transaction. Bus and arbitration failures are node-level fault conditions better surfaced through
+the common logging service <code class="docutils literal notranslate"><span class="pre">LogM_Report</span></code>, where system-level diagnostics collect them.</p>
+<p><strong>Implication for implementers:</strong> keep NACK on the transaction callout path; route bus/arbitration
+faults to <code class="docutils literal notranslate"><span class="pre">LogM_Report</span></code>.</p>
+</section>
+<section id="why-does-the-target-stage-its-response-in-a-callout">
+<h2>Why does the target stage its response in a callout?<a class="headerlink" href="#why-does-the-target-stage-its-response-in-a-callout" title="Link to this heading"></a></h2>
+<p><em>Relates to</em> <a class="reference internal" href="00_requirements.html#CHI-I2C-MUST-15" title="CHI-I2C-MUST-15"><em class="xref need">CHI-I2C-MUST-15</em></a>.</p>
+<p>An I2C target cannot know in advance which frame the controller will address or in which direction.
+Reporting the address match (with direction) and letting the integration code stage the response
+with <code class="docutils literal notranslate"><span class="pre">I2c_Start*Transaction</span></code> keeps the data fresh and lets the same mechanism serve both read and
+write without a preconfigured frame table. The configured <code class="docutils literal notranslate"><span class="pre">default_data</span></code> covers the case where no
+response is staged in time.</p>
+<p><strong>Implication for implementers:</strong> drive target transfers from <code class="docutils literal notranslate"><span class="pre">I2c_Callout_OnAddress</span></code>; fall back to
+<code class="docutils literal notranslate"><span class="pre">default_data</span></code> when the integration code does not respond.</p>
+</section>
+<section id="why-does-i2c-init-take-only-null-ptr">
+<h2>Why does <code class="docutils literal notranslate"><span class="pre">I2c_Init</span></code> take only <code class="docutils literal notranslate"><span class="pre">NULL_PTR</span></code>?<a class="headerlink" href="#why-does-i2c-init-take-only-null-ptr" title="Link to this heading"></a></h2>
+<p><em>Relates to</em> <a class="reference internal" href="00_requirements.html#CHI-I2C-MUST-09" title="CHI-I2C-MUST-09"><em class="xref need">CHI-I2C-MUST-09</em></a>.</p>
+<p>Configuration variants are selected at build time, not passed at runtime. Requiring
+<code class="docutils literal notranslate"><span class="pre">configPtr</span> <span class="pre">==</span> <span class="pre">NULL_PTR</span></code> keeps the interface stable and avoids implying a runtime variant-selection
+mechanism the driver does not provide.</p>
+<p><strong>Implication for implementers:</strong> bind the active configuration at build time; reject a non-null
+<code class="docutils literal notranslate"><span class="pre">configPtr</span></code> as a development error.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="00_requirements.html" class="btn btn-neutral float-left" title="I2c — Requirements" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../Lin/index.html" class="btn btn-neutral float-right" title="Lin" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026 by Vector Informatik GmbH and Infineon Technologies AG. All rights reserved.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

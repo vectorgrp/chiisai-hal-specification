@@ -1,0 +1,925 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>API Reference &mdash; Chiisai HAL Specification  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css?v=4ae1632d" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-data-viewer/jsonview.bundle.css?v=f6ef2277" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/libs/html/datatables.min.css?v=4b4fd840" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/common_css/needstable.css?v=5e1b6797" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/common_css/need_core.css?v=f5b60a78" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/common_css/need_links.css?v=2150a916" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/common_css/need_style.css?v=92936fa5" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/common_css/need_toggle.css?v=5c6620df" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/modern.css?v=803738c0" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=4f645179" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
+      <script src="../../../_static/sphinx-data-viewer/jsonview.bundle.js?v=18cd53c5"></script>
+      <script src="../../../_static/sphinx-data-viewer/jsonview_loader.js?v=f7ff7e7d"></script>
+      <script src="../../../_static/sphinx-needs/libs/html/datatables.min.js?v=8a4aee21"></script>
+      <script src="../../../_static/sphinx-needs/libs/html/datatables_loader.js?v=a2cae175"></script>
+      <script src="../../../_static/sphinx-needs/libs/html/sphinx_needs_collapse.js?v=dca66431"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Configuration Reference" href="01_configuration.html" />
+    <link rel="prev" title="Reference" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            Chiisai HAL Specification
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../00_about/index.html">About This Specification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../01_general/index.html">General</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Chiisai HAL Driver Modules</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../Can/index.html">Can</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../I2c/index.html">I2c</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Lin</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../general/index.html">General</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../guide/index.html">Guide</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">Reference</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">API Reference</a></li>
+<li class="toctree-l4"><a class="reference internal" href="01_configuration.html">Configuration Reference</a></li>
+<li class="toctree-l4"><a class="reference internal" href="02_errors.html">Errors</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../00_requirements.html">Lin — Requirements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01_design_decisions.html">Design Decisions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../Mcu/index.html">Mcu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Mem/index.html">Mem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Port/index.html">Port</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Spi/index.html">Spi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Uart/index.html">Uart</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Wdg/index.html">Wdg</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../appendix.html">Appendix</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Chiisai HAL Specification</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Chiisai HAL Driver Modules</a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Lin</a></li>
+          <li class="breadcrumb-item"><a href="index.html">Reference</a></li>
+      <li class="breadcrumb-item active">API Reference</li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="api-reference">
+<h1>API Reference<a class="headerlink" href="#api-reference" title="Link to this heading"></a></h1>
+<div class="normative admonition">
+<p class="admonition-title">Normative</p>
+<p>The LIN driver API contract. A conformant driver <strong>MUST</strong> provide these types and functions with
+the behavior described. Signatures and member documentation are extracted from the driver headers
+with Doxygen/Breathe. Keywords per <a class="reference internal" href="../../../00_about/01_keywords.html"><span class="doc">Requirement Keywords</span></a>; behavioral rules in
+<a class="reference internal" href="../00_requirements.html"><span class="doc">Lin — Requirements</span></a>; error codes in <a class="reference internal" href="02_errors.html"><span class="doc">Errors</span></a>.</p>
+</div>
+<p class="rubric">Data types at a glance</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 32.0%" />
+<col style="width: 13.0%" />
+<col style="width: 55.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Type</p></th>
+<th class="head"><p>Kind</p></th>
+<th class="head"><p>Purpose</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference internal" href="#lin-api-lin-configtype"><span class="std std-ref">Lin_ConfigType</span></a></p></td>
+<td><p>struct</p></td>
+<td><p>Root configuration structure (build-time; <code class="docutils literal notranslate"><span class="pre">Lin_Init</span></code> takes <code class="docutils literal notranslate"><span class="pre">NULL_PTR</span></code>).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#lin-api-lin-pduinfotype"><span class="std std-ref">Lin_PduInfoType</span></a></p></td>
+<td><p>struct</p></td>
+<td><p>Header/response descriptor: <code class="docutils literal notranslate"><span class="pre">pid</span></code> / <code class="docutils literal notranslate"><span class="pre">cs</span></code> / <code class="docutils literal notranslate"><span class="pre">reaction</span></code> / <code class="docutils literal notranslate"><span class="pre">dl</span></code> / <code class="docutils literal notranslate"><span class="pre">sduPtr</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#lin-api-lin-pidtype"><span class="std std-ref">Lin_PidType</span></a></p></td>
+<td><p>typedef</p></td>
+<td><p>Protected identifier (6-bit id + 2 parity bits).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#lin-api-lin-dltype"><span class="std std-ref">Lin_DlType</span></a></p></td>
+<td><p>typedef</p></td>
+<td><p>Response data length (1…8).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#lin-api-lin-cstype"><span class="std std-ref">Lin_CsType</span></a></p></td>
+<td><p>enum</p></td>
+<td><p>Checksum model (classic / enhanced).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#lin-api-lin-reactiontype"><span class="std std-ref">Lin_ReactionType</span></a></p></td>
+<td><p>enum</p></td>
+<td><p>Response reaction (TX / RX / IGNORE).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#lin-api-lin-errortype"><span class="std std-ref">Lin_ErrorType</span></a></p></td>
+<td><p>enum</p></td>
+<td><p>Bus error reported via <code class="docutils literal notranslate"><span class="pre">LinIf_OnError</span></code>.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">API at a glance</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 30.0%" />
+<col style="width: 32.0%" />
+<col style="width: 38.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Function</p></th>
+<th class="head"><p>Group</p></th>
+<th class="head"><p>Purpose</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference internal" href="#lin-api-lin-init"><span class="std std-ref">Lin_Init</span></a></p></td>
+<td><p>Initialization and shutdown</p></td>
+<td><p>Initialize the driver and every channel.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#lin-api-lin-deinit"><span class="std std-ref">Lin_DeInit</span></a></p></td>
+<td><p>Initialization and shutdown</p></td>
+<td><p>Abort transfers and de-initialize the driver.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#lin-api-lin-wakeup"><span class="std std-ref">Lin_Wakeup</span></a></p></td>
+<td><p>Power state</p></td>
+<td><p>Send a wakeup pulse and go operational.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#lin-api-lin-wakeupinternal"><span class="std std-ref">Lin_WakeupInternal</span></a></p></td>
+<td><p>Power state</p></td>
+<td><p>Go operational without sending a pulse.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#lin-api-lin-gotosleepinternal"><span class="std std-ref">Lin_GoToSleepInternal</span></a></p></td>
+<td><p>Power state</p></td>
+<td><p>Put a channel into sleep.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#lin-api-lin-pollfunction"><span class="std std-ref">Lin_PollFunction</span></a></p></td>
+<td><p>Scheduling and interrupt</p></td>
+<td><p>Service events for polled channels.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#lin-api-lin-interrupt"><span class="std std-ref">Lin_Interrupt</span></a></p></td>
+<td><p>Scheduling and interrupt</p></td>
+<td><p>Driver interrupt service routine.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Expected interfaces at a glance</p>
+<p>Upper-layer / integration interfaces the integrator <strong>MUST</strong> provide (<a class="reference internal" href="../00_requirements.html#CHI-LIN-MUST-18" title="CHI-LIN-MUST-18"><em class="xref need">CHI-LIN-MUST-18</em></a>); see the
+<a class="reference internal" href="#lin-api-expected-interfaces"><span class="std std-ref">Expected interfaces</span></a> group below.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 28.0%" />
+<col style="width: 20.0%" />
+<col style="width: 52.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Function</p></th>
+<th class="head"><p>Kind</p></th>
+<th class="head"><p>Purpose</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference internal" href="#lin-api-linif-onheader"><span class="std std-ref">LinIf_OnHeader</span></a></p></td>
+<td><p>LIN-specific</p></td>
+<td><p>Reports a received header; the upper layer fills in the reaction.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#lin-api-linif-onreception"><span class="std std-ref">LinIf_OnReception</span></a></p></td>
+<td><p>LIN-specific</p></td>
+<td><p>Reports a successfully received response.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#lin-api-linif-ontransmission"><span class="std std-ref">LinIf_OnTransmission</span></a></p></td>
+<td><p>LIN-specific</p></td>
+<td><p>Reports a successfully transmitted response.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#lin-api-linif-onerror"><span class="std std-ref">LinIf_OnError</span></a></p></td>
+<td><p>LIN-specific</p></td>
+<td><p>Reports a header/response error.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#lin-api-linif-onwakeup"><span class="std std-ref">LinIf_OnWakeup</span></a></p></td>
+<td><p>LIN-specific</p></td>
+<td><p>Reports a detected wakeup pulse.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="../../../01_general/reference/02_services.html#gen-ref-logm"><span class="std std-ref">LogM_Report</span></a></p></td>
+<td><p>Common</p></td>
+<td><p>Reports development / runtime errors with a log level.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;Mip&gt;_EnterCriticalSection</span></code> / <code class="docutils literal notranslate"><span class="pre">&lt;Mip&gt;_ExitCriticalSection</span></code></p></td>
+<td><p>Common (optional)</p></td>
+<td><p>Bracket sections requiring exclusive access — see
+<a class="reference internal" href="../../../01_general/reference/02_services.html#gen-ref-critical-section"><span class="std std-ref">critical sections</span></a>.</p></td>
+</tr>
+</tbody>
+</table>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-list-unordered" viewBox="0 0 16 16" aria-hidden="true"><path d="M5.75 2.5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5Zm0 5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5Zm0 5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5ZM2 14a1 1 0 1 1 0-2 1 1 0 0 1 0 2Zm1-6a1 1 0 1 1-2 0 1 1 0 0 1 2 0ZM2 4a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg></span><span class="sd-summary-text">Data types</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils" id="lin-api-lin-configtype">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Lin_ConfigType</div>
+<dl class="cpp struct">
+<dt class="sig sig-object cpp" id="_CPPv414Lin_ConfigType">
+<span id="_CPPv314Lin_ConfigType"></span><span id="_CPPv214Lin_ConfigType"></span><span id="Lin_ConfigType"></span><span class="target" id="struct_lin___config_type"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Lin_ConfigType</span></span></span><a class="headerlink" href="#_CPPv414Lin_ConfigType" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">Configuration structure type. </p>
+</dd></dl>
+
+<p class="sd-card-text">Configuration variants are selected at build time; <code class="docutils literal notranslate"><span class="pre">Lin_Init</span></code> currently takes <code class="docutils literal notranslate"><span class="pre">NULL_PTR</span></code>.
+<em>Available via:</em> <code class="docutils literal notranslate"><span class="pre">Lin.h</span></code></p>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils" id="lin-api-lin-pduinfotype">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Lin_PduInfoType</div>
+<dl class="cpp struct">
+<dt class="sig sig-object cpp" id="_CPPv415Lin_PduInfoType">
+<span id="_CPPv315Lin_PduInfoType"></span><span id="_CPPv215Lin_PduInfoType"></span><span id="Lin_PduInfoType"></span><span class="target" id="struct_lin___pdu_info_type"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Lin_PduInfoType</span></span></span><a class="headerlink" href="#_CPPv415Lin_PduInfoType" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">This Type carries the PID, checksum model, data length and SDU pointer. It is used to provide these information from the <a class="reference internal" href="../../../appendix.html#term-LIN"><span class="xref std std-term">LIN</span></a> Interface to the <a class="reference internal" href="../../../appendix.html#term-LIN"><span class="xref std std-term">LIN</span></a> driver. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N15Lin_PduInfoType3pidE">
+<span id="_CPPv3N15Lin_PduInfoType3pidE"></span><span id="_CPPv2N15Lin_PduInfoType3pidE"></span><span id="Lin_PduInfoType::pid__Lin_PidType"></span><span class="target" id="struct_lin___pdu_info_type_1afad4ec6edab6ca1e7b2d70a4d7a166fc"></span><a class="reference internal" href="#_CPPv411Lin_PidType" title="Lin_PidType"><span class="n"><span class="pre">Lin_PidType</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">pid</span></span></span><a class="headerlink" href="#_CPPv4N15Lin_PduInfoType3pidE" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">Protected identifier </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N15Lin_PduInfoType2csE">
+<span id="_CPPv3N15Lin_PduInfoType2csE"></span><span id="_CPPv2N15Lin_PduInfoType2csE"></span><span id="Lin_PduInfoType::cs__Lin_CsType"></span><span class="target" id="struct_lin___pdu_info_type_1a7fb51f83ca6a2888a2da93af7c50d88b"></span><a class="reference internal" href="#_CPPv410Lin_CsType" title="Lin_CsType"><span class="n"><span class="pre">Lin_CsType</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">cs</span></span></span><a class="headerlink" href="#_CPPv4N15Lin_PduInfoType2csE" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">Checksum model type </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N15Lin_PduInfoType8reactionE">
+<span id="_CPPv3N15Lin_PduInfoType8reactionE"></span><span id="_CPPv2N15Lin_PduInfoType8reactionE"></span><span id="Lin_PduInfoType::reaction__Lin_ReactionType"></span><span class="target" id="struct_lin___pdu_info_type_1af9554f80134aa447bd937a59d34263ec"></span><a class="reference internal" href="#_CPPv416Lin_ReactionType" title="Lin_ReactionType"><span class="n"><span class="pre">Lin_ReactionType</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">reaction</span></span></span><a class="headerlink" href="#_CPPv4N15Lin_PduInfoType8reactionE" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">Used to indicate the sender/receiver role </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N15Lin_PduInfoType2dlE">
+<span id="_CPPv3N15Lin_PduInfoType2dlE"></span><span id="_CPPv2N15Lin_PduInfoType2dlE"></span><span id="Lin_PduInfoType::dl__Lin_DlType"></span><span class="target" id="struct_lin___pdu_info_type_1ab2631facdb8474126f1dbfa530bc2e41"></span><a class="reference internal" href="#_CPPv410Lin_DlType" title="Lin_DlType"><span class="n"><span class="pre">Lin_DlType</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dl</span></span></span><a class="headerlink" href="#_CPPv4N15Lin_PduInfoType2dlE" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">Data length </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N15Lin_PduInfoType6sduPtrE">
+<span id="_CPPv3N15Lin_PduInfoType6sduPtrE"></span><span id="_CPPv2N15Lin_PduInfoType6sduPtrE"></span><span id="Lin_PduInfoType::sduPtr__uint8P"></span><span class="target" id="struct_lin___pdu_info_type_1a863550618d8d41d07cc657f5c2d8b9f7"></span><span class="n"><span class="pre">uint8</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">sduPtr</span></span></span><a class="headerlink" href="#_CPPv4N15Lin_PduInfoType6sduPtrE" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">Pointer to the Service Data Unit (SDU) buffer </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<p class="sd-card-text"><em>Available via:</em> <code class="docutils literal notranslate"><span class="pre">LinIf_DriverTypes.h</span></code></p>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils" id="lin-api-lin-pidtype">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Lin_PidType</div>
+<dl class="cpp type">
+<dt class="sig sig-object cpp" id="_CPPv411Lin_PidType">
+<span id="_CPPv311Lin_PidType"></span><span id="_CPPv211Lin_PidType"></span><span id="Lin_PidType"></span><span class="target" id="_lin_if___driver_types_8h_1a4cded25bb1d5fd913a6b3875567d661e"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="n"><span class="pre">uint8</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Lin_PidType</span></span></span><a class="headerlink" href="#_CPPv411Lin_PidType" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">Protected identifier. </p>
+<p class="sd-card-text"><dl class="simple">
+<dt><strong>Range: </strong></dt><dd><p class="sd-card-text">0…0xFE - The <a class="reference internal" href="../../../appendix.html#term-LIN"><span class="xref std std-term">LIN</span></a> identifier (0…0x3F) together with its two parity bits </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<p class="sd-card-text"><em>Available via:</em> <code class="docutils literal notranslate"><span class="pre">LinIf_DriverTypes.h</span></code></p>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils" id="lin-api-lin-dltype">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Lin_DlType</div>
+<dl class="cpp type">
+<dt class="sig sig-object cpp" id="_CPPv410Lin_DlType">
+<span id="_CPPv310Lin_DlType"></span><span id="_CPPv210Lin_DlType"></span><span id="Lin_DlType"></span><span class="target" id="_lin_if___driver_types_8h_1a58d00b9768e42fc96286c0953f5d0eef"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="n"><span class="pre">uint8</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Lin_DlType</span></span></span><a class="headerlink" href="#_CPPv410Lin_DlType" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">This type is used to specify the number of SDU data bytes to copy. </p>
+<p class="sd-card-text"><dl class="simple">
+<dt><strong>Range:</strong></dt><dd><p class="sd-card-text">1…8 - Data length of a <a class="reference internal" href="../../../appendix.html#term-LIN"><span class="xref std std-term">LIN</span></a> Frame </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<p class="sd-card-text"><em>Available via:</em> <code class="docutils literal notranslate"><span class="pre">LinIf_DriverTypes.h</span></code></p>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils" id="lin-api-lin-cstype">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Lin_CsType</div>
+<dl class="cpp enum">
+<dt class="sig sig-object cpp" id="_CPPv410Lin_CsType">
+<span id="_CPPv310Lin_CsType"></span><span id="_CPPv210Lin_CsType"></span><span class="target" id="_lin_if___driver_types_8h_1ada4e1d30c6527591e2c6ca7e89fabf25"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Lin_CsType</span></span></span><a class="headerlink" href="#_CPPv410Lin_CsType" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">This type is used to specify the Checksum model to be used for the <a class="reference internal" href="../../../appendix.html#term-LIN"><span class="xref std std-term">LIN</span></a> Frame. </p>
+<p class="sd-card-text"><em>Values:</em></p>
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N10Lin_CsType15LIN_CS_ENHANCEDE">
+<span id="_CPPv3N10Lin_CsType15LIN_CS_ENHANCEDE"></span><span id="_CPPv2N10Lin_CsType15LIN_CS_ENHANCEDE"></span><span class="target" id="_lin_if___driver_types_8h_1ada4e1d30c6527591e2c6ca7e89fabf25aaf52dac6b07ae29a68e8fc266b2dc8ff"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">LIN_CS_ENHANCED</span></span></span><a class="headerlink" href="#_CPPv4N10Lin_CsType15LIN_CS_ENHANCEDE" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">Enhanced checksum model </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N10Lin_CsType14LIN_CS_CLASSICE">
+<span id="_CPPv3N10Lin_CsType14LIN_CS_CLASSICE"></span><span id="_CPPv2N10Lin_CsType14LIN_CS_CLASSICE"></span><span class="target" id="_lin_if___driver_types_8h_1ada4e1d30c6527591e2c6ca7e89fabf25a4c1bce645b0d6689faff60ae9d454047"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">LIN_CS_CLASSIC</span></span></span><a class="headerlink" href="#_CPPv4N10Lin_CsType14LIN_CS_CLASSICE" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">Classic checksum model </p>
+</dd></dl>
+
+</dd></dl>
+
+<p class="sd-card-text"><em>Available via:</em> <code class="docutils literal notranslate"><span class="pre">LinIf_DriverTypes.h</span></code></p>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils" id="lin-api-lin-reactiontype">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Lin_ReactionType</div>
+<dl class="cpp enum">
+<dt class="sig sig-object cpp" id="_CPPv416Lin_ReactionType">
+<span id="_CPPv316Lin_ReactionType"></span><span id="_CPPv216Lin_ReactionType"></span><span class="target" id="_lin_if___driver_types_8h_1a4cf78ccfe3f2195074f7839db9d58606"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Lin_ReactionType</span></span></span><a class="headerlink" href="#_CPPv416Lin_ReactionType" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">This type indicates whether the frame processor is required to transmit the response part of the <a class="reference internal" href="../../../appendix.html#term-LIN"><span class="xref std std-term">LIN</span></a> frame. </p>
+<p class="sd-card-text"><em>Values:</em></p>
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N16Lin_ReactionType15LIN_REACTION_TXE">
+<span id="_CPPv3N16Lin_ReactionType15LIN_REACTION_TXE"></span><span id="_CPPv2N16Lin_ReactionType15LIN_REACTION_TXE"></span><span class="target" id="_lin_if___driver_types_8h_1a4cf78ccfe3f2195074f7839db9d58606a1a960d813440b869a3eef76d7c64275f"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">LIN_REACTION_TX</span></span></span><a class="headerlink" href="#_CPPv4N16Lin_ReactionType15LIN_REACTION_TXE" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">This node reacts on the received header and sends a response </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N16Lin_ReactionType15LIN_REACTION_RXE">
+<span id="_CPPv3N16Lin_ReactionType15LIN_REACTION_RXE"></span><span id="_CPPv2N16Lin_ReactionType15LIN_REACTION_RXE"></span><span class="target" id="_lin_if___driver_types_8h_1a4cf78ccfe3f2195074f7839db9d58606a82c12a39242de6b18d95fdfca84b0633"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">LIN_REACTION_RX</span></span></span><a class="headerlink" href="#_CPPv4N16Lin_ReactionType15LIN_REACTION_RXE" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">Another node sends a response and this node wants to receive it </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N16Lin_ReactionType19LIN_REACTION_IGNOREE">
+<span id="_CPPv3N16Lin_ReactionType19LIN_REACTION_IGNOREE"></span><span id="_CPPv2N16Lin_ReactionType19LIN_REACTION_IGNOREE"></span><span class="target" id="_lin_if___driver_types_8h_1a4cf78ccfe3f2195074f7839db9d58606a0746bd2000cb5a9ad60afd87fc6371ff"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">LIN_REACTION_IGNORE</span></span></span><a class="headerlink" href="#_CPPv4N16Lin_ReactionType19LIN_REACTION_IGNOREE" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">Another node sends a response which is irrelevant for this node </p>
+</dd></dl>
+
+</dd></dl>
+
+<p class="sd-card-text"><em>Available via:</em> <code class="docutils literal notranslate"><span class="pre">LinIf_DriverTypes.h</span></code></p>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils" id="lin-api-lin-errortype">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Lin_ErrorType</div>
+<dl class="cpp enum">
+<dt class="sig sig-object cpp" id="_CPPv413Lin_ErrorType">
+<span id="_CPPv313Lin_ErrorType"></span><span id="_CPPv213Lin_ErrorType"></span><span class="target" id="_lin_if___driver_types_8h_1a5148ded1bf1dcc55eec34be24e4f02ff"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Lin_ErrorType</span></span></span><a class="headerlink" href="#_CPPv413Lin_ErrorType" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">This type represents the <a class="reference internal" href="../../../appendix.html#term-Target-Responder-Node"><span class="xref std std-term">Responder Mode</span></a> error types that are detected during header reception and response transmission/reception. </p>
+<p class="sd-card-text"><em>Values:</em></p>
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N13Lin_ErrorType24LIN_ERR_SYNC_FIELD_VALUEE">
+<span id="_CPPv3N13Lin_ErrorType24LIN_ERR_SYNC_FIELD_VALUEE"></span><span id="_CPPv2N13Lin_ErrorType24LIN_ERR_SYNC_FIELD_VALUEE"></span><span class="target" id="_lin_if___driver_types_8h_1a5148ded1bf1dcc55eec34be24e4f02ffa4c723dd9ee3809e1317404e952066969"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">LIN_ERR_SYNC_FIELD_VALUE</span></span></span><a class="headerlink" href="#_CPPv4N13Lin_ErrorType24LIN_ERR_SYNC_FIELD_VALUEE" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">Invalid sync frame </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N13Lin_ErrorType22LIN_ERR_HEADER_FRAMINGE">
+<span id="_CPPv3N13Lin_ErrorType22LIN_ERR_HEADER_FRAMINGE"></span><span id="_CPPv2N13Lin_ErrorType22LIN_ERR_HEADER_FRAMINGE"></span><span class="target" id="_lin_if___driver_types_8h_1a5148ded1bf1dcc55eec34be24e4f02ffaa1f6e2137f67db062f6ad23fc61cc4df"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">LIN_ERR_HEADER_FRAMING</span></span></span><a class="headerlink" href="#_CPPv4N13Lin_ErrorType22LIN_ERR_HEADER_FRAMINGE" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">Stop bit error in received sync byte or PID byte </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N13Lin_ErrorType18LIN_ERR_PID_PARITYE">
+<span id="_CPPv3N13Lin_ErrorType18LIN_ERR_PID_PARITYE"></span><span id="_CPPv2N13Lin_ErrorType18LIN_ERR_PID_PARITYE"></span><span class="target" id="_lin_if___driver_types_8h_1a5148ded1bf1dcc55eec34be24e4f02ffab2d4956b2607567237d549c4ef104242"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">LIN_ERR_PID_PARITY</span></span></span><a class="headerlink" href="#_CPPv4N13Lin_ErrorType18LIN_ERR_PID_PARITYE" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">Invalid parity bits in PID (optional depending on hardware capabilities) </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N13Lin_ErrorType18LIN_ERR_MONITORINGE">
+<span id="_CPPv3N13Lin_ErrorType18LIN_ERR_MONITORINGE"></span><span id="_CPPv2N13Lin_ErrorType18LIN_ERR_MONITORINGE"></span><span class="target" id="_lin_if___driver_types_8h_1a5148ded1bf1dcc55eec34be24e4f02ffa9e0d69681d3f859bae39cfec13ac9542"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">LIN_ERR_MONITORING</span></span></span><a class="headerlink" href="#_CPPv4N13Lin_ErrorType18LIN_ERR_MONITORINGE" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">Bit error during transmission </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N13Lin_ErrorType15LIN_ERR_FRAMINGE">
+<span id="_CPPv3N13Lin_ErrorType15LIN_ERR_FRAMINGE"></span><span id="_CPPv2N13Lin_ErrorType15LIN_ERR_FRAMINGE"></span><span class="target" id="_lin_if___driver_types_8h_1a5148ded1bf1dcc55eec34be24e4f02ffa1a8e9f50314e9e5ec89db6201ad129ab"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">LIN_ERR_FRAMING</span></span></span><a class="headerlink" href="#_CPPv4N13Lin_ErrorType15LIN_ERR_FRAMINGE" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">Stop bit error in transmitted or received response </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N13Lin_ErrorType16LIN_ERR_CHECKSUME">
+<span id="_CPPv3N13Lin_ErrorType16LIN_ERR_CHECKSUME"></span><span id="_CPPv2N13Lin_ErrorType16LIN_ERR_CHECKSUME"></span><span class="target" id="_lin_if___driver_types_8h_1a5148ded1bf1dcc55eec34be24e4f02ffad52655978748f53f132f114f2953029f"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">LIN_ERR_CHECKSUM</span></span></span><a class="headerlink" href="#_CPPv4N13Lin_ErrorType16LIN_ERR_CHECKSUME" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">Invalid checksum error </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N13Lin_ErrorType19LIN_ERR_NO_RESPONSEE">
+<span id="_CPPv3N13Lin_ErrorType19LIN_ERR_NO_RESPONSEE"></span><span id="_CPPv2N13Lin_ErrorType19LIN_ERR_NO_RESPONSEE"></span><span class="target" id="_lin_if___driver_types_8h_1a5148ded1bf1dcc55eec34be24e4f02ffa2f952c69e23260ff84d66b56d079ba12"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">LIN_ERR_NO_RESPONSE</span></span></span><a class="headerlink" href="#_CPPv4N13Lin_ErrorType19LIN_ERR_NO_RESPONSEE" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">Optional depending on hardware capabilities: Response completely missing </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N13Lin_ErrorType27LIN_ERR_INCOMPLETE_RESPONSEE">
+<span id="_CPPv3N13Lin_ErrorType27LIN_ERR_INCOMPLETE_RESPONSEE"></span><span id="_CPPv2N13Lin_ErrorType27LIN_ERR_INCOMPLETE_RESPONSEE"></span><span class="target" id="_lin_if___driver_types_8h_1a5148ded1bf1dcc55eec34be24e4f02ffac0398ae75c8e045ecf0b8b31dac2a6b3"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">LIN_ERR_INCOMPLETE_RESPONSE</span></span></span><a class="headerlink" href="#_CPPv4N13Lin_ErrorType27LIN_ERR_INCOMPLETE_RESPONSEE" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">Optional depending on hardware capabilities: Response only partly received </p>
+</dd></dl>
+
+</dd></dl>
+
+<p class="sd-card-text"><em>Available via:</em> <code class="docutils literal notranslate"><span class="pre">LinIf_DriverTypes.h</span></code></p>
+</div>
+</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0ZM1.5 8a6.5 6.5 0 1 0 13 0 6.5 6.5 0 0 0-13 0Zm4.879-2.773 4.264 2.559a.25.25 0 0 1 0 .428l-4.264 2.559A.25.25 0 0 1 6 10.559V5.442a.25.25 0 0 1 .379-.215Z"></path></svg></span><span class="sd-summary-text">Initialization and shutdown</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils" id="lin-api-lin-init">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Lin_Init</div>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv48Lin_InitPK14Lin_ConfigType">
+<span id="_CPPv38Lin_InitPK14Lin_ConfigType"></span><span id="_CPPv28Lin_InitPK14Lin_ConfigType"></span><span id="Lin_Init__Lin_ConfigTypeCP"></span><span class="target" id="_lin_8h_1aa876867f82a37bf177b418fa920e636e"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Lin_Init</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv414Lin_ConfigType" title="Lin_ConfigType"><span class="n"><span class="pre">Lin_ConfigType</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">configPtr</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv48Lin_InitPK14Lin_ConfigType" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">Initializes the driver and HW. </p>
+<p class="sd-card-text"><dl class="simple">
+<dt><strong>Sync/Async:</strong></dt><dd><p class="sd-card-text">Synchronous </p>
+</dd>
+<dt><strong>Reentrancy:</strong></dt><dd><p class="sd-card-text">Non reentrant </p>
+</dd>
+<dt><strong>Service ID [hex]:</strong></dt><dd><p class="sd-card-text">0x00 </p>
+</dd>
+<dt><strong>Development error(s):</strong></dt><dd><p class="sd-card-text"><ul class="simple">
+<li><p class="sd-card-text"><a class="reference internal" href="02_errors.html#group___lin___development_errors_1ga4e84e7f49b5130746f5b27e87f734319"><span class="std std-ref">LIN_DEVERR_INVALID_CH_STATE</span></a> LinDrv is NOT in LIN_DRV_STATE_UNINIT</p></li>
+<li><p class="sd-card-text"><a class="reference internal" href="02_errors.html#group___lin___development_errors_1ga02916e1511ed96fd43ab443a66cf3e74"><span class="std std-ref">LIN_DEVERR_PARAM_POINTER</span></a> configPtr is NOT null pointer </p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p class="sd-card-text"><strong>configPtr</strong> – <strong>[in]</strong> Pointer to the configuration structure. This parameter is intended for future extensions to support runtime-selectable configuration variants, which allow the selection and initialization of specific variants during runtime. As this functionality is not currently supported, a NULL_PTR SHALL be provided. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p class="sd-card-text">None. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<p class="sd-card-text"><strong>When to call:</strong> once, before any other LIN function, with the driver in
+<code class="docutils literal notranslate"><span class="pre">LIN_DRV_STATE_UNINIT</span></code>. <code class="docutils literal notranslate"><span class="pre">configPtr</span></code> MUST be <code class="docutils literal notranslate"><span class="pre">NULL_PTR</span></code>.</p>
+<p class="sd-card-text"><strong>Effect:</strong> initialises the driver and hardware; leaves every channel in <code class="docutils literal notranslate"><span class="pre">SLEEP</span></code>; enables
+interrupts for channels configured as interrupt. <strong>Errors:</strong> see <a class="reference internal" href="02_errors.html"><span class="doc">Errors</span></a>.
+<em>Available via:</em> <code class="docutils literal notranslate"><span class="pre">Lin.h</span></code></p>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils" id="lin-api-lin-deinit">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Lin_DeInit</div>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv410Lin_DeInitv">
+<span id="_CPPv310Lin_DeInitv"></span><span id="_CPPv210Lin_DeInitv"></span><span id="Lin_DeInit__void"></span><span class="target" id="_lin_8h_1a681a64087a99f7ad15890f989df918a5"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Lin_DeInit</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv410Lin_DeInitv" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">Abort on-going transmission and de-initialize <a class="reference internal" href="../../../appendix.html#term-LIN"><span class="xref std std-term">LIN</span></a> hardware. </p>
+<p class="sd-card-text"><dl class="simple">
+<dt><strong>Sync/Async:</strong></dt><dd><p class="sd-card-text">Synchronous </p>
+</dd>
+<dt><strong>Reentrancy:</strong></dt><dd><p class="sd-card-text">Non reentrant </p>
+</dd>
+<dt><strong>Service ID [hex]:</strong></dt><dd><p class="sd-card-text">0x0e </p>
+</dd>
+</dl>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p class="sd-card-text"><strong>None</strong> – </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p class="sd-card-text">None. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<p class="sd-card-text"><strong>Effect:</strong> aborts any ongoing transmission/reception and de-initialises the driver, returning
+it to <code class="docutils literal notranslate"><span class="pre">LIN_DRV_STATE_UNINIT</span></code>. <em>Available via:</em> <code class="docutils literal notranslate"><span class="pre">Lin.h</span></code></p>
+</div>
+</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-gear" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0a8.2 8.2 0 0 1 .701.031C9.444.095 9.99.645 10.16 1.29l.288 1.107c.018.066.079.158.212.224.231.114.454.243.668.386.123.082.233.09.299.071l1.103-.303c.644-.176 1.392.021 1.82.63.27.385.506.792.704 1.218.315.675.111 1.422-.364 1.891l-.814.806c-.049.048-.098.147-.088.294.016.257.016.515 0 .772-.01.147.038.246.088.294l.814.806c.475.469.679 1.216.364 1.891a7.977 7.977 0 0 1-.704 1.217c-.428.61-1.176.807-1.82.63l-1.102-.302c-.067-.019-.177-.011-.3.071a5.909 5.909 0 0 1-.668.386c-.133.066-.194.158-.211.224l-.29 1.106c-.168.646-.715 1.196-1.458 1.26a8.006 8.006 0 0 1-1.402 0c-.743-.064-1.289-.614-1.458-1.26l-.289-1.106c-.018-.066-.079-.158-.212-.224a5.738 5.738 0 0 1-.668-.386c-.123-.082-.233-.09-.299-.071l-1.103.303c-.644.176-1.392-.021-1.82-.63a8.12 8.12 0 0 1-.704-1.218c-.315-.675-.111-1.422.363-1.891l.815-.806c.05-.048.098-.147.088-.294a6.214 6.214 0 0 1 0-.772c.01-.147-.038-.246-.088-.294l-.815-.806C.635 6.045.431 5.298.746 4.623a7.92 7.92 0 0 1 .704-1.217c.428-.61 1.176-.807 1.82-.63l1.102.302c.067.019.177.011.3-.071.214-.143.437-.272.668-.386.133-.066.194-.158.211-.224l.29-1.106C6.009.645 6.556.095 7.299.03 7.53.01 7.764 0 8 0Zm-.571 1.525c-.036.003-.108.036-.137.146l-.289 1.105c-.147.561-.549.967-.998 1.189-.173.086-.34.183-.5.29-.417.278-.97.423-1.529.27l-1.103-.303c-.109-.03-.175.016-.195.045-.22.312-.412.644-.573.99-.014.031-.021.11.059.19l.815.806c.411.406.562.957.53 1.456a4.709 4.709 0 0 0 0 .582c.032.499-.119 1.05-.53 1.456l-.815.806c-.081.08-.073.159-.059.19.162.346.353.677.573.989.02.03.085.076.195.046l1.102-.303c.56-.153 1.113-.008 1.53.27.161.107.328.204.501.29.447.222.85.629.997 1.189l.289 1.105c.029.109.101.143.137.146a6.6 6.6 0 0 0 1.142 0c.036-.003.108-.036.137-.146l.289-1.105c.147-.561.549-.967.998-1.189.173-.086.34-.183.5-.29.417-.278.97-.423 1.529-.27l1.103.303c.109.029.175-.016.195-.045.22-.313.411-.644.573-.99.014-.031.021-.11-.059-.19l-.815-.806c-.411-.406-.562-.957-.53-1.456a4.709 4.709 0 0 0 0-.582c-.032-.499.119-1.05.53-1.456l.815-.806c.081-.08.073-.159.059-.19a6.464 6.464 0 0 0-.573-.989c-.02-.03-.085-.076-.195-.046l-1.102.303c-.56.153-1.113.008-1.53-.27a4.44 4.44 0 0 0-.501-.29c-.447-.222-.85-.629-.997-1.189l-.289-1.105c-.029-.11-.101-.143-.137-.146a6.6 6.6 0 0 0-1.142 0ZM11 8a3 3 0 1 1-6 0 3 3 0 0 1 6 0ZM9.5 8a1.5 1.5 0 1 0-3.001.001A1.5 1.5 0 0 0 9.5 8Z"></path></svg></span><span class="sd-summary-text">Power state</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils" id="lin-api-lin-wakeup">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Lin_Wakeup</div>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv410Lin_Wakeup5uint8">
+<span id="_CPPv310Lin_Wakeup5uint8"></span><span id="_CPPv210Lin_Wakeup5uint8"></span><span id="Lin_Wakeup__uint8"></span><span class="target" id="_lin_8h_1a6cdbee074e3dfd9e648e2ac26a67f357"></span><span class="n"><span class="pre">Std_ReturnType</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Lin_Wakeup</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint8</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">channelId</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv410Lin_Wakeup5uint8" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">Sends wakeup frame and sets the driver into operational state. </p>
+<p class="sd-card-text"><dl class="simple">
+<dt><strong>Sync/Async:</strong></dt><dd><p class="sd-card-text">Asynchronous </p>
+</dd>
+<dt><strong>Reentrancy:</strong></dt><dd><p class="sd-card-text">Conditionally reentrant (reentrant when called with different channelIds) </p>
+</dd>
+<dt><strong>Service ID [hex]:</strong></dt><dd><p class="sd-card-text">0x07 </p>
+</dd>
+<dt><strong>Development error(s):</strong></dt><dd><p class="sd-card-text"><ul class="simple">
+<li><p class="sd-card-text"><a class="reference internal" href="02_errors.html#group___lin___development_errors_1ga9b7faf88274373fa35eb7b014502918e"><span class="std std-ref">LIN_DEVERR_PARAM_CHANNELID</span></a> ChannelId is out of range from configured channelIds.</p></li>
+<li><p class="sd-card-text"><a class="reference internal" href="02_errors.html#group___lin___development_errors_1ga7e78108947258c0db6ca812d78c57005"><span class="std std-ref">LIN_DEVERR_UNINIT</span></a> State is LIN_CH_UNINIT</p></li>
+<li><p class="sd-card-text"><a class="reference internal" href="02_errors.html#group___lin___development_errors_1ga4e84e7f49b5130746f5b27e87f734319"><span class="std std-ref">LIN_DEVERR_INVALID_CH_STATE</span></a> State is LIN_CH_STATE_OPERATIONAL </p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p class="sd-card-text"><strong>channelId</strong> – <strong>[in]</strong> The ID of the <a class="reference internal" href="../../../appendix.html#term-LIN"><span class="xref std std-term">LIN</span></a> channel to be addressed </p>
+</dd>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p class="sd-card-text"><strong>E_OK</strong> – Command has been accepted </p></li>
+<li><p class="sd-card-text"><strong>E_NOT_OK</strong> – Command has not been accepted, error occurred (development or production error) </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<p class="sd-card-text"><strong>When to call:</strong> on a channel in <code class="docutils literal notranslate"><span class="pre">SLEEP</span></code>. <strong>Effect:</strong> transmits a wakeup pulse and moves the
+channel to <code class="docutils literal notranslate"><span class="pre">OPERATIONAL</span></code> (asynchronous). <strong>Errors:</strong> <code class="docutils literal notranslate"><span class="pre">LIN_DEVERR_INVALID_CH_STATE</span></code> if the
+channel is already operational — see <a class="reference internal" href="02_errors.html"><span class="doc">Errors</span></a>. <em>Available via:</em> <code class="docutils literal notranslate"><span class="pre">Lin.h</span></code></p>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils" id="lin-api-lin-wakeupinternal">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Lin_WakeupInternal</div>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv418Lin_WakeupInternal5uint8">
+<span id="_CPPv318Lin_WakeupInternal5uint8"></span><span id="_CPPv218Lin_WakeupInternal5uint8"></span><span id="Lin_WakeupInternal__uint8"></span><span class="target" id="_lin_8h_1a0dd4b0389f00c926338bb5e949fe5be9"></span><span class="n"><span class="pre">Std_ReturnType</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Lin_WakeupInternal</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint8</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">channelId</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv418Lin_WakeupInternal5uint8" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">Sets the driver into operational state without wakeup frame transmission. </p>
+<p class="sd-card-text"><dl class="simple">
+<dt><strong>Sync/Async:</strong></dt><dd><p class="sd-card-text">Synchronous </p>
+</dd>
+<dt><strong>Reentrancy:</strong></dt><dd><p class="sd-card-text">Conditionally reentrant (reentrant when called with different channelIds) </p>
+</dd>
+<dt><strong>Service ID [hex]:</strong></dt><dd><p class="sd-card-text">0x0b </p>
+</dd>
+<dt><strong>Development error(s):</strong></dt><dd><p class="sd-card-text"><ul class="simple">
+<li><p class="sd-card-text"><a class="reference internal" href="02_errors.html#group___lin___development_errors_1ga9b7faf88274373fa35eb7b014502918e"><span class="std std-ref">LIN_DEVERR_PARAM_CHANNELID</span></a> ChannelId is out of range from configured channelIds.</p></li>
+<li><p class="sd-card-text"><a class="reference internal" href="02_errors.html#group___lin___development_errors_1ga7e78108947258c0db6ca812d78c57005"><span class="std std-ref">LIN_DEVERR_UNINIT</span></a> State is LIN_CH_UNINIT </p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p class="sd-card-text"><strong>channelId</strong> – <strong>[in]</strong> The ID of the <a class="reference internal" href="../../../appendix.html#term-LIN"><span class="xref std std-term">LIN</span></a> channel to be addressed. </p>
+</dd>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p class="sd-card-text"><strong>E_OK</strong> – Command has been accepted. </p></li>
+<li><p class="sd-card-text"><strong>E_NOT_OK</strong> – Command has not been accepted, error occurred (development or production error). </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<p class="sd-card-text"><strong>Effect:</strong> moves the channel to <code class="docutils literal notranslate"><span class="pre">OPERATIONAL</span></code> <strong>without</strong> transmitting a wakeup pulse — use
+after an externally detected wakeup. <strong>Errors:</strong> see <a class="reference internal" href="02_errors.html"><span class="doc">Errors</span></a>. <em>Available via:</em> <code class="docutils literal notranslate"><span class="pre">Lin.h</span></code></p>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils" id="lin-api-lin-gotosleepinternal">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Lin_GoToSleepInternal</div>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv421Lin_GoToSleepInternal5uint8">
+<span id="_CPPv321Lin_GoToSleepInternal5uint8"></span><span id="_CPPv221Lin_GoToSleepInternal5uint8"></span><span id="Lin_GoToSleepInternal__uint8"></span><span class="target" id="_lin_8h_1ac225033437b386cc012d27fcec0b541a"></span><span class="n"><span class="pre">Std_ReturnType</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Lin_GoToSleepInternal</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint8</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">channelId</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv421Lin_GoToSleepInternal5uint8" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">Sets the driver state into sleep state. </p>
+<p class="sd-card-text"><dl class="simple">
+<dt><strong>Sync/Async:</strong></dt><dd><p class="sd-card-text">Synchronous </p>
+</dd>
+<dt><strong>Reentrancy:</strong></dt><dd><p class="sd-card-text">Conditionally reentrant (reentrant when called with different channelIds) </p>
+</dd>
+<dt><strong>Service ID [hex]:</strong></dt><dd><p class="sd-card-text">0x09 </p>
+</dd>
+<dt><strong>Development error(s):</strong></dt><dd><p class="sd-card-text"><ul class="simple">
+<li><p class="sd-card-text"><a class="reference internal" href="02_errors.html#group___lin___development_errors_1ga9b7faf88274373fa35eb7b014502918e"><span class="std std-ref">LIN_DEVERR_PARAM_CHANNELID</span></a> channelId is out of range from configured channelIds.</p></li>
+<li><p class="sd-card-text"><a class="reference internal" href="02_errors.html#group___lin___development_errors_1ga7e78108947258c0db6ca812d78c57005"><span class="std std-ref">LIN_DEVERR_UNINIT</span></a> Called when the internal state is LIN_CH_UNINIT </p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p class="sd-card-text"><strong>channelId</strong> – <strong>[in]</strong> The ID of the <a class="reference internal" href="../../../appendix.html#term-LIN"><span class="xref std std-term">LIN</span></a> channel to be addressed. </p>
+</dd>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p class="sd-card-text"><strong>E_OK</strong> – Command has been accepted. </p></li>
+<li><p class="sd-card-text"><strong>E_NOT_OK</strong> – Command has not been accepted, development or production error occurred. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<p class="sd-card-text"><strong>Effect:</strong> moves the channel to <code class="docutils literal notranslate"><span class="pre">SLEEP</span></code> (low-power mode / wakeup detection where supported).
+<strong>Errors:</strong> see <a class="reference internal" href="02_errors.html"><span class="doc">Errors</span></a>. <em>Available via:</em> <code class="docutils literal notranslate"><span class="pre">Lin.h</span></code></p>
+</div>
+</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-clock" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0ZM1.5 8a6.5 6.5 0 1 0 13 0 6.5 6.5 0 0 0-13 0Zm7-3.25v2.992l2.028.812a.75.75 0 0 1-.557 1.392l-2.5-1A.751.751 0 0 1 7 8.25v-3.5a.75.75 0 0 1 1.5 0Z"></path></svg></span><span class="sd-summary-text">Scheduling and interrupt</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils" id="lin-api-lin-pollfunction">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Lin_PollFunction</div>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv416Lin_PollFunctionv">
+<span id="_CPPv316Lin_PollFunctionv"></span><span id="_CPPv216Lin_PollFunctionv"></span><span id="Lin_PollFunction__void"></span><span class="target" id="_lin_8h_1a8b9bd97a17be5e92e7d178bace4b604b"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Lin_PollFunction</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv416Lin_PollFunctionv" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">Handles <a class="reference internal" href="../../../appendix.html#term-LIN"><span class="xref std std-term">LIN</span></a> event by polling instead of interrupt. </p>
+<p class="sd-card-text"><dl class="simple">
+<dt><strong>Reentrancy:</strong></dt><dd><p class="sd-card-text">Non reentrant </p>
+</dd>
+<dt><strong>Service ID [hex]:</strong></dt><dd><p class="sd-card-text">0x0d </p>
+</dd>
+</dl>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p class="sd-card-text"><strong>None</strong> – </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p class="sd-card-text">None. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<p class="sd-card-text"><strong>When to call:</strong> cyclically, for channels configured for polling. Services header, response,
+error, and wakeup events. May be empty if all channels are interrupt-driven.
+<em>Available via:</em> <code class="docutils literal notranslate"><span class="pre">Lin.h</span></code></p>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils" id="lin-api-lin-interrupt">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Lin_Interrupt</div>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="n">Lin_Interrupt</span><span class="o">&lt;</span><span class="n">vectorNr</span><span class="o">&gt;</span><span class="p">[</span><span class="o">&lt;</span><span class="n">VendorSpecificSuffix</span><span class="o">&gt;</span><span class="p">](</span><span class="kt">void</span><span class="p">)</span>
+</pre></div>
+</div>
+<p class="sd-card-text"><strong>Effect:</strong> the driver interrupt service routine; handles header, response, error, and wakeup
+events. Define it with the <code class="docutils literal notranslate"><span class="pre">ISR()</span></code> macro (see <a class="reference internal" href="../../../01_general/reference/02_services.html#gen-ref-isr"><span class="std std-ref">the general reference</span></a>).
+<em>Available via:</em> <code class="docutils literal notranslate"><span class="pre">Lin.h</span></code></p>
+</div>
+</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" id="lin-api-expected-interfaces">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-plug" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 8H2.5a1 1 0 0 0-1 1v5.25a.75.75 0 0 1-1.5 0V9a2.5 2.5 0 0 1 2.5-2.5H4V5.133a1.75 1.75 0 0 1 1.533-1.737l2.831-.353.76-.913c.332-.4.825-.63 1.344-.63h.782c.966 0 1.75.784 1.75 1.75V4h2.25a.75.75 0 0 1 0 1.5H13v4h2.25a.75.75 0 0 1 0 1.5H13v.75a1.75 1.75 0 0 1-1.75 1.75h-.782c-.519 0-1.012-.23-1.344-.63l-.761-.912-2.83-.354A1.75 1.75 0 0 1 4 9.867Zm6.276-4.91-.95 1.14a.753.753 0 0 1-.483.265l-3.124.39a.25.25 0 0 0-.219.248v4.734c0 .126.094.233.219.249l3.124.39a.752.752 0 0 1 .483.264l.95 1.14a.25.25 0 0 0 .192.09h.782a.25.25 0 0 0 .25-.25v-8.5a.25.25 0 0 0-.25-.25h-.782a.25.25 0 0 0-.192.09Z"></path></svg></span><span class="sd-summary-text">Expected interfaces</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">The driver calls back into these upper-layer / integration interfaces, which the integrator MUST
+provide (<a class="reference internal" href="../00_requirements.html#CHI-LIN-MUST-18" title="CHI-LIN-MUST-18"><em class="xref need">CHI-LIN-MUST-18</em></a>); see the summary table above. <a class="reference internal" href="../../../01_general/reference/02_services.html#gen-ref-logm"><span class="std std-ref">LogM_Report</span></a> and
+the <a class="reference internal" href="../../../01_general/reference/02_services.html#gen-ref-critical-section"><span class="std std-ref">critical-section services</span></a> are documented in the general
+reference.</p>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils" id="lin-api-linif-onheader">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+LinIf_OnHeader</div>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv414LinIf_OnHeader5uint8P15Lin_PduInfoType">
+<span id="_CPPv314LinIf_OnHeader5uint8P15Lin_PduInfoType"></span><span id="_CPPv214LinIf_OnHeader5uint8P15Lin_PduInfoType"></span><span id="LinIf_OnHeader__uint8.Lin_PduInfoTypeP"></span><span class="target" id="_lin_if_8h_1ab9ec8c89bc340bbe0a557781369cd9f9"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">LinIf_OnHeader</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint8</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">channelId</span></span>, <a class="reference internal" href="#_CPPv415Lin_PduInfoType" title="Lin_PduInfoType"><span class="n"><span class="pre">Lin_PduInfoType</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">pduInfoPtr</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv414LinIf_OnHeader5uint8P15Lin_PduInfoType" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">The LinDrv will call this function to report a received <a class="reference internal" href="../../../appendix.html#term-LIN"><span class="xref std std-term">LIN</span></a> header. </p>
+<p class="sd-card-text"><dl class="simple">
+<dt><strong>Sync/Async:</strong></dt><dd><p class="sd-card-text">Synchronous </p>
+</dd>
+<dt><strong>Reentrancy:</strong></dt><dd><p class="sd-card-text">Conditionally reentrant (reentrant when called with different channelIds) </p>
+</dd>
+</dl>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p class="sd-card-text"><strong>channelId</strong> – <strong>[in]</strong> The ID of the <a class="reference internal" href="../../../appendix.html#term-LIN"><span class="xref std std-term">LIN</span></a> channel which informs the event. </p></li>
+<li><p class="sd-card-text"><strong>pduInfoPtr</strong> – <strong>[inout]</strong> <p class="sd-card-text">Pointer to PDU.</p>
+<p class="sd-card-text">IN (Updated by LinDrv):</p>
+<ul>
+<li><p class="sd-card-text">pid = received PID</p></li>
+<li><p class="sd-card-text">sduPtr = points to driver internal buffer(max frame length) OUT (Updated by this indication):</p></li>
+<li><p class="sd-card-text">reaction, cs, dl = corresponding to the PID</p></li>
+<li><p class="sd-card-text">sduPtr = updated the buffer contents if the frame reaction is LIN_REACTION_TX</p></li>
+</ul>
+</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p class="sd-card-text">None. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<p class="sd-card-text"><em>Available via:</em> <code class="docutils literal notranslate"><span class="pre">LinIf.h</span></code></p>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils" id="lin-api-linif-onreception">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+LinIf_OnReception</div>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv417LinIf_OnReception5uint8P5uint8">
+<span id="_CPPv317LinIf_OnReception5uint8P5uint8"></span><span id="_CPPv217LinIf_OnReception5uint8P5uint8"></span><span id="LinIf_OnReception__uint8.uint8P"></span><span class="target" id="_lin_if_8h_1a8d25ebbb286984e062e51a4cae6f6b2b"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">LinIf_OnReception</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint8</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">channelId</span></span>, <span class="n"><span class="pre">uint8</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">sduPtr</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv417LinIf_OnReception5uint8P5uint8" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">The LinDrv will call this function on completion of a successful <a class="reference internal" href="../../../appendix.html#term-RX"><span class="xref std std-term">RX</span></a> response. </p>
+<p class="sd-card-text"><dl class="simple">
+<dt><strong>Sync/Async:</strong></dt><dd><p class="sd-card-text">Synchronous </p>
+</dd>
+<dt><strong>Reentrancy:</strong></dt><dd><p class="sd-card-text">Conditionally reentrant (reentrant when called with different channelIds) </p>
+</dd>
+</dl>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p class="sd-card-text"><strong>channelId</strong> – <strong>[in]</strong> The ID of the <a class="reference internal" href="../../../appendix.html#term-LIN"><span class="xref std std-term">LIN</span></a> channel which informs the event. </p></li>
+<li><p class="sd-card-text"><strong>sduPtr</strong> – <strong>[in]</strong> Pointer to the buffer that holds <a class="reference internal" href="../../../appendix.html#term-RX"><span class="xref std std-term">RX</span></a> response. </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p class="sd-card-text">None. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<p class="sd-card-text"><em>Available via:</em> <code class="docutils literal notranslate"><span class="pre">LinIf.h</span></code></p>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils" id="lin-api-linif-ontransmission">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+LinIf_OnTransmission</div>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv420LinIf_OnTransmission5uint8">
+<span id="_CPPv320LinIf_OnTransmission5uint8"></span><span id="_CPPv220LinIf_OnTransmission5uint8"></span><span id="LinIf_OnTransmission__uint8"></span><span class="target" id="_lin_if_8h_1ae027418920386c42809318d6a8745263"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">LinIf_OnTransmission</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint8</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">channelId</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv420LinIf_OnTransmission5uint8" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">The LinDrv will call this function on completion of a successful <a class="reference internal" href="../../../appendix.html#term-TX"><span class="xref std std-term">TX</span></a> response. </p>
+<p class="sd-card-text"><dl class="simple">
+<dt><strong>Sync/Async:</strong></dt><dd><p class="sd-card-text">Synchronous </p>
+</dd>
+<dt><strong>Reentrancy:</strong></dt><dd><p class="sd-card-text">Reentrant </p>
+</dd>
+</dl>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p class="sd-card-text"><strong>channelId</strong> – <strong>[in]</strong> The ID of the <a class="reference internal" href="../../../appendix.html#term-LIN"><span class="xref std std-term">LIN</span></a> channel which informs the event. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p class="sd-card-text">None. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<p class="sd-card-text"><em>Available via:</em> <code class="docutils literal notranslate"><span class="pre">LinIf.h</span></code></p>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils" id="lin-api-linif-onerror">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+LinIf_OnError</div>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv413LinIf_OnError5uint813Lin_ErrorType">
+<span id="_CPPv313LinIf_OnError5uint813Lin_ErrorType"></span><span id="_CPPv213LinIf_OnError5uint813Lin_ErrorType"></span><span id="LinIf_OnError__uint8.Lin_ErrorType"></span><span class="target" id="_lin_if_8h_1a67ccbcaad372a6411779ad9c0747863b"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">LinIf_OnError</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint8</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">channelId</span></span>, <a class="reference internal" href="#_CPPv413Lin_ErrorType" title="Lin_ErrorType"><span class="n"><span class="pre">Lin_ErrorType</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">error</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv413LinIf_OnError5uint813Lin_ErrorType" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">The LinDrv will call this function on error during transaction. </p>
+<p class="sd-card-text"><dl class="simple">
+<dt><strong>Sync/Async:</strong></dt><dd><p class="sd-card-text">Synchronous </p>
+</dd>
+<dt><strong>Reentrancy:</strong></dt><dd><p class="sd-card-text">Reentrant </p>
+</dd>
+</dl>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p class="sd-card-text"><strong>channelId</strong> – <strong>[in]</strong> The ID of the <a class="reference internal" href="../../../appendix.html#term-LIN"><span class="xref std std-term">LIN</span></a> channel which informs the event. </p></li>
+<li><p class="sd-card-text"><strong>error</strong> – <strong>[in]</strong> Error code. </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p class="sd-card-text">None. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<p class="sd-card-text"><em>Available via:</em> <code class="docutils literal notranslate"><span class="pre">LinIf.h</span></code></p>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils" id="lin-api-linif-onwakeup">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+LinIf_OnWakeup</div>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv414LinIf_OnWakeup5uint8">
+<span id="_CPPv314LinIf_OnWakeup5uint8"></span><span id="_CPPv214LinIf_OnWakeup5uint8"></span><span id="LinIf_OnWakeup__uint8"></span><span class="target" id="_lin_if_8h_1aee50c408d2ffc739184951369a31d0f1"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">LinIf_OnWakeup</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint8</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">channelId</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv414LinIf_OnWakeup5uint8" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">The LinDrv will call this function when wakeup pulse is detected. In case of wakeup pulse is detected, which is sent by own node, the event is also notified by this function. </p>
+<p class="sd-card-text"><dl class="simple">
+<dt><strong>Sync/Async:</strong></dt><dd><p class="sd-card-text">Synchronous </p>
+</dd>
+<dt><strong>Reentrancy:</strong></dt><dd><p class="sd-card-text">Reentrant </p>
+</dd>
+</dl>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p class="sd-card-text"><strong>channelId</strong> – <strong>[in]</strong> The ID of the <a class="reference internal" href="../../../appendix.html#term-LIN"><span class="xref std std-term">LIN</span></a> channel which informs the event. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p class="sd-card-text">None. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<p class="sd-card-text"><em>Available via:</em> <code class="docutils literal notranslate"><span class="pre">LinIf.h</span></code></p>
+</div>
+</div>
+</div>
+</details></section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Reference" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="01_configuration.html" class="btn btn-neutral float-right" title="Configuration Reference" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026 by Vector Informatik GmbH and Infineon Technologies AG. All rights reserved.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

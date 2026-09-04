@@ -1,0 +1,591 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Requirements &mdash; Chiisai HAL Specification  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=4ae1632d" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx-data-viewer/jsonview.bundle.css?v=f6ef2277" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx-needs/libs/html/datatables.min.css?v=4b4fd840" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx-needs/common_css/needstable.css?v=5e1b6797" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx-needs/common_css/need_core.css?v=f5b60a78" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx-needs/common_css/need_links.css?v=2150a916" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx-needs/common_css/need_style.css?v=92936fa5" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx-needs/common_css/need_toggle.css?v=5c6620df" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx-needs/modern.css?v=803738c0" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=4f645179" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../_static/design-tabs.js?v=f930bc37"></script>
+      <script src="../_static/sphinx-data-viewer/jsonview.bundle.js?v=18cd53c5"></script>
+      <script src="../_static/sphinx-data-viewer/jsonview_loader.js?v=f7ff7e7d"></script>
+      <script src="../_static/sphinx-needs/libs/html/datatables.min.js?v=8a4aee21"></script>
+      <script src="../_static/sphinx-needs/libs/html/datatables_loader.js?v=a2cae175"></script>
+      <script src="../_static/sphinx-needs/libs/html/sphinx_needs_collapse.js?v=dca66431"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Design Decisions" href="05_design_decisions.html" />
+    <link rel="prev" title="Services and Utilities" href="reference/02_services.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Chiisai HAL Specification
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../00_about/index.html">About This Specification</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">General</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="00_overview.html">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01_architecture.html">Architecture and Layering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02_conventions.html">Naming Conventions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03_integration.html">Integration Guidelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide/index.html">Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reference/index.html">Reference</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="05_design_decisions.html">Design Decisions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../04_DriverModules/index.html">Chiisai HAL Driver Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix.html">Appendix</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Chiisai HAL Specification</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">General</a></li>
+      <li class="breadcrumb-item active">Requirements</li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="requirements">
+<h1>Requirements<a class="headerlink" href="#requirements" title="Link to this heading"></a></h1>
+<div class="normative admonition">
+<p class="admonition-title">Normative</p>
+<p>The cross-module rules every conformant Chiisai HAL driver <strong>MUST</strong> satisfy, in addition to its
+own module requirements. Clustered by severity — expand a cluster below. Keywords per
+<a class="reference internal" href="../00_about/01_keywords.html"><span class="doc">Requirement Keywords</span></a>; conformance per <a class="reference internal" href="../00_about/02_conformance.html"><span class="doc">Conformance</span></a>. Requirements do not carry
+individual status — the set-level status applies to all of them. The naming scheme is illustrated
+in <a class="reference internal" href="02_conventions.html"><span class="doc">Naming Conventions</span></a>; the shared types and services are catalogued in the
+<a class="reference internal" href="reference/index.html"><span class="doc">Reference</span></a>.</p>
+</div>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header sd-bg-warning sd-bg-text-warning">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-alert" viewBox="0 0 16 16" aria-hidden="true"><path d="M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"></path></svg></span><span class="sd-summary-text">Mandatory (MUST) - 16 Requirements</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">The cross-module conformance contract — an implementation MUST satisfy every requirement here.</p>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Naming</div>
+<div class="need_container docutils container" id="SNCB-27bbfcb5">
+<table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-GEN-MUST-01">
+<tbody>
+<tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
+<div class="line"><span><span class="needs-id"><a class="reference internal" href="#CHI-GEN-MUST-01" title="CHI-GEN-MUST-01">CHI-GEN-MUST-01</a></span> — </span><strong><span><span class="needs_title"><span class="needs_data">Module implementation prefix</span></span></span></strong></div>
+</div>
+</td>
+</tr>
+<tr class="need meta row-even"><td class="need meta"></td>
+</tr>
+<tr class="need content row-odd"><td class="need content" colspan="1"><p class="sd-card-text">Every implementation-specific symbol MUST be built from a module implementation prefix
+<code class="docutils literal notranslate"><span class="pre">&lt;Mip&gt;</span> <span class="pre">=</span> <span class="pre">&lt;Ma&gt;[_&lt;Vi&gt;][_&lt;Ci&gt;]</span></code> (see <a class="reference internal" href="02_conventions.html"><span class="doc">Naming Conventions</span></a>). The optional vendor and API
+infixes MAY be omitted for a single-instance microcontroller-internal driver.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="need_container docutils container" id="SNCB-0e487866">
+<table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-GEN-MUST-02">
+<tbody>
+<tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
+<div class="line"><span><span class="needs-id"><a class="reference internal" href="#CHI-GEN-MUST-02" title="CHI-GEN-MUST-02">CHI-GEN-MUST-02</a></span> — </span><strong><span><span class="needs_title"><span class="needs_data">Symbol naming</span></span></span></strong></div>
+</div>
+</td>
+</tr>
+<tr class="need meta row-even"><td class="need meta"></td>
+</tr>
+<tr class="need content row-odd"><td class="need content" colspan="1"><p class="sd-card-text">Driver symbols MUST follow the scheme in <a class="reference internal" href="02_conventions.html"><span class="doc">Naming Conventions</span></a>: enumeration literals and
+<code class="docutils literal notranslate"><span class="pre">#define</span></code> directives as <code class="docutils literal notranslate"><span class="pre">&lt;MIP&gt;_&lt;SN&gt;</span></code>; error values as <code class="docutils literal notranslate"><span class="pre">&lt;MIP&gt;_DEVERR_&lt;EN&gt;</span></code>
+(development), <code class="docutils literal notranslate"><span class="pre">&lt;MIP&gt;_RTERR_&lt;EN&gt;</span></code> (runtime), or <code class="docutils literal notranslate"><span class="pre">&lt;MIP&gt;_ERR_&lt;EN&gt;</span></code> (other); global
+variables as <code class="docutils literal notranslate"><span class="pre">&lt;Mip&gt;_&lt;Vn&gt;</span></code>; global functions as <code class="docutils literal notranslate"><span class="pre">&lt;Mip&gt;_&lt;Fn&gt;</span></code>; types as <code class="docutils literal notranslate"><span class="pre">&lt;Mip&gt;_&lt;Tn&gt;Type</span></code>.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Files and packaging</div>
+<div class="need_container docutils container" id="SNCB-273b444a">
+<table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-GEN-MUST-03">
+<tbody>
+<tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
+<div class="line"><span><span class="needs-id"><a class="reference internal" href="#CHI-GEN-MUST-03" title="CHI-GEN-MUST-03">CHI-GEN-MUST-03</a></span> — </span><strong><span><span class="needs_title"><span class="needs_data">File naming and include guards</span></span></span></strong></div>
+</div>
+</td>
+</tr>
+<tr class="need meta row-even"><td class="need meta"></td>
+</tr>
+<tr class="need content row-odd"><td class="need content" colspan="1"><p class="sd-card-text">File names MUST be case-sensitive and unambiguous (two names MUST differ by more than
+letter case). Driver implementation files MUST be named <code class="docutils literal notranslate"><span class="pre">&lt;Mip&gt;[_&lt;Ie&gt;]*.*</span></code>. Every driver
+header other than the general types header MUST carry an include guard named after the file
+(e.g. <code class="docutils literal notranslate"><span class="pre">MEM_VENDOR_CODE_H</span></code> for <code class="docutils literal notranslate"><span class="pre">Mem_Vendor_Code.h</span></code>).</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="need_container docutils container" id="SNCB-9941e242">
+<table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-GEN-MUST-04">
+<tbody>
+<tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
+<div class="line"><span><span class="needs-id"><a class="reference internal" href="#CHI-GEN-MUST-04" title="CHI-GEN-MUST-04">CHI-GEN-MUST-04</a></span> — </span><strong><span><span class="needs_title"><span class="needs_data">General types header</span></span></span></strong></div>
+</div>
+</td>
+</tr>
+<tr class="need meta row-even"><td class="need meta"></td>
+</tr>
+<tr class="need content row-odd"><td class="need content" colspan="1"><p class="sd-card-text">Each module MUST publish the types and definitions of its specification in a general types
+header, and that header MUST contain only the types and definitions specified by the
+respective driver specification. A module that is delivered with an upper-layer interface
+stack MUST name this header <code class="docutils literal notranslate"><span class="pre">&lt;Ma&gt;If_DriverTypes.h</span></code>; a module that has no upper-layer
+interface stack MUST name it <code class="docutils literal notranslate"><span class="pre">&lt;Ma&gt;_DriverTypes.h</span></code>.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="need_container docutils container" id="SNCB-a3d6c41d">
+<table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-GEN-MUST-05">
+<tbody>
+<tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
+<div class="line"><span><span class="needs-id"><a class="reference internal" href="#CHI-GEN-MUST-05" title="CHI-GEN-MUST-05">CHI-GEN-MUST-05</a></span> — </span><strong><span><span class="needs_title"><span class="needs_data">Include and export discipline</span></span></span></strong></div>
+</div>
+</td>
+</tr>
+<tr class="need meta row-even"><td class="need meta"></td>
+</tr>
+<tr class="need content row-odd"><td class="need content" colspan="1"><p class="sd-card-text">A driver MUST import only the headers required to realise its functionality and MUST export
+only the information other modules need to use it. A driver MUST include its own header so
+the toolchain checks declarations against definitions (consistency check).</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="need_container docutils container" id="SNCB-11bbba86">
+<table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-GEN-MUST-06">
+<tbody>
+<tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
+<div class="line"><span><span class="needs-id"><a class="reference internal" href="#CHI-GEN-MUST-06" title="CHI-GEN-MUST-06">CHI-GEN-MUST-06</a></span> — </span><strong><span><span class="needs_title"><span class="needs_data">Package folder structure</span></span></span></strong></div>
+</div>
+</td>
+</tr>
+<tr class="need meta row-even"><td class="need meta"></td>
+</tr>
+<tr class="need content row-odd"><td class="need content" colspan="1"><p class="sd-card-text">Each module package MUST follow the common directory structure (<code class="docutils literal notranslate"><span class="pre">&lt;Mip&gt;/</span></code> containing
+<code class="docutils literal notranslate"><span class="pre">documentation/</span></code>, <code class="docutils literal notranslate"><span class="pre">generator/</span></code>, and <code class="docutils literal notranslate"><span class="pre">implementation/</span></code> as sibling folders — see
+<a class="reference internal" href="03_integration.html"><span class="doc">Integration Guidelines</span></a>). Additional sub-folders under <code class="docutils literal notranslate"><span class="pre">&lt;Mip&gt;</span></code> are allowed.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Memory mapping</div>
+<div class="need_container docutils container" id="SNCB-5893fa99">
+<table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-GEN-MUST-07">
+<tbody>
+<tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
+<div class="line"><span><span class="needs-id"><a class="reference internal" href="#CHI-GEN-MUST-07" title="CHI-GEN-MUST-07">CHI-GEN-MUST-07</a></span> — </span><strong><span><span class="needs_title"><span class="needs_data">Memory mapping mechanism</span></span></span></strong></div>
+</div>
+</td>
+</tr>
+<tr class="need meta row-even"><td class="need meta"></td>
+</tr>
+<tr class="need content row-odd"><td class="need content" colspan="1"><p class="sd-card-text">Each driver file MUST include the memory-mapping header <code class="docutils literal notranslate"><span class="pre">&lt;Mip&gt;_MemMap.h</span></code> and MUST wrap
+the declaration/definition of code, variables, and constants between a start-section symbol
+and a stop-section symbol, each followed by an inclusion of <code class="docutils literal notranslate"><span class="pre">&lt;Mip&gt;_MemMap.h</span></code>. The
+memory-mapping header MUST select sections by checking the module-specific allocation keywords.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="need_container docutils container" id="SNCB-9755a788">
+<table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-GEN-MUST-08">
+<tbody>
+<tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
+<div class="line"><span><span class="needs-id"><a class="reference internal" href="#CHI-GEN-MUST-08" title="CHI-GEN-MUST-08">CHI-GEN-MUST-08</a></span> — </span><strong><span><span class="needs_title"><span class="needs_data">Memory allocation keywords</span></span></span></strong></div>
+</div>
+</td>
+</tr>
+<tr class="need meta row-even"><td class="need meta"></td>
+</tr>
+<tr class="need content row-odd"><td class="need content" colspan="1"><p class="sd-card-text">Allocation keywords MUST follow these templates, where <code class="docutils literal notranslate"><span class="pre">&lt;PREFIX&gt;</span> <span class="pre">=</span> <span class="pre">&lt;MIP&gt;[_&lt;OPTIONAL_PREFIX&gt;]</span></code>:</p>
+<ul class="simple">
+<li><p class="sd-card-text">variables — <code class="docutils literal notranslate"><span class="pre">&lt;PREFIX&gt;_{START,STOP}_SEC_VAR_&lt;INIT_POLICY&gt;[_&lt;OPTIONAL_KEYWORD&gt;]_&lt;ALIGNMENT&gt;</span></code>,
+with <code class="docutils literal notranslate"><span class="pre">&lt;INIT_POLICY&gt;</span></code> one of <code class="docutils literal notranslate"><span class="pre">INIT</span></code> / <code class="docutils literal notranslate"><span class="pre">CLEARED</span></code> / <code class="docutils literal notranslate"><span class="pre">POWER_ON_CLEARED</span></code> (extensible);</p></li>
+<li><p class="sd-card-text">constants — <code class="docutils literal notranslate"><span class="pre">&lt;PREFIX&gt;_{START,STOP}_SEC_CONST[_&lt;OPTIONAL_KEYWORD&gt;]_&lt;ALIGNMENT&gt;</span></code>;</p></li>
+<li><p class="sd-card-text">code — <code class="docutils literal notranslate"><span class="pre">&lt;PREFIX&gt;_{START,STOP}_SEC_CODE[_&lt;OPTIONAL_KEYWORD&gt;]</span></code>.</p></li>
+</ul>
+<p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">&lt;ALIGNMENT&gt;</span></code> is a bit-alignment value or <code class="docutils literal notranslate"><span class="pre">UNSPECIFIED</span></code>.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Shared type and service contract</div>
+<div class="need_container docutils container" id="SNCB-a0a4be8e">
+<table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-GEN-MUST-09">
+<tbody>
+<tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
+<div class="line"><span><span class="needs-id"><a class="reference internal" href="#CHI-GEN-MUST-09" title="CHI-GEN-MUST-09">CHI-GEN-MUST-09</a></span> — </span><strong><span><span class="needs_title"><span class="needs_data">Standard type system and compiler abstraction</span></span></span></strong></div>
+</div>
+</td>
+</tr>
+<tr class="need meta row-even"><td class="need meta"></td>
+</tr>
+<tr class="need content row-odd"><td class="need content" colspan="1"><p class="sd-card-text">A driver MUST use the shared type system and compiler-abstraction set defined in the
+<a class="reference internal" href="reference/index.html"><span class="doc">Reference</span></a>: <code class="docutils literal notranslate"><span class="pre">Std_ReturnType</span></code> with <code class="docutils literal notranslate"><span class="pre">E_OK</span></code> /
+<code class="docutils literal notranslate"><span class="pre">E_NOT_OK</span></code>, <code class="docutils literal notranslate"><span class="pre">STD_ON</span></code> / <code class="docutils literal notranslate"><span class="pre">STD_OFF</span></code>, the
+platform integer and float types, <code class="docutils literal notranslate"><span class="pre">CPU_TYPE</span></code> / <code class="docutils literal notranslate"><span class="pre">BIT_ORDER</span></code> / <code class="docutils literal notranslate"><span class="pre">BYTE_ORDER</span></code>, <code class="docutils literal notranslate"><span class="pre">TRUE</span></code> /
+<code class="docutils literal notranslate"><span class="pre">FALSE</span></code> / <code class="docutils literal notranslate"><span class="pre">NULL_PTR</span></code>, the memory-class and <code class="docutils literal notranslate"><span class="pre">VAR</span></code> / <code class="docutils literal notranslate"><span class="pre">CONST</span></code> / <code class="docutils literal notranslate"><span class="pre">P2VAR</span></code> /
+<code class="docutils literal notranslate"><span class="pre">P2CONST</span></code> / <code class="docutils literal notranslate"><span class="pre">FUNC</span></code> (…) abstraction macros, and the ComStack types <code class="docutils literal notranslate"><span class="pre">PduIdType</span></code> /
+<code class="docutils literal notranslate"><span class="pre">PduInfoType</span></code> / <code class="docutils literal notranslate"><span class="pre">PduLengthType</span></code>. The driver MUST NOT redefine these.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="need_container docutils container" id="SNCB-9675de2c">
+<table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-GEN-MUST-10">
+<tbody>
+<tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
+<div class="line"><span><span class="needs-id"><a class="reference internal" href="#CHI-GEN-MUST-10" title="CHI-GEN-MUST-10">CHI-GEN-MUST-10</a></span> — </span><strong><span><span class="needs_title"><span class="needs_data">Error, logging, and system services</span></span></span></strong></div>
+</div>
+</td>
+</tr>
+<tr class="need meta row-even"><td class="need meta"></td>
+</tr>
+<tr class="need content row-odd"><td class="need content" colspan="1"><p class="sd-card-text">A driver MUST report errors through the shared services defined in the
+<a class="reference internal" href="reference/index.html"><span class="doc">Reference</span></a>: development and runtime errors via
+<code class="docutils literal notranslate"><span class="pre">LogM_Report</span></code> with the appropriate <code class="docutils literal notranslate"><span class="pre">LogM_LogLevel</span></code>,
+using its assigned module id. It MUST bracket regions requiring exclusive access with the
+common critical-section services, define interrupt handlers with the common <code class="docutils literal notranslate"><span class="pre">ISR()</span></code>
+macro, and use the standard memory utilities (<code class="docutils literal notranslate"><span class="pre">Std_MemCpy</span></code> / <code class="docutils literal notranslate"><span class="pre">Std_MemClr</span></code> / …) where applicable.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Handlers</div>
+<div class="need_container docutils container" id="SNCB-774048e3">
+<table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-GEN-MUST-11">
+<tbody>
+<tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
+<div class="line"><span><span class="needs-id"><a class="reference internal" href="#CHI-GEN-MUST-11" title="CHI-GEN-MUST-11">CHI-GEN-MUST-11</a></span> — </span><strong><span><span class="needs_title"><span class="needs_data">Interrupt and scheduling handlers</span></span></span></strong></div>
+</div>
+</td>
+</tr>
+<tr class="need meta row-even"><td class="need meta"></td>
+</tr>
+<tr class="need content row-odd"><td class="need content" colspan="1"><p class="sd-card-text">Interrupt handlers MUST be named <code class="docutils literal notranslate"><span class="pre">&lt;Mip&gt;_Interrupt&lt;VectorNr&gt;[&lt;VendorSpecificSuffix&gt;]</span></code>. If
+a module specification defines a <code class="docutils literal notranslate"><span class="pre">PollFunction</span></code> / <code class="docutils literal notranslate"><span class="pre">CyclicFunction</span></code>, the implementation
+MUST provide it regardless of configuration (an empty function is acceptable when the
+corresponding events are interrupt-driven), so integration code stays uniform.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Configuration and documentation</div>
+<div class="need_container docutils container" id="SNCB-7a7d066a">
+<table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-GEN-MUST-12">
+<tbody>
+<tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
+<div class="line"><span><span class="needs-id"><a class="reference internal" href="#CHI-GEN-MUST-12" title="CHI-GEN-MUST-12">CHI-GEN-MUST-12</a></span> — </span><strong><span><span class="needs_title"><span class="needs_data">Configuration model</span></span></span></strong></div>
+</div>
+</td>
+</tr>
+<tr class="need meta row-even"><td class="need meta"></td>
+</tr>
+<tr class="need content row-odd"><td class="need content" colspan="1"><p class="sd-card-text">Each driver MUST provide a configuration model file, a generator script, and code
+templates. The model root MUST be <code class="docutils literal notranslate"><span class="pre">&lt;Mip&gt;Model</span></code> with a single <code class="docutils literal notranslate"><span class="pre">general</span></code> section and a
+<code class="docutils literal notranslate"><span class="pre">config_set</span></code> list. Model classes MUST use <code class="docutils literal notranslate"><span class="pre">UpperCamelCase</span></code>, properties <code class="docutils literal notranslate"><span class="pre">snake_case</span></code>,
+and enum values <code class="docutils literal notranslate"><span class="pre">SNAKE_CASE</span></code>; vendor- or hardware-specific properties MUST carry an <code class="docutils literal notranslate"><span class="pre">ext_</span></code> prefix.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="need_container docutils container" id="SNCB-73a82189">
+<table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-GEN-MUST-13">
+<tbody>
+<tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
+<div class="line"><span><span class="needs-id"><a class="reference internal" href="#CHI-GEN-MUST-13" title="CHI-GEN-MUST-13">CHI-GEN-MUST-13</a></span> — </span><strong><span><span class="needs_title"><span class="needs_data">Module documentation</span></span></span></strong></div>
+</div>
+</td>
+</tr>
+<tr class="need meta row-even"><td class="need meta"></td>
+</tr>
+<tr class="need content row-odd"><td class="need content" colspan="1"><p class="sd-card-text">Each module MUST provide documentation covering: a cover sheet and change history; a
+navigable table of contents; a functional overview; the source-file list; deviations to the
+specification; used resources (interrupts, peripherals); API, integration, and
+configuration descriptions (parameter, description, unit, valid range, default, relations).
+Where the implementation depends on a microcontroller, it MUST also state the µC vendor /
+family / derivative / stepping, the toolchain name, version, and options, and the used register list.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Callouts</div>
+<div class="need_container docutils container" id="SNCB-d32177ee">
+<table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-GEN-MUST-14">
+<tbody>
+<tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
+<div class="line"><span><span class="needs-id"><a class="reference internal" href="#CHI-GEN-MUST-14" title="CHI-GEN-MUST-14">CHI-GEN-MUST-14</a></span> — </span><strong><span><span class="needs_title"><span class="needs_data">Callout definitions</span></span></span></strong></div>
+</div>
+</td>
+</tr>
+<tr class="need meta row-even"><td class="need meta"></td>
+</tr>
+<tr class="need content row-odd"><td class="need content" colspan="1"><p class="sd-card-text">Where a module defines a callout to be implemented by the user, the toolchain MUST generate
+a default implementation (marked as user-update code that the generator MUST NOT
+overwrite), and the callout prototype MUST be available via the module public header
+<code class="docutils literal notranslate"><span class="pre">&lt;Mip&gt;.h</span></code>. The generated file and its user-code blocks MUST follow <a class="reference internal" href="#CHI-GEN-MUST-16" title="CHI-GEN-MUST-16"><em class="xref need">CHI-GEN-MUST-16</em></a>.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="need_container docutils container" id="SNCB-a7399fd2">
+<table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-GEN-MUST-15">
+<tbody>
+<tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
+<div class="line"><span><span class="needs-id"><a class="reference internal" href="#CHI-GEN-MUST-15" title="CHI-GEN-MUST-15">CHI-GEN-MUST-15</a></span> — </span><strong><span><span class="needs_title"><span class="needs_data">Callout function naming</span></span></span></strong></div>
+</div>
+</td>
+</tr>
+<tr class="need meta row-even"><td class="need meta"></td>
+</tr>
+<tr class="need content row-odd"><td class="need content" colspan="1"><p class="sd-card-text">A callout is a function that the driver calls and the integrator implements. Every callout
+MUST carry the <code class="docutils literal notranslate"><span class="pre">Callout</span></code> infix directly after the module implementation prefix, so that a
+callout is identifiable as such from its name alone:</p>
+<ul class="simple">
+<li><p class="sd-card-text">a callout that <strong>notifies an event</strong> MUST be named <code class="docutils literal notranslate"><span class="pre">&lt;Mip&gt;_Callout_On&lt;Event&gt;</span></code>, where
+<code class="docutils literal notranslate"><span class="pre">&lt;Event&gt;</span></code> names the event being signalled (for example
+<code class="docutils literal notranslate"><span class="pre">I2c_Callout_OnReception</span></code>);</p></li>
+<li><p class="sd-card-text">a callout that <strong>requests an action</strong> of the integration code, rather than notifying it of
+something that already happened, MUST be named <code class="docutils literal notranslate"><span class="pre">&lt;Mip&gt;_Callout_&lt;Action&gt;</span></code> (for example
+<code class="docutils literal notranslate"><span class="pre">Spi_Callout_CsControl</span></code>, by which the driver asks the integration code to assert or
+release a GPIO chip select).</p></li>
+</ul>
+<p class="sd-card-text">Where two modules signal the same kind of event, they MUST reuse the same <code class="docutils literal notranslate"><span class="pre">&lt;Event&gt;</span></code> name,
+so that a callout’s role is recognisable regardless of which driver raises it; the common
+set is illustrated in <a class="reference internal" href="02_conventions.html"><span class="doc">Naming Conventions</span></a>.</p>
+<p class="sd-card-text">This scheme applies to a module that has no upper-layer interface stack. A module that is
+delivered with an upper-layer interface stack MUST instead name the functions it reports
+through <code class="docutils literal notranslate"><span class="pre">&lt;Ma&gt;If_On&lt;Event&gt;</span></code>, which the interface stack — not the integrator — implements.</p>
+<p class="sd-card-text">Because the infix is reserved, a function named <code class="docutils literal notranslate"><span class="pre">&lt;Mip&gt;_On&lt;Event&gt;</span></code> <strong>without</strong> it is not a
+callout. A module MAY provide such a function as an inbound notification <em>service</em>, which
+the integration code calls to notify the driver of an event the hardware cannot report
+itself (for example <code class="docutils literal notranslate"><span class="pre">Spi_OnCs</span></code>, notifying a chip-select edge detected outside the
+driver). Such a service is part of the driver API, carries a service id, and MUST be
+documented among the module’s services — not among its callouts.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="need_container docutils container" id="SNCB-fe42ff96">
+<table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-GEN-MUST-16">
+<tbody>
+<tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
+<div class="line"><span><span class="needs-id"><a class="reference internal" href="#CHI-GEN-MUST-16" title="CHI-GEN-MUST-16">CHI-GEN-MUST-16</a></span> — </span><strong><span><span class="needs_title"><span class="needs_data">Callout stub file</span></span></span></strong></div>
+</div>
+</td>
+</tr>
+<tr class="need meta row-even"><td class="need meta"></td>
+</tr>
+<tr class="need content row-odd"><td class="need content" colspan="1"><p class="sd-card-text">The toolchain MUST emit the generated default callout implementations of a module into a
+single file named <code class="docutils literal notranslate"><span class="pre">&lt;Mip&gt;_Callout_Stubs.c</span></code>. Within it:</p>
+<ul class="simple">
+<li><p class="sd-card-text">each callout body MUST contain a user-code block whose delimiting markers identify the
+callout by its full symbol name, and the generator MUST reproduce the content of every
+such block unchanged on regeneration;</p></li>
+<li><p class="sd-card-text">the file MUST additionally provide a user-code block for user includes;</p></li>
+<li><p class="sd-card-text">a callout that the active configuration does not enable MUST be retained in the file but
+excluded from compilation (e.g. within <code class="docutils literal notranslate"><span class="pre">#if</span> <span class="pre">0</span></code>), so that user code written for it
+survives a configuration change;</p></li>
+<li><p class="sd-card-text">each callout definition MUST use the <code class="docutils literal notranslate"><span class="pre">FUNC()</span></code> declaration macro (<a class="reference internal" href="#CHI-GEN-MUST-09" title="CHI-GEN-MUST-09"><em class="xref need">CHI-GEN-MUST-09</em></a>)
+and MUST be wrapped in a code-section pair per <a class="reference internal" href="#CHI-GEN-MUST-07" title="CHI-GEN-MUST-07"><em class="xref need">CHI-GEN-MUST-07</em></a> and
+<a class="reference internal" href="#CHI-GEN-MUST-08" title="CHI-GEN-MUST-08"><em class="xref need">CHI-GEN-MUST-08</em></a>, using the optional-keyword form
+<code class="docutils literal notranslate"><span class="pre">&lt;MIP&gt;_{START,STOP}_SEC_CODE_CALLOUT</span></code>.</p></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header sd-bg-info sd-bg-text-info">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-info" viewBox="0 0 16 16" aria-hidden="true"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg></span><span class="sd-summary-text">Recommended (SHOULD) - 3 Requirements</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Strongly advised; an implementation that deviates should understand the implications.</p>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Instances and vendor differentiation</div>
+<div class="need_container docutils container" id="SNCB-e7f58a21">
+<table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-GEN-SHOULD-01">
+<tbody>
+<tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
+<div class="line"><span><span class="needs-id"><a class="reference internal" href="#CHI-GEN-SHOULD-01" title="CHI-GEN-SHOULD-01">CHI-GEN-SHOULD-01</a></span> — </span><strong><span><span class="needs_title"><span class="needs_data">Multiple driver instances</span></span></span></strong></div>
+</div>
+</td>
+</tr>
+<tr class="need meta row-even"><td class="need meta"></td>
+</tr>
+<tr class="need content row-odd"><td class="need content" colspan="1"><p class="sd-card-text">If multiple instances of a driver are required (e.g. an internal and an external watchdog),
+each instance SHOULD use the optional vendor / API infixes of the naming convention to
+avoid symbol conflicts. External-hardware drivers in particular SHOULD use the infixes.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="need_container docutils container" id="SNCB-4ec3842e">
+<table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-GEN-SHOULD-02">
+<tbody>
+<tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
+<div class="line"><span><span class="needs-id"><a class="reference internal" href="#CHI-GEN-SHOULD-02" title="CHI-GEN-SHOULD-02">CHI-GEN-SHOULD-02</a></span> — </span><strong><span><span class="needs_title"><span class="needs_data">Vendor infixes</span></span></span></strong></div>
+</div>
+</td>
+</tr>
+<tr class="need meta row-even"><td class="need meta"></td>
+</tr>
+<tr class="need content row-odd"><td class="need content" colspan="1"><p class="sd-card-text">The vendor infix <code class="docutils literal notranslate"><span class="pre">&lt;Vi&gt;</span></code> SHOULD be a vendor-specific name (abbreviation allowed); the
+vendor API infix <code class="docutils literal notranslate"><span class="pre">&lt;Ci&gt;</span></code> SHOULD represent the driver’s functionality (e.g. a HW instance
+number, or a target such as <code class="docutils literal notranslate"><span class="pre">CodeFlash</span></code> / <code class="docutils literal notranslate"><span class="pre">DataFlash</span></code>).</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Memory mapping</div>
+<div class="need_container docutils container" id="SNCB-14dd2c10">
+<table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-GEN-SHOULD-03">
+<tbody>
+<tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
+<div class="line"><span><span class="needs-id"><a class="reference internal" href="#CHI-GEN-SHOULD-03" title="CHI-GEN-SHOULD-03">CHI-GEN-SHOULD-03</a></span> — </span><strong><span><span class="needs_title"><span class="needs_data">Memory-mapping generation and imported software</span></span></span></strong></div>
+</div>
+</td>
+</tr>
+<tr class="need meta row-even"><td class="need meta"></td>
+</tr>
+<tr class="need content row-odd"><td class="need content" colspan="1"><p class="sd-card-text">The configurator SHOULD support generation of the memory-mapping file. If a driver imports
+other software (e.g. an existing library), that software SHOULD be able to address the same
+memory sections as the driver (via its own memory-mapping mechanism or a linker directive).</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</details></section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="reference/02_services.html" class="btn btn-neutral float-left" title="Services and Utilities" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="05_design_decisions.html" class="btn btn-neutral float-right" title="Design Decisions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026 by Vector Informatik GmbH and Infineon Technologies AG. All rights reserved.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

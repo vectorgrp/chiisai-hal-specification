@@ -1,0 +1,248 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Using the Shared Contract &mdash; Chiisai HAL Specification  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css?v=4ae1632d" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-data-viewer/jsonview.bundle.css?v=f6ef2277" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-needs/libs/html/datatables.min.css?v=4b4fd840" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-needs/common_css/needstable.css?v=5e1b6797" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-needs/common_css/need_core.css?v=f5b60a78" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-needs/common_css/need_links.css?v=2150a916" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-needs/common_css/need_style.css?v=92936fa5" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-needs/common_css/need_toggle.css?v=5c6620df" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-needs/modern.css?v=803738c0" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=4f645179" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+      <script src="../../_static/sphinx-data-viewer/jsonview.bundle.js?v=18cd53c5"></script>
+      <script src="../../_static/sphinx-data-viewer/jsonview_loader.js?v=f7ff7e7d"></script>
+      <script src="../../_static/sphinx-needs/libs/html/datatables.min.js?v=8a4aee21"></script>
+      <script src="../../_static/sphinx-needs/libs/html/datatables_loader.js?v=a2cae175"></script>
+      <script src="../../_static/sphinx-needs/libs/html/sphinx_needs_collapse.js?v=dca66431"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Foundation Header Examples" href="01_header_examples.html" />
+    <link rel="prev" title="Guide" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Chiisai HAL Specification
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../00_about/index.html">About This Specification</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">General</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../00_overview.html">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01_architecture.html">Architecture and Layering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02_conventions.html">Naming Conventions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03_integration.html">Integration Guidelines</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Guide</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Using the Shared Contract</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#a-driver-source-file-end-to-end">A driver source file, end to end</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#what-each-piece-does">What each piece does</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="01_header_examples.html">Foundation Header Examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="02_callout_file.html">The Callout Stub File</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/index.html">Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04_requirements.html">Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05_design_decisions.html">Design Decisions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../04_DriverModules/index.html">Chiisai HAL Driver Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix.html">Appendix</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Chiisai HAL Specification</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">General</a></li>
+          <li class="breadcrumb-item"><a href="index.html">Guide</a></li>
+      <li class="breadcrumb-item active">Using the Shared Contract</li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="using-the-shared-contract">
+<h1>Using the Shared Contract<a class="headerlink" href="#using-the-shared-contract" title="Link to this heading"></a></h1>
+<div class="informative admonition">
+<p class="admonition-title">Informative</p>
+<p>How the shared types, compiler-abstraction macros, memory mapping, logging, and the <code class="docutils literal notranslate"><span class="pre">ISR()</span></code>
+macro come together in a driver source file. In the examples, <code class="docutils literal notranslate"><span class="pre">Mip</span></code> / <code class="docutils literal notranslate"><span class="pre">MIP</span></code> stands in for a
+concrete module implementation prefix (e.g. <code class="docutils literal notranslate"><span class="pre">Can</span></code>, <code class="docutils literal notranslate"><span class="pre">Mem</span></code>) — substitute your own.</p>
+</div>
+<section id="a-driver-source-file-end-to-end">
+<h2>A driver source file, end to end<a class="headerlink" href="#a-driver-source-file-end-to-end" title="Link to this heading"></a></h2>
+<p>The skeleton below wires up the pieces a typical driver uses: it includes its own header, declares a
+variable and code in named memory sections, uses the type system and declaration macros, reports a
+development error through the Log Manager, and defines an interrupt handler with the <code class="docutils literal notranslate"><span class="pre">ISR()</span></code> macro.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Mip.h&quot;</span><span class="c1">            /* own header — enables the consistency check (CHI-GEN-MUST-05) */</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Std_Types.h&quot;</span><span class="c1">      /* Std_ReturnType, E_OK / E_NOT_OK */</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;LogM.h&quot;</span><span class="c1">           /* LogM_Report */</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Os.h&quot;</span><span class="c1">             /* ISR() macro */</span>
+
+<span class="cm">/* --- a module-global variable, placed in a &quot;cleared 32-bit&quot; RAM section --- */</span>
+<span class="cp">#define MIP_START_SEC_VAR_CLEARED_32</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Mip_MemMap.h&quot;</span>
+<span class="k">static</span><span class="w"> </span><span class="n">VAR</span><span class="p">(</span><span class="n">uint32</span><span class="p">,</span><span class="w"> </span><span class="n">MIP_VAR_CLEARED</span><span class="p">)</span><span class="w"> </span><span class="n">Mip_Counter</span><span class="p">;</span>
+<span class="cp">#define MIP_STOP_SEC_VAR_CLEARED_32</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Mip_MemMap.h&quot;</span>
+
+<span class="cm">/* --- driver code, placed in the module code section --- */</span>
+<span class="cp">#define MIP_START_SEC_CODE</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Mip_MemMap.h&quot;</span>
+
+<span class="n">FUNC</span><span class="p">(</span><span class="n">Std_ReturnType</span><span class="p">,</span><span class="w"> </span><span class="n">MIP_CODE</span><span class="p">)</span><span class="w"> </span><span class="n">Mip_DoSomething</span><span class="p">(</span><span class="n">VAR</span><span class="p">(</span><span class="n">uint8</span><span class="p">,</span><span class="w"> </span><span class="n">AUTOMATIC</span><span class="p">)</span><span class="w"> </span><span class="n">value</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">value</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0u</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="cm">/* wrong usage → development error, reported and rejected */</span>
+<span class="w">        </span><span class="n">LogM_Report</span><span class="p">(</span><span class="n">LOGM_LOG_LEVEL_DEVERR</span><span class="p">,</span><span class="w"> </span><span class="n">MIP_MODULE_ID</span><span class="p">,</span><span class="w"> </span><span class="mi">0u</span><span class="p">,</span>
+<span class="w">                    </span><span class="n">MIP_API_DO_SOMETHING</span><span class="p">,</span><span class="w"> </span><span class="n">MIP_DEVERR_PARAM_VALUE</span><span class="p">);</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">E_NOT_OK</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="n">Mip_Counter</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">value</span><span class="p">;</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">E_OK</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="cp">#define MIP_STOP_SEC_CODE</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Mip_MemMap.h&quot;</span>
+
+<span class="cm">/* --- interrupt handler, defined portably with the ISR() macro --- */</span>
+<span class="n">ISR</span><span class="p">(</span><span class="n">Mip_Interrupt0</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">Mip_EnterCriticalSection</span><span class="p">();</span><span class="w">   </span><span class="cm">/* keep the exclusive region short */</span>
+<span class="w">    </span><span class="cm">/* ... touch shared state ... */</span>
+<span class="w">    </span><span class="n">Mip_ExitCriticalSection</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="what-each-piece-does">
+<h2>What each piece does<a class="headerlink" href="#what-each-piece-does" title="Link to this heading"></a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 34.0%" />
+<col style="width: 66.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>In the code</p></th>
+<th class="head"><p>Why</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">#include</span> <span class="pre">&quot;Mip.h&quot;</span></code></p></td>
+<td><p>A driver includes its own header so the compiler checks declarations against definitions
+(<a class="reference internal" href="../04_requirements.html#CHI-GEN-MUST-05" title="CHI-GEN-MUST-05"><em class="xref need">CHI-GEN-MUST-05</em></a>).</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">#define</span> <span class="pre">MIP_START_SEC_*</span> <span class="pre">``</span> <span class="pre">/</span> <span class="pre">``#include</span> <span class="pre">&quot;Mip_MemMap.h&quot;</span></code> … <code class="docutils literal notranslate"><span class="pre">STOP</span></code> …</p></td>
+<td><p>The memory-mapping wrap: everything between the start and stop symbols is placed in the
+selected section (<a class="reference internal" href="../04_requirements.html#CHI-GEN-MUST-07" title="CHI-GEN-MUST-07"><em class="xref need">CHI-GEN-MUST-07</em></a>, <a class="reference internal" href="../04_requirements.html#CHI-GEN-MUST-08" title="CHI-GEN-MUST-08"><em class="xref need">CHI-GEN-MUST-08</em></a>). The section keyword names the init
+policy (<code class="docutils literal notranslate"><span class="pre">INIT</span></code> / <code class="docutils literal notranslate"><span class="pre">CLEARED</span></code> / <code class="docutils literal notranslate"><span class="pre">POWER_ON_CLEARED</span></code>) and alignment.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">VAR(uint32,</span> <span class="pre">MIP_VAR_CLEARED)</span></code> / <code class="docutils literal notranslate"><span class="pre">FUNC(Std_ReturnType,</span> <span class="pre">MIP_CODE)</span></code></p></td>
+<td><p>Declaration macros apply the memory/pointer class portably
+(see <a class="reference internal" href="../reference/01_compiler.html#gen-ref-declaration-macros"><span class="std std-ref">declaration macros</span></a>). Standard types
+(<code class="docutils literal notranslate"><span class="pre">uint32</span></code>, <code class="docutils literal notranslate"><span class="pre">Std_ReturnType</span></code>) are used instead of native C types (<a class="reference internal" href="../04_requirements.html#CHI-GEN-MUST-09" title="CHI-GEN-MUST-09"><em class="xref need">CHI-GEN-MUST-09</em></a>).</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">LogM_Report(LOGM_LOG_LEVEL_DEVERR,</span> <span class="pre">MIP_MODULE_ID,</span> <span class="pre">…)</span></code></p></td>
+<td><p>Errors are reported through the Log Manager with the module’s id and the right level — here a
+development error (<a class="reference internal" href="../04_requirements.html#CHI-GEN-MUST-10" title="CHI-GEN-MUST-10"><em class="xref need">CHI-GEN-MUST-10</em></a>; see <a class="reference internal" href="../reference/02_services.html#gen-ref-logm"><span class="std std-ref">LogM_Report</span></a>).</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">ISR(Mip_Interrupt0)</span></code></p></td>
+<td><p>The interrupt handler is defined with the common macro rather than a compiler-specific keyword
+(<a class="reference internal" href="../04_requirements.html#CHI-GEN-MUST-11" title="CHI-GEN-MUST-11"><em class="xref need">CHI-GEN-MUST-11</em></a>; see <a class="reference internal" href="../reference/02_services.html#gen-ref-isr"><span class="std std-ref">the ISR macro</span></a>).</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">Mip_EnterCriticalSection()</span></code> / <code class="docutils literal notranslate"><span class="pre">Mip_ExitCriticalSection()</span></code></p></td>
+<td><p>Bracket the shared-state access; keep it short (see
+<a class="reference internal" href="../reference/02_services.html#gen-ref-critical-section"><span class="std std-ref">critical sections</span></a>).</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The exact qualifier order produced by the declaration macros, and whether the memory-mapping
+sections expand to anything, are target- and compiler-specific — see the generalized headers in
+<a class="reference internal" href="01_header_examples.html"><span class="doc">Foundation Header Examples</span></a>.</p>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Guide" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="01_header_examples.html" class="btn btn-neutral float-right" title="Foundation Header Examples" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026 by Vector Informatik GmbH and Infineon Technologies AG. All rights reserved.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

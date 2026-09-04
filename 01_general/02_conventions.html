@@ -1,0 +1,763 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Naming Conventions &mdash; Chiisai HAL Specification  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=4ae1632d" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx-data-viewer/jsonview.bundle.css?v=f6ef2277" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx-needs/libs/html/datatables.min.css?v=4b4fd840" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx-needs/common_css/needstable.css?v=5e1b6797" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx-needs/common_css/need_core.css?v=f5b60a78" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx-needs/common_css/need_links.css?v=2150a916" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx-needs/common_css/need_style.css?v=92936fa5" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx-needs/common_css/need_toggle.css?v=5c6620df" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx-needs/modern.css?v=803738c0" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=4f645179" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../_static/design-tabs.js?v=f930bc37"></script>
+      <script src="../_static/sphinx-data-viewer/jsonview.bundle.js?v=18cd53c5"></script>
+      <script src="../_static/sphinx-data-viewer/jsonview_loader.js?v=f7ff7e7d"></script>
+      <script src="../_static/sphinx-needs/libs/html/datatables.min.js?v=8a4aee21"></script>
+      <script src="../_static/sphinx-needs/libs/html/datatables_loader.js?v=a2cae175"></script>
+      <script src="../_static/sphinx-needs/libs/html/sphinx_needs_collapse.js?v=dca66431"></script>
+      <script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
+      <script type="module">import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.12.1/dist/mermaid.esm.min.mjs";
+
+
+
+const initStyles = () => {
+    const defaultStyle = document.createElement('style');
+    defaultStyle.textContent = "pre.mermaid {\n    /* Same as .mermaid-container > pre */\n    display: block;\n    width: 100%;\n}\n\npre.mermaid > svg {\n    /* Same as .mermaid-container > pre > svg */\n    height: 500px;\n    width: 100%;\n    max-width: 100% !important;\n}";
+    document.head.appendChild(defaultStyle);
+
+    const fullscreenStyle = document.createElement('style');
+    fullscreenStyle.textContent = ".mermaid-container {\n    position: relative;\n    display: flex;\n    flex-direction: row;\n    width: 100%;\n}\n\n.mermaid-container > pre {\n    display: block;\n    width: 100%;\n}\n\n.mermaid-container > pre > svg {\n    height: 500px;\n    width: 100%;\n    max-width: 100% !important;\n}\n\n.mermaid-fullscreen-btn {\n    position: absolute;\n    width: 28px;\n    height: 28px;\n    background: rgba(255, 255, 255, 0.95);\n    border: 1px solid rgba(0, 0, 0, 0.3);\n    border-radius: 4px;\n    cursor: pointer;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    transition: all 0.2s;\n    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);\n    font-size: 14px;\n    line-height: 1;\n    padding: 0;\n    color: #333;\n}\n\n.mermaid-fullscreen-btn:hover {\n    opacity: 100% !important;\n    background: rgba(255, 255, 255, 1);\n    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);\n    transform: scale(1.1);\n}\n\n.mermaid-fullscreen-btn.dark-theme {\n    background: rgba(50, 50, 50, 0.95);\n    border: 1px solid rgba(255, 255, 255, 0.3);\n    color: #e0e0e0;\n}\n\n.mermaid-fullscreen-btn.dark-theme:hover {\n    background: rgba(60, 60, 60, 1);\n    box-shadow: 0 3px 10px rgba(255, 255, 255, 0.2);\n}\n\n.mermaid-fullscreen-modal {\n    display: none;\n    position: fixed !important;\n    top: 0 !important;\n    left: 0 !important;\n    width: 95vw;\n    height: 100vh;\n    background: rgba(255, 255, 255, 0.98);\n    z-index: 9999;\n    padding: 20px;\n    overflow: auto;\n}\n\n.mermaid-fullscreen-modal.dark-theme {\n    background: rgba(0, 0, 0, 0.98);\n}\n\n.mermaid-fullscreen-modal.active {\n    display: flex;\n    align-items: center;\n    justify-content: center;\n}\n\n.mermaid-container-fullscreen {\n    position: relative;\n    width: 95vw;\n    height: 90vh;\n    max-width: 95vw;\n    max-height: 90vh;\n    background: white;\n    border-radius: 8px;\n    padding: 20px;\n    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);\n    overflow: auto;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n}\n\n.mermaid-container-fullscreen.dark-theme {\n    background: #1a1a1a;\n    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);\n}\n\n.mermaid-container-fullscreen pre.mermaid {\n    width: 100%;\n    height: 100%;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n}\n\n.mermaid-container-fullscreen .mermaid svg {\n    height: 100% !important;\n    width: 100% !important;\n    cursor: grab;\n}\n\n.mermaid-fullscreen-close {\n    position: fixed !important;\n    top: 20px !important;\n    right: 20px !important;\n    width: 40px;\n    height: 40px;\n    background: rgba(255, 255, 255, 0.95);\n    border: 1px solid rgba(0, 0, 0, 0.2);\n    border-radius: 50%;\n    cursor: pointer;\n    z-index: 10000;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);\n    transition: all 0.2s;\n    font-size: 24px;\n    line-height: 1;\n    color: #333;\n}\n\n.mermaid-fullscreen-close:hover {\n    background: white;\n    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);\n    transform: scale(1.1);\n}\n\n.mermaid-fullscreen-close.dark-theme {\n    background: rgba(50, 50, 50, 0.95);\n    border: 1px solid rgba(255, 255, 255, 0.2);\n    color: #e0e0e0;\n}\n\n.mermaid-fullscreen-close.dark-theme:hover {\n    background: rgba(60, 60, 60, 1);\n    box-shadow: 0 6px 16px rgba(255, 255, 255, 0.2);\n}\n\n.mermaid-fullscreen-modal .mermaid-fullscreen-btn {\n    display: none !important;\n}";
+    document.head.appendChild(fullscreenStyle);
+}
+
+// Detect if page has dark background
+const isDarkTheme = () => {
+    // We use a set of heuristics:
+    // 1. Check for common dark mode classes or attributes
+    // 2. Check computed background color brightness
+    if (document.documentElement.classList.contains('dark') ||
+        document.documentElement.getAttribute('data-theme') === 'dark' ||
+        document.body.classList.contains('dark') ||
+        document.body.getAttribute('data-theme') === 'dark') {
+        // console.log("Dark theme detected via class/attribute");
+        return true;
+    }
+    if (document.documentElement.classList.contains('light') ||
+        document.documentElement.getAttribute('data-theme') === 'light' ||
+        document.body.classList.contains('light') ||
+        document.body.getAttribute('data-theme') === 'light') {
+        // console.log("Light theme detected via class/attribute");
+        return false;
+    }
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        // console.log("Dark theme detected via prefers-color-scheme");
+        return true;
+    }
+    const bgColor = window.getComputedStyle(document.body).backgroundColor;
+    const match = bgColor.match(/rgb\((\d+),\s*(\d+),\s*(\d+)/);
+    if (match) {
+        const r = parseInt(match[1]);
+        const g = parseInt(match[2]);
+        const b = parseInt(match[3]);
+        const brightness = (r * 299 + g * 587 + b * 114) / 1000;
+        // console.log("Background color brightness:", brightness);
+        return brightness < 128;
+    }
+    // console.log("No dark or light theme detected, defaulting to light theme");
+    return false;
+};
+
+let darkTheme = isDarkTheme();
+let modal = null;
+let modalContent = null;
+let previousScrollOffset = [window.scrollX, window.scrollY];
+let _lazyObserver = null;
+let _renderQueue = Promise.resolve();
+let closeModal = () => {};
+
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal?.classList.contains('active')) {
+        closeModal();
+    }
+});
+
+// Apply d3 zoom to each SVG. Idempotent: an SVG already wrapped is skipped,
+// so this is safe to call both for the initial batch and for diagrams that
+// render lazily once they become visible.
+const addZoomToSvgs = (svgs) => {
+    svgs.each(function() {
+        if (this.getAttribute('data-zoom-applied') === 'true') return;
+        var svg = d3.select(this);
+        svg.html("<g class='wrapper'>" + svg.html() + "</g>");
+        var inner = svg.select("g");
+        var zoom = d3.zoom().on("zoom", function(event) {
+            inner.attr("transform", event.transform);
+        });
+        svg.call(zoom);
+        this.setAttribute('data-zoom-applied', 'true');
+    });
+};
+
+const runMermaid = async (rerun) => {
+    console.log("Running mermaid diagrams, rerun =", rerun);
+    // clear all existing mermaid charts
+    let all_mermaids = document.querySelectorAll(".mermaid");
+
+    if (rerun) {
+        // Disconnect any previous lazy rendering observer
+        if (_lazyObserver) {
+            _lazyObserver.disconnect();
+            _lazyObserver = null;
+        }
+
+        all_mermaids.forEach((el) => {
+            el.removeAttribute('data-mermaid-deferred');
+            el.removeAttribute('data-mermaid-render-failed');
+            if(!el.hasAttribute("data-original-code")) {
+                // store original code
+                // console.log(`Storing original code for first run: `, el.innerHTML);
+                el.setAttribute('data-original-code', el.innerHTML);
+            }
+            if(el.getAttribute("data-processed") === "true") {
+                // remove and restore original
+                el.removeAttribute("data-processed");
+                // console.log(`Restoring original code for re-run: `, el.getAttribute('data-original-code'));
+                el.innerHTML = el.getAttribute('data-original-code');
+            } else {
+                // store original code
+                // console.log(`Storing original code for re-run: `, el.innerHTML);
+                el.setAttribute('data-original-code', el.innerHTML);
+            }
+        });
+
+        // Separate visible and hidden elements. Mermaid's layout engine measures
+        // text dimensions via the DOM, which fails for elements hidden by a parent
+        // (e.g., Reveal.js non-active slides, sphinx-design unopened tabs),
+        // producing broken SVGs. Render visible elements now, defer hidden ones.
+        const visible = [];
+        const hidden = [];
+        all_mermaids.forEach((el) => {
+            // offsetParent is null for display:none ancestors.
+            // getClientRects().length > 0 catches position:fixed elements
+            // (which also have null offsetParent but are still visible).
+            if (el.offsetParent !== null || el.getClientRects().length > 0) {
+                visible.push(el);
+            } else {
+                hidden.push(el);
+                el.setAttribute('data-mermaid-deferred', 'true');
+            }
+        });
+
+        if (visible.length > 0) {
+            try {
+                await mermaid.run({ nodes: visible });
+            } catch (e) {
+                console.error("Mermaid rendering failed:", e);
+            }
+        }
+
+        // Lazily render hidden elements when they become visible.
+        // Uses a promise chain (_renderQueue) to serialize rendering,
+        // since IntersectionObserver may report multiple entries at once
+        // and mermaid.run() is not safe to call concurrently.
+        if (hidden.length > 0) {
+            if (typeof IntersectionObserver === 'undefined') {
+                console.warn("IntersectionObserver not available; hidden mermaid diagrams will not render.");
+            } else {
+                _renderQueue = Promise.resolve();
+                _lazyObserver = new IntersectionObserver((entries) => {
+                    for (const entry of entries) {
+                        if (entry.isIntersecting && entry.target.getAttribute("data-processed") !== "true") {
+                            _lazyObserver.unobserve(entry.target);
+                            const el = entry.target;
+                            _renderQueue = _renderQueue.then(async () => {
+                                try {
+                                    await mermaid.run({ nodes: [el] });
+                                    el.removeAttribute('data-mermaid-deferred');
+                                    // Apply zoom to the now-rendered diagram, matching
+                                    // the decoration visible diagrams receive.
+                                    if (true) {
+                                        addZoomToSvgs(d3.selectAll(".mermaid").select(function() {
+                                            return this.querySelector("svg");
+                                        }));
+                                    }
+                                } catch (e) {
+                                    console.error("Mermaid deferred rendering failed:", e);
+                                    el.removeAttribute('data-mermaid-deferred');
+                                    el.setAttribute('data-mermaid-render-failed', 'true');
+                                }
+                            });
+                        }
+                    }
+                });
+                hidden.forEach((el) => _lazyObserver.observe(el));
+            }
+        }
+    }
+
+    all_mermaids = document.querySelectorAll(".mermaid");
+    // Exclude deferred (hidden) and render-failed elements from completion checks
+    const mermaids_active = document.querySelectorAll(".mermaid:not([data-mermaid-deferred]):not([data-mermaid-render-failed])");
+    const mermaids_processed = document.querySelectorAll(".mermaid:not([data-mermaid-deferred]):not([data-mermaid-render-failed])[data-processed='true']");
+
+    if (true) {
+        const mermaids_to_add_zoom = -1 === -1 ? mermaids_active.length : -1;
+        if(mermaids_to_add_zoom > 0) {
+            var svgs = d3.selectAll(".mermaid").select(function() {
+                return this.querySelector("svg");
+            });
+            // Wait until every active (visible) diagram has rendered. Deferred
+            // diagrams are excluded, so a fixed d3_node_count that counts a
+            // hidden diagram no longer loops forever waiting for its SVG.
+            if(mermaids_active.length !== mermaids_processed.length) {
+                setTimeout(() => runMermaid(false), 200);
+                return;
+            }
+            addZoomToSvgs(svgs);
+        }
+    } else if(mermaids_active.length !== mermaids_processed.length) {
+        // Wait for mermaid to process all diagrams
+        setTimeout(() => runMermaid(false), 200);
+        return;
+    }
+
+    // Stop here if not adding fullscreen capability
+    if (!true) return;
+
+    if (modal !== null ) {
+        // Destroy existing modal
+        modal.remove();
+        modal = null;
+        modalContent = null;
+    }
+
+    modal = document.createElement('div');
+    modal.className = 'mermaid-fullscreen-modal' + (darkTheme ? ' dark-theme' : '');
+    modal.setAttribute('role', 'dialog');
+    modal.setAttribute('aria-modal', 'true');
+    modal.setAttribute('aria-label', 'Fullscreen diagram viewer');
+    modal.innerHTML = `
+        <button class="mermaid-fullscreen-close${darkTheme ? ' dark-theme' : ''}" aria-label="Close fullscreen">✕</button>
+        <div class="mermaid-container-fullscreen${darkTheme ? ' dark-theme' : ''}"></div>
+    `;
+    document.body.appendChild(modal);
+
+    modalContent = modal.querySelector('.mermaid-container-fullscreen');
+    const closeBtn = modal.querySelector('.mermaid-fullscreen-close');
+
+    closeModal = () => {
+        modal.classList.remove('active');
+        modalContent.innerHTML = '';
+        document.body.style.overflow = ''
+        window.scrollTo({left: previousScrollOffset[0], top: previousScrollOffset[1], behavior: 'instant'});
+    };
+
+    closeBtn.addEventListener('click', closeModal);
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) closeModal();
+    });
+    document.querySelectorAll('.mermaid').forEach((mermaidDiv) => {
+        if (mermaidDiv.parentNode.classList.contains('mermaid-container') ||
+            mermaidDiv.closest('.mermaid-fullscreen-modal')) {
+            // Already processed, adjust button class if needed
+            const existingBtn = mermaidDiv.parentNode.querySelector('.mermaid-fullscreen-btn');
+            if (existingBtn) {
+                existingBtn.className = 'mermaid-fullscreen-btn' + (darkTheme ? ' dark-theme' : '');
+            }
+            return;
+        }
+
+        const container = document.createElement('div');
+        container.className = 'mermaid-container';
+        mermaidDiv.parentNode.insertBefore(container, mermaidDiv);
+        container.appendChild(mermaidDiv);
+
+        const fullscreenBtn = document.createElement('button');
+        fullscreenBtn.className = 'mermaid-fullscreen-btn' + (darkTheme ? ' dark-theme' : '');
+        fullscreenBtn.setAttribute('aria-label', 'View diagram in fullscreen');
+        fullscreenBtn.textContent = "\u26f6";
+        fullscreenBtn.style.opacity = "50%";
+
+        // Calculate dynamic position based on diagram's margin and padding
+        const diagramStyle = window.getComputedStyle(mermaidDiv);
+        const marginTop = parseFloat(diagramStyle.marginTop) || 0;
+        const marginRight = parseFloat(diagramStyle.marginRight) || 0;
+        const paddingTop = parseFloat(diagramStyle.paddingTop) || 0;
+        const paddingRight = parseFloat(diagramStyle.paddingRight) || 0;
+        fullscreenBtn.style.top = `${marginTop + paddingTop + 4}px`;
+        fullscreenBtn.style.right = `${marginRight + paddingRight + 4}px`;
+
+        fullscreenBtn.addEventListener('click', () => {
+            previousScrollOffset = [window.scrollX, window.scrollY];
+            const clone = mermaidDiv.cloneNode(true);
+            modalContent.innerHTML = '';
+            modalContent.appendChild(clone);
+
+            const svg = clone.querySelector('svg');
+            if (svg) {
+                svg.removeAttribute('width');
+                svg.removeAttribute('height');
+                svg.style.width = '100%';
+                svg.style.height = 'auto';
+                svg.style.maxWidth = '100%';
+                svg.style.display = 'block';
+
+                if (true) {
+                    setTimeout(() => {
+                        const g = svg.querySelector('g');
+                        if (g) {
+                            var svgD3 = d3.select(svg);
+                            svgD3.html("<g class='wrapper'>" + svgD3.html() + "</g>");
+                            var inner = svgD3.select("g");
+                            var zoom = d3.zoom().on("zoom", function(event) {
+                                inner.attr("transform", event.transform);
+                            });
+                            svgD3.call(zoom);
+                        }
+                    }, 100);
+                }
+            }
+
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+        container.appendChild(fullscreenBtn);
+    });
+};
+
+
+
+const load = async () => {
+    initStyles();
+
+
+    await runMermaid(true);
+
+    const reRunIfThemeChanges = async () => {
+        const newDarkTheme = isDarkTheme();
+        if (newDarkTheme !== darkTheme) {
+            darkTheme = newDarkTheme;
+            console.log("Theme change detected, re-running mermaid with", darkTheme ? "dark" : "default", "theme");
+            await mermaid.initialize(
+                {...{"startOnLoad": false},
+                ...{ darkMode: darkTheme, theme: darkTheme ? "dark" : "default" },
+                }
+            );
+            await runMermaid(true);
+        }
+    };
+
+    // Update theme classes when theme changes
+    const themeObserver = new MutationObserver(reRunIfThemeChanges);
+    themeObserver.observe(document.documentElement, {
+        attributes: true,
+        attributeFilter: ['class', 'style', 'data-theme']
+    });
+    themeObserver.observe(document.body, {
+        attributes: true,
+        attributeFilter: ['class', 'style', 'data-theme']
+    });
+};
+
+
+
+
+
+console.log("Initializing mermaid with", darkTheme ? "dark" : "default", "theme");
+mermaid.initialize(
+    {...{"startOnLoad": false},
+    ...{ darkMode: darkTheme, theme: darkTheme ? "dark" : "default" },
+    }
+);
+
+window.addEventListener("load", load);
+window.runMermaid = runMermaid;</script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Integration Guidelines" href="03_integration.html" />
+    <link rel="prev" title="Architecture and Layering" href="01_architecture.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Chiisai HAL Specification
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../00_about/index.html">About This Specification</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">General</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="00_overview.html">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01_architecture.html">Architecture and Layering</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Naming Conventions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#notation">Notation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-implementation-prefix">Module implementation prefix</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#symbol-naming">Symbol naming</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#callout-function-naming">Callout function naming</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#file-naming">File naming</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#source-files-at-a-glance">Source files at a glance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#include-discipline">Include discipline</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="03_integration.html">Integration Guidelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide/index.html">Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reference/index.html">Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04_requirements.html">Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="05_design_decisions.html">Design Decisions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../04_DriverModules/index.html">Chiisai HAL Driver Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix.html">Appendix</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Chiisai HAL Specification</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">General</a></li>
+      <li class="breadcrumb-item active">Naming Conventions</li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="naming-conventions">
+<h1>Naming Conventions<a class="headerlink" href="#naming-conventions" title="Link to this heading"></a></h1>
+<div class="informative admonition">
+<p class="admonition-title">Informative</p>
+<p>The naming scheme and file layout every Chiisai HAL driver follows, so that modules from
+different vendors look and integrate consistently. These conventions are stated normatively in the
+<a class="reference internal" href="04_requirements.html"><span class="doc">Requirements</span></a>; this page explains and illustrates them.</p>
+</div>
+<section id="notation">
+<h2>Notation<a class="headerlink" href="#notation" title="Link to this heading"></a></h2>
+<p>Placeholders used throughout the specification:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 18.0%" />
+<col style="width: 82.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Token</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;Ma&gt;</span></code></p></td>
+<td><p>Module abbreviation — the standardized short module name (e.g. <code class="docutils literal notranslate"><span class="pre">Can</span></code>, <code class="docutils literal notranslate"><span class="pre">Mem</span></code>, <code class="docutils literal notranslate"><span class="pre">Spi</span></code>).</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;Vi&gt;</span></code></p></td>
+<td><p>Vendor infix — a vendor-specific name (abbreviation allowed).</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;Ci&gt;</span></code></p></td>
+<td><p>Vendor API infix — represents the driver functionality (e.g. a HW instance number, or a
+target such as <code class="docutils literal notranslate"><span class="pre">CodeFlash</span></code> / <code class="docutils literal notranslate"><span class="pre">DataFlash</span></code>).</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;Mip&gt;</span></code></p></td>
+<td><p>Module implementation prefix — <code class="docutils literal notranslate"><span class="pre">&lt;Ma&gt;[_&lt;Vi&gt;][_&lt;Ci&gt;]</span></code> in camel case (e.g. <code class="docutils literal notranslate"><span class="pre">Mem_Vendor_Code</span></code>).</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;MIP&gt;</span></code></p></td>
+<td><p>The module implementation prefix capitalised (e.g. <code class="docutils literal notranslate"><span class="pre">MEM_VENDOR_CODE</span></code>).</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;Ie&gt;</span></code></p></td>
+<td><p>Internal-file element — an optional suffix for driver-internal files (e.g. <code class="docutils literal notranslate"><span class="pre">Can_Irq.c</span></code>).</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="module-implementation-prefix">
+<h2>Module implementation prefix<a class="headerlink" href="#module-implementation-prefix" title="Link to this heading"></a></h2>
+<p>Every implementation-specific symbol is built from a <strong>module implementation prefix</strong>:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>&lt;Mip&gt; = &lt;Ma&gt;[_&lt;Vi&gt;][_&lt;Ci&gt;]
+
+e.g.  Module = Mem, Vi = Vendor, Ci = Code   -&gt;   &lt;Mip&gt; = Mem_Vendor_Code
+</pre></div>
+</div>
+<p>The bracketed parts are optional. A microcontroller-internal driver is typically assumed to have a
+single instance, so the vendor/API infixes are often omitted (<code class="docutils literal notranslate"><span class="pre">&lt;Mip&gt;</span> <span class="pre">=</span> <span class="pre">&lt;Ma&gt;</span></code>). The vendor infix
+should be a vendor-specific (possibly abbreviated) name; the vendor API infix should describe the
+driver’s functionality.</p>
+<p><em>Normative:</em> <a class="reference internal" href="04_requirements.html#CHI-GEN-MUST-01" title="CHI-GEN-MUST-01"><em class="xref need">CHI-GEN-MUST-01</em></a>, <a class="reference internal" href="04_requirements.html#CHI-GEN-SHOULD-02" title="CHI-GEN-SHOULD-02"><em class="xref need">CHI-GEN-SHOULD-02</em></a>.</p>
+</section>
+<section id="symbol-naming">
+<h2>Symbol naming<a class="headerlink" href="#symbol-naming" title="Link to this heading"></a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 34.0%" />
+<col style="width: 30.0%" />
+<col style="width: 36.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Symbol kind</p></th>
+<th class="head"><p>Pattern</p></th>
+<th class="head"><p>Example</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Enumeration literals &amp; <code class="docutils literal notranslate"><span class="pre">#define</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&lt;MIP&gt;_&lt;SN&gt;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">CAN_ENUMERATION</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Development error values</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&lt;MIP&gt;_DEVERR_&lt;EN&gt;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">I2C_DEVERR_PARAM_POINTER</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Runtime error values</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&lt;MIP&gt;_RTERR_&lt;EN&gt;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">MEM_RTERR_DATALOST</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Other error values</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&lt;MIP&gt;_ERR_&lt;EN&gt;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">MEM_ERR_UNCLEARED</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Global variables</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&lt;Mip&gt;_&lt;Vn&gt;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Uart_SpecificVariable</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Global functions</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&lt;Mip&gt;_&lt;Fn&gt;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">I2c_SpecificApi</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Types</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&lt;Mip&gt;_&lt;Tn&gt;Type</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Wdg_External_SpecificType</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<p>(<code class="docutils literal notranslate"><span class="pre">&lt;SN&gt;</span></code> specific name, <code class="docutils literal notranslate"><span class="pre">&lt;EN&gt;</span></code> error name, <code class="docutils literal notranslate"><span class="pre">&lt;Vn&gt;</span></code> variable name, <code class="docutils literal notranslate"><span class="pre">&lt;Fn&gt;</span></code> function name,
+<code class="docutils literal notranslate"><span class="pre">&lt;Tn&gt;</span></code> type name.)</p>
+<p><em>Normative:</em> <a class="reference internal" href="04_requirements.html#CHI-GEN-MUST-02" title="CHI-GEN-MUST-02"><em class="xref need">CHI-GEN-MUST-02</em></a>.</p>
+</section>
+<section id="callout-function-naming">
+<h2>Callout function naming<a class="headerlink" href="#callout-function-naming" title="Link to this heading"></a></h2>
+<p>A driver reports events back to its user through functions that <strong>the driver calls and its user
+implements</strong>. Where those functions live, and how they are named, depends on whether the module is
+delivered with an upper-layer interface stack:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 24.0%" />
+<col style="width: 30.0%" />
+<col style="width: 46.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Module kind</p></th>
+<th class="head"><p>Pattern</p></th>
+<th class="head"><p>Declared in</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>With</strong> an upper-layer interface stack — <code class="docutils literal notranslate"><span class="pre">Can</span></code>, <code class="docutils literal notranslate"><span class="pre">Lin</span></code>, <code class="docutils literal notranslate"><span class="pre">Mem</span></code>, <code class="docutils literal notranslate"><span class="pre">Wdg</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&lt;Ma&gt;If_On&lt;Event&gt;</span></code></p></td>
+<td><p>the interface header <code class="docutils literal notranslate"><span class="pre">&lt;Ma&gt;If.h</span></code>, and implemented by the interface stack.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Without</strong> an upper-layer interface stack — <code class="docutils literal notranslate"><span class="pre">I2c</span></code>, <code class="docutils literal notranslate"><span class="pre">Mcu</span></code>, <code class="docutils literal notranslate"><span class="pre">Port</span></code>, <code class="docutils literal notranslate"><span class="pre">Spi</span></code>, <code class="docutils literal notranslate"><span class="pre">Uart</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&lt;Mip&gt;_Callout_On&lt;Event&gt;</span></code></p></td>
+<td><p>the module’s own public header <code class="docutils literal notranslate"><span class="pre">&lt;Mip&gt;.h</span></code>. These are <strong>callouts</strong>: the integrator implements
+them in the generated <code class="docutils literal notranslate"><span class="pre">&lt;Mip&gt;_Callout_Stubs.c</span></code> to connect their own components to the driver.</p></td>
+</tr>
+</tbody>
+</table>
+<p>A callout always carries the <code class="docutils literal notranslate"><span class="pre">Callout</span></code> infix right after the module prefix, so you can tell a
+callout from a driver service at a glance. After that, both patterns end in <code class="docutils literal notranslate"><span class="pre">On</span></code> followed by the
+event being signalled, and the same <code class="docutils literal notranslate"><span class="pre">On&lt;Event&gt;</span></code> names are used across modules — the <strong>event
+vocabulary is shared</strong>:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 26.0%" />
+<col style="width: 44.0%" />
+<col style="width: 30.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Event</p></th>
+<th class="head"><p>Purpose</p></th>
+<th class="head"><p>Examples</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">OnReception</span></code></p></td>
+<td><p>Indicate a completed (or partial) reception of received data.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">CanIf_OnReception</span></code>, <code class="docutils literal notranslate"><span class="pre">Uart_Callout_OnReception</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">OnTransmission</span></code></p></td>
+<td><p>Confirm a previously requested transmission has completed.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">CanIf_OnTransmission</span></code>, <code class="docutils literal notranslate"><span class="pre">I2c_Callout_OnTransmission</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">OnError</span></code></p></td>
+<td><p>Notify a detected error or fault condition.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">I2c_Callout_OnError</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">OnChannelState</span></code></p></td>
+<td><p>Report a channel / bus state transition.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">CanIf_OnChannelState</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">OnWakeup</span></code></p></td>
+<td><p>Signal a detected wake-up event.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">LinIf_OnWakeup</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">OnEdgeDetection</span></code></p></td>
+<td><p>Report a detected signal edge.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Port_Callout_OnEdgeDetection</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<p>Not every callout notifies an event. A callout by which the driver <strong>requests an action</strong> of the
+integration code is named <code class="docutils literal notranslate"><span class="pre">&lt;Mip&gt;_Callout_&lt;Action&gt;</span></code> — for example <code class="docutils literal notranslate"><span class="pre">Spi_Callout_CsControl</span></code>, with
+which the SPI driver asks the integration code to assert or release a GPIO chip select. Keeping
+<code class="docutils literal notranslate"><span class="pre">On&lt;Event&gt;</span></code> for notifications means the name shows which way the obligation runs.</p>
+<p>The event list is open — a module names further events by keeping the <code class="docutils literal notranslate"><span class="pre">On&lt;Event&gt;</span></code> shape (e.g.
+<code class="docutils literal notranslate"><span class="pre">LinIf_OnHeader</span></code>, <code class="docutils literal notranslate"><span class="pre">I2c_Callout_OnAddress</span></code>, <code class="docutils literal notranslate"><span class="pre">Spi_Callout_OnTransactionEnd</span></code>). A worked callout file is in
+<a class="reference internal" href="guide/02_callout_file.html"><span class="doc">The Callout Stub File</span></a>.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Mind the missing infix. A function named <code class="docutils literal notranslate"><span class="pre">&lt;Mip&gt;_On&lt;Event&gt;</span></code> — with no <code class="docutils literal notranslate"><span class="pre">Callout</span></code> — is <strong>not</strong> a
+callout but an inbound notification <strong>service</strong>: the integration code calls <em>it</em> to tell the
+driver about an event the hardware cannot report on its own. <code class="docutils literal notranslate"><span class="pre">Spi_OnCs</span></code> is one; the integration
+code detects a chip-select edge and notifies the driver. Such a service is part of the driver’s
+API and carries a service id, and it is listed among the module’s services rather than its
+callouts. The infix is what tells the two apart.</p>
+</div>
+<p><em>Normative:</em> <a class="reference internal" href="04_requirements.html#CHI-GEN-MUST-15" title="CHI-GEN-MUST-15"><em class="xref need">CHI-GEN-MUST-15</em></a>.</p>
+</section>
+<section id="file-naming">
+<h2>File naming<a class="headerlink" href="#file-naming" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>File names are <strong>case-sensitive</strong> and <strong>unambiguous</strong> (two names must differ by more than letter
+case alone).</p></li>
+<li><p>Driver implementation files are named <code class="docutils literal notranslate"><span class="pre">&lt;Mip&gt;[_&lt;Ie&gt;]*.*</span></code>; the optional <code class="docutils literal notranslate"><span class="pre">&lt;Ie&gt;</span></code> part marks
+driver-internal files (e.g. the CAN ISR implementation lives in <code class="docutils literal notranslate"><span class="pre">Can_Irq.c</span></code>).</p></li>
+<li><p>Each driver header — other than the general types header — carries an include guard named after
+the file (e.g. <code class="docutils literal notranslate"><span class="pre">MEM_VENDOR_CODE_H</span></code> for <code class="docutils literal notranslate"><span class="pre">Mem_Vendor_Code.h</span></code>).</p></li>
+<li><p>The general types header contains only the types and definitions the respective driver
+specification defines. It is named <code class="docutils literal notranslate"><span class="pre">&lt;Ma&gt;If_DriverTypes.h</span></code> for a module delivered with an
+upper-layer interface stack, and <code class="docutils literal notranslate"><span class="pre">&lt;Ma&gt;_DriverTypes.h</span></code> for a module without one.</p></li>
+<li><p>A module that defines callouts ships their generated default implementations in
+<code class="docutils literal notranslate"><span class="pre">&lt;Mip&gt;_Callout_Stubs.c</span></code> — the file the integrator edits (see <a class="reference internal" href="guide/02_callout_file.html"><span class="doc">The Callout Stub File</span></a>).</p></li>
+</ul>
+<p><em>Normative:</em> <a class="reference internal" href="04_requirements.html#CHI-GEN-MUST-03" title="CHI-GEN-MUST-03"><em class="xref need">CHI-GEN-MUST-03</em></a>, <a class="reference internal" href="04_requirements.html#CHI-GEN-MUST-04" title="CHI-GEN-MUST-04"><em class="xref need">CHI-GEN-MUST-04</em></a>, <a class="reference internal" href="04_requirements.html#CHI-GEN-MUST-16" title="CHI-GEN-MUST-16"><em class="xref need">CHI-GEN-MUST-16</em></a>.</p>
+</section>
+<section id="source-files-at-a-glance">
+<h2>Source files at a glance<a class="headerlink" href="#source-files-at-a-glance" title="Link to this heading"></a></h2>
+<p>The driver files are the same either way; what differs is where the general types header comes from
+and who implements the functions the driver reports through.</p>
+<figure class="align-default" id="id1">
+<pre  class="mermaid">
+        flowchart BT
+    subgraph driver[&quot;Driver — &amp;lt;Mip&amp;gt;&quot;]
+        MipC[&quot;&amp;lt;Mip&amp;gt;.c — implementation&quot;]
+        MipH[&quot;&amp;lt;Mip&amp;gt;.h — public header (API + callout prototypes)&quot;]
+        CfgC[&quot;&amp;lt;Mip&amp;gt;_Cfg.c — generated config&quot;]
+        CfgH[&quot;&amp;lt;Mip&amp;gt;_Cfg.h — generated config header&quot;]
+        Ie[&quot;&amp;lt;Mip&amp;gt;_&amp;lt;Ie&amp;gt;.c / .h — optional internal files&quot;]
+    end
+    subgraph iface[&quot;With an upper-layer interface stack — &amp;lt;Ma&amp;gt;If&quot;]
+        direction LR
+        IfTypes[&quot;&amp;lt;Ma&amp;gt;If_DriverTypes.h — general types (spec only)&quot;]
+        IfH[&quot;&amp;lt;Ma&amp;gt;If.h — callback prototypes (&amp;lt;Ma&amp;gt;If_On*)&quot;]
+        IfC[&quot;&amp;lt;Ma&amp;gt;If.c — interface implementation&quot;]
+    end
+    subgraph nostack[&quot;Without an upper-layer interface stack&quot;]
+        direction LR
+        MaTypes[&quot;&amp;lt;Ma&amp;gt;_DriverTypes.h — general types (spec only)&quot;]
+        Stubs[&quot;&amp;lt;Mip&amp;gt;_Callout_Stubs.c — generated; integrator fills the user code blocks&quot;]
+    end
+
+    MipC --&gt; MipH
+    MipH --&gt; CfgH
+    CfgC --&gt; CfgH
+    CfgC --&gt; MipH
+    MipC -.-&gt;|&quot;with a stack&quot;| IfTypes
+    MipC -.-&gt;|&quot;if callbacks used&quot;| IfH
+    MipC -.-&gt;|&quot;without a stack&quot;| MaTypes
+    Stubs -.-&gt;|&quot;implements the callouts declared in&quot;| MipH
+    </pre><figcaption>
+<p><span class="caption-text">Source files of a driver and how they include one another (solid = always, dashed = only for that kind of module). Generated config files come from the module generator. A module with an upper-layer stack takes its general types from &lt;Ma&gt;If_DriverTypes.h and reports through &lt;Ma&gt;If.h; a module without one takes them from &lt;Ma&gt;_DriverTypes.h and declares its callouts in &lt;Mip&gt;.h, which the integrator implements in the generated &lt;Mip&gt;_Callout_Stubs.c. A driver may add &lt;Mip&gt;_&lt;Ie&gt; internal files (e.g. Can_Irq.c).</span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="include-discipline">
+<h2>Include discipline<a class="headerlink" href="#include-discipline" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>A driver imports <strong>only</strong> the headers it needs to realise its functionality, and exports <strong>only</strong>
+the information other modules need to use it.</p></li>
+<li><p>A driver imports its own header, so the compiler checks the declarations against the definitions
+(consistency check).</p></li>
+</ul>
+<p><em>Normative:</em> <a class="reference internal" href="04_requirements.html#CHI-GEN-MUST-05" title="CHI-GEN-MUST-05"><em class="xref need">CHI-GEN-MUST-05</em></a>.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="01_architecture.html" class="btn btn-neutral float-left" title="Architecture and Layering" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="03_integration.html" class="btn btn-neutral float-right" title="Integration Guidelines" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026 by Vector Informatik GmbH and Infineon Technologies AG. All rights reserved.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

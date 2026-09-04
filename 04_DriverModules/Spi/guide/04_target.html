@@ -1,0 +1,209 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Target transactions &mdash; Chiisai HAL Specification  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css?v=4ae1632d" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-data-viewer/jsonview.bundle.css?v=f6ef2277" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/libs/html/datatables.min.css?v=4b4fd840" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/common_css/needstable.css?v=5e1b6797" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/common_css/need_core.css?v=f5b60a78" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/common_css/need_links.css?v=2150a916" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/common_css/need_style.css?v=92936fa5" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/common_css/need_toggle.css?v=5c6620df" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/modern.css?v=803738c0" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=4f645179" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
+      <script src="../../../_static/sphinx-data-viewer/jsonview.bundle.js?v=18cd53c5"></script>
+      <script src="../../../_static/sphinx-data-viewer/jsonview_loader.js?v=f7ff7e7d"></script>
+      <script src="../../../_static/sphinx-needs/libs/html/datatables.min.js?v=8a4aee21"></script>
+      <script src="../../../_static/sphinx-needs/libs/html/datatables_loader.js?v=a2cae175"></script>
+      <script src="../../../_static/sphinx-needs/libs/html/sphinx_needs_collapse.js?v=dca66431"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Common mistakes" href="05_common_mistakes.html" />
+    <link rel="prev" title="Controller transactions" href="03_controller.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            Chiisai HAL Specification
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../00_about/index.html">About This Specification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../01_general/index.html">General</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Chiisai HAL Driver Modules</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../Can/index.html">Can</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../I2c/index.html">I2c</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Lin/index.html">Lin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Mcu/index.html">Mcu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Mem/index.html">Mem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Port/index.html">Port</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Spi</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../general/index.html">General</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">Guide</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="00_quickstart.html">Quickstart</a></li>
+<li class="toctree-l4"><a class="reference internal" href="01_configuration.html">Configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="02_initialise.html">Initialize the driver</a></li>
+<li class="toctree-l4"><a class="reference internal" href="03_controller.html">Controller transactions</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Target transactions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="05_common_mistakes.html">Common mistakes</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../reference/index.html">Reference</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../00_requirements.html">Spi — Requirements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01_design_decisions.html">Design Decisions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../Uart/index.html">Uart</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Wdg/index.html">Wdg</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../appendix.html">Appendix</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Chiisai HAL Specification</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Chiisai HAL Driver Modules</a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Spi</a></li>
+          <li class="breadcrumb-item"><a href="index.html">Guide</a></li>
+      <li class="breadcrumb-item active">Target transactions</li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="target-transactions">
+<h1>Target transactions<a class="headerlink" href="#target-transactions" title="Link to this heading"></a></h1>
+<div class="informative admonition">
+<p class="admonition-title">Informative</p>
+<p>How a target-mode channel responds to a controller on the bus. Binding rules: <a class="reference internal" href="../00_requirements.html#CHI-SPI-MUST-02" title="CHI-SPI-MUST-02"><em class="xref need">CHI-SPI-MUST-02</em></a>,
+<a class="reference internal" href="../00_requirements.html#CHI-SPI-MUST-08" title="CHI-SPI-MUST-08"><em class="xref need">CHI-SPI-MUST-08</em></a>, <a class="reference internal" href="../00_requirements.html#CHI-SPI-MUST-15" title="CHI-SPI-MUST-15"><em class="xref need">CHI-SPI-MUST-15</em></a>, <a class="reference internal" href="../00_requirements.html#CHI-SPI-MUST-17" title="CHI-SPI-MUST-17"><em class="xref need">CHI-SPI-MUST-17</em></a>, and <a class="reference internal" href="../00_requirements.html#CHI-SPI-SHOULD-01" title="CHI-SPI-SHOULD-01"><em class="xref need">CHI-SPI-SHOULD-01</em></a> in
+<a class="reference internal" href="../00_requirements.html"><span class="doc">Spi — Requirements</span></a>.</p>
+</div>
+<section id="stage-a-response-ahead-of-time">
+<h2>Stage a response ahead of time<a class="headerlink" href="#stage-a-response-ahead-of-time" title="Link to this heading"></a></h2>
+<p>A target cannot know when the controller will select it, so you <strong>stage</strong> the next transaction in
+advance with <code class="docutils literal notranslate"><span class="pre">Spi_StartTransaction</span></code> — passing <code class="docutils literal notranslate"><span class="pre">SPI_CS_UNSPECIFIED</span></code> as the <code class="docutils literal notranslate"><span class="pre">csId</span></code> (the target’s
+chip select is fixed by configuration):</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">static</span><span class="w"> </span><span class="n">uint8</span><span class="w"> </span><span class="n">reply</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mh">0xDEu</span><span class="p">,</span><span class="w"> </span><span class="mh">0xADu</span><span class="p">,</span><span class="w"> </span><span class="mh">0xBEu</span><span class="p">,</span><span class="w"> </span><span class="mh">0xEFu</span><span class="w"> </span><span class="p">};</span>
+<span class="k">static</span><span class="w"> </span><span class="n">Spi_BufferType</span><span class="w"> </span><span class="n">txChunks</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">reply</span><span class="p">,</span><span class="w"> </span><span class="mi">4u</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">};</span>
+<span class="k">static</span><span class="w"> </span><span class="n">Spi_BufferSetType</span><span class="w"> </span><span class="n">txSet</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">txChunks</span><span class="p">,</span><span class="w"> </span><span class="mi">1u</span><span class="w"> </span><span class="p">};</span>
+
+<span class="n">Spi_StartTransaction</span><span class="p">(</span><span class="mi">1u</span><span class="p">,</span><span class="w"> </span><span class="n">SPI_CS_UNSPECIFIED</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">txSet</span><span class="p">,</span><span class="w"> </span><span class="n">NULL_PTR</span><span class="p">);</span><span class="w">   </span><span class="cm">/* channel -&gt; READY */</span>
+</pre></div>
+</div>
+<p>When the controller selects the target, the driver transfers the staged data. On completion it
+calls <code class="docutils literal notranslate"><span class="pre">Spi_Callout_OnTransactionEnd</span></code>, where you can stage the next response.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">Spi_Callout_OnTransactionEnd</span><span class="p">(</span><span class="n">uint8</span><span class="w"> </span><span class="n">channelId</span><span class="p">,</span><span class="w"> </span><span class="n">uint8</span><span class="w"> </span><span class="n">csId</span><span class="p">,</span><span class="w"> </span><span class="n">uint16</span><span class="w"> </span><span class="n">length</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="cm">/* controller finished a transaction; stage the next one if you have data */</span>
+<span class="w">    </span><span class="n">Spi_StartTransaction</span><span class="p">(</span><span class="n">channelId</span><span class="p">,</span><span class="w"> </span><span class="n">SPI_CS_UNSPECIFIED</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">txSet</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">rxSet</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>If no buffer is staged when the controller selects the target, the target sends <code class="docutils literal notranslate"><span class="pre">default_data</span></code> and
+ignores what it receives — but <code class="docutils literal notranslate"><span class="pre">Spi_Callout_OnTransactionEnd</span></code> still fires (with <code class="docutils literal notranslate"><span class="pre">length</span> <span class="pre">=</span> <span class="pre">0</span></code>).</p>
+</section>
+<section id="cancel-a-staged-transaction">
+<h2>Cancel a staged transaction<a class="headerlink" href="#cancel-a-staged-transaction" title="Link to this heading"></a></h2>
+<p>If the staged data has gone stale (no controller request arrived in time), cancel it and stage
+fresh data. Cancellation only affects a transaction that has <strong>not</strong> yet started on the bus:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">Std_ReturnType</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Spi_CancelTransaction</span><span class="p">(</span><span class="mi">1u</span><span class="p">);</span>
+<span class="cm">/* E_OK: nothing was staged, or the staged (not-yet-started) transaction was cancelled</span>
+<span class="cm">   E_NOT_OK: the transaction had already started -&gt; cannot cancel */</span>
+</pre></div>
+</div>
+</section>
+<section id="cs-detection-without-hardware-support">
+<h2>CS detection without hardware support<a class="headerlink" href="#cs-detection-without-hardware-support" title="Link to this heading"></a></h2>
+<p>If the SPI hardware cannot detect chip-select deactivation, the integration code tells the driver
+the transaction has ended by calling <code class="docutils literal notranslate"><span class="pre">Spi_OnCs</span></code> (typically from a GPIO edge-detection interrupt):</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cm">/* on the CS edge interrupt for this target */</span>
+<span class="n">Spi_OnCs</span><span class="p">(</span><span class="mi">1u</span><span class="p">,</span><span class="w"> </span><span class="n">csId</span><span class="p">,</span><span class="w"> </span><span class="n">FALSE</span><span class="p">);</span><span class="w">   </span><span class="cm">/* FALSE = CS deactivated -&gt; driver calls Spi_Callout_OnTransactionEnd */</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">FALSE</span></code> (deactivation) is mandatory when <code class="docutils literal notranslate"><span class="pre">Spi_OnCs</span></code> is used; <code class="docutils literal notranslate"><span class="pre">TRUE</span></code> (activation) is optional.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>Data consistency.</strong> Buffer sets you hand to <code class="docutils literal notranslate"><span class="pre">Spi_StartTransaction</span></code> must stay valid and
+unmodified until <code class="docutils literal notranslate"><span class="pre">Spi_Callout_OnTransactionEnd</span></code> fires (<a class="reference internal" href="../00_requirements.html#CHI-SPI-MUST-13" title="CHI-SPI-MUST-13"><em class="xref need">CHI-SPI-MUST-13</em></a>).</p>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="03_controller.html" class="btn btn-neutral float-left" title="Controller transactions" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="05_common_mistakes.html" class="btn btn-neutral float-right" title="Common mistakes" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026 by Vector Informatik GmbH and Infineon Technologies AG. All rights reserved.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

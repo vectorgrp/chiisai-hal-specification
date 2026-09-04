@@ -1,0 +1,989 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>API Reference &mdash; Chiisai HAL Specification  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css?v=4ae1632d" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-data-viewer/jsonview.bundle.css?v=f6ef2277" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/libs/html/datatables.min.css?v=4b4fd840" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/common_css/needstable.css?v=5e1b6797" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/common_css/need_core.css?v=f5b60a78" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/common_css/need_links.css?v=2150a916" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/common_css/need_style.css?v=92936fa5" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/common_css/need_toggle.css?v=5c6620df" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/modern.css?v=803738c0" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=4f645179" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
+      <script src="../../../_static/sphinx-data-viewer/jsonview.bundle.js?v=18cd53c5"></script>
+      <script src="../../../_static/sphinx-data-viewer/jsonview_loader.js?v=f7ff7e7d"></script>
+      <script src="../../../_static/sphinx-needs/libs/html/datatables.min.js?v=8a4aee21"></script>
+      <script src="../../../_static/sphinx-needs/libs/html/datatables_loader.js?v=a2cae175"></script>
+      <script src="../../../_static/sphinx-needs/libs/html/sphinx_needs_collapse.js?v=dca66431"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Configuration Reference" href="01_configuration.html" />
+    <link rel="prev" title="Reference" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            Chiisai HAL Specification
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../00_about/index.html">About This Specification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../01_general/index.html">General</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Chiisai HAL Driver Modules</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Can</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../general/index.html">General</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../guide/index.html">Guide</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">Reference</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">API Reference</a></li>
+<li class="toctree-l4"><a class="reference internal" href="01_configuration.html">Configuration Reference</a></li>
+<li class="toctree-l4"><a class="reference internal" href="02_errors.html">Errors</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../00_requirements.html">Can — Requirements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01_design_decisions.html">Design Decisions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../I2c/index.html">I2c</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Lin/index.html">Lin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Mcu/index.html">Mcu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Mem/index.html">Mem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Port/index.html">Port</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Spi/index.html">Spi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Uart/index.html">Uart</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Wdg/index.html">Wdg</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../appendix.html">Appendix</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Chiisai HAL Specification</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Chiisai HAL Driver Modules</a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Can</a></li>
+          <li class="breadcrumb-item"><a href="index.html">Reference</a></li>
+      <li class="breadcrumb-item active">API Reference</li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="api-reference">
+<h1>API Reference<a class="headerlink" href="#api-reference" title="Link to this heading"></a></h1>
+<div class="normative admonition">
+<p class="admonition-title">Normative</p>
+<p>The CAN driver API contract. A conformant driver <strong>MUST</strong> provide these types and functions
+with the behavior described. Signatures and member documentation are extracted from the driver
+headers with Doxygen/Breathe, so code and specification stay in sync. Expand a group below.
+Keywords per <a class="reference internal" href="../../../00_about/01_keywords.html"><span class="doc">Requirement Keywords</span></a>; behavioral rules in <a class="reference internal" href="../00_requirements.html"><span class="doc">Can — Requirements</span></a>; error
+codes in <a class="reference internal" href="02_errors.html"><span class="doc">Errors</span></a>.</p>
+</div>
+<p class="rubric">Data types at a glance</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 32.0%" />
+<col style="width: 13.0%" />
+<col style="width: 55.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Type</p></th>
+<th class="head"><p>Kind</p></th>
+<th class="head"><p>Purpose</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference internal" href="#can-api-can-configtype"><span class="std std-ref">Can_ConfigType</span></a></p></td>
+<td><p>struct</p></td>
+<td><p>Root configuration structure passed to <code class="docutils literal notranslate"><span class="pre">Can_Init</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#can-api-can-pduinfotype"><span class="std std-ref">Can_PduInfoType</span></a></p></td>
+<td><p>struct</p></td>
+<td><p>L-PDU descriptor (id, length, data pointer) for transmit and receive.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#can-api-can-frameidtype"><span class="std std-ref">Can_FrameIdType</span></a></p></td>
+<td><p>typedef</p></td>
+<td><p>Frame identifier; the two MSBs select frame and ID type.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#can-api-can-mailboxidtype"><span class="std std-ref">Can_MailboxIdType</span></a></p></td>
+<td><p>typedef</p></td>
+<td><p>Hardware mailbox / message-object handle.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#can-api-can-messageinfotype"><span class="std std-ref">Can_MessageInfoType</span></a></p></td>
+<td><p>struct</p></td>
+<td><p>Metadata for a received frame (channel, frame/ID type).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#can-api-can-channelstatetype"><span class="std std-ref">Can_ChannelStateType</span></a></p></td>
+<td><p>enum</p></td>
+<td><p>Channel states (<code class="docutils literal notranslate"><span class="pre">UNINIT</span></code> / <code class="docutils literal notranslate"><span class="pre">STOPPED</span></code> / <code class="docutils literal notranslate"><span class="pre">STARTED</span></code> / <code class="docutils literal notranslate"><span class="pre">SLEEP</span></code>).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#can-api-can-errortype"><span class="std std-ref">Can_ErrorType</span></a></p></td>
+<td><p>enum</p></td>
+<td><p>Error codes reported via <code class="docutils literal notranslate"><span class="pre">CanIf_OnError</span></code> (e.g. bus-off).</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">API at a glance</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 30.0%" />
+<col style="width: 32.0%" />
+<col style="width: 38.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Function</p></th>
+<th class="head"><p>Group</p></th>
+<th class="head"><p>Purpose</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference internal" href="#can-api-can-init"><span class="std std-ref">Can_Init</span></a></p></td>
+<td><p>Initialization and shutdown</p></td>
+<td><p>Initialize the driver and every channel.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#can-api-can-deinit"><span class="std std-ref">Can_DeInit</span></a></p></td>
+<td><p>Initialization and shutdown</p></td>
+<td><p>De-initialize the driver and hardware.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#can-api-can-transmit"><span class="std std-ref">Can_Transmit</span></a></p></td>
+<td><p>Transmission</p></td>
+<td><p>Queue a frame for transmission on a started channel.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#can-api-can-getchannelstate"><span class="std std-ref">Can_GetChannelState</span></a></p></td>
+<td><p>Channel state and baudrate</p></td>
+<td><p>Read a channel’s current state.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#can-api-can-setchannelstate"><span class="std std-ref">Can_SetChannelState</span></a></p></td>
+<td><p>Channel state and baudrate</p></td>
+<td><p>Request a channel state transition.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#can-api-can-setbaudrate"><span class="std std-ref">Can_SetBaudrate</span></a></p></td>
+<td><p>Channel state and baudrate</p></td>
+<td><p>Select a preconfigured baudrate set (optional feature).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#can-api-can-pollfunction"><span class="std std-ref">Can_PollFunction</span></a></p></td>
+<td><p>Scheduling and interrupt</p></td>
+<td><p>Poll TX-completion and RX events (high frequency).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#can-api-can-cyclicfunction"><span class="std std-ref">Can_CyclicFunction</span></a></p></td>
+<td><p>Scheduling and interrupt</p></td>
+<td><p>Poll bus-off/errors and state-transition completion (≥ 1 ms).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#can-api-can-interrupt"><span class="std std-ref">Can_Interrupt</span></a></p></td>
+<td><p>Scheduling and interrupt</p></td>
+<td><p>Driver interrupt service routine.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Expected interfaces at a glance</p>
+<p>Upper-layer / integration interfaces the integrator <strong>MUST</strong> provide (<a class="reference internal" href="../00_requirements.html#CHI-CAN-MUST-25" title="CHI-CAN-MUST-25"><em class="xref need">CHI-CAN-MUST-25</em></a>); see the
+<a class="reference internal" href="#can-api-expected-interfaces"><span class="std std-ref">Expected interfaces</span></a> group below for signatures.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 28.0%" />
+<col style="width: 20.0%" />
+<col style="width: 52.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Function</p></th>
+<th class="head"><p>Kind</p></th>
+<th class="head"><p>Purpose</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference internal" href="#can-api-canif-ontransmission"><span class="std std-ref">CanIf_OnTransmission</span></a></p></td>
+<td><p>CAN-specific</p></td>
+<td><p>Confirms a successfully transmitted CAN TxPDU.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#can-api-canif-onreception"><span class="std std-ref">CanIf_OnReception</span></a></p></td>
+<td><p>CAN-specific</p></td>
+<td><p>Indicates a successfully received CAN Rx L-PDU.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#can-api-canif-onchannelstate"><span class="std std-ref">CanIf_OnChannelState</span></a></p></td>
+<td><p>CAN-specific</p></td>
+<td><p>Indicates a channel state transition.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#can-api-canif-onerror"><span class="std std-ref">CanIf_OnError</span></a></p></td>
+<td><p>CAN-specific</p></td>
+<td><p>Indicates an error event (e.g. bus-off).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="../../../01_general/reference/02_services.html#gen-ref-logm"><span class="std std-ref">LogM_Report</span></a></p></td>
+<td><p>Common</p></td>
+<td><p>Reports channel HW errors (e.g. ECC error, lost frame) with a log level.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;Mip&gt;_EnterCriticalSection</span></code> / <code class="docutils literal notranslate"><span class="pre">&lt;Mip&gt;_ExitCriticalSection</span></code></p></td>
+<td><p>Common (optional)</p></td>
+<td><p>Bracket sections requiring exclusive access, if used — see
+<a class="reference internal" href="../../../01_general/reference/02_services.html#gen-ref-critical-section"><span class="std std-ref">critical sections</span></a>.</p></td>
+</tr>
+</tbody>
+</table>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-list-unordered" viewBox="0 0 16 16" aria-hidden="true"><path d="M5.75 2.5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5Zm0 5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5Zm0 5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5ZM2 14a1 1 0 1 1 0-2 1 1 0 0 1 0 2Zm1-6a1 1 0 1 1-2 0 1 1 0 0 1 2 0ZM2 4a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg></span><span class="sd-summary-text">Data types</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils" id="can-api-can-configtype">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Can_ConfigType</div>
+<dl class="cpp struct">
+<dt class="sig sig-object cpp" id="_CPPv414Can_ConfigType">
+<span id="_CPPv314Can_ConfigType"></span><span id="_CPPv214Can_ConfigType"></span><span id="Can_ConfigType"></span><span class="target" id="struct_can___config_type"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Can_ConfigType</span></span></span><a class="headerlink" href="#_CPPv414Can_ConfigType" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">This data structure type contains the global initialization data for the CAN driver, including SFR (Special Function Register) settings that apply to all channels. Additionally, it holds pointers to the channel-specific configuration structures. The contents of this initialization structure are specific to the CAN hardware. </p>
+</dd></dl>
+
+<p class="sd-card-text"><em>Available via:</em> <code class="docutils literal notranslate"><span class="pre">Can.h</span></code></p>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils" id="can-api-can-pduinfotype">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Can_PduInfoType</div>
+<dl class="cpp struct">
+<dt class="sig sig-object cpp" id="_CPPv415Can_PduInfoType">
+<span id="_CPPv315Can_PduInfoType"></span><span id="_CPPv215Can_PduInfoType"></span><span id="Can_PduInfoType"></span><span class="target" id="struct_can___pdu_info_type"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Can_PduInfoType</span></span></span><a class="headerlink" href="#_CPPv415Can_PduInfoType" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">This type unites PDU ID (pduId), Length (length), SduData (sduPtr), and Frame ID (frameId) for any <a class="reference internal" href="../../../appendix.html#term-CAN-L-SDU"><span class="xref std std-term">CAN L-SDU</span></a>. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N15Can_PduInfoType5pduIdE">
+<span id="_CPPv3N15Can_PduInfoType5pduIdE"></span><span id="_CPPv2N15Can_PduInfoType5pduIdE"></span><span id="Can_PduInfoType::pduId__PduIdType"></span><span class="target" id="struct_can___pdu_info_type_1aeda3bbbd432684ee4c78d3893cb62c1c"></span><span class="n"><span class="pre">PduIdType</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">pduId</span></span></span><a class="headerlink" href="#_CPPv4N15Can_PduInfoType5pduIdE" title="Link to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N15Can_PduInfoType6lengthE">
+<span id="_CPPv3N15Can_PduInfoType6lengthE"></span><span id="_CPPv2N15Can_PduInfoType6lengthE"></span><span id="Can_PduInfoType::length__uint8"></span><span class="target" id="struct_can___pdu_info_type_1a5c5f6f3466639d7aae52519af1c2902c"></span><span class="n"><span class="pre">uint8</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">length</span></span></span><a class="headerlink" href="#_CPPv4N15Can_PduInfoType6lengthE" title="Link to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N15Can_PduInfoType7frameIdE">
+<span id="_CPPv3N15Can_PduInfoType7frameIdE"></span><span id="_CPPv2N15Can_PduInfoType7frameIdE"></span><span id="Can_PduInfoType::frameId__Can_FrameIdType"></span><span class="target" id="struct_can___pdu_info_type_1a630ad46f931f671b91d313b45516a83e"></span><a class="reference internal" href="#_CPPv415Can_FrameIdType" title="Can_FrameIdType"><span class="n"><span class="pre">Can_FrameIdType</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">frameId</span></span></span><a class="headerlink" href="#_CPPv4N15Can_PduInfoType7frameIdE" title="Link to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N15Can_PduInfoType6sduPtrE">
+<span id="_CPPv3N15Can_PduInfoType6sduPtrE"></span><span id="_CPPv2N15Can_PduInfoType6sduPtrE"></span><span id="Can_PduInfoType::sduPtr__uint8P"></span><span class="target" id="struct_can___pdu_info_type_1af78326b533faa75ee8e0468f750f1c69"></span><span class="n"><span class="pre">uint8</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">sduPtr</span></span></span><a class="headerlink" href="#_CPPv4N15Can_PduInfoType6sduPtrE" title="Link to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+<p class="sd-card-text"><em>Available via:</em> <code class="docutils literal notranslate"><span class="pre">CanIf_DriverTypes.h</span></code></p>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils" id="can-api-can-frameidtype">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Can_FrameIdType</div>
+<dl class="cpp type">
+<dt class="sig sig-object cpp" id="_CPPv415Can_FrameIdType">
+<span id="_CPPv315Can_FrameIdType"></span><span id="_CPPv215Can_FrameIdType"></span><span id="Can_FrameIdType"></span><span class="target" id="_can_if___driver_types_8h_1a481cac499da0920715c0a36a34e912b7"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="n"><span class="pre">uint32</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Can_FrameIdType</span></span></span><a class="headerlink" href="#_CPPv415Can_FrameIdType" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">This represents the Identifier of an L-PDU. The two most significant bits define the frame type: 00 CAN frame with Standard CAN ID, 01 CAN FD frame with Standard CAN ID, 10 CAN frame with Extended CAN ID, 11 CAN FD frame with Extended CAN ID. </p>
+<p class="sd-card-text"><dl class="simple">
+<dt><strong>Range:</strong></dt><dd><p class="sd-card-text"><ul class="simple">
+<li><p class="sd-card-text">0..0x400007FF - Standard32Bit</p></li>
+<li><p class="sd-card-text">0..0xDFFFFFFF - Extended32Bit </p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<p class="sd-card-text">The two most significant bits select frame and ID type; see <a class="reference internal" href="../00_requirements.html#CHI-CAN-MUST-12" title="CHI-CAN-MUST-12"><em class="xref need">CHI-CAN-MUST-12</em></a> in
+<a class="reference internal" href="../00_requirements.html"><span class="doc">Can — Requirements</span></a>. <em>Available via:</em> <code class="docutils literal notranslate"><span class="pre">CanIf_DriverTypes.h</span></code></p>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils" id="can-api-can-mailboxidtype">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Can_MailboxIdType</div>
+<dl class="cpp type">
+<dt class="sig sig-object cpp" id="_CPPv417Can_MailboxIdType">
+<span id="_CPPv317Can_MailboxIdType"></span><span id="_CPPv217Can_MailboxIdType"></span><span id="Can_MailboxIdType"></span><span class="target" id="_can_if___driver_types_8h_1a9f1c2525601dc0ed7fc36b8efe713564"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="n"><span class="pre">uint16</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Can_MailboxIdType</span></span></span><a class="headerlink" href="#_CPPv417Can_MailboxIdType" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">Represents the mailbox IDs of a <a class="reference internal" href="../../../appendix.html#term-Bus-controller"><span class="xref std std-term">CAN controller</span></a>. </p>
+<p class="sd-card-text"><dl class="simple">
+<dt><strong>Range:</strong></dt><dd><p class="sd-card-text"><ul class="simple">
+<li><p class="sd-card-text">0..0xFFFF - Mailbox ID </p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<p class="sd-card-text"><em>Available via:</em> <code class="docutils literal notranslate"><span class="pre">CanIf_DriverTypes.h</span></code></p>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils" id="can-api-can-messageinfotype">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Can_MessageInfoType</div>
+<dl class="cpp struct">
+<dt class="sig sig-object cpp" id="_CPPv419Can_MessageInfoType">
+<span id="_CPPv319Can_MessageInfoType"></span><span id="_CPPv219Can_MessageInfoType"></span><span id="Can_MessageInfoType"></span><span class="target" id="struct_can___message_info_type"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Can_MessageInfoType</span></span></span><a class="headerlink" href="#_CPPv419Can_MessageInfoType" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">This type defines a data structure which provides an MailboxID including its corresponding <a class="reference internal" href="../../../appendix.html#term-Bus-Channel"><span class="xref std std-term">CAN channel</span></a> and therefore CanDrv as well as the specific FrameID. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N19Can_MessageInfoType7frameIdE">
+<span id="_CPPv3N19Can_MessageInfoType7frameIdE"></span><span id="_CPPv2N19Can_MessageInfoType7frameIdE"></span><span id="Can_MessageInfoType::frameId__Can_FrameIdType"></span><span class="target" id="struct_can___message_info_type_1acff414b3ff009cbbff896cf6fc658f53"></span><a class="reference internal" href="#_CPPv415Can_FrameIdType" title="Can_FrameIdType"><span class="n"><span class="pre">Can_FrameIdType</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">frameId</span></span></span><a class="headerlink" href="#_CPPv4N19Can_MessageInfoType7frameIdE" title="Link to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N19Can_MessageInfoType9mailboxIdE">
+<span id="_CPPv3N19Can_MessageInfoType9mailboxIdE"></span><span id="_CPPv2N19Can_MessageInfoType9mailboxIdE"></span><span id="Can_MessageInfoType::mailboxId__Can_MailboxIdType"></span><span class="target" id="struct_can___message_info_type_1ae970454fcd1c1575f9a49b9b041a3bb6"></span><a class="reference internal" href="#_CPPv417Can_MailboxIdType" title="Can_MailboxIdType"><span class="n"><span class="pre">Can_MailboxIdType</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">mailboxId</span></span></span><a class="headerlink" href="#_CPPv4N19Can_MessageInfoType9mailboxIdE" title="Link to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N19Can_MessageInfoType9channelIdE">
+<span id="_CPPv3N19Can_MessageInfoType9channelIdE"></span><span id="_CPPv2N19Can_MessageInfoType9channelIdE"></span><span id="Can_MessageInfoType::channelId__uint8"></span><span class="target" id="struct_can___message_info_type_1a36a119f341374da3507141ee063d9e6c"></span><span class="n"><span class="pre">uint8</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">channelId</span></span></span><a class="headerlink" href="#_CPPv4N19Can_MessageInfoType9channelIdE" title="Link to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+<p class="sd-card-text"><em>Available via:</em> <code class="docutils literal notranslate"><span class="pre">CanIf_DriverTypes.h</span></code></p>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils" id="can-api-can-channelstatetype">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Can_ChannelStateType</div>
+<dl class="cpp enum">
+<dt class="sig sig-object cpp" id="_CPPv420Can_ChannelStateType">
+<span id="_CPPv320Can_ChannelStateType"></span><span id="_CPPv220Can_ChannelStateType"></span><span class="target" id="_can_if___driver_types_8h_1a029acbf81b04a3ad2874d36ab6b0b6fd"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Can_ChannelStateType</span></span></span><a class="headerlink" href="#_CPPv420Can_ChannelStateType" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">States that are used by the several ChannelState functions. </p>
+<p class="sd-card-text"><em>Values:</em></p>
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N20Can_ChannelStateType19CAN_CH_STATE_UNINITE">
+<span id="_CPPv3N20Can_ChannelStateType19CAN_CH_STATE_UNINITE"></span><span id="_CPPv2N20Can_ChannelStateType19CAN_CH_STATE_UNINITE"></span><span class="target" id="_can_if___driver_types_8h_1a029acbf81b04a3ad2874d36ab6b0b6fda5b171aacb7d1e6d23202248d2c5d4635"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">CAN_CH_STATE_UNINIT</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0x00</span></span><a class="headerlink" href="#_CPPv4N20Can_ChannelStateType19CAN_CH_STATE_UNINITE" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text"><a class="reference internal" href="../../../appendix.html#term-Bus-Channel"><span class="xref std std-term">CAN channel</span></a> state UNINIT </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N20Can_ChannelStateType20CAN_CH_STATE_STARTEDE">
+<span id="_CPPv3N20Can_ChannelStateType20CAN_CH_STATE_STARTEDE"></span><span id="_CPPv2N20Can_ChannelStateType20CAN_CH_STATE_STARTEDE"></span><span class="target" id="_can_if___driver_types_8h_1a029acbf81b04a3ad2874d36ab6b0b6fdae3a688f9c0515cacf158c410e80348a3"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">CAN_CH_STATE_STARTED</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0x01</span></span><a class="headerlink" href="#_CPPv4N20Can_ChannelStateType20CAN_CH_STATE_STARTEDE" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text"><a class="reference internal" href="../../../appendix.html#term-Bus-Channel"><span class="xref std std-term">CAN channel</span></a> state STARTED </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N20Can_ChannelStateType20CAN_CH_STATE_STOPPEDE">
+<span id="_CPPv3N20Can_ChannelStateType20CAN_CH_STATE_STOPPEDE"></span><span id="_CPPv2N20Can_ChannelStateType20CAN_CH_STATE_STOPPEDE"></span><span class="target" id="_can_if___driver_types_8h_1a029acbf81b04a3ad2874d36ab6b0b6fda65c2b742251aafefe80a93ecfdca6691"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">CAN_CH_STATE_STOPPED</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0x02</span></span><a class="headerlink" href="#_CPPv4N20Can_ChannelStateType20CAN_CH_STATE_STOPPEDE" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text"><a class="reference internal" href="../../../appendix.html#term-Bus-Channel"><span class="xref std std-term">CAN channel</span></a> state STOPPED </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N20Can_ChannelStateType18CAN_CH_STATE_SLEEPE">
+<span id="_CPPv3N20Can_ChannelStateType18CAN_CH_STATE_SLEEPE"></span><span id="_CPPv2N20Can_ChannelStateType18CAN_CH_STATE_SLEEPE"></span><span class="target" id="_can_if___driver_types_8h_1a029acbf81b04a3ad2874d36ab6b0b6fda9d59230345cc2d3981ac903e5bb60e42"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">CAN_CH_STATE_SLEEP</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0x03</span></span><a class="headerlink" href="#_CPPv4N20Can_ChannelStateType18CAN_CH_STATE_SLEEPE" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text"><a class="reference internal" href="../../../appendix.html#term-Bus-Channel"><span class="xref std std-term">CAN channel</span></a> state SLEEP </p>
+</dd></dl>
+
+</dd></dl>
+
+<p class="sd-card-text"><em>Available via:</em> <code class="docutils literal notranslate"><span class="pre">CanIf_DriverTypes.h</span></code></p>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils" id="can-api-can-errortype">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Can_ErrorType</div>
+<dl class="cpp enum">
+<dt class="sig sig-object cpp" id="_CPPv413Can_ErrorType">
+<span id="_CPPv313Can_ErrorType"></span><span id="_CPPv213Can_ErrorType"></span><span class="target" id="_can_if___driver_types_8h_1acf31a6c40300f9c1316e2adf0e0603a5"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Can_ErrorType</span></span></span><a class="headerlink" href="#_CPPv413Can_ErrorType" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">CanDrv error type to be reported to <a class="reference internal" href="../../../appendix.html#term-interface"><span class="xref std std-term">interface</span></a> layer. </p>
+<p class="sd-card-text"><em>Values:</em></p>
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N13Can_ErrorType15CAN_ERR_BUS_OFFE">
+<span id="_CPPv3N13Can_ErrorType15CAN_ERR_BUS_OFFE"></span><span id="_CPPv2N13Can_ErrorType15CAN_ERR_BUS_OFFE"></span><span class="target" id="_can_if___driver_types_8h_1acf31a6c40300f9c1316e2adf0e0603a5aa88530f4a958051cb64b368c2430cdad"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">CAN_ERR_BUS_OFF</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0x01</span></span><a class="headerlink" href="#_CPPv4N13Can_ErrorType15CAN_ERR_BUS_OFFE" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">Specifies the bus-off occurs </p>
+</dd></dl>
+
+</dd></dl>
+
+<p class="sd-card-text"><em>Available via:</em> <code class="docutils literal notranslate"><span class="pre">CanIf_DriverTypes.h</span></code></p>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">PduIdType</span></code>, <code class="docutils literal notranslate"><span class="pre">PduInfoType</span></code>, and <code class="docutils literal notranslate"><span class="pre">PduLengthType</span></code> are not part of the CAN driver; they are
+defined in the <a class="reference internal" href="../../../01_general/reference/00_types.html#gen-ref-comstack-types"><span class="std std-ref">general reference</span></a>.</p>
+</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0ZM1.5 8a6.5 6.5 0 1 0 13 0 6.5 6.5 0 0 0-13 0Zm4.879-2.773 4.264 2.559a.25.25 0 0 1 0 .428l-4.264 2.559A.25.25 0 0 1 6 10.559V5.442a.25.25 0 0 1 .379-.215Z"></path></svg></span><span class="sd-summary-text">Initialization and shutdown</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils" id="can-api-can-init">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Can_Init</div>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv48Can_InitPK14Can_ConfigType">
+<span id="_CPPv38Can_InitPK14Can_ConfigType"></span><span id="_CPPv28Can_InitPK14Can_ConfigType"></span><span id="Can_Init__Can_ConfigTypeCP"></span><span class="target" id="_can_8h_1a31bf9cecaaa2ff6c23cbd887e67e4eee"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Can_Init</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv414Can_ConfigType" title="Can_ConfigType"><span class="n"><span class="pre">Can_ConfigType</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">configPtr</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv48Can_InitPK14Can_ConfigType" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">Initializes the driver and HW. </p>
+<p class="sd-card-text"><dl class="simple">
+<dt><strong>Sync/Async:</strong></dt><dd><p class="sd-card-text">Synchronous </p>
+</dd>
+<dt><strong>Reentrancy:</strong></dt><dd><p class="sd-card-text">Non reentrant </p>
+</dd>
+<dt><strong>Service ID [hex]:</strong></dt><dd><p class="sd-card-text">0x00 </p>
+</dd>
+<dt><strong>Development error(s):</strong></dt><dd><p class="sd-card-text"><ul class="simple">
+<li><p class="sd-card-text"><a class="reference internal" href="02_errors.html#group___can___development_errors_1gaa9014c691fb16e51e6b2264f5f20cb1b"><span class="std std-ref">CAN_DEVERR_STATE_TRANSITION</span></a> CanDrv state is not CAN_DRV_STATE_UNINIT, or a CAN channel is not CAN_CH_STATE_UNINIT.</p></li>
+<li><p class="sd-card-text"><a class="reference internal" href="02_errors.html#group___can___development_errors_1ga5ce11f09a0a9d3429796f4edf807e176"><span class="std std-ref">CAN_DEVERR_PARAM_POINTER</span></a> configPtr is not a null pointer. </p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p class="sd-card-text"><strong>configPtr</strong> – <strong>[in]</strong> Pointer to the configuration structure. This parameter is intended for future extensions to support runtime-selectable configuration variants, which allow the selection and initialization of specific variants during runtime. As this functionality is not currently supported, a NULL_PTR SHALL be provided. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p class="sd-card-text">None. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<p class="sd-card-text"><strong>When to call:</strong> once, before any other CAN function, with the driver in
+<code class="docutils literal notranslate"><span class="pre">CAN_DRV_STATE_UNINIT</span></code>.</p>
+<p class="sd-card-text"><strong>Effect:</strong> initialises static variables, common CAN hardware settings, and per-channel
+settings; leaves the driver in <code class="docutils literal notranslate"><span class="pre">CAN_DRV_STATE_INIT</span></code> and every channel in
+<code class="docutils literal notranslate"><span class="pre">CAN_CH_STATE_STOPPED</span></code>; enables interrupts for events configured as interrupt.</p>
+<p class="sd-card-text"><strong>Errors:</strong> see <a class="reference internal" href="02_errors.html"><span class="doc">Errors</span></a> (state, null-pointer). <em>Available via:</em> <code class="docutils literal notranslate"><span class="pre">Can.h</span></code></p>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils" id="can-api-can-deinit">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Can_DeInit</div>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv410Can_DeInitv">
+<span id="_CPPv310Can_DeInitv"></span><span id="_CPPv210Can_DeInitv"></span><span id="Can_DeInit__void"></span><span class="target" id="_can_8h_1a89cdbca147f98fdf2f2262bb42262ba7"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Can_DeInit</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv410Can_DeInitv" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">De-initializes the driver and HW. </p>
+<p class="sd-card-text"><dl class="simple">
+<dt><strong>Sync/Async:</strong></dt><dd><p class="sd-card-text">Synchronous </p>
+</dd>
+<dt><strong>Reentrancy:</strong></dt><dd><p class="sd-card-text">Non reentrant </p>
+</dd>
+<dt><strong>Service ID [hex]:</strong></dt><dd><p class="sd-card-text">0x10 </p>
+</dd>
+<dt><strong>Development error(s):</strong></dt><dd><p class="sd-card-text"><ul class="simple">
+<li><p class="sd-card-text"><a class="reference internal" href="02_errors.html#group___can___development_errors_1gaa9014c691fb16e51e6b2264f5f20cb1b"><span class="std std-ref">CAN_DEVERR_STATE_TRANSITION</span></a> CanDrv state is not CAN_DRV_STATE_INIT, or a CAN channel is in CAN_CH_STATE_STARTED. </p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p class="sd-card-text"><strong>None</strong> – </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p class="sd-card-text">None. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<p class="sd-card-text"><strong>When to call:</strong> with the driver in <code class="docutils literal notranslate"><span class="pre">CAN_DRV_STATE_INIT</span></code> and no channel in
+<code class="docutils literal notranslate"><span class="pre">CAN_CH_STATE_STARTED</span></code>.</p>
+<p class="sd-card-text"><strong>Effect:</strong> de-initialises the driver state and CAN hardware; leaves every channel in
+<code class="docutils literal notranslate"><span class="pre">CAN_CH_STATE_UNINIT</span></code>. <strong>Errors:</strong> see <a class="reference internal" href="02_errors.html"><span class="doc">Errors</span></a>. <em>Available via:</em> <code class="docutils literal notranslate"><span class="pre">Can.h</span></code></p>
+</div>
+</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-arrow-up" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.47 7.78a.75.75 0 0 1 0-1.06l4.25-4.25a.75.75 0 0 1 1.06 0l4.25 4.25a.751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018L9 4.81v7.44a.75.75 0 0 1-1.5 0V4.81L4.53 7.78a.75.75 0 0 1-1.06 0Z"></path></svg></span><span class="sd-summary-text">Transmission</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils" id="can-api-can-transmit">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Can_Transmit</div>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv412Can_Transmit17Can_MailboxIdTypePK15Can_PduInfoType">
+<span id="_CPPv312Can_Transmit17Can_MailboxIdTypePK15Can_PduInfoType"></span><span id="_CPPv212Can_Transmit17Can_MailboxIdTypePK15Can_PduInfoType"></span><span id="Can_Transmit__Can_MailboxIdType.Can_PduInfoTypeCP"></span><span class="target" id="_can_8h_1a805d9fce3635a4d3935bff1cb84d251d"></span><span class="n"><span class="pre">Std_ReturnType</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Can_Transmit</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv417Can_MailboxIdType" title="Can_MailboxIdType"><span class="n"><span class="pre">Can_MailboxIdType</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">mailboxId</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv415Can_PduInfoType" title="Can_PduInfoType"><span class="n"><span class="pre">Can_PduInfoType</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">pduInfoPtr</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv412Can_Transmit17Can_MailboxIdTypePK15Can_PduInfoType" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">This function is called by upper layer to pass a CAN message to CanDrv for transmission. This <a class="reference internal" href="../../../appendix.html#term-interface"><span class="xref std std-term">interface</span></a> sets up mailboxId and return without completion of the transmission (non-blocking). Since this <a class="reference internal" href="../../../appendix.html#term-interface"><span class="xref std std-term">interface</span></a> is non reentrant, the upper layer shall ensure that this <a class="reference internal" href="../../../appendix.html#term-interface"><span class="xref std std-term">interface</span></a> is not interrupted by itself. </p>
+<p class="sd-card-text"><dl class="simple">
+<dt><strong>Sync/Async:</strong></dt><dd><p class="sd-card-text">Synchronous </p>
+</dd>
+<dt><strong>Reentrancy:</strong></dt><dd><p class="sd-card-text">Non reentrant </p>
+</dd>
+<dt><strong>Service ID [hex]:</strong></dt><dd><p class="sd-card-text">0x06 </p>
+</dd>
+<dt><strong>Development error(s):</strong></dt><dd><p class="sd-card-text"><ul class="simple">
+<li><p class="sd-card-text"><a class="reference internal" href="02_errors.html#group___can___development_errors_1gafa48cd895ca263da41ede06f3b7f7fef"><span class="std std-ref">CAN_DEVERR_UNINIT</span></a> CanDrv is not initialized</p></li>
+<li><p class="sd-card-text"><a class="reference internal" href="02_errors.html#group___can___development_errors_1ga57a9c4056e1205d0855843850d3287c9"><span class="std std-ref">CAN_DEVERR_PARAM_MAILBOXID</span></a> Given mailbox ID is invalid</p></li>
+<li><p class="sd-card-text"><a class="reference internal" href="02_errors.html#group___can___development_errors_1ga5ce11f09a0a9d3429796f4edf807e176"><span class="std std-ref">CAN_DEVERR_PARAM_POINTER</span></a> pduInfoPtr is null pointer</p></li>
+<li><p class="sd-card-text"><a class="reference internal" href="02_errors.html#group___can___development_errors_1ga5ce11f09a0a9d3429796f4edf807e176"><span class="std std-ref">CAN_DEVERR_PARAM_POINTER</span></a> pduInfoPtr-&gt;sduDataPtr is null pointer</p></li>
+<li><p class="sd-card-text"><a class="reference internal" href="02_errors.html#group___can___development_errors_1ga47be40605692196c4729553284c71c76"><span class="std std-ref">CAN_DEVERR_PARAM_DATA_LENGTH</span></a> length is more than 64 byte</p></li>
+<li><p class="sd-card-text"><a class="reference internal" href="02_errors.html#group___can___development_errors_1ga47be40605692196c4729553284c71c76"><span class="std std-ref">CAN_DEVERR_PARAM_DATA_LENGTH</span></a> length is more than 8 byte and <a class="reference internal" href="../../../appendix.html#term-Bus-Channel"><span class="xref std std-term">CAN channel</span></a> is not CAN FD mode</p></li>
+<li><p class="sd-card-text"><a class="reference internal" href="02_errors.html#group___can___development_errors_1ga47be40605692196c4729553284c71c76"><span class="std std-ref">CAN_DEVERR_PARAM_DATA_LENGTH</span></a> length is more than 8 byte and <a class="reference internal" href="../../../appendix.html#term-Bus-Channel"><span class="xref std std-term">CAN channel</span></a> is CAN FD mode, but CAN FD flag is not set in Can_PduInfoType-&gt;frameId </p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p class="sd-card-text"><strong>mailboxId</strong> – <strong>[in]</strong> This specifies which HW-transmit handle is used for transmission. Implicitly indicates the channel to be used, as the mailboxId numbers are unique inside one controller. </p></li>
+<li><p class="sd-card-text"><strong>pduInfoPtr</strong> – <strong>[in]</strong> Pointer to SDU user memory, Data Length and Identifier. </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p class="sd-card-text"><strong>E_OK</strong> – Transmit command has been accepted </p></li>
+<li><p class="sd-card-text"><strong>E_NOT_OK</strong> – Development error occurred </p></li>
+<li><p class="sd-card-text"><strong>CAN_BUSY</strong> – No <a class="reference internal" href="../../../appendix.html#term-TX"><span class="xref std std-term">TX</span></a> hardware buffer available </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<p class="sd-card-text"><strong>When to call:</strong> on a channel in <code class="docutils literal notranslate"><span class="pre">CAN_CH_STATE_STARTED</span></code>.</p>
+<p class="sd-card-text"><strong>Returns</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p class="sd-card-text">Value</p></th>
+<th class="head"><p class="sd-card-text">Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">E_OK</span></code></p></td>
+<td><p class="sd-card-text">Frame accepted; the hardware TX object was free and transmission was initiated.</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">CAN_BUSY</span></code></p></td>
+<td><p class="sd-card-text">TX mailbox is busy with another request; nothing was changed. The caller may retry.</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">E_NOT_OK</span></code></p></td>
+<td><p class="sd-card-text">A development error was detected (see <a class="reference internal" href="02_errors.html"><span class="doc">Errors</span></a>).</p></td>
+</tr>
+</tbody>
+</table>
+<p class="sd-card-text"><strong>Side effects:</strong> stores <code class="docutils literal notranslate"><span class="pre">pduInfoPtr-&gt;pduId</span></code> for the later <code class="docutils literal notranslate"><span class="pre">CanIf_OnTransmission</span></code> callback
+(<a class="reference internal" href="../00_requirements.html#CHI-CAN-MUST-10" title="CHI-CAN-MUST-10"><em class="xref need">CHI-CAN-MUST-10</em></a>). The caller MUST keep <code class="docutils literal notranslate"><span class="pre">pduInfoPtr</span></code> and its data valid until transmission
+completes. <em>Available via:</em> <code class="docutils literal notranslate"><span class="pre">Can.h</span></code></p>
+</div>
+</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-gear" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0a8.2 8.2 0 0 1 .701.031C9.444.095 9.99.645 10.16 1.29l.288 1.107c.018.066.079.158.212.224.231.114.454.243.668.386.123.082.233.09.299.071l1.103-.303c.644-.176 1.392.021 1.82.63.27.385.506.792.704 1.218.315.675.111 1.422-.364 1.891l-.814.806c-.049.048-.098.147-.088.294.016.257.016.515 0 .772-.01.147.038.246.088.294l.814.806c.475.469.679 1.216.364 1.891a7.977 7.977 0 0 1-.704 1.217c-.428.61-1.176.807-1.82.63l-1.102-.302c-.067-.019-.177-.011-.3.071a5.909 5.909 0 0 1-.668.386c-.133.066-.194.158-.211.224l-.29 1.106c-.168.646-.715 1.196-1.458 1.26a8.006 8.006 0 0 1-1.402 0c-.743-.064-1.289-.614-1.458-1.26l-.289-1.106c-.018-.066-.079-.158-.212-.224a5.738 5.738 0 0 1-.668-.386c-.123-.082-.233-.09-.299-.071l-1.103.303c-.644.176-1.392-.021-1.82-.63a8.12 8.12 0 0 1-.704-1.218c-.315-.675-.111-1.422.363-1.891l.815-.806c.05-.048.098-.147.088-.294a6.214 6.214 0 0 1 0-.772c.01-.147-.038-.246-.088-.294l-.815-.806C.635 6.045.431 5.298.746 4.623a7.92 7.92 0 0 1 .704-1.217c.428-.61 1.176-.807 1.82-.63l1.102.302c.067.019.177.011.3-.071.214-.143.437-.272.668-.386.133-.066.194-.158.211-.224l.29-1.106C6.009.645 6.556.095 7.299.03 7.53.01 7.764 0 8 0Zm-.571 1.525c-.036.003-.108.036-.137.146l-.289 1.105c-.147.561-.549.967-.998 1.189-.173.086-.34.183-.5.29-.417.278-.97.423-1.529.27l-1.103-.303c-.109-.03-.175.016-.195.045-.22.312-.412.644-.573.99-.014.031-.021.11.059.19l.815.806c.411.406.562.957.53 1.456a4.709 4.709 0 0 0 0 .582c.032.499-.119 1.05-.53 1.456l-.815.806c-.081.08-.073.159-.059.19.162.346.353.677.573.989.02.03.085.076.195.046l1.102-.303c.56-.153 1.113-.008 1.53.27.161.107.328.204.501.29.447.222.85.629.997 1.189l.289 1.105c.029.109.101.143.137.146a6.6 6.6 0 0 0 1.142 0c.036-.003.108-.036.137-.146l.289-1.105c.147-.561.549-.967.998-1.189.173-.086.34-.183.5-.29.417-.278.97-.423 1.529-.27l1.103.303c.109.029.175-.016.195-.045.22-.313.411-.644.573-.99.014-.031.021-.11-.059-.19l-.815-.806c-.411-.406-.562-.957-.53-1.456a4.709 4.709 0 0 0 0-.582c-.032-.499.119-1.05.53-1.456l.815-.806c.081-.08.073-.159.059-.19a6.464 6.464 0 0 0-.573-.989c-.02-.03-.085-.076-.195-.046l-1.102.303c-.56.153-1.113.008-1.53-.27a4.44 4.44 0 0 0-.501-.29c-.447-.222-.85-.629-.997-1.189l-.289-1.105c-.029-.11-.101-.143-.137-.146a6.6 6.6 0 0 0-1.142 0ZM11 8a3 3 0 1 1-6 0 3 3 0 0 1 6 0ZM9.5 8a1.5 1.5 0 1 0-3.001.001A1.5 1.5 0 0 0 9.5 8Z"></path></svg></span><span class="sd-summary-text">Channel state and baudrate</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils" id="can-api-can-getchannelstate">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Can_GetChannelState</div>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv419Can_GetChannelState5uint8">
+<span id="_CPPv319Can_GetChannelState5uint8"></span><span id="_CPPv219Can_GetChannelState5uint8"></span><span id="Can_GetChannelState__uint8"></span><span class="target" id="_can_8h_1a97834fafca52bb3dfcbaf8ebe4dd4075"></span><span class="n"><span class="pre">n_ChannelStateType</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Can_GetChannelState</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint8</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">channelId</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv419Can_GetChannelState5uint8" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">This service reports about the current state of the requested <a class="reference internal" href="../../../appendix.html#term-Bus-Channel"><span class="xref std std-term">CAN channel</span></a>. </p>
+<p class="sd-card-text"><dl class="simple">
+<dt><strong>Sync/Async:</strong></dt><dd><p class="sd-card-text">Synchronous </p>
+</dd>
+<dt><strong>Reentrancy:</strong></dt><dd><p class="sd-card-text">Non reentrant </p>
+</dd>
+<dt><strong>Service ID [hex]:</strong></dt><dd><p class="sd-card-text">0x12 </p>
+</dd>
+<dt><strong>Development error(s):</strong></dt><dd><p class="sd-card-text"><ul class="simple">
+<li><p class="sd-card-text"><a class="reference internal" href="02_errors.html#group___can___development_errors_1gafa48cd895ca263da41ede06f3b7f7fef"><span class="std std-ref">CAN_DEVERR_UNINIT</span></a> CanDrv is not initialized</p></li>
+<li><p class="sd-card-text"><a class="reference internal" href="02_errors.html#group___can___development_errors_1ga6bbf9df8270fe0ddd932fed4bc0f0b0b"><span class="std std-ref">CAN_DEVERR_PARAM_CHANNELID</span></a> Given channelId parameter is out of range </p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p class="sd-card-text"><strong>channelId</strong> – <strong>[in]</strong> ID of the <a class="reference internal" href="../../../appendix.html#term-Bus-Channel"><span class="xref std std-term">CAN channel</span></a> for which the state shall be requested. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p class="sd-card-text">The state of the requested channel </p>
+</dd>
+</dl>
+</dd></dl>
+
+<p class="sd-card-text"><strong>Effect:</strong> returns the current state of the requested channel. <strong>Errors:</strong> see <a class="reference internal" href="02_errors.html"><span class="doc">Errors</span></a>.
+<em>Available via:</em> <code class="docutils literal notranslate"><span class="pre">Can.h</span></code></p>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils" id="can-api-can-setchannelstate">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Can_SetChannelState</div>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv419Can_SetChannelState5uint820Can_ChannelStateType">
+<span id="_CPPv319Can_SetChannelState5uint820Can_ChannelStateType"></span><span id="_CPPv219Can_SetChannelState5uint820Can_ChannelStateType"></span><span id="Can_SetChannelState__uint8.Can_ChannelStateType"></span><span class="target" id="_can_8h_1aae9ec2154dae21b5ee8d76c0f48144c2"></span><span class="n"><span class="pre">Std_ReturnType</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Can_SetChannelState</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint8</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">channelId</span></span>, <a class="reference internal" href="#_CPPv420Can_ChannelStateType" title="Can_ChannelStateType"><span class="n"><span class="pre">Can_ChannelStateType</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">channelState</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv419Can_SetChannelState5uint820Can_ChannelStateType" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">This function performs software triggered state transitions of the <a class="reference internal" href="../../../appendix.html#term-Bus-Channel"><span class="xref std std-term">CAN channel</span></a> State machine. </p>
+<p class="sd-card-text"><dl class="simple">
+<dt><strong>Sync/Async:</strong></dt><dd><p class="sd-card-text">Asynchronous </p>
+</dd>
+<dt><strong>Reentrancy:</strong></dt><dd><p class="sd-card-text">Non reentrant </p>
+</dd>
+<dt><strong>Service ID [hex]:</strong></dt><dd><p class="sd-card-text">0x03 </p>
+</dd>
+<dt><strong>Development error(s):</strong></dt><dd><p class="sd-card-text"><ul class="simple">
+<li><p class="sd-card-text"><a class="reference internal" href="02_errors.html#group___can___development_errors_1gafa48cd895ca263da41ede06f3b7f7fef"><span class="std std-ref">CAN_DEVERR_UNINIT</span></a> CanDrv is not initialized</p></li>
+<li><p class="sd-card-text"><a class="reference internal" href="02_errors.html#group___can___development_errors_1ga6bbf9df8270fe0ddd932fed4bc0f0b0b"><span class="std std-ref">CAN_DEVERR_PARAM_CHANNELID</span></a> Given channelId parameter is out of range</p></li>
+<li><p class="sd-card-text"><a class="reference internal" href="02_errors.html#group___can___development_errors_1gaa9014c691fb16e51e6b2264f5f20cb1b"><span class="std std-ref">CAN_DEVERR_STATE_TRANSITION</span></a> Invalid transition is requested via Transition </p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p class="sd-card-text"><strong>channel</strong> – <strong>[in]</strong> ID of the <a class="reference internal" href="../../../appendix.html#term-Bus-Channel"><span class="xref std std-term">CAN channel</span></a> for which the state shall be changed </p></li>
+<li><p class="sd-card-text"><strong>channelState</strong> – <strong>[in]</strong> The desired new channel state </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p class="sd-card-text"><strong>E_OK</strong> – request accepted </p></li>
+<li><p class="sd-card-text"><strong>E_NOT_OK</strong> – request not accepted, a development error occurred </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<p class="sd-card-text"><strong>Effect:</strong> performs a software-triggered channel state transition (see
+<a class="reference internal" href="../general/01_concepts.html"><span class="doc">Concepts</span></a>), enabling or disabling the interrupts needed in the new state.
+Does not block on transitions that require polling — completion is reported via
+<code class="docutils literal notranslate"><span class="pre">CanIf_OnChannelState</span></code> (<a class="reference internal" href="../00_requirements.html#CHI-CAN-MUST-03" title="CHI-CAN-MUST-03"><em class="xref need">CHI-CAN-MUST-03</em></a>). <strong>Errors:</strong> see <a class="reference internal" href="02_errors.html"><span class="doc">Errors</span></a>. <em>Available via:</em>
+<code class="docutils literal notranslate"><span class="pre">Can.h</span></code></p>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils" id="can-api-can-setbaudrate">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Can_SetBaudrate</div>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv415Can_SetBaudrate5uint86uint16">
+<span id="_CPPv315Can_SetBaudrate5uint86uint16"></span><span id="_CPPv215Can_SetBaudrate5uint86uint16"></span><span id="Can_SetBaudrate__uint8.uint16"></span><span class="target" id="_can_8h_1ac43029ac50350c4bff5f564ded39f464"></span><span class="n"><span class="pre">Std_ReturnType</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Can_SetBaudrate</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint8</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">channelId</span></span>, <span class="n"><span class="pre">uint16</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">baudRateConfigId</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv415Can_SetBaudrate5uint86uint16" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">This service shall set the baudrate configuration of the <a class="reference internal" href="../../../appendix.html#term-Bus-Channel"><span class="xref std std-term">CAN channel</span></a>. </p>
+<p class="sd-card-text"><dl class="simple">
+<dt><strong>Sync/Async:</strong></dt><dd><p class="sd-card-text">Synchronous </p>
+</dd>
+<dt><strong>Reentrancy:</strong></dt><dd><p class="sd-card-text">Conditionally reentrant (reentrant when called with different channel) </p>
+</dd>
+<dt><strong>Service ID [hex]:</strong></dt><dd><p class="sd-card-text">0x0f </p>
+</dd>
+<dt><strong>Development error(s):</strong></dt><dd><p class="sd-card-text"><ul class="simple">
+<li><p class="sd-card-text"><a class="reference internal" href="02_errors.html#group___can___development_errors_1gafa48cd895ca263da41ede06f3b7f7fef"><span class="std std-ref">CAN_DEVERR_UNINIT</span></a> CanDrv is not initialized</p></li>
+<li><p class="sd-card-text"><a class="reference internal" href="02_errors.html#group___can___development_errors_1ga6bbf9df8270fe0ddd932fed4bc0f0b0b"><span class="std std-ref">CAN_DEVERR_PARAM_CHANNELID</span></a> Given channelId parameter is out of range</p></li>
+<li><p class="sd-card-text"><a class="reference internal" href="02_errors.html#group___can___development_errors_1ga895dd919df3c2c8a829d83588d4073c3"><span class="std std-ref">CAN_DEVERR_PARAM_BAUDRATEID</span></a> Given baudRateConfigId is out of configured range</p></li>
+<li><p class="sd-card-text"><a class="reference internal" href="02_errors.html#group___can___development_errors_1ga27f70badefdfa0566035b0be65bac1a9"><span class="std std-ref">CAN_DEVERR_INVALID_STATE</span></a> Called when the channel state is NOT CAN_CH_STATE_STOPPED </p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p class="sd-card-text"><strong>channelId</strong> – <strong>[in]</strong> ID of the <a class="reference internal" href="../../../appendix.html#term-Bus-Channel"><span class="xref std std-term">CAN channel</span></a> for which the baudrate shall be changed </p></li>
+<li><p class="sd-card-text"><strong>baudRateConfigId</strong> – <strong>[in]</strong> References a baudrate configuration by ID </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p class="sd-card-text"><strong>E_OK</strong> – request accepted </p></li>
+<li><p class="sd-card-text"><strong>E_NOT_OK</strong> – request not accepted, a development error occurred </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<p class="sd-card-text"><strong>When to call:</strong> on a channel in <code class="docutils literal notranslate"><span class="pre">CAN_CH_STATE_STOPPED</span></code>, when the optional
+<code class="docutils literal notranslate"><span class="pre">enable_set_baud_rate_api</span></code> feature is enabled (<a class="reference internal" href="../00_requirements.html#CHI-CAN-SHOULD-01" title="CHI-CAN-SHOULD-01"><em class="xref need">CHI-CAN-SHOULD-01</em></a>).</p>
+<p class="sd-card-text"><strong>Effect:</strong> selects the preconfigured baudrate set identified by <code class="docutils literal notranslate"><span class="pre">baudRateConfigId</span></code>.
+<strong>Errors:</strong> see <a class="reference internal" href="02_errors.html"><span class="doc">Errors</span></a>. <em>Available via:</em> <code class="docutils literal notranslate"><span class="pre">Can.h</span></code></p>
+</div>
+</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-clock" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0ZM1.5 8a6.5 6.5 0 1 0 13 0 6.5 6.5 0 0 0-13 0Zm7-3.25v2.992l2.028.812a.75.75 0 0 1-.557 1.392l-2.5-1A.751.751 0 0 1 7 8.25v-3.5a.75.75 0 0 1 1.5 0Z"></path></svg></span><span class="sd-summary-text">Scheduling and interrupt</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils" id="can-api-can-pollfunction">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Can_PollFunction</div>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv416Can_PollFunctionv">
+<span id="_CPPv316Can_PollFunctionv"></span><span id="_CPPv216Can_PollFunctionv"></span><span id="Can_PollFunction__void"></span><span class="target" id="_can_8h_1a11c12955cd8da0c9b1786fa4a5210867"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Can_PollFunction</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv416Can_PollFunctionv" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">This function is called with high frequency. If <a class="reference internal" href="../../../appendix.html#term-TX"><span class="xref std std-term">TX</span></a> or <a class="reference internal" href="../../../appendix.html#term-RX"><span class="xref std std-term">RX</span></a> polling is configured, then it is responsible for polling the <a class="reference internal" href="../../../appendix.html#term-TX"><span class="xref std std-term">TX</span></a> completion and <a class="reference internal" href="../../../appendix.html#term-RX"><span class="xref std std-term">RX</span></a> events. </p>
+<p class="sd-card-text"><dl class="simple">
+<dt><strong>Reentrancy:</strong></dt><dd><p class="sd-card-text">Non reentrant </p>
+</dd>
+<dt><strong>Service ID [hex]:</strong></dt><dd><p class="sd-card-text">0x01 </p>
+</dd>
+</dl>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p class="sd-card-text"><strong>None</strong> – </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p class="sd-card-text">None. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<p class="sd-card-text"><strong>When to call:</strong> cyclically at high frequency (sub-millisecond). Handles TX-completion and RX
+events for channels configured for polling. May be empty if none are. <em>Available via:</em>
+<code class="docutils literal notranslate"><span class="pre">Can.h</span></code></p>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils" id="can-api-can-cyclicfunction">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Can_CyclicFunction</div>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv418Can_CyclicFunctionv">
+<span id="_CPPv318Can_CyclicFunctionv"></span><span id="_CPPv218Can_CyclicFunctionv"></span><span id="Can_CyclicFunction__void"></span><span class="target" id="_can_8h_1ae8c280b3e79889e8f75f437f0267efa6"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Can_CyclicFunction</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv418Can_CyclicFunctionv" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">This function is cyclically called on a milliseconds base. This function can be used as time base if it’s required. </p>
+<p class="sd-card-text"><dl class="simple">
+<dt><strong>Reentrancy:</strong></dt><dd><p class="sd-card-text">Non reentrant </p>
+</dd>
+<dt><strong>Service ID [hex]:</strong></dt><dd><p class="sd-card-text">0x08 </p>
+</dd>
+</dl>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p class="sd-card-text"><strong>None</strong> – </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p class="sd-card-text">None. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<p class="sd-card-text"><strong>When to call:</strong> cyclically (≥ 1 ms). Polls bus-off, other unrecoverable errors, and channel
+state-transition completion. May be empty if none are configured for polling. <em>Available via:</em>
+<code class="docutils literal notranslate"><span class="pre">Can.h</span></code></p>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils" id="can-api-can-interrupt">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Can_Interrupt</div>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="n">Can_Interrupt</span><span class="o">&lt;</span><span class="n">vectorNr</span><span class="o">&gt;</span><span class="p">[</span><span class="o">&lt;</span><span class="n">VendorSpecificSuffix</span><span class="o">&gt;</span><span class="p">](</span><span class="kt">void</span><span class="p">)</span>
+</pre></div>
+</div>
+<p class="sd-card-text"><strong>Effect:</strong> the driver interrupt service routine; handles bus-off/error, RX frames, and
+TX-completion events. Define it with the <code class="docutils literal notranslate"><span class="pre">ISR()</span></code> macro (see <a class="reference internal" href="../../../01_general/reference/02_services.html#gen-ref-isr"><span class="std std-ref">the general reference</span></a>).
+<em>Available via:</em> <code class="docutils literal notranslate"><span class="pre">Can.h</span></code></p>
+</div>
+</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" id="can-api-expected-interfaces">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-plug" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 8H2.5a1 1 0 0 0-1 1v5.25a.75.75 0 0 1-1.5 0V9a2.5 2.5 0 0 1 2.5-2.5H4V5.133a1.75 1.75 0 0 1 1.533-1.737l2.831-.353.76-.913c.332-.4.825-.63 1.344-.63h.782c.966 0 1.75.784 1.75 1.75V4h2.25a.75.75 0 0 1 0 1.5H13v4h2.25a.75.75 0 0 1 0 1.5H13v.75a1.75 1.75 0 0 1-1.75 1.75h-.782c-.519 0-1.012-.23-1.344-.63l-.761-.912-2.83-.354A1.75 1.75 0 0 1 4 9.867Zm6.276-4.91-.95 1.14a.753.753 0 0 1-.483.265l-3.124.39a.25.25 0 0 0-.219.248v4.734c0 .126.094.233.219.249l3.124.39a.752.752 0 0 1 .483.264l.95 1.14a.25.25 0 0 0 .192.09h.782a.25.25 0 0 0 .25-.25v-8.5a.25.25 0 0 0-.25-.25h-.782a.25.25 0 0 0-.192.09Z"></path></svg></span><span class="sd-summary-text">Expected interfaces</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">The driver calls back into these upper-layer / integration interfaces, which the integrator MUST
+provide (<a class="reference internal" href="../00_requirements.html#CHI-CAN-MUST-25" title="CHI-CAN-MUST-25"><em class="xref need">CHI-CAN-MUST-25</em></a>); see the summary table above. <a class="reference internal" href="../../../01_general/reference/02_services.html#gen-ref-logm"><span class="std std-ref">LogM_Report</span></a> and
+the <a class="reference internal" href="../../../01_general/reference/02_services.html#gen-ref-critical-section"><span class="std std-ref">critical-section services</span></a> are documented in the general reference.</p>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils" id="can-api-canif-ontransmission">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+CanIf_OnTransmission</div>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv420CanIf_OnTransmission9PduIdType">
+<span id="_CPPv320CanIf_OnTransmission9PduIdType"></span><span id="_CPPv220CanIf_OnTransmission9PduIdType"></span><span id="CanIf_OnTransmission__PduIdType"></span><span class="target" id="_can_if_8h_1a475b26e94213a455816147d013f02c64"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">CanIf_OnTransmission</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">PduIdType</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">canTxPduId</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv420CanIf_OnTransmission9PduIdType" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">This service confirms a previously successfully processed transmission of a CAN TxPDU. </p>
+<p class="sd-card-text"><dl class="simple">
+<dt><strong>Sync/Async:</strong></dt><dd><p class="sd-card-text">Synchronous </p>
+</dd>
+<dt><strong>Reentrancy:</strong></dt><dd><p class="sd-card-text">Reentrant </p>
+</dd>
+</dl>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p class="sd-card-text"><strong>canTxPduId</strong> – <strong>[in]</strong> L-PDU handle of <a class="reference internal" href="../../../appendix.html#term-CAN-L-PDU"><span class="xref std std-term">CAN L-PDU</span></a> successfully transmitted. This ID specifies the corresponding CAN LPDU ID and implicitly the corresponding <a class="reference internal" href="../../../appendix.html#term-Bus-Channel"><span class="xref std std-term">CAN channel</span></a>. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p class="sd-card-text">None. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<p class="sd-card-text"><em>Available via:</em> <code class="docutils literal notranslate"><span class="pre">CanIf.h</span></code></p>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils" id="can-api-canif-onreception">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+CanIf_OnReception</div>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv417CanIf_OnReceptionPK19Can_MessageInfoTypePK11PduInfoType">
+<span id="_CPPv317CanIf_OnReceptionPK19Can_MessageInfoTypePK11PduInfoType"></span><span id="_CPPv217CanIf_OnReceptionPK19Can_MessageInfoTypePK11PduInfoType"></span><span id="CanIf_OnReception__Can_MessageInfoTypeCP.PduInfoTypeCP"></span><span class="target" id="_can_if_8h_1aae3b2f6d84f9f424b92e52fe3b6d7c63"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">CanIf_OnReception</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv419Can_MessageInfoType" title="Can_MessageInfoType"><span class="n"><span class="pre">Can_MessageInfoType</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">messageInfo</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">PduInfoType</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">pduInfoPtr</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv417CanIf_OnReceptionPK19Can_MessageInfoTypePK11PduInfoType" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">This service indicates a successful reception of a received CAN Rx L-PDU to the CanIf after passing all filters and validation checks. </p>
+<p class="sd-card-text"><dl class="simple">
+<dt><strong>Sync/Async:</strong></dt><dd><p class="sd-card-text">Synchronous </p>
+</dd>
+<dt><strong>Reentrancy:</strong></dt><dd><p class="sd-card-text">Reentrant </p>
+</dd>
+</dl>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p class="sd-card-text"><strong>messageInfo</strong> – <strong>[in]</strong> Identifies the mailbox and its corresponding <a class="reference internal" href="../../../appendix.html#term-Bus-Channel"><span class="xref std std-term">CAN channel</span></a>. </p></li>
+<li><p class="sd-card-text"><strong>pduInfoPtr</strong> – <strong>[in]</strong> Pointer to the received L-PDU. CanDrv shall always set metaDataPtr in pduInfoPtr as null pointer, it’s not used in current CanDrv spec. </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p class="sd-card-text">None. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<p class="sd-card-text"><em>Available via:</em> <code class="docutils literal notranslate"><span class="pre">CanIf.h</span></code></p>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils" id="can-api-canif-onchannelstate">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+CanIf_OnChannelState</div>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv420CanIf_OnChannelState5uint820Can_ChannelStateType">
+<span id="_CPPv320CanIf_OnChannelState5uint820Can_ChannelStateType"></span><span id="_CPPv220CanIf_OnChannelState5uint820Can_ChannelStateType"></span><span id="CanIf_OnChannelState__uint8.Can_ChannelStateType"></span><span class="target" id="_can_if_8h_1a2bb5de1d193bd795a9782334fb59b4e7"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">CanIf_OnChannelState</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint8</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">channel</span></span>, <a class="reference internal" href="#_CPPv420Can_ChannelStateType" title="Can_ChannelStateType"><span class="n"><span class="pre">Can_ChannelStateType</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">channelState</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv420CanIf_OnChannelState5uint820Can_ChannelStateType" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">This service indicates a channel state transition referring to the corresponding <a class="reference internal" href="../../../appendix.html#term-Bus-Channel"><span class="xref std std-term">CAN channel</span></a>. </p>
+<p class="sd-card-text"><dl class="simple">
+<dt><strong>Sync/Async:</strong></dt><dd><p class="sd-card-text">Synchronous </p>
+</dd>
+<dt><strong>Reentrancy:</strong></dt><dd><p class="sd-card-text">Reentrant </p>
+</dd>
+</dl>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p class="sd-card-text"><strong>channel</strong> – <strong>[in]</strong> ID of the corresponding <a class="reference internal" href="../../../appendix.html#term-Bus-Channel"><span class="xref std std-term">CAN channel</span></a>. </p></li>
+<li><p class="sd-card-text"><strong>channelState</strong> – <strong>[in]</strong> State to which the <a class="reference internal" href="../../../appendix.html#term-Bus-Channel"><span class="xref std std-term">CAN channel</span></a> transitioned. </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p class="sd-card-text">None. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<p class="sd-card-text"><em>Available via:</em> <code class="docutils literal notranslate"><span class="pre">CanIf.h</span></code></p>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils" id="can-api-canif-onerror">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+CanIf_OnError</div>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv413CanIf_OnError5uint813Can_ErrorType">
+<span id="_CPPv313CanIf_OnError5uint813Can_ErrorType"></span><span id="_CPPv213CanIf_OnError5uint813Can_ErrorType"></span><span id="CanIf_OnError__uint8.Can_ErrorType"></span><span class="target" id="_can_if_8h_1a3102d2eac9ba22413eaf619d5a9a1360"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">CanIf_OnError</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint8</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">channelId</span></span>, <a class="reference internal" href="#_CPPv413Can_ErrorType" title="Can_ErrorType"><span class="n"><span class="pre">Can_ErrorType</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">error</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv413CanIf_OnError5uint813Can_ErrorType" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">This service indicates an error event referring to the corresponding <a class="reference internal" href="../../../appendix.html#term-Bus-Channel"><span class="xref std std-term">CAN channel</span></a>. </p>
+<p class="sd-card-text"><dl class="simple">
+<dt><strong>Sync/Async:</strong></dt><dd><p class="sd-card-text">Synchronous </p>
+</dd>
+<dt><strong>Reentrancy:</strong></dt><dd><p class="sd-card-text">Reentrant </p>
+</dd>
+</dl>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p class="sd-card-text"><strong>channelId</strong> – <strong>[in]</strong> ID of the <a class="reference internal" href="../../../appendix.html#term-Bus-Channel"><span class="xref std std-term">CAN channel</span></a> on which the error occurred. </p></li>
+<li><p class="sd-card-text"><strong>error</strong> – <strong>[in]</strong> Identifies the error that was detected by the driver/hardware. </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p class="sd-card-text">None. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<p class="sd-card-text"><em>Available via:</em> <code class="docutils literal notranslate"><span class="pre">CanIf.h</span></code></p>
+</div>
+</div>
+</div>
+</details></section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Reference" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="01_configuration.html" class="btn btn-neutral float-right" title="Configuration Reference" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026 by Vector Informatik GmbH and Infineon Technologies AG. All rights reserved.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

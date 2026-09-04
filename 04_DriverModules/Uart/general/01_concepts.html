@@ -1,0 +1,722 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Concepts &mdash; Chiisai HAL Specification  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css?v=4ae1632d" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-data-viewer/jsonview.bundle.css?v=f6ef2277" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/libs/html/datatables.min.css?v=4b4fd840" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/common_css/needstable.css?v=5e1b6797" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/common_css/need_core.css?v=f5b60a78" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/common_css/need_links.css?v=2150a916" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/common_css/need_style.css?v=92936fa5" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/common_css/need_toggle.css?v=5c6620df" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/modern.css?v=803738c0" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=4f645179" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
+      <script src="../../../_static/sphinx-data-viewer/jsonview.bundle.js?v=18cd53c5"></script>
+      <script src="../../../_static/sphinx-data-viewer/jsonview_loader.js?v=f7ff7e7d"></script>
+      <script src="../../../_static/sphinx-needs/libs/html/datatables.min.js?v=8a4aee21"></script>
+      <script src="../../../_static/sphinx-needs/libs/html/datatables_loader.js?v=a2cae175"></script>
+      <script src="../../../_static/sphinx-needs/libs/html/sphinx_needs_collapse.js?v=dca66431"></script>
+      <script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
+      <script type="module">import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.12.1/dist/mermaid.esm.min.mjs";
+
+
+
+const initStyles = () => {
+    const defaultStyle = document.createElement('style');
+    defaultStyle.textContent = "pre.mermaid {\n    /* Same as .mermaid-container > pre */\n    display: block;\n    width: 100%;\n}\n\npre.mermaid > svg {\n    /* Same as .mermaid-container > pre > svg */\n    height: 500px;\n    width: 100%;\n    max-width: 100% !important;\n}";
+    document.head.appendChild(defaultStyle);
+
+    const fullscreenStyle = document.createElement('style');
+    fullscreenStyle.textContent = ".mermaid-container {\n    position: relative;\n    display: flex;\n    flex-direction: row;\n    width: 100%;\n}\n\n.mermaid-container > pre {\n    display: block;\n    width: 100%;\n}\n\n.mermaid-container > pre > svg {\n    height: 500px;\n    width: 100%;\n    max-width: 100% !important;\n}\n\n.mermaid-fullscreen-btn {\n    position: absolute;\n    width: 28px;\n    height: 28px;\n    background: rgba(255, 255, 255, 0.95);\n    border: 1px solid rgba(0, 0, 0, 0.3);\n    border-radius: 4px;\n    cursor: pointer;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    transition: all 0.2s;\n    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);\n    font-size: 14px;\n    line-height: 1;\n    padding: 0;\n    color: #333;\n}\n\n.mermaid-fullscreen-btn:hover {\n    opacity: 100% !important;\n    background: rgba(255, 255, 255, 1);\n    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);\n    transform: scale(1.1);\n}\n\n.mermaid-fullscreen-btn.dark-theme {\n    background: rgba(50, 50, 50, 0.95);\n    border: 1px solid rgba(255, 255, 255, 0.3);\n    color: #e0e0e0;\n}\n\n.mermaid-fullscreen-btn.dark-theme:hover {\n    background: rgba(60, 60, 60, 1);\n    box-shadow: 0 3px 10px rgba(255, 255, 255, 0.2);\n}\n\n.mermaid-fullscreen-modal {\n    display: none;\n    position: fixed !important;\n    top: 0 !important;\n    left: 0 !important;\n    width: 95vw;\n    height: 100vh;\n    background: rgba(255, 255, 255, 0.98);\n    z-index: 9999;\n    padding: 20px;\n    overflow: auto;\n}\n\n.mermaid-fullscreen-modal.dark-theme {\n    background: rgba(0, 0, 0, 0.98);\n}\n\n.mermaid-fullscreen-modal.active {\n    display: flex;\n    align-items: center;\n    justify-content: center;\n}\n\n.mermaid-container-fullscreen {\n    position: relative;\n    width: 95vw;\n    height: 90vh;\n    max-width: 95vw;\n    max-height: 90vh;\n    background: white;\n    border-radius: 8px;\n    padding: 20px;\n    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);\n    overflow: auto;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n}\n\n.mermaid-container-fullscreen.dark-theme {\n    background: #1a1a1a;\n    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);\n}\n\n.mermaid-container-fullscreen pre.mermaid {\n    width: 100%;\n    height: 100%;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n}\n\n.mermaid-container-fullscreen .mermaid svg {\n    height: 100% !important;\n    width: 100% !important;\n    cursor: grab;\n}\n\n.mermaid-fullscreen-close {\n    position: fixed !important;\n    top: 20px !important;\n    right: 20px !important;\n    width: 40px;\n    height: 40px;\n    background: rgba(255, 255, 255, 0.95);\n    border: 1px solid rgba(0, 0, 0, 0.2);\n    border-radius: 50%;\n    cursor: pointer;\n    z-index: 10000;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);\n    transition: all 0.2s;\n    font-size: 24px;\n    line-height: 1;\n    color: #333;\n}\n\n.mermaid-fullscreen-close:hover {\n    background: white;\n    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);\n    transform: scale(1.1);\n}\n\n.mermaid-fullscreen-close.dark-theme {\n    background: rgba(50, 50, 50, 0.95);\n    border: 1px solid rgba(255, 255, 255, 0.2);\n    color: #e0e0e0;\n}\n\n.mermaid-fullscreen-close.dark-theme:hover {\n    background: rgba(60, 60, 60, 1);\n    box-shadow: 0 6px 16px rgba(255, 255, 255, 0.2);\n}\n\n.mermaid-fullscreen-modal .mermaid-fullscreen-btn {\n    display: none !important;\n}";
+    document.head.appendChild(fullscreenStyle);
+}
+
+// Detect if page has dark background
+const isDarkTheme = () => {
+    // We use a set of heuristics:
+    // 1. Check for common dark mode classes or attributes
+    // 2. Check computed background color brightness
+    if (document.documentElement.classList.contains('dark') ||
+        document.documentElement.getAttribute('data-theme') === 'dark' ||
+        document.body.classList.contains('dark') ||
+        document.body.getAttribute('data-theme') === 'dark') {
+        // console.log("Dark theme detected via class/attribute");
+        return true;
+    }
+    if (document.documentElement.classList.contains('light') ||
+        document.documentElement.getAttribute('data-theme') === 'light' ||
+        document.body.classList.contains('light') ||
+        document.body.getAttribute('data-theme') === 'light') {
+        // console.log("Light theme detected via class/attribute");
+        return false;
+    }
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        // console.log("Dark theme detected via prefers-color-scheme");
+        return true;
+    }
+    const bgColor = window.getComputedStyle(document.body).backgroundColor;
+    const match = bgColor.match(/rgb\((\d+),\s*(\d+),\s*(\d+)/);
+    if (match) {
+        const r = parseInt(match[1]);
+        const g = parseInt(match[2]);
+        const b = parseInt(match[3]);
+        const brightness = (r * 299 + g * 587 + b * 114) / 1000;
+        // console.log("Background color brightness:", brightness);
+        return brightness < 128;
+    }
+    // console.log("No dark or light theme detected, defaulting to light theme");
+    return false;
+};
+
+let darkTheme = isDarkTheme();
+let modal = null;
+let modalContent = null;
+let previousScrollOffset = [window.scrollX, window.scrollY];
+let _lazyObserver = null;
+let _renderQueue = Promise.resolve();
+let closeModal = () => {};
+
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal?.classList.contains('active')) {
+        closeModal();
+    }
+});
+
+// Apply d3 zoom to each SVG. Idempotent: an SVG already wrapped is skipped,
+// so this is safe to call both for the initial batch and for diagrams that
+// render lazily once they become visible.
+const addZoomToSvgs = (svgs) => {
+    svgs.each(function() {
+        if (this.getAttribute('data-zoom-applied') === 'true') return;
+        var svg = d3.select(this);
+        svg.html("<g class='wrapper'>" + svg.html() + "</g>");
+        var inner = svg.select("g");
+        var zoom = d3.zoom().on("zoom", function(event) {
+            inner.attr("transform", event.transform);
+        });
+        svg.call(zoom);
+        this.setAttribute('data-zoom-applied', 'true');
+    });
+};
+
+const runMermaid = async (rerun) => {
+    console.log("Running mermaid diagrams, rerun =", rerun);
+    // clear all existing mermaid charts
+    let all_mermaids = document.querySelectorAll(".mermaid");
+
+    if (rerun) {
+        // Disconnect any previous lazy rendering observer
+        if (_lazyObserver) {
+            _lazyObserver.disconnect();
+            _lazyObserver = null;
+        }
+
+        all_mermaids.forEach((el) => {
+            el.removeAttribute('data-mermaid-deferred');
+            el.removeAttribute('data-mermaid-render-failed');
+            if(!el.hasAttribute("data-original-code")) {
+                // store original code
+                // console.log(`Storing original code for first run: `, el.innerHTML);
+                el.setAttribute('data-original-code', el.innerHTML);
+            }
+            if(el.getAttribute("data-processed") === "true") {
+                // remove and restore original
+                el.removeAttribute("data-processed");
+                // console.log(`Restoring original code for re-run: `, el.getAttribute('data-original-code'));
+                el.innerHTML = el.getAttribute('data-original-code');
+            } else {
+                // store original code
+                // console.log(`Storing original code for re-run: `, el.innerHTML);
+                el.setAttribute('data-original-code', el.innerHTML);
+            }
+        });
+
+        // Separate visible and hidden elements. Mermaid's layout engine measures
+        // text dimensions via the DOM, which fails for elements hidden by a parent
+        // (e.g., Reveal.js non-active slides, sphinx-design unopened tabs),
+        // producing broken SVGs. Render visible elements now, defer hidden ones.
+        const visible = [];
+        const hidden = [];
+        all_mermaids.forEach((el) => {
+            // offsetParent is null for display:none ancestors.
+            // getClientRects().length > 0 catches position:fixed elements
+            // (which also have null offsetParent but are still visible).
+            if (el.offsetParent !== null || el.getClientRects().length > 0) {
+                visible.push(el);
+            } else {
+                hidden.push(el);
+                el.setAttribute('data-mermaid-deferred', 'true');
+            }
+        });
+
+        if (visible.length > 0) {
+            try {
+                await mermaid.run({ nodes: visible });
+            } catch (e) {
+                console.error("Mermaid rendering failed:", e);
+            }
+        }
+
+        // Lazily render hidden elements when they become visible.
+        // Uses a promise chain (_renderQueue) to serialize rendering,
+        // since IntersectionObserver may report multiple entries at once
+        // and mermaid.run() is not safe to call concurrently.
+        if (hidden.length > 0) {
+            if (typeof IntersectionObserver === 'undefined') {
+                console.warn("IntersectionObserver not available; hidden mermaid diagrams will not render.");
+            } else {
+                _renderQueue = Promise.resolve();
+                _lazyObserver = new IntersectionObserver((entries) => {
+                    for (const entry of entries) {
+                        if (entry.isIntersecting && entry.target.getAttribute("data-processed") !== "true") {
+                            _lazyObserver.unobserve(entry.target);
+                            const el = entry.target;
+                            _renderQueue = _renderQueue.then(async () => {
+                                try {
+                                    await mermaid.run({ nodes: [el] });
+                                    el.removeAttribute('data-mermaid-deferred');
+                                    // Apply zoom to the now-rendered diagram, matching
+                                    // the decoration visible diagrams receive.
+                                    if (true) {
+                                        addZoomToSvgs(d3.selectAll(".mermaid").select(function() {
+                                            return this.querySelector("svg");
+                                        }));
+                                    }
+                                } catch (e) {
+                                    console.error("Mermaid deferred rendering failed:", e);
+                                    el.removeAttribute('data-mermaid-deferred');
+                                    el.setAttribute('data-mermaid-render-failed', 'true');
+                                }
+                            });
+                        }
+                    }
+                });
+                hidden.forEach((el) => _lazyObserver.observe(el));
+            }
+        }
+    }
+
+    all_mermaids = document.querySelectorAll(".mermaid");
+    // Exclude deferred (hidden) and render-failed elements from completion checks
+    const mermaids_active = document.querySelectorAll(".mermaid:not([data-mermaid-deferred]):not([data-mermaid-render-failed])");
+    const mermaids_processed = document.querySelectorAll(".mermaid:not([data-mermaid-deferred]):not([data-mermaid-render-failed])[data-processed='true']");
+
+    if (true) {
+        const mermaids_to_add_zoom = -1 === -1 ? mermaids_active.length : -1;
+        if(mermaids_to_add_zoom > 0) {
+            var svgs = d3.selectAll(".mermaid").select(function() {
+                return this.querySelector("svg");
+            });
+            // Wait until every active (visible) diagram has rendered. Deferred
+            // diagrams are excluded, so a fixed d3_node_count that counts a
+            // hidden diagram no longer loops forever waiting for its SVG.
+            if(mermaids_active.length !== mermaids_processed.length) {
+                setTimeout(() => runMermaid(false), 200);
+                return;
+            }
+            addZoomToSvgs(svgs);
+        }
+    } else if(mermaids_active.length !== mermaids_processed.length) {
+        // Wait for mermaid to process all diagrams
+        setTimeout(() => runMermaid(false), 200);
+        return;
+    }
+
+    // Stop here if not adding fullscreen capability
+    if (!true) return;
+
+    if (modal !== null ) {
+        // Destroy existing modal
+        modal.remove();
+        modal = null;
+        modalContent = null;
+    }
+
+    modal = document.createElement('div');
+    modal.className = 'mermaid-fullscreen-modal' + (darkTheme ? ' dark-theme' : '');
+    modal.setAttribute('role', 'dialog');
+    modal.setAttribute('aria-modal', 'true');
+    modal.setAttribute('aria-label', 'Fullscreen diagram viewer');
+    modal.innerHTML = `
+        <button class="mermaid-fullscreen-close${darkTheme ? ' dark-theme' : ''}" aria-label="Close fullscreen">✕</button>
+        <div class="mermaid-container-fullscreen${darkTheme ? ' dark-theme' : ''}"></div>
+    `;
+    document.body.appendChild(modal);
+
+    modalContent = modal.querySelector('.mermaid-container-fullscreen');
+    const closeBtn = modal.querySelector('.mermaid-fullscreen-close');
+
+    closeModal = () => {
+        modal.classList.remove('active');
+        modalContent.innerHTML = '';
+        document.body.style.overflow = ''
+        window.scrollTo({left: previousScrollOffset[0], top: previousScrollOffset[1], behavior: 'instant'});
+    };
+
+    closeBtn.addEventListener('click', closeModal);
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) closeModal();
+    });
+    document.querySelectorAll('.mermaid').forEach((mermaidDiv) => {
+        if (mermaidDiv.parentNode.classList.contains('mermaid-container') ||
+            mermaidDiv.closest('.mermaid-fullscreen-modal')) {
+            // Already processed, adjust button class if needed
+            const existingBtn = mermaidDiv.parentNode.querySelector('.mermaid-fullscreen-btn');
+            if (existingBtn) {
+                existingBtn.className = 'mermaid-fullscreen-btn' + (darkTheme ? ' dark-theme' : '');
+            }
+            return;
+        }
+
+        const container = document.createElement('div');
+        container.className = 'mermaid-container';
+        mermaidDiv.parentNode.insertBefore(container, mermaidDiv);
+        container.appendChild(mermaidDiv);
+
+        const fullscreenBtn = document.createElement('button');
+        fullscreenBtn.className = 'mermaid-fullscreen-btn' + (darkTheme ? ' dark-theme' : '');
+        fullscreenBtn.setAttribute('aria-label', 'View diagram in fullscreen');
+        fullscreenBtn.textContent = "\u26f6";
+        fullscreenBtn.style.opacity = "50%";
+
+        // Calculate dynamic position based on diagram's margin and padding
+        const diagramStyle = window.getComputedStyle(mermaidDiv);
+        const marginTop = parseFloat(diagramStyle.marginTop) || 0;
+        const marginRight = parseFloat(diagramStyle.marginRight) || 0;
+        const paddingTop = parseFloat(diagramStyle.paddingTop) || 0;
+        const paddingRight = parseFloat(diagramStyle.paddingRight) || 0;
+        fullscreenBtn.style.top = `${marginTop + paddingTop + 4}px`;
+        fullscreenBtn.style.right = `${marginRight + paddingRight + 4}px`;
+
+        fullscreenBtn.addEventListener('click', () => {
+            previousScrollOffset = [window.scrollX, window.scrollY];
+            const clone = mermaidDiv.cloneNode(true);
+            modalContent.innerHTML = '';
+            modalContent.appendChild(clone);
+
+            const svg = clone.querySelector('svg');
+            if (svg) {
+                svg.removeAttribute('width');
+                svg.removeAttribute('height');
+                svg.style.width = '100%';
+                svg.style.height = 'auto';
+                svg.style.maxWidth = '100%';
+                svg.style.display = 'block';
+
+                if (true) {
+                    setTimeout(() => {
+                        const g = svg.querySelector('g');
+                        if (g) {
+                            var svgD3 = d3.select(svg);
+                            svgD3.html("<g class='wrapper'>" + svgD3.html() + "</g>");
+                            var inner = svgD3.select("g");
+                            var zoom = d3.zoom().on("zoom", function(event) {
+                                inner.attr("transform", event.transform);
+                            });
+                            svgD3.call(zoom);
+                        }
+                    }, 100);
+                }
+            }
+
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+        container.appendChild(fullscreenBtn);
+    });
+};
+
+
+
+const load = async () => {
+    initStyles();
+
+
+    await runMermaid(true);
+
+    const reRunIfThemeChanges = async () => {
+        const newDarkTheme = isDarkTheme();
+        if (newDarkTheme !== darkTheme) {
+            darkTheme = newDarkTheme;
+            console.log("Theme change detected, re-running mermaid with", darkTheme ? "dark" : "default", "theme");
+            await mermaid.initialize(
+                {...{"startOnLoad": false},
+                ...{ darkMode: darkTheme, theme: darkTheme ? "dark" : "default" },
+                }
+            );
+            await runMermaid(true);
+        }
+    };
+
+    // Update theme classes when theme changes
+    const themeObserver = new MutationObserver(reRunIfThemeChanges);
+    themeObserver.observe(document.documentElement, {
+        attributes: true,
+        attributeFilter: ['class', 'style', 'data-theme']
+    });
+    themeObserver.observe(document.body, {
+        attributes: true,
+        attributeFilter: ['class', 'style', 'data-theme']
+    });
+};
+
+
+
+
+
+console.log("Initializing mermaid with", darkTheme ? "dark" : "default", "theme");
+mermaid.initialize(
+    {...{"startOnLoad": false},
+    ...{ darkMode: darkTheme, theme: darkTheme ? "dark" : "default" },
+    }
+);
+
+window.addEventListener("load", load);
+window.runMermaid = runMermaid;</script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Guide" href="../guide/index.html" />
+    <link rel="prev" title="Overview" href="00_overview.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            Chiisai HAL Specification
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../00_about/index.html">About This Specification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../01_general/index.html">General</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Chiisai HAL Driver Modules</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../Can/index.html">Can</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../I2c/index.html">I2c</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Lin/index.html">Lin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Mcu/index.html">Mcu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Mem/index.html">Mem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Port/index.html">Port</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Spi/index.html">Spi</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Uart</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">General</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="00_overview.html">Overview</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Concepts</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../guide/index.html">Guide</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../reference/index.html">Reference</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../00_requirements.html">Uart — Requirements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01_design_decisions.html">Design Decisions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../Wdg/index.html">Wdg</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../appendix.html">Appendix</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Chiisai HAL Specification</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Chiisai HAL Driver Modules</a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Uart</a></li>
+          <li class="breadcrumb-item"><a href="index.html">General</a></li>
+      <li class="breadcrumb-item active">Concepts</li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="concepts">
+<h1>Concepts<a class="headerlink" href="#concepts" title="Link to this heading"></a></h1>
+<div class="informative admonition">
+<p class="admonition-title">Informative</p>
+<p>The model behind the UART driver: its driver- and per-channel TX/RX state machines, the two
+transmission-notification styles, the streaming reception model with a mid-transfer trigger, and
+how events are handled. Non-binding; the normative rules live in <a class="reference internal" href="../00_requirements.html"><span class="doc">Uart — Requirements</span></a>.</p>
+</div>
+<section id="state-machine">
+<h2>State machine<a class="headerlink" href="#state-machine" title="Link to this heading"></a></h2>
+<p>The driver has a <strong>driver-wide</strong> state and, within the initialized state, <strong>independent TX and RX</strong>
+states per channel.</p>
+<section id="driver-state">
+<h3>Driver state<a class="headerlink" href="#driver-state" title="Link to this heading"></a></h3>
+<pre  class="mermaid">
+        stateDiagram-v2
+   [*] --&gt; UART_DRV_STATE_UNINIT : Reset
+   UART_DRV_STATE_UNINIT --&gt; UART_DRV_STATE_INIT : Uart_Init()
+   UART_DRV_STATE_INIT --&gt; UART_DRV_STATE_UNINIT : Uart_DeInit()
+    </pre><table class="docutils align-default">
+<colgroup>
+<col style="width: 32.0%" />
+<col style="width: 43.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Driver state</p></th>
+<th class="head"><p>Meaning</p></th>
+<th class="head"><p>API calls accepted</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">UART_DRV_STATE_UNINIT</span></code></p></td>
+<td><p>Not initialized (state after reset/startup)</p></td>
+<td><p>Only <code class="docutils literal notranslate"><span class="pre">Uart_Init()</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">UART_DRV_STATE_INIT</span></code></p></td>
+<td><p>Initialized; service APIs are accepted</p></td>
+<td><p>All</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="tx-channel-state">
+<h3>TX channel state<a class="headerlink" href="#tx-channel-state" title="Link to this heading"></a></h3>
+<p>Each channel has a transmit state (<code class="docutils literal notranslate"><span class="pre">Uart_ChannelTxStateType</span></code>). The <code class="docutils literal notranslate"><span class="pre">BUSY</span></code> → <code class="docutils literal notranslate"><span class="pre">READY</span></code> → <code class="docutils literal notranslate"><span class="pre">IDLE</span></code>
+path applies to <strong>streaming</strong> channels (the software buffer empties before the hardware finishes);
+<strong>HW-completion</strong> channels go straight <code class="docutils literal notranslate"><span class="pre">BUSY</span></code> → <code class="docutils literal notranslate"><span class="pre">IDLE</span></code> when the bus is idle.</p>
+<pre  class="mermaid">
+        stateDiagram-v2
+   direction LR
+   [*] --&gt; UART_CH_TX_STATE_UNINIT : Reset
+   UART_CH_TX_STATE_UNINIT --&gt; UART_CH_TX_STATE_IDLE : Uart_Init()
+   UART_CH_TX_STATE_IDLE --&gt; UART_CH_TX_STATE_BUSY : Uart_StartTxTransaction()
+   UART_CH_TX_STATE_BUSY --&gt; UART_CH_TX_STATE_READY : SW buffer empty (Streaming)
+   UART_CH_TX_STATE_READY --&gt; UART_CH_TX_STATE_IDLE : HW finished sending
+   UART_CH_TX_STATE_READY --&gt; UART_CH_TX_STATE_BUSY : Uart_StartTxTransaction()
+   UART_CH_TX_STATE_BUSY --&gt; UART_CH_TX_STATE_IDLE : HW finished (HwCompletion) or TX error
+    </pre><table class="docutils align-default">
+<colgroup>
+<col style="width: 34.0%" />
+<col style="width: 66.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>TX state</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">UART_CH_TX_STATE_UNINIT</span></code></p></td>
+<td><p>Not initialized.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">UART_CH_TX_STATE_IDLE</span></code></p></td>
+<td><p>No transmission ongoing.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">UART_CH_TX_STATE_READY</span></code></p></td>
+<td><p>Streaming only: the software buffer has been fully handed to the hardware, but a transmission
+is still ongoing — a new buffer may be staged.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">UART_CH_TX_STATE_BUSY</span></code></p></td>
+<td><p>A transmission is ongoing.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="rx-channel-state">
+<h3>RX channel state<a class="headerlink" href="#rx-channel-state" title="Link to this heading"></a></h3>
+<pre  class="mermaid">
+        stateDiagram-v2
+   direction LR
+   [*] --&gt; UART_CH_RX_STATE_UNINIT : Reset
+   UART_CH_RX_STATE_UNINIT --&gt; UART_CH_RX_STATE_IDLE : Uart_Init()
+   UART_CH_RX_STATE_IDLE --&gt; UART_CH_RX_STATE_BUSY : Uart_StartRxTransaction()
+   UART_CH_RX_STATE_BUSY --&gt; UART_CH_RX_STATE_IDLE : buffer full / Uart_CancelRxTransaction() / RX error
+    </pre><table class="docutils align-default">
+<colgroup>
+<col style="width: 34.0%" />
+<col style="width: 66.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>RX state</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">UART_CH_RX_STATE_UNINIT</span></code></p></td>
+<td><p>Not initialized.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">UART_CH_RX_STATE_IDLE</span></code></p></td>
+<td><p>Not receiving; the hardware holds no pending data.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">UART_CH_RX_STATE_BUSY</span></code></p></td>
+<td><p>Receiving, or the hardware holds data not yet stored to the buffer.</p></td>
+</tr>
+</tbody>
+</table>
+<p>See <a class="reference internal" href="../00_requirements.html"><span class="doc">Uart — Requirements</span></a> (<a class="reference internal" href="../00_requirements.html#CHI-UART-MUST-03" title="CHI-UART-MUST-03"><em class="xref need">CHI-UART-MUST-03</em></a>…<a class="reference internal" href="../00_requirements.html#CHI-UART-MUST-05" title="CHI-UART-MUST-05"><em class="xref need">CHI-UART-MUST-05</em></a>).</p>
+</section>
+</section>
+<section id="transmission-completion-vs-streaming">
+<h2>Transmission: completion vs streaming<a class="headerlink" href="#transmission-completion-vs-streaming" title="Link to this heading"></a></h2>
+<p>A channel is configured for <strong>one</strong> of two transmission-notification styles
+(<code class="docutils literal notranslate"><span class="pre">transmission_callback_type</span></code>) — the driver does not use both for the same channel:</p>
+<ul class="simple">
+<li><p><strong>HwCompletion</strong> (<code class="docutils literal notranslate"><span class="pre">Uart_Callout_OnTransmission</span></code>) — fired when the whole buffer has left the UART
+hardware onto the bus (FIFO and shift register empty). Use it when the integration code needs a
+true “sent” confirmation.</p></li>
+<li><p><strong>Streaming</strong> (<code class="docutils literal notranslate"><span class="pre">Uart_Callout_OnStreamingDataRequest</span></code>) — fired as soon as the <strong>software</strong> buffer has
+been handed to the hardware (the FIFO/shift register may still be draining). The channel enters
+<code class="docutils literal notranslate"><span class="pre">READY</span></code> and the integration code can immediately stage the next buffer with
+<code class="docutils literal notranslate"><span class="pre">Uart_StartTxTransaction</span></code> — keeping the bus continuously fed.</p></li>
+</ul>
+</section>
+<section id="reception-buffer-trigger-and-streaming">
+<h2>Reception: buffer, trigger, and streaming<a class="headerlink" href="#reception-buffer-trigger-and-streaming" title="Link to this heading"></a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">Uart_StartRxTransaction(channelId,</span> <span class="pre">rxDataPtr,</span> <span class="pre">rxDataLength,</span> <span class="pre">additionalRxLenTrg)</span></code> arms reception
+into a buffer. The integration code is notified through <code class="docutils literal notranslate"><span class="pre">Uart_Callout_OnReception(channelId,</span>
+<span class="pre">length)</span></code> at two points:</p>
+<ul class="simple">
+<li><p>when the received length reaches <code class="docutils literal notranslate"><span class="pre">additionalRxLenTrg</span></code> (if it is &gt; 0) — a <strong>mid-transfer</strong>
+indication, useful to inspect a command header before the rest arrives; and</p></li>
+<li><p>when the buffer becomes <strong>full</strong>.</p></li>
+</ul>
+<p>If the buffer length is a multiple of the trigger and both fire together,
+<code class="docutils literal notranslate"><span class="pre">Uart_Callout_OnReception</span></code> is called <strong>once</strong>. The trigger can be re-armed from within the callout
+with <code class="docutils literal notranslate"><span class="pre">Uart_SetAdditionalRxLenTrg</span></code>.</p>
+<p>Crucially, reception is <strong>streaming-friendly</strong>: the driver does <strong>not</strong> stop the hardware when the
+buffer fills. Inside <code class="docutils literal notranslate"><span class="pre">Uart_Callout_OnReception</span></code> the integration code calls
+<code class="docutils literal notranslate"><span class="pre">Uart_StartRxTransaction</span></code> again to hand over the next buffer without losing bytes; if it does
+<strong>not</strong>, the driver stops reception after the callout returns. <code class="docutils literal notranslate"><span class="pre">Uart_CancelRxTransaction</span></code> explicitly stops the hardware (e.g. after
+interpreting a command chunk and deciding no more data is needed).</p>
+</section>
+<section id="event-handling-interrupt-or-polling">
+<h2>Event handling: interrupt or polling<a class="headerlink" href="#event-handling-interrupt-or-polling" title="Link to this heading"></a></h2>
+<p>Per channel, event handling is <em>interrupt</em> or <em>polling</em>: <code class="docutils literal notranslate"><span class="pre">Uart_Interrupt</span></code> services interrupt
+channels, <code class="docutils literal notranslate"><span class="pre">Uart_PollFunction</span></code> services polled ones — both do the same work and drive the same
+callouts. Optional <strong>hardware flow control</strong> is enabled per channel where the hardware supports it.</p>
+</section>
+<section id="tx-sequence-streaming">
+<h2>TX sequence (streaming)<a class="headerlink" href="#tx-sequence-streaming" title="Link to this heading"></a></h2>
+<p>The informative view of a streaming transmission (<a class="reference internal" href="../00_requirements.html#CHI-UART-MUST-08" title="CHI-UART-MUST-08"><em class="xref need">CHI-UART-MUST-08</em></a>, <a class="reference internal" href="../00_requirements.html#CHI-UART-MUST-11" title="CHI-UART-MUST-11"><em class="xref need">CHI-UART-MUST-11</em></a>):</p>
+<pre  class="mermaid">
+        sequenceDiagram
+   participant INTEG as Integration code
+   participant DRV as UartDrv
+   participant HW as UART HW
+
+   INTEG-&gt;&gt;DRV: Uart_StartTxTransaction(ch, txData, len)
+   activate DRV
+   DRV-&gt;&gt;HW: fill HW FIFO (channel BUSY)
+   DRV--&gt;&gt;INTEG: E_OK
+   deactivate DRV
+
+   HW-&gt;&gt;DRV: Uart_Interrupt (SW buffer empty)
+   activate DRV
+   DRV-&gt;&gt;INTEG: Uart_Callout_OnStreamingDataRequest(ch, length) (channel READY)
+   opt more to send
+      INTEG-&gt;&gt;DRV: Uart_StartTxTransaction(ch, next, len)
+   end
+   Note over DRV,HW: HW keeps draining the FIFO to the bus asynchronously
+   deactivate DRV
+    </pre></section>
+<section id="rx-sequence-chunked">
+<h2>RX sequence (chunked)<a class="headerlink" href="#rx-sequence-chunked" title="Link to this heading"></a></h2>
+<p>The informative view of a chunked reception with a mid-transfer trigger (<a class="reference internal" href="../00_requirements.html#CHI-UART-MUST-12" title="CHI-UART-MUST-12"><em class="xref need">CHI-UART-MUST-12</em></a>,
+<a class="reference internal" href="../00_requirements.html#CHI-UART-MUST-13" title="CHI-UART-MUST-13"><em class="xref need">CHI-UART-MUST-13</em></a>, <a class="reference internal" href="../00_requirements.html#CHI-UART-MUST-14" title="CHI-UART-MUST-14"><em class="xref need">CHI-UART-MUST-14</em></a>):</p>
+<pre  class="mermaid">
+        sequenceDiagram
+   participant INTEG as Integration code
+   participant DRV as UartDrv
+   participant HW as UART HW
+
+   INTEG-&gt;&gt;DRV: Uart_StartRxTransaction(ch, buf, len, trg)
+   activate DRV
+   DRV-&gt;&gt;HW: start reception (channel BUSY)
+   DRV--&gt;&gt;INTEG: E_OK
+   deactivate DRV
+
+   HW-&gt;&gt;DRV: Uart_Interrupt (data)
+   activate DRV
+   alt RX error
+      DRV-&gt;&gt;HW: stop reception (channel IDLE)
+      DRV-&gt;&gt;INTEG: LogM_Report(UART_RTERR_RX_*)
+   else reached trigger or buffer full
+      DRV-&gt;&gt;INTEG: Uart_Callout_OnReception(ch, length)
+      opt keep receiving
+         INTEG-&gt;&gt;DRV: Uart_StartRxTransaction(ch, nextBuf, len, trg)
+      end
+   end
+   Note over DRV,HW: if no restart in the callout, the driver stops reception after it returns
+   deactivate DRV
+    </pre></section>
+<section id="key-terms">
+<h2>Key terms<a class="headerlink" href="#key-terms" title="Link to this heading"></a></h2>
+<p>For UART terms — streaming vs HW-completion, additional RX length trigger, hardware flow control —
+see the glossary in the appendix and the shared foundation in <a class="reference internal" href="../../../01_general/index.html"><span class="doc">General</span></a>.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="00_overview.html" class="btn btn-neutral float-left" title="Overview" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../guide/index.html" class="btn btn-neutral float-right" title="Guide" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026 by Vector Informatik GmbH and Infineon Technologies AG. All rights reserved.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

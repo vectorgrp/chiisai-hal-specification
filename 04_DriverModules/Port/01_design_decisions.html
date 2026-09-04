@@ -1,0 +1,221 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Design Decisions &mdash; Chiisai HAL Specification  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css?v=4ae1632d" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-data-viewer/jsonview.bundle.css?v=f6ef2277" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-needs/libs/html/datatables.min.css?v=4b4fd840" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-needs/common_css/needstable.css?v=5e1b6797" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-needs/common_css/need_core.css?v=f5b60a78" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-needs/common_css/need_links.css?v=2150a916" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-needs/common_css/need_style.css?v=92936fa5" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-needs/common_css/need_toggle.css?v=5c6620df" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-needs/modern.css?v=803738c0" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=4f645179" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+      <script src="../../_static/sphinx-data-viewer/jsonview.bundle.js?v=18cd53c5"></script>
+      <script src="../../_static/sphinx-data-viewer/jsonview_loader.js?v=f7ff7e7d"></script>
+      <script src="../../_static/sphinx-needs/libs/html/datatables.min.js?v=8a4aee21"></script>
+      <script src="../../_static/sphinx-needs/libs/html/datatables_loader.js?v=a2cae175"></script>
+      <script src="../../_static/sphinx-needs/libs/html/sphinx_needs_collapse.js?v=dca66431"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Spi" href="../Spi/index.html" />
+    <link rel="prev" title="Port — Requirements" href="00_requirements.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Chiisai HAL Specification
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../00_about/index.html">About This Specification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../01_general/index.html">General</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Chiisai HAL Driver Modules</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../Can/index.html">Can</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../I2c/index.html">I2c</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lin/index.html">Lin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Mcu/index.html">Mcu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Mem/index.html">Mem</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Port</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="general/index.html">General</a></li>
+<li class="toctree-l3"><a class="reference internal" href="guide/index.html">Guide</a></li>
+<li class="toctree-l3"><a class="reference internal" href="reference/index.html">Reference</a></li>
+<li class="toctree-l3"><a class="reference internal" href="00_requirements.html">Port — Requirements</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Design Decisions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#why-does-portdrv-have-no-portif-interface-layer">Why does PortDrv have no <code class="docutils literal notranslate"><span class="pre">PortIf</span></code> interface layer?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#why-is-a-pin-s-function-and-direction-fixed-at-port-init">Why is a pin’s function and direction fixed at <code class="docutils literal notranslate"><span class="pre">Port_Init</span></code>?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#why-is-writing-an-input-pin-left-implementation-defined">Why is writing an input pin left implementation-defined?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#why-a-masked-port-write-instead-of-a-plain-port-write">Why a masked port write instead of a plain port write?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#why-return-port-pin-value-low-on-a-read-error">Why return <code class="docutils literal notranslate"><span class="pre">PORT_PIN_VALUE_LOW</span></code> on a read error?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#why-does-port-init-take-only-null-ptr">Why does <code class="docutils literal notranslate"><span class="pre">Port_Init</span></code> take only <code class="docutils literal notranslate"><span class="pre">NULL_PTR</span></code>?</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Spi/index.html">Spi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Uart/index.html">Uart</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Wdg/index.html">Wdg</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix.html">Appendix</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Chiisai HAL Specification</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Chiisai HAL Driver Modules</a></li>
+          <li class="breadcrumb-item"><a href="index.html">Port</a></li>
+      <li class="breadcrumb-item active">Design Decisions</li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="design-decisions">
+<h1>Design Decisions<a class="headerlink" href="#design-decisions" title="Link to this heading"></a></h1>
+<div class="informative admonition">
+<p class="admonition-title">Informative</p>
+<p>The rationale behind the Port driver contract. This helps implementers get the behavior right;
+it is not itself a requirement. Each entry points to the requirement it explains.</p>
+</div>
+<section id="why-does-portdrv-have-no-portif-interface-layer">
+<h2>Why does PortDrv have no <code class="docutils literal notranslate"><span class="pre">PortIf</span></code> interface layer?<a class="headerlink" href="#why-does-portdrv-have-no-portif-interface-layer" title="Link to this heading"></a></h2>
+<p><em>Relates to</em> <a class="reference internal" href="../../01_general/04_requirements.html#CHI-GEN-MUST-15" title="CHI-GEN-MUST-15"><em class="xref need">CHI-GEN-MUST-15</em></a>, <a class="reference internal" href="../../01_general/04_requirements.html#CHI-GEN-MUST-16" title="CHI-GEN-MUST-16"><em class="xref need">CHI-GEN-MUST-16</em></a>.</p>
+<p>There is no standardized interface stack above a port driver the way <code class="docutils literal notranslate"><span class="pre">CanIf</span></code> sits above a CAN
+driver, so a <code class="docutils literal notranslate"><span class="pre">PortIf</span></code> layer would have had no implementation and no owner. PortDrv therefore
+declares its edge notification as a <strong>callout</strong> in <code class="docutils literal notranslate"><span class="pre">Port.h</span></code>, which the integrator implements in
+the generated <code class="docutils literal notranslate"><span class="pre">Port_Callout_Stubs.c</span></code>. The full reasoning, and why <code class="docutils literal notranslate"><span class="pre">Can</span></code> / <code class="docutils literal notranslate"><span class="pre">Lin</span></code> / <code class="docutils literal notranslate"><span class="pre">Mem</span></code> /
+<code class="docutils literal notranslate"><span class="pre">Wdg</span></code> keep their interface layer, is in <a class="reference internal" href="../../01_general/05_design_decisions.html"><span class="doc">Design Decisions</span></a>.</p>
+<p><strong>Implication for implementers:</strong> publish the specification’s types in <code class="docutils literal notranslate"><span class="pre">Port_DriverTypes.h</span></code> and the callout prototype in <code class="docutils literal notranslate"><span class="pre">Port.h</span></code>;
+do not ship a <code class="docutils literal notranslate"><span class="pre">PortIf.h</span></code>.</p>
+</section>
+<section id="why-is-a-pin-s-function-and-direction-fixed-at-port-init">
+<h2>Why is a pin’s function and direction fixed at <code class="docutils literal notranslate"><span class="pre">Port_Init</span></code>?<a class="headerlink" href="#why-is-a-pin-s-function-and-direction-fixed-at-port-init" title="Link to this heading"></a></h2>
+<p><em>Governs</em> <a class="reference internal" href="00_requirements.html#CHI-PORT-MUST-01" title="CHI-PORT-MUST-01"><em class="xref need">CHI-PORT-MUST-01</em></a>, <a class="reference internal" href="00_requirements.html#CHI-PORT-MUST-02" title="CHI-PORT-MUST-02"><em class="xref need">CHI-PORT-MUST-02</em></a>.</p>
+<p>Pin routing is a board-level property that almost never changes at runtime, and reconfiguring a pin
+live is a common source of glitches (e.g. changing direction before the function mode has settled).
+Applying the whole pin setup once, glitch-free, in <code class="docutils literal notranslate"><span class="pre">Port_Init</span></code> — with no runtime reconfiguration
+API — keeps the driver small, keeps the electrical behavior predictable, and pushes the ordering
+concerns into a single, testable place. Edge detection is the one runtime-settable attribute because
+it genuinely varies with application state.</p>
+<p><strong>Implication for implementers:</strong> apply function/direction/initial-value in a glitch-free order in
+<code class="docutils literal notranslate"><span class="pre">Port_Init</span></code>; expose no runtime pin-reconfiguration API.</p>
+</section>
+<section id="why-is-writing-an-input-pin-left-implementation-defined">
+<h2>Why is writing an input pin left implementation-defined?<a class="headerlink" href="#why-is-writing-an-input-pin-left-implementation-defined" title="Link to this heading"></a></h2>
+<p><em>Relates to</em> <a class="reference internal" href="00_requirements.html#CHI-PORT-MUST-04" title="CHI-PORT-MUST-04"><em class="xref need">CHI-PORT-MUST-04</em></a>.</p>
+<p>Hardware disagrees on what “set an input pin” means: some MCUs use the output-register write to
+steer an internal pull-up/down on an input, others latch it harmlessly, and others forbid it. Rather
+than force a lowest-common-denominator behavior (or expensive emulation), the specification leaves
+it undefined so each vendor maps it to what its hardware does — and portable callers simply do not
+rely on it.</p>
+<p><strong>Implication for implementers:</strong> document your device’s Set-on-input behavior; do not assume a
+portable meaning.</p>
+</section>
+<section id="why-a-masked-port-write-instead-of-a-plain-port-write">
+<h2>Why a masked port write instead of a plain port write?<a class="headerlink" href="#why-a-masked-port-write-instead-of-a-plain-port-write" title="Link to this heading"></a></h2>
+<p><em>Governs</em> <a class="reference internal" href="00_requirements.html#CHI-PORT-MUST-06" title="CHI-PORT-MUST-06"><em class="xref need">CHI-PORT-MUST-06</em></a>, <a class="reference internal" href="00_requirements.html#CHI-PORT-SHOULD-01" title="CHI-PORT-SHOULD-01"><em class="xref need">CHI-PORT-SHOULD-01</em></a>.</p>
+<p>Ports usually mix pins owned by different features. A plain whole-port write would force a caller to
+read-modify-write and would race with other owners. <code class="docutils literal notranslate"><span class="pre">Port_SetMaskedPortValue</span></code> lets a caller change
+exactly the pins it owns in one call, and — where the hardware supports it — update them
+simultaneously so a coordinated change (some pins rising, some falling) takes effect atomically.</p>
+<p><strong>Implication for implementers:</strong> apply <code class="docutils literal notranslate"><span class="pre">value</span> <span class="pre">&amp;</span> <span class="pre">mask</span></code> and leave unmasked pins untouched; prefer a
+single atomic HW write over a read-modify-write where possible.</p>
+</section>
+<section id="why-return-port-pin-value-low-on-a-read-error">
+<h2>Why return <code class="docutils literal notranslate"><span class="pre">PORT_PIN_VALUE_LOW</span></code> on a read error?<a class="headerlink" href="#why-return-port-pin-value-low-on-a-read-error" title="Link to this heading"></a></h2>
+<p><em>Relates to</em> <a class="reference internal" href="00_requirements.html#CHI-PORT-MUST-03" title="CHI-PORT-MUST-03"><em class="xref need">CHI-PORT-MUST-03</em></a>.</p>
+<p>The Get APIs return a value, not a status code, so they need a defined result when the pin id is
+invalid. <code class="docutils literal notranslate"><span class="pre">PORT_PIN_VALUE_LOW</span></code> is the safe default (a de-asserted line), and the development-error
+report tells the integrator about the bad id during development. The trade-off — a genuine LOW is
+indistinguishable from an error — is why callers should validate ids up front.</p>
+<p><strong>Implication for implementers:</strong> return LOW (all-LOW for a port) on error and raise the matching
+development error; do not invent an out-of-band error value.</p>
+</section>
+<section id="why-does-port-init-take-only-null-ptr">
+<h2>Why does <code class="docutils literal notranslate"><span class="pre">Port_Init</span></code> take only <code class="docutils literal notranslate"><span class="pre">NULL_PTR</span></code>?<a class="headerlink" href="#why-does-port-init-take-only-null-ptr" title="Link to this heading"></a></h2>
+<p><em>Relates to</em> <a class="reference internal" href="00_requirements.html#CHI-PORT-MUST-02" title="CHI-PORT-MUST-02"><em class="xref need">CHI-PORT-MUST-02</em></a>.</p>
+<p>Configuration variants are selected at build time, not passed at runtime. Requiring
+<code class="docutils literal notranslate"><span class="pre">configPtr</span> <span class="pre">==</span> <span class="pre">NULL_PTR</span></code> keeps the interface stable and avoids implying a runtime variant-selection
+mechanism the driver does not provide.</p>
+<p><strong>Implication for implementers:</strong> bind the active configuration at build time; reject a non-null
+<code class="docutils literal notranslate"><span class="pre">configPtr</span></code> as a development error.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="00_requirements.html" class="btn btn-neutral float-left" title="Port — Requirements" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../Spi/index.html" class="btn btn-neutral float-right" title="Spi" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026 by Vector Informatik GmbH and Infineon Technologies AG. All rights reserved.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

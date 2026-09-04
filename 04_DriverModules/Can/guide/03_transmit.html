@@ -1,0 +1,230 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Transmit a frame &mdash; Chiisai HAL Specification  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css?v=4ae1632d" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-data-viewer/jsonview.bundle.css?v=f6ef2277" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/libs/html/datatables.min.css?v=4b4fd840" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/common_css/needstable.css?v=5e1b6797" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/common_css/need_core.css?v=f5b60a78" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/common_css/need_links.css?v=2150a916" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/common_css/need_style.css?v=92936fa5" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/common_css/need_toggle.css?v=5c6620df" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/modern.css?v=803738c0" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=4f645179" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
+      <script src="../../../_static/sphinx-data-viewer/jsonview.bundle.js?v=18cd53c5"></script>
+      <script src="../../../_static/sphinx-data-viewer/jsonview_loader.js?v=f7ff7e7d"></script>
+      <script src="../../../_static/sphinx-needs/libs/html/datatables.min.js?v=8a4aee21"></script>
+      <script src="../../../_static/sphinx-needs/libs/html/datatables_loader.js?v=a2cae175"></script>
+      <script src="../../../_static/sphinx-needs/libs/html/sphinx_needs_collapse.js?v=dca66431"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Receive a frame" href="04_receive.html" />
+    <link rel="prev" title="Initialize a channel" href="02_initialise.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            Chiisai HAL Specification
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../00_about/index.html">About This Specification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../01_general/index.html">General</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Chiisai HAL Driver Modules</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Can</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../general/index.html">General</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">Guide</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="00_quickstart.html">Quickstart</a></li>
+<li class="toctree-l4"><a class="reference internal" href="01_configuration.html">Configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="02_initialise.html">Initialize a channel</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Transmit a frame</a></li>
+<li class="toctree-l4"><a class="reference internal" href="04_receive.html">Receive a frame</a></li>
+<li class="toctree-l4"><a class="reference internal" href="05_busoff.html">Handle bus-off</a></li>
+<li class="toctree-l4"><a class="reference internal" href="06_common_mistakes.html">Common mistakes</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../reference/index.html">Reference</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../00_requirements.html">Can — Requirements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01_design_decisions.html">Design Decisions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../I2c/index.html">I2c</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Lin/index.html">Lin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Mcu/index.html">Mcu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Mem/index.html">Mem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Port/index.html">Port</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Spi/index.html">Spi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Uart/index.html">Uart</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Wdg/index.html">Wdg</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../appendix.html">Appendix</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Chiisai HAL Specification</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Chiisai HAL Driver Modules</a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Can</a></li>
+          <li class="breadcrumb-item"><a href="index.html">Guide</a></li>
+      <li class="breadcrumb-item active">Transmit a frame</li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="transmit-a-frame">
+<h1>Transmit a frame<a class="headerlink" href="#transmit-a-frame" title="Link to this heading"></a></h1>
+<div class="informative admonition">
+<p class="admonition-title">Informative</p>
+<p>How upper-layer software sends a CAN L-PDU. Binding rules: <a class="reference internal" href="../00_requirements.html#CHI-CAN-MUST-08" title="CHI-CAN-MUST-08"><em class="xref need">CHI-CAN-MUST-08</em></a> to <a class="reference internal" href="../00_requirements.html#CHI-CAN-MUST-12" title="CHI-CAN-MUST-12"><em class="xref need">CHI-CAN-MUST-12</em></a> in
+<a class="reference internal" href="../00_requirements.html"><span class="doc">Can — Requirements</span></a>; signature: <a class="reference internal" href="../reference/00_api.html"><span class="doc">API Reference</span></a>.</p>
+</div>
+<section id="goal">
+<h2>Goal<a class="headerlink" href="#goal" title="Link to this heading"></a></h2>
+<p>Queue a frame for transmission on a <code class="docutils literal notranslate"><span class="pre">STARTED</span></code> channel and learn when it completes.</p>
+</section>
+<section id="send">
+<h2>Send<a class="headerlink" href="#send" title="Link to this heading"></a></h2>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">uint8</span><span class="w"> </span><span class="n">payload</span><span class="p">[</span><span class="mi">8</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">};</span>
+<span class="n">Can_PduInfoType</span><span class="w"> </span><span class="n">pdu</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="p">.</span><span class="n">pduId</span><span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="mi">7u</span><span class="p">,</span><span class="w">          </span><span class="cm">/* your handle; echoed back in the confirmation */</span>
+<span class="w">    </span><span class="p">.</span><span class="n">frameId</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="mh">0x123u</span><span class="p">,</span><span class="w">      </span><span class="cm">/* MSBs select standard/extended and FD/classic */</span>
+<span class="w">    </span><span class="p">.</span><span class="n">sduLength</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="mi">8u</span><span class="p">,</span>
+<span class="w">    </span><span class="p">.</span><span class="n">sduDataPtr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">payload</span><span class="p">,</span>
+<span class="p">};</span>
+
+<span class="n">Std_ReturnType</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Can_Transmit</span><span class="p">(</span><span class="mi">0u</span><span class="w"> </span><span class="cm">/* mailboxId */</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">pdu</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Handle the return value:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 22.0%" />
+<col style="width: 78.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Value</p></th>
+<th class="head"><p>Do</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">E_OK</span></code></p></td>
+<td><p>Frame accepted. Keep <code class="docutils literal notranslate"><span class="pre">payload</span></code> valid until the confirmation fires.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">CAN_BUSY</span></code></p></td>
+<td><p>Mailbox is busy with another frame; retry later. The in-flight frame is untouched.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">E_NOT_OK</span></code></p></td>
+<td><p>A development error was detected (see <a class="reference internal" href="../reference/02_errors.html"><span class="doc">Errors</span></a>); fix the call.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="confirmation">
+<h2>Confirmation<a class="headerlink" href="#confirmation" title="Link to this heading"></a></h2>
+<p>Transmission completes asynchronously. The driver calls back:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">CanIf_OnTransmission</span><span class="p">(</span><span class="n">PduIdType</span><span class="w"> </span><span class="n">pduId</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="cm">/* pduId == 7u here — the value you put in pdu.pduId. */</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="classic-vs-can-fd-and-length">
+<h2>Classic vs. CAN FD, and length<a class="headerlink" href="#classic-vs-can-fd-and-length" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>The frame is sent as <strong>CAN FD</strong> only when the channel is in FD mode <em>and</em> the FD bit is set in
+<code class="docutils literal notranslate"><span class="pre">frameId</span></code>; otherwise it is sent as a <strong>classic</strong> frame.</p></li>
+<li><p>If <code class="docutils literal notranslate"><span class="pre">sduLength</span></code> is not a valid DLC, the driver rounds up to the next valid DLC and pads the
+extra bytes with the configured <code class="docutils literal notranslate"><span class="pre">fd_padding_value</span></code> (<a class="reference internal" href="../00_requirements.html#CHI-CAN-MUST-12" title="CHI-CAN-MUST-12"><em class="xref need">CHI-CAN-MUST-12</em></a>).</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>Buffer ownership.</strong> The driver copies your data, but you must keep <code class="docutils literal notranslate"><span class="pre">sduDataPtr</span></code> valid until
+the operation completes. Do not free or overwrite it before <code class="docutils literal notranslate"><span class="pre">CanIf_OnTransmission</span></code> fires.</p>
+</div>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="../general/01_concepts.html"><span class="doc">Concepts</span></a> — the <em>Event handling sequence</em> traces the full transmit-then-confirm
+flow for both interrupt and polling modes.</p>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="02_initialise.html" class="btn btn-neutral float-left" title="Initialize a channel" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="04_receive.html" class="btn btn-neutral float-right" title="Receive a frame" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026 by Vector Informatik GmbH and Infineon Technologies AG. All rights reserved.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

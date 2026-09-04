@@ -1,0 +1,254 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Appendix &mdash; Chiisai HAL Specification  documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="_static/graphviz.css?v=4ae1632d" />
+      <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="_static/sphinx-data-viewer/jsonview.bundle.css?v=f6ef2277" />
+      <link rel="stylesheet" type="text/css" href="_static/sphinx-needs/libs/html/datatables.min.css?v=4b4fd840" />
+      <link rel="stylesheet" type="text/css" href="_static/sphinx-needs/common_css/needstable.css?v=5e1b6797" />
+      <link rel="stylesheet" type="text/css" href="_static/sphinx-needs/common_css/need_core.css?v=f5b60a78" />
+      <link rel="stylesheet" type="text/css" href="_static/sphinx-needs/common_css/need_links.css?v=2150a916" />
+      <link rel="stylesheet" type="text/css" href="_static/sphinx-needs/common_css/need_style.css?v=92936fa5" />
+      <link rel="stylesheet" type="text/css" href="_static/sphinx-needs/common_css/need_toggle.css?v=5c6620df" />
+      <link rel="stylesheet" type="text/css" href="_static/sphinx-needs/modern.css?v=803738c0" />
+      <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=4f645179" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="_static/design-tabs.js?v=f930bc37"></script>
+      <script src="_static/sphinx-data-viewer/jsonview.bundle.js?v=18cd53c5"></script>
+      <script src="_static/sphinx-data-viewer/jsonview_loader.js?v=f7ff7e7d"></script>
+      <script src="_static/sphinx-needs/libs/html/datatables.min.js?v=8a4aee21"></script>
+      <script src="_static/sphinx-needs/libs/html/datatables_loader.js?v=a2cae175"></script>
+      <script src="_static/sphinx-needs/libs/html/sphinx_needs_collapse.js?v=dca66431"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Design Decisions" href="04_DriverModules/Wdg/01_design_decisions.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Chiisai HAL Specification
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="00_about/index.html">About This Specification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01_general/index.html">General</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_DriverModules/index.html">Chiisai HAL Driver Modules</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Appendix</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#glossary">Glossary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#abbreviations">Abbreviations</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Chiisai HAL Specification</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Appendix</li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="appendix">
+<span id="id1"></span><h1>Appendix<a class="headerlink" href="#appendix" title="Link to this heading"></a></h1>
+<section id="glossary">
+<span id="id2"></span><h2>Glossary<a class="headerlink" href="#glossary" title="Link to this heading"></a></h2>
+<dl class="simple glossary">
+<dt id="term-Address-Area">Address Area<a class="headerlink" href="#term-Address-Area" title="Link to this term"></a></dt><dd><p>A contiguous region of the logical address space, typically combining several physical memory
+sectors into one logical area.</p>
+</dd>
+<dt id="term-Bank">Bank<a class="headerlink" href="#term-Bank" title="Link to this term"></a></dt><dd><p>A group of sectors that maps to one flash controller, within which read-while-write is not
+permitted.</p>
+</dd>
+<dt id="term-Bus-Channel">Bus Channel<a class="headerlink" href="#term-Bus-Channel" title="Link to this term"></a></dt><dd><p>A bus channel serves exactly one physical channel.</p>
+</dd>
+<dt id="term-Bus-controller">Bus controller<a class="headerlink" href="#term-Bus-controller" title="Link to this term"></a></dt><dd><p>A bus controller is the hardware/logic block that manages communication on a bus.
+It configures timing and modes, controls access to the bus, sends and receives frames,
+detects errors, and reports status to software via registers or interrupts.
+It sits between the software stack and the physical layer/transceiver so software can exchange data
+without dealing with electrical details.
+A bus controller may consists of one or multiple
+<a class="reference internal" href="appendix.html#term-Bus-Channel"><span class="xref std std-term">bus channels</span></a> of the same type.</p>
+</dd>
+<dt id="term-CAN-L-PDU">CAN L-PDU<a class="headerlink" href="#term-CAN-L-PDU" title="Link to this term"></a></dt><dd><p>A CAN data link layer protocol data unit, consisting of an identifier, a data length, and the
+data (the SDU).</p>
+</dd>
+<dt id="term-CAN-L-SDU">CAN L-SDU<a class="headerlink" href="#term-CAN-L-SDU" title="Link to this term"></a></dt><dd><p>A CAN data link layer service data unit — the payload transported inside a CAN L-PDU.</p>
+</dd>
+<dt id="term-Chiisai">Chiisai<a class="headerlink" href="#term-Chiisai" title="Link to this term"></a></dt><dd><p>Chiisai is a <a class="reference internal" href="appendix.html#term-FOSS"><span class="xref std std-term">FOSS</span></a> ecosystem for small microcontrollers.
+It includes a standard for a HAL and a modular code generation framework used to configure embedded software.
+The name ‘Chiisai’ is derived from Japanese, meaning ‘small’.</p>
+</dd>
+<dt id="term-Chiisai-Hardware-Abstraction-Layer">Chiisai Hardware Abstraction Layer<a class="headerlink" href="#term-Chiisai-Hardware-Abstraction-Layer" title="Link to this term"></a></dt><dd><p>The Chiisai Hardware Abstraction Layer (short: <a class="reference internal" href="appendix.html#term-Chiisai-HAL"><span class="xref std std-term">Chiisai HAL</span></a>) is a standard for small
+microcontrollers.</p>
+</dd>
+<dt id="term-Controller-Commander-Node">Controller/Commander Node<a class="headerlink" href="#term-Controller-Commander-Node" title="Link to this term"></a></dt><dd><p>Controller or Commander node (formerly called “master”): Is the bus node that starts and controls a transaction.
+It provides the clock, selects the <a class="reference internal" href="appendix.html#term-Target-Responder-Node"><span class="xref std std-term">Target Node</span></a> / <a class="reference internal" href="appendix.html#term-Target-Responder-Node"><span class="xref std std-term">Responder Node</span></a>, defines the transfer parameters (timing, mode, length),
+monitors status and errors, and ends the transaction to release the bus.</p>
+</dd>
+<dt id="term-Hardware-Object">Hardware Object<a class="headerlink" href="#term-Hardware-Object" title="Link to this term"></a></dt><dd><p>A PDU buffer inside the CAN RAM of a CAN controller or channel.</p>
+</dd>
+<dt id="term-Hardware-Object-Handle">Hardware Object Handle<a class="headerlink" href="#term-Hardware-Object-Handle" title="Link to this term"></a></dt><dd><p>A handle representing a transmit or receive hardware object (short: HOH).</p>
+</dd>
+<dt id="term-interface">interface<a class="headerlink" href="#term-interface" title="Link to this term"></a></dt><dd><p>A defined contract between software elements that specifies how they interact.
+It includes the available functions, types, parameters, return values, and
+required behavior, while hiding the internal implementation.</p>
+</dd>
+<dt id="term-Page-Burst">Page Burst<a class="headerlink" href="#term-Page-Burst" title="Link to this term"></a></dt><dd><p>An aggregation of memory (write) pages accessed together to improve read/write performance.</p>
+</dd>
+<dt id="term-Port">Port<a class="headerlink" href="#term-Port" title="Link to this term"></a></dt><dd><p>Several pins grouped together by the hardware and addressed as a unit.</p>
+</dd>
+<dt id="term-Receive-Mailbox">Receive Mailbox<a class="headerlink" href="#term-Receive-Mailbox" title="Link to this term"></a></dt><dd><p>A CAN driver receive mailbox: one or more hardware objects configured as a receive buffer pool,
+used to optimize software filtering.</p>
+</dd>
+<dt id="term-Sector">Sector<a class="headerlink" href="#term-Sector" title="Link to this term"></a></dt><dd><p>The smallest erasable unit of a memory device (in bytes); may be uniform or variable sized.</p>
+</dd>
+<dt id="term-Sector-Batch">Sector Batch<a class="headerlink" href="#term-Sector-Batch" title="Link to this term"></a></dt><dd><p>A logical aggregation of uniformly sized sectors.</p>
+</dd>
+<dt id="term-Sector-Burst">Sector Burst<a class="headerlink" href="#term-Sector-Burst" title="Link to this term"></a></dt><dd><p>An aggregation of sectors accessed together to improve erase performance.</p>
+</dd>
+<dt id="term-SPI-Device">SPI Device<a class="headerlink" href="#term-SPI-Device" title="Link to this term"></a></dt><dd><p>An external device on an SPI bus selected by a chip-select (<a class="reference internal" href="appendix.html#term-CS"><span class="xref std std-term">CS</span></a>) line. One
+<a class="reference internal" href="appendix.html#term-Controller-Commander-Node"><span class="xref std std-term">Controller/Commander Node</span></a> bus channel may control several SPI devices, one per chip select.</p>
+</dd>
+<dt id="term-Target-Responder-Node">Target/Responder Node<a class="headerlink" href="#term-Target-Responder-Node" title="Link to this term"></a></dt><dd><p>Target or Responder node (formerly called “slave”): Is the addressed device on the bus.
+It does not start a transaction or provide the clock; instead, it follows the <a class="reference internal" href="appendix.html#term-Controller-Commander-Node"><span class="xref std std-term">Controller Node</span></a>’s/<a class="reference internal" href="appendix.html#term-Controller-Commander-Node"><span class="xref std std-term">Commander Node</span></a>’s timing, responds to requests,
+exchanges data as addressed, and completes the requested function. In idle state, it does not drive the bus; when selected,
+it acknowledges, provides data, or accepts data as defined by the protocol.</p>
+</dd>
+<dt id="term-Transmit-Mailbox">Transmit Mailbox<a class="headerlink" href="#term-Transmit-Mailbox" title="Link to this term"></a></dt><dd><p>A CAN driver transmit mailbox: one or more hardware objects configured as a transmit buffer pool.</p>
+</dd>
+<dt id="term-Write-Page">Write Page<a class="headerlink" href="#term-Write-Page" title="Link to this term"></a></dt><dd><p>The smallest writable unit of a memory device (in bytes).</p>
+</dd>
+</dl>
+</section>
+<section id="abbreviations">
+<span id="id3"></span><h2>Abbreviations<a class="headerlink" href="#abbreviations" title="Link to this heading"></a></h2>
+<dl class="simple glossary">
+<dt id="term-Ci">&lt;Ci&gt;<a class="headerlink" href="#term-Ci" title="Link to this term"></a></dt><dd><p>Custom Infix</p>
+</dd>
+<dt id="term-Ie">&lt;Ie&gt;<a class="headerlink" href="#term-Ie" title="Link to this term"></a></dt><dd><p>Implementation specific file name Extension</p>
+</dd>
+<dt id="term-Ma">&lt;Ma&gt;<a class="headerlink" href="#term-Ma" title="Link to this term"></a></dt><dd><p>Module Abbreviation</p>
+</dd>
+<dt id="term-Mip">&lt;Mip&gt;<a class="headerlink" href="#term-Mip" title="Link to this term"></a></dt><dd><p>Module Implementation Prefix</p>
+</dd>
+<dt id="term-Vi">&lt;Vi&gt;<a class="headerlink" href="#term-Vi" title="Link to this term"></a></dt><dd><p>Vendor Infix</p>
+</dd>
+<dt id="term-ABI">ABI<a class="headerlink" href="#term-ABI" title="Link to this term"></a></dt><dd><p>Application Binary Interface</p>
+</dd>
+<dt id="term-ACK">ACK<a class="headerlink" href="#term-ACK" title="Link to this term"></a></dt><dd><p>Acknowledgment</p>
+</dd>
+<dt id="term-API">API<a class="headerlink" href="#term-API" title="Link to this term"></a></dt><dd><p>Application Programming Interface</p>
+</dd>
+<dt id="term-CAN">CAN<a class="headerlink" href="#term-CAN" title="Link to this term"></a></dt><dd><p>Controller Area Network</p>
+</dd>
+<dt id="term-Chiisai-HAL">Chiisai HAL<a class="headerlink" href="#term-Chiisai-HAL" title="Link to this term"></a></dt><dd><p><a class="reference internal" href="appendix.html#term-Chiisai-Hardware-Abstraction-Layer"><span class="xref std std-term">Chiisai Hardware Abstraction Layer</span></a></p>
+</dd>
+<dt id="term-CS">CS<a class="headerlink" href="#term-CS" title="Link to this term"></a></dt><dd><p>Chip Select</p>
+</dd>
+<dt id="term-DLC">DLC<a class="headerlink" href="#term-DLC" title="Link to this term"></a></dt><dd><p>Data Length Code</p>
+</dd>
+<dt id="term-ECC">ECC<a class="headerlink" href="#term-ECC" title="Link to this term"></a></dt><dd><p>Error Correction Code</p>
+</dd>
+<dt id="term-FOSS">FOSS<a class="headerlink" href="#term-FOSS" title="Link to this term"></a></dt><dd><p>Free- and Open-Source Software</p>
+</dd>
+<dt id="term-GPIO">GPIO<a class="headerlink" href="#term-GPIO" title="Link to this term"></a></dt><dd><p>General Purpose Input/Output</p>
+</dd>
+<dt id="term-HAL">HAL<a class="headerlink" href="#term-HAL" title="Link to this term"></a></dt><dd><p>Hardware Abstraction Layer</p>
+</dd>
+<dt id="term-HOH">HOH<a class="headerlink" href="#term-HOH" title="Link to this term"></a></dt><dd><p>Hardware Object Handle</p>
+</dd>
+<dt id="term-I2C">I2C<a class="headerlink" href="#term-I2C" title="Link to this term"></a></dt><dd><p>Inter-Integrated Circuit</p>
+</dd>
+<dt id="term-LIN">LIN<a class="headerlink" href="#term-LIN" title="Link to this term"></a></dt><dd><p>Local Interconnect Network</p>
+</dd>
+<dt id="term-MCU">MCU<a class="headerlink" href="#term-MCU" title="Link to this term"></a></dt><dd><p>Micro Controller Unit</p>
+</dd>
+<dt id="term-NACK">NACK<a class="headerlink" href="#term-NACK" title="Link to this term"></a></dt><dd><p>Negative Acknowledgment</p>
+</dd>
+<dt id="term-RX">RX<a class="headerlink" href="#term-RX" title="Link to this term"></a></dt><dd><p>Reception</p>
+</dd>
+<dt id="term-SPI">SPI<a class="headerlink" href="#term-SPI" title="Link to this term"></a></dt><dd><p>Serial Peripheral Interface</p>
+</dd>
+<dt id="term-TX">TX<a class="headerlink" href="#term-TX" title="Link to this term"></a></dt><dd><p>Transmission</p>
+</dd>
+<dt id="term-UART">UART<a class="headerlink" href="#term-UART" title="Link to this term"></a></dt><dd><p>Universal Asynchronous Receiver/Transmitter</p>
+</dd>
+<dt id="term-WDG">WDG<a class="headerlink" href="#term-WDG" title="Link to this term"></a></dt><dd><p>Watch DoG</p>
+</dd>
+</dl>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="04_DriverModules/Wdg/01_design_decisions.html" class="btn btn-neutral float-left" title="Design Decisions" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026 by Vector Informatik GmbH and Infineon Technologies AG. All rights reserved.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,208 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Design Decisions &mdash; Chiisai HAL Specification  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css?v=4ae1632d" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-data-viewer/jsonview.bundle.css?v=f6ef2277" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-needs/libs/html/datatables.min.css?v=4b4fd840" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-needs/common_css/needstable.css?v=5e1b6797" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-needs/common_css/need_core.css?v=f5b60a78" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-needs/common_css/need_links.css?v=2150a916" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-needs/common_css/need_style.css?v=92936fa5" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-needs/common_css/need_toggle.css?v=5c6620df" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-needs/modern.css?v=803738c0" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=4f645179" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+      <script src="../../_static/sphinx-data-viewer/jsonview.bundle.js?v=18cd53c5"></script>
+      <script src="../../_static/sphinx-data-viewer/jsonview_loader.js?v=f7ff7e7d"></script>
+      <script src="../../_static/sphinx-needs/libs/html/datatables.min.js?v=8a4aee21"></script>
+      <script src="../../_static/sphinx-needs/libs/html/datatables_loader.js?v=a2cae175"></script>
+      <script src="../../_static/sphinx-needs/libs/html/sphinx_needs_collapse.js?v=dca66431"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="I2c" href="../I2c/index.html" />
+    <link rel="prev" title="Can — Requirements" href="00_requirements.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Chiisai HAL Specification
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../00_about/index.html">About This Specification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../01_general/index.html">General</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Chiisai HAL Driver Modules</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Can</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="general/index.html">General</a></li>
+<li class="toctree-l3"><a class="reference internal" href="guide/index.html">Guide</a></li>
+<li class="toctree-l3"><a class="reference internal" href="reference/index.html">Reference</a></li>
+<li class="toctree-l3"><a class="reference internal" href="00_requirements.html">Can — Requirements</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Design Decisions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#why-no-automatic-bus-off-recovery">Why no automatic bus-off recovery?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#why-reject-remote-frames-entirely">Why reject remote frames entirely?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#why-no-software-priority-emulation">Why no software priority emulation?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#why-split-scheduling-into-poll-and-cyclic-functions">Why split scheduling into poll and cyclic functions?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#why-is-sleep-only-a-logical-state">Why is SLEEP only a logical state?</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../I2c/index.html">I2c</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lin/index.html">Lin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Mcu/index.html">Mcu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Mem/index.html">Mem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Port/index.html">Port</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Spi/index.html">Spi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Uart/index.html">Uart</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Wdg/index.html">Wdg</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix.html">Appendix</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Chiisai HAL Specification</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Chiisai HAL Driver Modules</a></li>
+          <li class="breadcrumb-item"><a href="index.html">Can</a></li>
+      <li class="breadcrumb-item active">Design Decisions</li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="design-decisions">
+<h1>Design Decisions<a class="headerlink" href="#design-decisions" title="Link to this heading"></a></h1>
+<div class="informative admonition">
+<p class="admonition-title">Informative</p>
+<p>The rationale behind the CAN driver contract. This helps implementers get the behavior right;
+it is not itself a requirement. Each entry points to the requirement it explains.</p>
+</div>
+<section id="why-no-automatic-bus-off-recovery">
+<h2>Why no automatic bus-off recovery?<a class="headerlink" href="#why-no-automatic-bus-off-recovery" title="Link to this heading"></a></h2>
+<p><em>Governs</em> <a class="reference internal" href="00_requirements.html#CHI-CAN-MUST-07" title="CHI-CAN-MUST-07"><em class="xref need">CHI-CAN-MUST-07</em></a>.</p>
+<p>Automatic recovery restarts the controller without telling the upper layer, so message loss can go
+undetected and a persistent physical fault (wiring, termination, a babbling node) gets silently
+retried. The upper layer is better placed to decide <em>whether</em> and <em>when</em> to rejoin — immediately,
+after a back-off, or not at all in a safety-related system. So the driver reports bus-off via
+<code class="docutils literal notranslate"><span class="pre">CanIf_OnError</span></code> and leaves the channel <code class="docutils literal notranslate"><span class="pre">STOPPED</span></code>; the integrator restarts it deliberately (see
+<a class="reference internal" href="guide/05_busoff.html"><span class="doc">Handle bus-off</span></a>).</p>
+<p><strong>Implication for implementers:</strong> do not wire up hardware auto-restart in your ISR; surface the
+event instead.</p>
+</section>
+<section id="why-reject-remote-frames-entirely">
+<h2>Why reject remote frames entirely?<a class="headerlink" href="#why-reject-remote-frames-entirely" title="Link to this heading"></a></h2>
+<p><em>Governs</em> <a class="reference internal" href="00_requirements.html#CHI-CAN-MUST-05" title="CHI-CAN-MUST-05"><em class="xref need">CHI-CAN-MUST-05</em></a>.</p>
+<p>Remote frames add a request/response mode that most modern designs neither use nor want, and that
+complicates filtering and buffer management. Excluding them keeps the driver small and its
+behavior predictable. The driver configures the hardware to ignore and reject incoming RTRs and
+never emits them.</p>
+<p><strong>Implication for implementers:</strong> set the controller’s filters/config to drop RTRs; do not expose a
+remote-transmission path.</p>
+</section>
+<section id="why-no-software-priority-emulation">
+<h2>Why no software priority emulation?<a class="headerlink" href="#why-no-software-priority-emulation" title="Link to this heading"></a></h2>
+<p><em>Governs</em> <a class="reference internal" href="00_requirements.html#CHI-CAN-MUST-11" title="CHI-CAN-MUST-11"><em class="xref need">CHI-CAN-MUST-11</em></a>.</p>
+<p>Emulating transmit priority in software adds latency, jitter, and complexity that fight the goal of
+a thin HAL — and hardware already arbitrates by identifier on the wire. Where priority ordering
+among pending frames matters, it should come from hardware transmit-object priority or from the
+upper layer’s queueing.</p>
+<p><strong>Implication for implementers:</strong> map transmit requests onto hardware objects directly; don’t build
+a software priority queue inside the driver.</p>
+</section>
+<section id="why-split-scheduling-into-poll-and-cyclic-functions">
+<h2>Why split scheduling into poll and cyclic functions?<a class="headerlink" href="#why-split-scheduling-into-poll-and-cyclic-functions" title="Link to this heading"></a></h2>
+<p><em>Governs</em> <a class="reference internal" href="00_requirements.html#CHI-CAN-MUST-20" title="CHI-CAN-MUST-20"><em class="xref need">CHI-CAN-MUST-20</em></a>.</p>
+<p>TX/RX handling needs to run often (sub-millisecond) to keep throughput up on small MCUs with
+shallow queues, while bus-off and state-transition polling are fine at a slower cadence (≥ 1 ms).
+Separating <code class="docutils literal notranslate"><span class="pre">Can_PollFunction</span></code> from <code class="docutils literal notranslate"><span class="pre">Can_CyclicFunction</span></code> lets the integrator schedule each at an
+appropriate rate instead of paying the fast rate for everything.</p>
+<p><strong>Implication for implementers:</strong> keep <code class="docutils literal notranslate"><span class="pre">Can_PollFunction</span></code> cheap; put slow polling in
+<code class="docutils literal notranslate"><span class="pre">Can_CyclicFunction</span></code>. Either may be empty if nothing is configured for polling.</p>
+</section>
+<section id="why-is-sleep-only-a-logical-state">
+<h2>Why is SLEEP only a logical state?<a class="headerlink" href="#why-is-sleep-only-a-logical-state" title="Link to this heading"></a></h2>
+<p><em>Relates to</em> <a class="reference internal" href="00_requirements.html#CHI-CAN-MUST-02" title="CHI-CAN-MUST-02"><em class="xref need">CHI-CAN-MUST-02</em></a>.</p>
+<p>Wakeup detection depends on transceiver and board features that a portable HAL for small MCUs
+cannot assume. Rather than mandate it, the driver omits wakeup detection and treats <code class="docutils literal notranslate"><span class="pre">SLEEP</span></code> as a
+logical state: the channel stops participating, but no wakeup source is armed.</p>
+<p><strong>Implication for implementers:</strong> implement <code class="docutils literal notranslate"><span class="pre">SLEEP</span></code> as “stopped, marked asleep”; do not rely on
+transceiver wakeup, and map SLEEP→STOPPED on hardware without a sleep state as a no-op.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="00_requirements.html" class="btn btn-neutral float-left" title="Can — Requirements" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../I2c/index.html" class="btn btn-neutral float-right" title="I2c" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026 by Vector Informatik GmbH and Infineon Technologies AG. All rights reserved.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

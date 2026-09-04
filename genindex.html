@@ -1,0 +1,1287 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Index &mdash; Chiisai HAL Specification  documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="_static/graphviz.css?v=4ae1632d" />
+      <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="_static/sphinx-data-viewer/jsonview.bundle.css?v=f6ef2277" />
+      <link rel="stylesheet" type="text/css" href="_static/sphinx-needs/libs/html/datatables.min.css?v=4b4fd840" />
+      <link rel="stylesheet" type="text/css" href="_static/sphinx-needs/common_css/needstable.css?v=5e1b6797" />
+      <link rel="stylesheet" type="text/css" href="_static/sphinx-needs/common_css/need_core.css?v=f5b60a78" />
+      <link rel="stylesheet" type="text/css" href="_static/sphinx-needs/common_css/need_links.css?v=2150a916" />
+      <link rel="stylesheet" type="text/css" href="_static/sphinx-needs/common_css/need_style.css?v=92936fa5" />
+      <link rel="stylesheet" type="text/css" href="_static/sphinx-needs/common_css/need_toggle.css?v=5c6620df" />
+      <link rel="stylesheet" type="text/css" href="_static/sphinx-needs/modern.css?v=803738c0" />
+      <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=4f645179" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="_static/design-tabs.js?v=f930bc37"></script>
+      <script src="_static/sphinx-data-viewer/jsonview.bundle.js?v=18cd53c5"></script>
+      <script src="_static/sphinx-data-viewer/jsonview_loader.js?v=f7ff7e7d"></script>
+      <script src="_static/sphinx-needs/libs/html/datatables.min.js?v=8a4aee21"></script>
+      <script src="_static/sphinx-needs/libs/html/datatables_loader.js?v=a2cae175"></script>
+      <script src="_static/sphinx-needs/libs/html/sphinx_needs_collapse.js?v=dca66431"></script>
+      <script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
+      <script type="module">import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.12.1/dist/mermaid.esm.min.mjs";
+
+
+
+const initStyles = () => {
+    const defaultStyle = document.createElement('style');
+    defaultStyle.textContent = "pre.mermaid {\n    /* Same as .mermaid-container > pre */\n    display: block;\n    width: 100%;\n}\n\npre.mermaid > svg {\n    /* Same as .mermaid-container > pre > svg */\n    height: 500px;\n    width: 100%;\n    max-width: 100% !important;\n}";
+    document.head.appendChild(defaultStyle);
+
+    const fullscreenStyle = document.createElement('style');
+    fullscreenStyle.textContent = ".mermaid-container {\n    position: relative;\n    display: flex;\n    flex-direction: row;\n    width: 100%;\n}\n\n.mermaid-container > pre {\n    display: block;\n    width: 100%;\n}\n\n.mermaid-container > pre > svg {\n    height: 500px;\n    width: 100%;\n    max-width: 100% !important;\n}\n\n.mermaid-fullscreen-btn {\n    position: absolute;\n    width: 28px;\n    height: 28px;\n    background: rgba(255, 255, 255, 0.95);\n    border: 1px solid rgba(0, 0, 0, 0.3);\n    border-radius: 4px;\n    cursor: pointer;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    transition: all 0.2s;\n    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);\n    font-size: 14px;\n    line-height: 1;\n    padding: 0;\n    color: #333;\n}\n\n.mermaid-fullscreen-btn:hover {\n    opacity: 100% !important;\n    background: rgba(255, 255, 255, 1);\n    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);\n    transform: scale(1.1);\n}\n\n.mermaid-fullscreen-btn.dark-theme {\n    background: rgba(50, 50, 50, 0.95);\n    border: 1px solid rgba(255, 255, 255, 0.3);\n    color: #e0e0e0;\n}\n\n.mermaid-fullscreen-btn.dark-theme:hover {\n    background: rgba(60, 60, 60, 1);\n    box-shadow: 0 3px 10px rgba(255, 255, 255, 0.2);\n}\n\n.mermaid-fullscreen-modal {\n    display: none;\n    position: fixed !important;\n    top: 0 !important;\n    left: 0 !important;\n    width: 95vw;\n    height: 100vh;\n    background: rgba(255, 255, 255, 0.98);\n    z-index: 9999;\n    padding: 20px;\n    overflow: auto;\n}\n\n.mermaid-fullscreen-modal.dark-theme {\n    background: rgba(0, 0, 0, 0.98);\n}\n\n.mermaid-fullscreen-modal.active {\n    display: flex;\n    align-items: center;\n    justify-content: center;\n}\n\n.mermaid-container-fullscreen {\n    position: relative;\n    width: 95vw;\n    height: 90vh;\n    max-width: 95vw;\n    max-height: 90vh;\n    background: white;\n    border-radius: 8px;\n    padding: 20px;\n    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);\n    overflow: auto;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n}\n\n.mermaid-container-fullscreen.dark-theme {\n    background: #1a1a1a;\n    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);\n}\n\n.mermaid-container-fullscreen pre.mermaid {\n    width: 100%;\n    height: 100%;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n}\n\n.mermaid-container-fullscreen .mermaid svg {\n    height: 100% !important;\n    width: 100% !important;\n    cursor: grab;\n}\n\n.mermaid-fullscreen-close {\n    position: fixed !important;\n    top: 20px !important;\n    right: 20px !important;\n    width: 40px;\n    height: 40px;\n    background: rgba(255, 255, 255, 0.95);\n    border: 1px solid rgba(0, 0, 0, 0.2);\n    border-radius: 50%;\n    cursor: pointer;\n    z-index: 10000;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);\n    transition: all 0.2s;\n    font-size: 24px;\n    line-height: 1;\n    color: #333;\n}\n\n.mermaid-fullscreen-close:hover {\n    background: white;\n    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);\n    transform: scale(1.1);\n}\n\n.mermaid-fullscreen-close.dark-theme {\n    background: rgba(50, 50, 50, 0.95);\n    border: 1px solid rgba(255, 255, 255, 0.2);\n    color: #e0e0e0;\n}\n\n.mermaid-fullscreen-close.dark-theme:hover {\n    background: rgba(60, 60, 60, 1);\n    box-shadow: 0 6px 16px rgba(255, 255, 255, 0.2);\n}\n\n.mermaid-fullscreen-modal .mermaid-fullscreen-btn {\n    display: none !important;\n}";
+    document.head.appendChild(fullscreenStyle);
+}
+
+// Detect if page has dark background
+const isDarkTheme = () => {
+    // We use a set of heuristics:
+    // 1. Check for common dark mode classes or attributes
+    // 2. Check computed background color brightness
+    if (document.documentElement.classList.contains('dark') ||
+        document.documentElement.getAttribute('data-theme') === 'dark' ||
+        document.body.classList.contains('dark') ||
+        document.body.getAttribute('data-theme') === 'dark') {
+        // console.log("Dark theme detected via class/attribute");
+        return true;
+    }
+    if (document.documentElement.classList.contains('light') ||
+        document.documentElement.getAttribute('data-theme') === 'light' ||
+        document.body.classList.contains('light') ||
+        document.body.getAttribute('data-theme') === 'light') {
+        // console.log("Light theme detected via class/attribute");
+        return false;
+    }
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        // console.log("Dark theme detected via prefers-color-scheme");
+        return true;
+    }
+    const bgColor = window.getComputedStyle(document.body).backgroundColor;
+    const match = bgColor.match(/rgb\((\d+),\s*(\d+),\s*(\d+)/);
+    if (match) {
+        const r = parseInt(match[1]);
+        const g = parseInt(match[2]);
+        const b = parseInt(match[3]);
+        const brightness = (r * 299 + g * 587 + b * 114) / 1000;
+        // console.log("Background color brightness:", brightness);
+        return brightness < 128;
+    }
+    // console.log("No dark or light theme detected, defaulting to light theme");
+    return false;
+};
+
+let darkTheme = isDarkTheme();
+let modal = null;
+let modalContent = null;
+let previousScrollOffset = [window.scrollX, window.scrollY];
+let _lazyObserver = null;
+let _renderQueue = Promise.resolve();
+let closeModal = () => {};
+
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal?.classList.contains('active')) {
+        closeModal();
+    }
+});
+
+// Apply d3 zoom to each SVG. Idempotent: an SVG already wrapped is skipped,
+// so this is safe to call both for the initial batch and for diagrams that
+// render lazily once they become visible.
+const addZoomToSvgs = (svgs) => {
+    svgs.each(function() {
+        if (this.getAttribute('data-zoom-applied') === 'true') return;
+        var svg = d3.select(this);
+        svg.html("<g class='wrapper'>" + svg.html() + "</g>");
+        var inner = svg.select("g");
+        var zoom = d3.zoom().on("zoom", function(event) {
+            inner.attr("transform", event.transform);
+        });
+        svg.call(zoom);
+        this.setAttribute('data-zoom-applied', 'true');
+    });
+};
+
+const runMermaid = async (rerun) => {
+    console.log("Running mermaid diagrams, rerun =", rerun);
+    // clear all existing mermaid charts
+    let all_mermaids = document.querySelectorAll(".mermaid");
+
+    if (rerun) {
+        // Disconnect any previous lazy rendering observer
+        if (_lazyObserver) {
+            _lazyObserver.disconnect();
+            _lazyObserver = null;
+        }
+
+        all_mermaids.forEach((el) => {
+            el.removeAttribute('data-mermaid-deferred');
+            el.removeAttribute('data-mermaid-render-failed');
+            if(!el.hasAttribute("data-original-code")) {
+                // store original code
+                // console.log(`Storing original code for first run: `, el.innerHTML);
+                el.setAttribute('data-original-code', el.innerHTML);
+            }
+            if(el.getAttribute("data-processed") === "true") {
+                // remove and restore original
+                el.removeAttribute("data-processed");
+                // console.log(`Restoring original code for re-run: `, el.getAttribute('data-original-code'));
+                el.innerHTML = el.getAttribute('data-original-code');
+            } else {
+                // store original code
+                // console.log(`Storing original code for re-run: `, el.innerHTML);
+                el.setAttribute('data-original-code', el.innerHTML);
+            }
+        });
+
+        // Separate visible and hidden elements. Mermaid's layout engine measures
+        // text dimensions via the DOM, which fails for elements hidden by a parent
+        // (e.g., Reveal.js non-active slides, sphinx-design unopened tabs),
+        // producing broken SVGs. Render visible elements now, defer hidden ones.
+        const visible = [];
+        const hidden = [];
+        all_mermaids.forEach((el) => {
+            // offsetParent is null for display:none ancestors.
+            // getClientRects().length > 0 catches position:fixed elements
+            // (which also have null offsetParent but are still visible).
+            if (el.offsetParent !== null || el.getClientRects().length > 0) {
+                visible.push(el);
+            } else {
+                hidden.push(el);
+                el.setAttribute('data-mermaid-deferred', 'true');
+            }
+        });
+
+        if (visible.length > 0) {
+            try {
+                await mermaid.run({ nodes: visible });
+            } catch (e) {
+                console.error("Mermaid rendering failed:", e);
+            }
+        }
+
+        // Lazily render hidden elements when they become visible.
+        // Uses a promise chain (_renderQueue) to serialize rendering,
+        // since IntersectionObserver may report multiple entries at once
+        // and mermaid.run() is not safe to call concurrently.
+        if (hidden.length > 0) {
+            if (typeof IntersectionObserver === 'undefined') {
+                console.warn("IntersectionObserver not available; hidden mermaid diagrams will not render.");
+            } else {
+                _renderQueue = Promise.resolve();
+                _lazyObserver = new IntersectionObserver((entries) => {
+                    for (const entry of entries) {
+                        if (entry.isIntersecting && entry.target.getAttribute("data-processed") !== "true") {
+                            _lazyObserver.unobserve(entry.target);
+                            const el = entry.target;
+                            _renderQueue = _renderQueue.then(async () => {
+                                try {
+                                    await mermaid.run({ nodes: [el] });
+                                    el.removeAttribute('data-mermaid-deferred');
+                                    // Apply zoom to the now-rendered diagram, matching
+                                    // the decoration visible diagrams receive.
+                                    if (true) {
+                                        addZoomToSvgs(d3.selectAll(".mermaid").select(function() {
+                                            return this.querySelector("svg");
+                                        }));
+                                    }
+                                } catch (e) {
+                                    console.error("Mermaid deferred rendering failed:", e);
+                                    el.removeAttribute('data-mermaid-deferred');
+                                    el.setAttribute('data-mermaid-render-failed', 'true');
+                                }
+                            });
+                        }
+                    }
+                });
+                hidden.forEach((el) => _lazyObserver.observe(el));
+            }
+        }
+    }
+
+    all_mermaids = document.querySelectorAll(".mermaid");
+    // Exclude deferred (hidden) and render-failed elements from completion checks
+    const mermaids_active = document.querySelectorAll(".mermaid:not([data-mermaid-deferred]):not([data-mermaid-render-failed])");
+    const mermaids_processed = document.querySelectorAll(".mermaid:not([data-mermaid-deferred]):not([data-mermaid-render-failed])[data-processed='true']");
+
+    if (true) {
+        const mermaids_to_add_zoom = -1 === -1 ? mermaids_active.length : -1;
+        if(mermaids_to_add_zoom > 0) {
+            var svgs = d3.selectAll(".mermaid").select(function() {
+                return this.querySelector("svg");
+            });
+            // Wait until every active (visible) diagram has rendered. Deferred
+            // diagrams are excluded, so a fixed d3_node_count that counts a
+            // hidden diagram no longer loops forever waiting for its SVG.
+            if(mermaids_active.length !== mermaids_processed.length) {
+                setTimeout(() => runMermaid(false), 200);
+                return;
+            }
+            addZoomToSvgs(svgs);
+        }
+    } else if(mermaids_active.length !== mermaids_processed.length) {
+        // Wait for mermaid to process all diagrams
+        setTimeout(() => runMermaid(false), 200);
+        return;
+    }
+
+    // Stop here if not adding fullscreen capability
+    if (!true) return;
+
+    if (modal !== null ) {
+        // Destroy existing modal
+        modal.remove();
+        modal = null;
+        modalContent = null;
+    }
+
+    modal = document.createElement('div');
+    modal.className = 'mermaid-fullscreen-modal' + (darkTheme ? ' dark-theme' : '');
+    modal.setAttribute('role', 'dialog');
+    modal.setAttribute('aria-modal', 'true');
+    modal.setAttribute('aria-label', 'Fullscreen diagram viewer');
+    modal.innerHTML = `
+        <button class="mermaid-fullscreen-close${darkTheme ? ' dark-theme' : ''}" aria-label="Close fullscreen">✕</button>
+        <div class="mermaid-container-fullscreen${darkTheme ? ' dark-theme' : ''}"></div>
+    `;
+    document.body.appendChild(modal);
+
+    modalContent = modal.querySelector('.mermaid-container-fullscreen');
+    const closeBtn = modal.querySelector('.mermaid-fullscreen-close');
+
+    closeModal = () => {
+        modal.classList.remove('active');
+        modalContent.innerHTML = '';
+        document.body.style.overflow = ''
+        window.scrollTo({left: previousScrollOffset[0], top: previousScrollOffset[1], behavior: 'instant'});
+    };
+
+    closeBtn.addEventListener('click', closeModal);
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) closeModal();
+    });
+    document.querySelectorAll('.mermaid').forEach((mermaidDiv) => {
+        if (mermaidDiv.parentNode.classList.contains('mermaid-container') ||
+            mermaidDiv.closest('.mermaid-fullscreen-modal')) {
+            // Already processed, adjust button class if needed
+            const existingBtn = mermaidDiv.parentNode.querySelector('.mermaid-fullscreen-btn');
+            if (existingBtn) {
+                existingBtn.className = 'mermaid-fullscreen-btn' + (darkTheme ? ' dark-theme' : '');
+            }
+            return;
+        }
+
+        const container = document.createElement('div');
+        container.className = 'mermaid-container';
+        mermaidDiv.parentNode.insertBefore(container, mermaidDiv);
+        container.appendChild(mermaidDiv);
+
+        const fullscreenBtn = document.createElement('button');
+        fullscreenBtn.className = 'mermaid-fullscreen-btn' + (darkTheme ? ' dark-theme' : '');
+        fullscreenBtn.setAttribute('aria-label', 'View diagram in fullscreen');
+        fullscreenBtn.textContent = "\u26f6";
+        fullscreenBtn.style.opacity = "50%";
+
+        // Calculate dynamic position based on diagram's margin and padding
+        const diagramStyle = window.getComputedStyle(mermaidDiv);
+        const marginTop = parseFloat(diagramStyle.marginTop) || 0;
+        const marginRight = parseFloat(diagramStyle.marginRight) || 0;
+        const paddingTop = parseFloat(diagramStyle.paddingTop) || 0;
+        const paddingRight = parseFloat(diagramStyle.paddingRight) || 0;
+        fullscreenBtn.style.top = `${marginTop + paddingTop + 4}px`;
+        fullscreenBtn.style.right = `${marginRight + paddingRight + 4}px`;
+
+        fullscreenBtn.addEventListener('click', () => {
+            previousScrollOffset = [window.scrollX, window.scrollY];
+            const clone = mermaidDiv.cloneNode(true);
+            modalContent.innerHTML = '';
+            modalContent.appendChild(clone);
+
+            const svg = clone.querySelector('svg');
+            if (svg) {
+                svg.removeAttribute('width');
+                svg.removeAttribute('height');
+                svg.style.width = '100%';
+                svg.style.height = 'auto';
+                svg.style.maxWidth = '100%';
+                svg.style.display = 'block';
+
+                if (true) {
+                    setTimeout(() => {
+                        const g = svg.querySelector('g');
+                        if (g) {
+                            var svgD3 = d3.select(svg);
+                            svgD3.html("<g class='wrapper'>" + svgD3.html() + "</g>");
+                            var inner = svgD3.select("g");
+                            var zoom = d3.zoom().on("zoom", function(event) {
+                                inner.attr("transform", event.transform);
+                            });
+                            svgD3.call(zoom);
+                        }
+                    }, 100);
+                }
+            }
+
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+        container.appendChild(fullscreenBtn);
+    });
+};
+
+
+
+const load = async () => {
+    initStyles();
+
+
+    await runMermaid(true);
+
+    const reRunIfThemeChanges = async () => {
+        const newDarkTheme = isDarkTheme();
+        if (newDarkTheme !== darkTheme) {
+            darkTheme = newDarkTheme;
+            console.log("Theme change detected, re-running mermaid with", darkTheme ? "dark" : "default", "theme");
+            await mermaid.initialize(
+                {...{"startOnLoad": false},
+                ...{ darkMode: darkTheme, theme: darkTheme ? "dark" : "default" },
+                }
+            );
+            await runMermaid(true);
+        }
+    };
+
+    // Update theme classes when theme changes
+    const themeObserver = new MutationObserver(reRunIfThemeChanges);
+    themeObserver.observe(document.documentElement, {
+        attributes: true,
+        attributeFilter: ['class', 'style', 'data-theme']
+    });
+    themeObserver.observe(document.body, {
+        attributes: true,
+        attributeFilter: ['class', 'style', 'data-theme']
+    });
+};
+
+
+
+
+
+console.log("Initializing mermaid with", darkTheme ? "dark" : "default", "theme");
+mermaid.initialize(
+    {...{"startOnLoad": false},
+    ...{ darkMode: darkTheme, theme: darkTheme ? "dark" : "default" },
+    }
+);
+
+window.addEventListener("load", load);
+window.runMermaid = runMermaid;</script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="#" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Chiisai HAL Specification
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="00_about/index.html">About This Specification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01_general/index.html">General</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_DriverModules/index.html">Chiisai HAL Driver Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="appendix.html">Appendix</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Chiisai HAL Specification</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Index</li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+
+<h1 id="index">Index</h1>
+
+<div class="genindex-jumpbox">
+ <a href="#Symbols"><strong>Symbols</strong></a>
+ | <a href="#A"><strong>A</strong></a>
+ | <a href="#B"><strong>B</strong></a>
+ | <a href="#C"><strong>C</strong></a>
+ | <a href="#D"><strong>D</strong></a>
+ | <a href="#E"><strong>E</strong></a>
+ | <a href="#F"><strong>F</strong></a>
+ | <a href="#G"><strong>G</strong></a>
+ | <a href="#H"><strong>H</strong></a>
+ | <a href="#I"><strong>I</strong></a>
+ | <a href="#L"><strong>L</strong></a>
+ | <a href="#M"><strong>M</strong></a>
+ | <a href="#N"><strong>N</strong></a>
+ | <a href="#P"><strong>P</strong></a>
+ | <a href="#R"><strong>R</strong></a>
+ | <a href="#S"><strong>S</strong></a>
+ | <a href="#T"><strong>T</strong></a>
+ | <a href="#U"><strong>U</strong></a>
+ | <a href="#W"><strong>W</strong></a>
+ 
+</div>
+<h2 id="Symbols">Symbols</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="appendix.html#term-Ci"><strong>&lt;Ci&gt;</strong></a>
+</li>
+      <li><a href="appendix.html#term-Ie"><strong>&lt;Ie&gt;</strong></a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="appendix.html#term-Ma"><strong>&lt;Ma&gt;</strong></a>
+</li>
+      <li><a href="appendix.html#term-Mip"><strong>&lt;Mip&gt;</strong></a>
+</li>
+      <li><a href="appendix.html#term-Vi"><strong>&lt;Vi&gt;</strong></a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="A">A</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="appendix.html#term-ABI"><strong>ABI</strong></a>
+</li>
+      <li><a href="appendix.html#term-ACK"><strong>ACK</strong></a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="appendix.html#term-Address-Area"><strong>Address Area</strong></a>
+</li>
+      <li><a href="appendix.html#term-API"><strong>API</strong></a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="B">B</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="appendix.html#term-Bank"><strong>Bank</strong></a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="appendix.html#term-Bus-Channel"><strong>Bus Channel</strong></a>
+</li>
+      <li><a href="appendix.html#term-Bus-controller"><strong>Bus controller</strong></a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="C">C</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="appendix.html#term-CAN"><strong>CAN</strong></a>
+</li>
+      <li><a href="appendix.html#term-CAN-L-PDU"><strong>CAN L-PDU</strong></a>
+</li>
+      <li><a href="appendix.html#term-CAN-L-SDU"><strong>CAN L-SDU</strong></a>
+</li>
+      <li><a href="04_DriverModules/Can/reference/02_errors.html#c.CAN_BUSY">CAN_BUSY (C macro)</a>
+</li>
+      <li><a href="04_DriverModules/Can/reference/00_api.html#_CPPv420Can_ChannelStateType">Can_ChannelStateType (C++ enum)</a>
+</li>
+      <li><a href="04_DriverModules/Can/reference/00_api.html#_CPPv4N20Can_ChannelStateType18CAN_CH_STATE_SLEEPE">Can_ChannelStateType::CAN_CH_STATE_SLEEP (C++ enumerator)</a>
+</li>
+      <li><a href="04_DriverModules/Can/reference/00_api.html#_CPPv4N20Can_ChannelStateType20CAN_CH_STATE_STARTEDE">Can_ChannelStateType::CAN_CH_STATE_STARTED (C++ enumerator)</a>
+</li>
+      <li><a href="04_DriverModules/Can/reference/00_api.html#_CPPv4N20Can_ChannelStateType20CAN_CH_STATE_STOPPEDE">Can_ChannelStateType::CAN_CH_STATE_STOPPED (C++ enumerator)</a>
+</li>
+      <li><a href="04_DriverModules/Can/reference/00_api.html#_CPPv4N20Can_ChannelStateType19CAN_CH_STATE_UNINITE">Can_ChannelStateType::CAN_CH_STATE_UNINIT (C++ enumerator)</a>
+</li>
+      <li><a href="04_DriverModules/Can/reference/00_api.html#_CPPv414Can_ConfigType">Can_ConfigType (C++ struct)</a>
+</li>
+      <li><a href="04_DriverModules/Can/reference/00_api.html#_CPPv418Can_CyclicFunctionv">Can_CyclicFunction (C++ function)</a>
+</li>
+      <li><a href="04_DriverModules/Can/reference/00_api.html#_CPPv410Can_DeInitv">Can_DeInit (C++ function)</a>
+</li>
+      <li><a href="04_DriverModules/Can/reference/02_errors.html#c.CAN_DEVERR_INVALID_STATE">CAN_DEVERR_INVALID_STATE (C macro)</a>
+</li>
+      <li><a href="04_DriverModules/Can/reference/02_errors.html#c.CAN_DEVERR_PARAM_BAUDRATEID">CAN_DEVERR_PARAM_BAUDRATEID (C macro)</a>
+</li>
+      <li><a href="04_DriverModules/Can/reference/02_errors.html#c.CAN_DEVERR_PARAM_CHANNELID">CAN_DEVERR_PARAM_CHANNELID (C macro)</a>
+</li>
+      <li><a href="04_DriverModules/Can/reference/02_errors.html#c.CAN_DEVERR_PARAM_DATA_LENGTH">CAN_DEVERR_PARAM_DATA_LENGTH (C macro)</a>
+</li>
+      <li><a href="04_DriverModules/Can/reference/02_errors.html#c.CAN_DEVERR_PARAM_MAILBOXID">CAN_DEVERR_PARAM_MAILBOXID (C macro)</a>
+</li>
+      <li><a href="04_DriverModules/Can/reference/02_errors.html#c.CAN_DEVERR_PARAM_POINTER">CAN_DEVERR_PARAM_POINTER (C macro)</a>
+</li>
+      <li><a href="04_DriverModules/Can/reference/02_errors.html#c.CAN_DEVERR_STATE_TRANSITION">CAN_DEVERR_STATE_TRANSITION (C macro)</a>
+</li>
+      <li><a href="04_DriverModules/Can/reference/02_errors.html#c.CAN_DEVERR_UNINIT">CAN_DEVERR_UNINIT (C macro)</a>
+</li>
+      <li><a href="04_DriverModules/Can/reference/00_api.html#_CPPv413Can_ErrorType">Can_ErrorType (C++ enum)</a>
+</li>
+      <li><a href="04_DriverModules/Can/reference/00_api.html#_CPPv4N13Can_ErrorType15CAN_ERR_BUS_OFFE">Can_ErrorType::CAN_ERR_BUS_OFF (C++ enumerator)</a>
+</li>
+      <li><a href="04_DriverModules/Can/reference/00_api.html#_CPPv415Can_FrameIdType">Can_FrameIdType (C++ type)</a>
+</li>
+      <li><a href="04_DriverModules/Can/reference/00_api.html#_CPPv419Can_GetChannelState5uint8">Can_GetChannelState (C++ function)</a>
+</li>
+      <li><a href="04_DriverModules/Can/reference/00_api.html#_CPPv48Can_InitPK14Can_ConfigType">Can_Init (C++ function)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="04_DriverModules/Can/reference/00_api.html#_CPPv417Can_MailboxIdType">Can_MailboxIdType (C++ type)</a>
+</li>
+      <li><a href="04_DriverModules/Can/reference/00_api.html#_CPPv419Can_MessageInfoType">Can_MessageInfoType (C++ struct)</a>
+</li>
+      <li><a href="04_DriverModules/Can/reference/00_api.html#_CPPv4N19Can_MessageInfoType9channelIdE">Can_MessageInfoType::channelId (C++ member)</a>
+</li>
+      <li><a href="04_DriverModules/Can/reference/00_api.html#_CPPv4N19Can_MessageInfoType7frameIdE">Can_MessageInfoType::frameId (C++ member)</a>
+</li>
+      <li><a href="04_DriverModules/Can/reference/00_api.html#_CPPv4N19Can_MessageInfoType9mailboxIdE">Can_MessageInfoType::mailboxId (C++ member)</a>
+</li>
+      <li><a href="04_DriverModules/Can/reference/00_api.html#_CPPv415Can_PduInfoType">Can_PduInfoType (C++ struct)</a>
+</li>
+      <li><a href="04_DriverModules/Can/reference/00_api.html#_CPPv4N15Can_PduInfoType7frameIdE">Can_PduInfoType::frameId (C++ member)</a>
+</li>
+      <li><a href="04_DriverModules/Can/reference/00_api.html#_CPPv4N15Can_PduInfoType6lengthE">Can_PduInfoType::length (C++ member)</a>
+</li>
+      <li><a href="04_DriverModules/Can/reference/00_api.html#_CPPv4N15Can_PduInfoType5pduIdE">Can_PduInfoType::pduId (C++ member)</a>
+</li>
+      <li><a href="04_DriverModules/Can/reference/00_api.html#_CPPv4N15Can_PduInfoType6sduPtrE">Can_PduInfoType::sduPtr (C++ member)</a>
+</li>
+      <li><a href="04_DriverModules/Can/reference/00_api.html#_CPPv416Can_PollFunctionv">Can_PollFunction (C++ function)</a>
+</li>
+      <li><a href="04_DriverModules/Can/reference/02_errors.html#c.CAN_RTERR_DATALOST">CAN_RTERR_DATALOST (C macro)</a>
+</li>
+      <li><a href="04_DriverModules/Can/reference/02_errors.html#c.CAN_RTERR_UNRECOVERABLE">CAN_RTERR_UNRECOVERABLE (C macro)</a>
+</li>
+      <li><a href="04_DriverModules/Can/reference/00_api.html#_CPPv415Can_SetBaudrate5uint86uint16">Can_SetBaudrate (C++ function)</a>
+</li>
+      <li><a href="04_DriverModules/Can/reference/00_api.html#_CPPv419Can_SetChannelState5uint820Can_ChannelStateType">Can_SetChannelState (C++ function)</a>
+</li>
+      <li><a href="04_DriverModules/Can/reference/00_api.html#_CPPv412Can_Transmit17Can_MailboxIdTypePK15Can_PduInfoType">Can_Transmit (C++ function)</a>
+</li>
+      <li><a href="04_DriverModules/Can/reference/00_api.html#_CPPv420CanIf_OnChannelState5uint820Can_ChannelStateType">CanIf_OnChannelState (C++ function)</a>
+</li>
+      <li><a href="04_DriverModules/Can/reference/00_api.html#_CPPv413CanIf_OnError5uint813Can_ErrorType">CanIf_OnError (C++ function)</a>
+</li>
+      <li><a href="04_DriverModules/Can/reference/00_api.html#_CPPv417CanIf_OnReceptionPK19Can_MessageInfoTypePK11PduInfoType">CanIf_OnReception (C++ function)</a>
+</li>
+      <li><a href="04_DriverModules/Can/reference/00_api.html#_CPPv420CanIf_OnTransmission9PduIdType">CanIf_OnTransmission (C++ function)</a>
+</li>
+      <li><a href="appendix.html#term-Chiisai"><strong>Chiisai</strong></a>
+</li>
+      <li><a href="appendix.html#term-Chiisai-HAL"><strong>Chiisai HAL</strong></a>
+</li>
+      <li><a href="appendix.html#term-Chiisai-Hardware-Abstraction-Layer"><strong>Chiisai Hardware Abstraction Layer</strong></a>
+</li>
+      <li><a href="appendix.html#term-Controller-Commander-Node"><strong>Controller/Commander Node</strong></a>
+</li>
+      <li><a href="appendix.html#term-CS"><strong>CS</strong></a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="D">D</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="appendix.html#term-DLC"><strong>DLC</strong></a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="E">E</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="appendix.html#term-ECC"><strong>ECC</strong></a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="F">F</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="appendix.html#term-FOSS"><strong>FOSS</strong></a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="G">G</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="appendix.html#term-GPIO"><strong>GPIO</strong></a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="H">H</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="appendix.html#term-HAL"><strong>HAL</strong></a>
+</li>
+      <li><a href="appendix.html#term-Hardware-Object"><strong>Hardware Object</strong></a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="appendix.html#term-Hardware-Object-Handle"><strong>Hardware Object Handle</strong></a>
+</li>
+      <li><a href="appendix.html#term-HOH"><strong>HOH</strong></a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="I">I</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="appendix.html#term-I2C"><strong>I2C</strong></a>
+</li>
+      <li><a href="04_DriverModules/I2c/reference/00_api.html#_CPPv421I2c_Callout_OnAddress5uint817I2c_DirectionType">I2c_Callout_OnAddress (C++ function)</a>
+</li>
+      <li><a href="04_DriverModules/I2c/reference/00_api.html#_CPPv419I2c_Callout_OnError5uint813I2c_ErrorType">I2c_Callout_OnError (C++ function)</a>
+</li>
+      <li><a href="04_DriverModules/I2c/reference/00_api.html#_CPPv423I2c_Callout_OnReception5uint86uint16">I2c_Callout_OnReception (C++ function)</a>
+</li>
+      <li><a href="04_DriverModules/I2c/reference/00_api.html#_CPPv426I2c_Callout_OnTransmission5uint86uint16">I2c_Callout_OnTransmission (C++ function)</a>
+</li>
+      <li><a href="04_DriverModules/I2c/reference/00_api.html#_CPPv420I2c_ChannelStateType">I2c_ChannelStateType (C++ enum)</a>
+</li>
+      <li><a href="04_DriverModules/I2c/reference/00_api.html#_CPPv4N20I2c_ChannelStateType17I2C_CH_STATE_BUSYE">I2c_ChannelStateType::I2C_CH_STATE_BUSY (C++ enumerator)</a>
+</li>
+      <li><a href="04_DriverModules/I2c/reference/00_api.html#_CPPv4N20I2c_ChannelStateType17I2C_CH_STATE_IDLEE">I2c_ChannelStateType::I2C_CH_STATE_IDLE (C++ enumerator)</a>
+</li>
+      <li><a href="04_DriverModules/I2c/reference/00_api.html#_CPPv4N20I2c_ChannelStateType18I2C_CH_STATE_READYE">I2c_ChannelStateType::I2C_CH_STATE_READY (C++ enumerator)</a>
+</li>
+      <li><a href="04_DriverModules/I2c/reference/00_api.html#_CPPv4N20I2c_ChannelStateType19I2C_CH_STATE_UNINITE">I2c_ChannelStateType::I2C_CH_STATE_UNINIT (C++ enumerator)</a>
+</li>
+      <li><a href="04_DriverModules/I2c/reference/00_api.html#_CPPv414I2c_ConfigType">I2c_ConfigType (C++ struct)</a>
+</li>
+      <li><a href="04_DriverModules/I2c/reference/00_api.html#_CPPv410I2c_DeInitv">I2c_DeInit (C++ function)</a>
+</li>
+      <li><a href="04_DriverModules/I2c/reference/02_errors.html#c.I2C_DEVERR_INVALID_CH_STATE">I2C_DEVERR_INVALID_CH_STATE (C macro)</a>
+</li>
+      <li><a href="04_DriverModules/I2c/reference/02_errors.html#c.I2C_DEVERR_INVALID_DIRECTION">I2C_DEVERR_INVALID_DIRECTION (C macro)</a>
+</li>
+      <li><a href="04_DriverModules/I2c/reference/02_errors.html#c.I2C_DEVERR_PARAM_CHANNELID">I2C_DEVERR_PARAM_CHANNELID (C macro)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="04_DriverModules/I2c/reference/02_errors.html#c.I2C_DEVERR_PARAM_DATA_LENGTH">I2C_DEVERR_PARAM_DATA_LENGTH (C macro)</a>
+</li>
+      <li><a href="04_DriverModules/I2c/reference/02_errors.html#c.I2C_DEVERR_PARAM_POINTER">I2C_DEVERR_PARAM_POINTER (C macro)</a>
+</li>
+      <li><a href="04_DriverModules/I2c/reference/02_errors.html#c.I2C_DEVERR_UNINIT">I2C_DEVERR_UNINIT (C macro)</a>
+</li>
+      <li><a href="04_DriverModules/I2c/reference/00_api.html#_CPPv417I2c_DirectionType">I2c_DirectionType (C++ enum)</a>
+</li>
+      <li><a href="04_DriverModules/I2c/reference/00_api.html#_CPPv4N17I2c_DirectionType23I2C_DIR_CONTROLLER_READE">I2c_DirectionType::I2C_DIR_CONTROLLER_READ (C++ enumerator)</a>
+</li>
+      <li><a href="04_DriverModules/I2c/reference/00_api.html#_CPPv4N17I2c_DirectionType24I2C_DIR_CONTROLLER_WRITEE">I2c_DirectionType::I2C_DIR_CONTROLLER_WRITE (C++ enumerator)</a>
+</li>
+      <li><a href="04_DriverModules/I2c/reference/00_api.html#_CPPv413I2c_ErrorType">I2c_ErrorType (C++ enum)</a>
+</li>
+      <li><a href="04_DriverModules/I2c/reference/00_api.html#_CPPv4N13I2c_ErrorType21I2C_ERR_NACK_RECEIVEDE">I2c_ErrorType::I2C_ERR_NACK_RECEIVED (C++ enumerator)</a>
+</li>
+      <li><a href="04_DriverModules/I2c/reference/00_api.html#_CPPv419I2c_GetChannelState5uint8">I2c_GetChannelState (C++ function)</a>
+</li>
+      <li><a href="04_DriverModules/I2c/reference/00_api.html#_CPPv48I2c_InitPK14I2c_ConfigType">I2c_Init (C++ function)</a>
+</li>
+      <li><a href="04_DriverModules/I2c/reference/00_api.html#_CPPv416I2c_PollFunctionv">I2c_PollFunction (C++ function)</a>
+</li>
+      <li><a href="04_DriverModules/I2c/reference/02_errors.html#c.I2C_RTERR_ARBITRATION_FAILURE">I2C_RTERR_ARBITRATION_FAILURE (C macro)</a>
+</li>
+      <li><a href="04_DriverModules/I2c/reference/02_errors.html#c.I2C_RTERR_BUS_FAILURE">I2C_RTERR_BUS_FAILURE (C macro)</a>
+</li>
+      <li><a href="04_DriverModules/I2c/reference/00_api.html#_CPPv422I2c_StartRxTransaction5uint85uint8P5uint86uint16">I2c_StartRxTransaction (C++ function)</a>
+</li>
+      <li><a href="04_DriverModules/I2c/reference/00_api.html#_CPPv422I2c_StartTxTransaction5uint85uint8PK5uint86uint16">I2c_StartTxTransaction (C++ function)</a>
+</li>
+      <li><a href="appendix.html#term-interface"><strong>interface</strong></a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="L">L</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="appendix.html#term-LIN"><strong>LIN</strong></a>
+</li>
+      <li><a href="04_DriverModules/Lin/reference/00_api.html#_CPPv414Lin_ConfigType">Lin_ConfigType (C++ struct)</a>
+</li>
+      <li><a href="04_DriverModules/Lin/reference/00_api.html#_CPPv410Lin_CsType">Lin_CsType (C++ enum)</a>
+</li>
+      <li><a href="04_DriverModules/Lin/reference/00_api.html#_CPPv4N10Lin_CsType14LIN_CS_CLASSICE">Lin_CsType::LIN_CS_CLASSIC (C++ enumerator)</a>
+</li>
+      <li><a href="04_DriverModules/Lin/reference/00_api.html#_CPPv4N10Lin_CsType15LIN_CS_ENHANCEDE">Lin_CsType::LIN_CS_ENHANCED (C++ enumerator)</a>
+</li>
+      <li><a href="04_DriverModules/Lin/reference/00_api.html#_CPPv410Lin_DeInitv">Lin_DeInit (C++ function)</a>
+</li>
+      <li><a href="04_DriverModules/Lin/reference/02_errors.html#c.LIN_DEVERR_INVALID_CH_STATE">LIN_DEVERR_INVALID_CH_STATE (C macro)</a>
+</li>
+      <li><a href="04_DriverModules/Lin/reference/02_errors.html#c.LIN_DEVERR_PARAM_CHANNELID">LIN_DEVERR_PARAM_CHANNELID (C macro)</a>
+</li>
+      <li><a href="04_DriverModules/Lin/reference/02_errors.html#c.LIN_DEVERR_PARAM_POINTER">LIN_DEVERR_PARAM_POINTER (C macro)</a>
+</li>
+      <li><a href="04_DriverModules/Lin/reference/02_errors.html#c.LIN_DEVERR_UNINIT">LIN_DEVERR_UNINIT (C macro)</a>
+</li>
+      <li><a href="04_DriverModules/Lin/reference/00_api.html#_CPPv410Lin_DlType">Lin_DlType (C++ type)</a>
+</li>
+      <li><a href="04_DriverModules/Lin/reference/00_api.html#_CPPv413Lin_ErrorType">Lin_ErrorType (C++ enum)</a>
+</li>
+      <li><a href="04_DriverModules/Lin/reference/00_api.html#_CPPv4N13Lin_ErrorType16LIN_ERR_CHECKSUME">Lin_ErrorType::LIN_ERR_CHECKSUM (C++ enumerator)</a>
+</li>
+      <li><a href="04_DriverModules/Lin/reference/00_api.html#_CPPv4N13Lin_ErrorType15LIN_ERR_FRAMINGE">Lin_ErrorType::LIN_ERR_FRAMING (C++ enumerator)</a>
+</li>
+      <li><a href="04_DriverModules/Lin/reference/00_api.html#_CPPv4N13Lin_ErrorType22LIN_ERR_HEADER_FRAMINGE">Lin_ErrorType::LIN_ERR_HEADER_FRAMING (C++ enumerator)</a>
+</li>
+      <li><a href="04_DriverModules/Lin/reference/00_api.html#_CPPv4N13Lin_ErrorType27LIN_ERR_INCOMPLETE_RESPONSEE">Lin_ErrorType::LIN_ERR_INCOMPLETE_RESPONSE (C++ enumerator)</a>
+</li>
+      <li><a href="04_DriverModules/Lin/reference/00_api.html#_CPPv4N13Lin_ErrorType18LIN_ERR_MONITORINGE">Lin_ErrorType::LIN_ERR_MONITORING (C++ enumerator)</a>
+</li>
+      <li><a href="04_DriverModules/Lin/reference/00_api.html#_CPPv4N13Lin_ErrorType19LIN_ERR_NO_RESPONSEE">Lin_ErrorType::LIN_ERR_NO_RESPONSE (C++ enumerator)</a>
+</li>
+      <li><a href="04_DriverModules/Lin/reference/00_api.html#_CPPv4N13Lin_ErrorType18LIN_ERR_PID_PARITYE">Lin_ErrorType::LIN_ERR_PID_PARITY (C++ enumerator)</a>
+</li>
+      <li><a href="04_DriverModules/Lin/reference/00_api.html#_CPPv4N13Lin_ErrorType24LIN_ERR_SYNC_FIELD_VALUEE">Lin_ErrorType::LIN_ERR_SYNC_FIELD_VALUE (C++ enumerator)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="04_DriverModules/Lin/reference/00_api.html#_CPPv421Lin_GoToSleepInternal5uint8">Lin_GoToSleepInternal (C++ function)</a>
+</li>
+      <li><a href="04_DriverModules/Lin/reference/00_api.html#_CPPv48Lin_InitPK14Lin_ConfigType">Lin_Init (C++ function)</a>
+</li>
+      <li><a href="04_DriverModules/Lin/reference/00_api.html#_CPPv415Lin_PduInfoType">Lin_PduInfoType (C++ struct)</a>
+</li>
+      <li><a href="04_DriverModules/Lin/reference/00_api.html#_CPPv4N15Lin_PduInfoType2csE">Lin_PduInfoType::cs (C++ member)</a>
+</li>
+      <li><a href="04_DriverModules/Lin/reference/00_api.html#_CPPv4N15Lin_PduInfoType2dlE">Lin_PduInfoType::dl (C++ member)</a>
+</li>
+      <li><a href="04_DriverModules/Lin/reference/00_api.html#_CPPv4N15Lin_PduInfoType3pidE">Lin_PduInfoType::pid (C++ member)</a>
+</li>
+      <li><a href="04_DriverModules/Lin/reference/00_api.html#_CPPv4N15Lin_PduInfoType8reactionE">Lin_PduInfoType::reaction (C++ member)</a>
+</li>
+      <li><a href="04_DriverModules/Lin/reference/00_api.html#_CPPv4N15Lin_PduInfoType6sduPtrE">Lin_PduInfoType::sduPtr (C++ member)</a>
+</li>
+      <li><a href="04_DriverModules/Lin/reference/00_api.html#_CPPv411Lin_PidType">Lin_PidType (C++ type)</a>
+</li>
+      <li><a href="04_DriverModules/Lin/reference/00_api.html#_CPPv416Lin_PollFunctionv">Lin_PollFunction (C++ function)</a>
+</li>
+      <li><a href="04_DriverModules/Lin/reference/00_api.html#_CPPv416Lin_ReactionType">Lin_ReactionType (C++ enum)</a>
+</li>
+      <li><a href="04_DriverModules/Lin/reference/00_api.html#_CPPv4N16Lin_ReactionType19LIN_REACTION_IGNOREE">Lin_ReactionType::LIN_REACTION_IGNORE (C++ enumerator)</a>
+</li>
+      <li><a href="04_DriverModules/Lin/reference/00_api.html#_CPPv4N16Lin_ReactionType15LIN_REACTION_RXE">Lin_ReactionType::LIN_REACTION_RX (C++ enumerator)</a>
+</li>
+      <li><a href="04_DriverModules/Lin/reference/00_api.html#_CPPv4N16Lin_ReactionType15LIN_REACTION_TXE">Lin_ReactionType::LIN_REACTION_TX (C++ enumerator)</a>
+</li>
+      <li><a href="04_DriverModules/Lin/reference/00_api.html#_CPPv410Lin_Wakeup5uint8">Lin_Wakeup (C++ function)</a>
+</li>
+      <li><a href="04_DriverModules/Lin/reference/00_api.html#_CPPv418Lin_WakeupInternal5uint8">Lin_WakeupInternal (C++ function)</a>
+</li>
+      <li><a href="04_DriverModules/Lin/reference/00_api.html#_CPPv413LinIf_OnError5uint813Lin_ErrorType">LinIf_OnError (C++ function)</a>
+</li>
+      <li><a href="04_DriverModules/Lin/reference/00_api.html#_CPPv414LinIf_OnHeader5uint8P15Lin_PduInfoType">LinIf_OnHeader (C++ function)</a>
+</li>
+      <li><a href="04_DriverModules/Lin/reference/00_api.html#_CPPv417LinIf_OnReception5uint8P5uint8">LinIf_OnReception (C++ function)</a>
+</li>
+      <li><a href="04_DriverModules/Lin/reference/00_api.html#_CPPv420LinIf_OnTransmission5uint8">LinIf_OnTransmission (C++ function)</a>
+</li>
+      <li><a href="04_DriverModules/Lin/reference/00_api.html#_CPPv414LinIf_OnWakeup5uint8">LinIf_OnWakeup (C++ function)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="M">M</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="appendix.html#term-MCU"><strong>MCU</strong></a>
+</li>
+      <li><a href="04_DriverModules/Mcu/reference/00_api.html#_CPPv415Mcu_ClockIdType">Mcu_ClockIdType (C++ type)</a>
+</li>
+      <li><a href="04_DriverModules/Mcu/reference/00_api.html#_CPPv414Mcu_ConfigType">Mcu_ConfigType (C++ struct)</a>
+</li>
+      <li><a href="04_DriverModules/Mcu/reference/02_errors.html#c.MCU_DEVERR_INVALID_STATE">MCU_DEVERR_INVALID_STATE (C macro)</a>
+</li>
+      <li><a href="04_DriverModules/Mcu/reference/02_errors.html#c.MCU_DEVERR_PARAM_CLOCK">MCU_DEVERR_PARAM_CLOCK (C macro)</a>
+</li>
+      <li><a href="04_DriverModules/Mcu/reference/02_errors.html#c.MCU_DEVERR_PARAM_POINTER">MCU_DEVERR_PARAM_POINTER (C macro)</a>
+</li>
+      <li><a href="04_DriverModules/Mcu/reference/00_api.html#_CPPv420Mcu_GetResetRawValuev">Mcu_GetResetRawValue (C++ function)</a>
+</li>
+      <li><a href="04_DriverModules/Mcu/reference/00_api.html#_CPPv48Mcu_InitPK14Mcu_ConfigType">Mcu_Init (C++ function)</a>
+</li>
+      <li><a href="04_DriverModules/Mcu/reference/00_api.html#_CPPv413Mcu_InitClock15Mcu_ClockIdType">Mcu_InitClock (C++ function)</a>
+</li>
+      <li><a href="04_DriverModules/Mcu/reference/00_api.html#_CPPv422Mcu_IsClockDistributedv">Mcu_IsClockDistributed (C++ function)</a>
+</li>
+      <li><a href="04_DriverModules/Mcu/reference/00_api.html#_CPPv416Mcu_PerformResetv">Mcu_PerformReset (C++ function)</a>
+</li>
+      <li><a href="04_DriverModules/Mcu/reference/00_api.html#_CPPv416Mcu_PollFunctionv">Mcu_PollFunction (C++ function)</a>
+</li>
+      <li><a href="04_DriverModules/Mcu/reference/02_errors.html#c.MCU_RESET_EXT_PIN">MCU_RESET_EXT_PIN (C macro)</a>
+</li>
+      <li><a href="04_DriverModules/Mcu/reference/02_errors.html#c.MCU_RESET_POWER_ON">MCU_RESET_POWER_ON (C macro)</a>
+</li>
+      <li><a href="04_DriverModules/Mcu/reference/02_errors.html#c.MCU_RESET_SW">MCU_RESET_SW (C macro)</a>
+</li>
+      <li><a href="04_DriverModules/Mcu/reference/02_errors.html#c.MCU_RESET_WATCHDOG">MCU_RESET_WATCHDOG (C macro)</a>
+</li>
+      <li><a href="04_DriverModules/Mcu/reference/02_errors.html#c.MCU_RTERR_CLOCK">MCU_RTERR_CLOCK (C macro)</a>
+</li>
+      <li><a href="04_DriverModules/Mem/reference/00_api.html#_CPPv415Mem_AddressType">Mem_AddressType (C++ type)</a>
+</li>
+      <li><a href="04_DriverModules/Mem/reference/00_api.html#_CPPv420Mem_BinaryHeaderType">Mem_BinaryHeaderType (C++ struct)</a>
+</li>
+      <li><a href="04_DriverModules/Mem/reference/00_api.html#_CPPv4N20Mem_BinaryHeaderType10deInitFuncE">Mem_BinaryHeaderType::deInitFunc (C++ member)</a>
+</li>
+      <li><a href="04_DriverModules/Mem/reference/00_api.html#_CPPv4N20Mem_BinaryHeaderType9delimiterE">Mem_BinaryHeaderType::delimiter (C++ member)</a>
+</li>
+      <li><a href="04_DriverModules/Mem/reference/00_api.html#_CPPv4N20Mem_BinaryHeaderType9eraseFuncE">Mem_BinaryHeaderType::eraseFunc (C++ member)</a>
+</li>
+      <li><a href="04_DriverModules/Mem/reference/00_api.html#_CPPv4N20Mem_BinaryHeaderType5flagsE">Mem_BinaryHeaderType::flags (C++ member)</a>
+</li>
+      <li><a href="04_DriverModules/Mem/reference/00_api.html#_CPPv4N20Mem_BinaryHeaderType16getJobResultFuncE">Mem_BinaryHeaderType::getJobResultFunc (C++ member)</a>
+</li>
+      <li><a href="04_DriverModules/Mem/reference/00_api.html#_CPPv4N20Mem_BinaryHeaderType6headerE">Mem_BinaryHeaderType::header (C++ member)</a>
+</li>
+      <li><a href="04_DriverModules/Mem/reference/00_api.html#_CPPv4N20Mem_BinaryHeaderType21hwSpecificServiceFuncE">Mem_BinaryHeaderType::hwSpecificServiceFunc (C++ member)</a>
+</li>
+      <li><a href="04_DriverModules/Mem/reference/00_api.html#_CPPv4N20Mem_BinaryHeaderType8initFuncE">Mem_BinaryHeaderType::initFunc (C++ member)</a>
+</li>
+      <li><a href="04_DriverModules/Mem/reference/00_api.html#_CPPv4N20Mem_BinaryHeaderType11onErrorFuncE">Mem_BinaryHeaderType::onErrorFunc (C++ member)</a>
+</li>
+      <li><a href="04_DriverModules/Mem/reference/00_api.html#_CPPv4N20Mem_BinaryHeaderType16pollFunctionFuncE">Mem_BinaryHeaderType::pollFunctionFunc (C++ member)</a>
+</li>
+      <li><a href="04_DriverModules/Mem/reference/00_api.html#_CPPv4N20Mem_BinaryHeaderType8readFuncE">Mem_BinaryHeaderType::readFunc (C++ member)</a>
+</li>
+      <li><a href="04_DriverModules/Mem/reference/00_api.html#_CPPv4N20Mem_BinaryHeaderType13resumeJobFuncE">Mem_BinaryHeaderType::resumeJobFunc (C++ member)</a>
+</li>
+      <li><a href="04_DriverModules/Mem/reference/00_api.html#_CPPv4N20Mem_BinaryHeaderType14suspendJobFuncE">Mem_BinaryHeaderType::suspendJobFunc (C++ member)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="04_DriverModules/Mem/reference/00_api.html#_CPPv4N20Mem_BinaryHeaderType8uniqueIdE">Mem_BinaryHeaderType::uniqueId (C++ member)</a>
+</li>
+      <li><a href="04_DriverModules/Mem/reference/00_api.html#_CPPv4N20Mem_BinaryHeaderType15verifyBlankFuncE">Mem_BinaryHeaderType::verifyBlankFunc (C++ member)</a>
+</li>
+      <li><a href="04_DriverModules/Mem/reference/00_api.html#_CPPv4N20Mem_BinaryHeaderType9writeFuncE">Mem_BinaryHeaderType::writeFunc (C++ member)</a>
+</li>
+      <li><a href="04_DriverModules/Mem/reference/00_api.html#_CPPv414Mem_ConfigType">Mem_ConfigType (C++ struct)</a>
+</li>
+      <li><a href="04_DriverModules/Mem/reference/00_api.html#_CPPv412Mem_DataType">Mem_DataType (C++ type)</a>
+</li>
+      <li><a href="04_DriverModules/Mem/reference/00_api.html#_CPPv410Mem_DeInitv">Mem_DeInit (C++ function)</a>
+</li>
+      <li><a href="04_DriverModules/Mem/reference/02_errors.html#c.MEM_DEVERR_JOB_PENDING">MEM_DEVERR_JOB_PENDING (C macro)</a>
+</li>
+      <li><a href="04_DriverModules/Mem/reference/02_errors.html#c.MEM_DEVERR_PARAM_ADDR">MEM_DEVERR_PARAM_ADDR (C macro)</a>
+</li>
+      <li><a href="04_DriverModules/Mem/reference/02_errors.html#c.MEM_DEVERR_PARAM_INSTANCE_ID">MEM_DEVERR_PARAM_INSTANCE_ID (C macro)</a>
+</li>
+      <li><a href="04_DriverModules/Mem/reference/02_errors.html#c.MEM_DEVERR_PARAM_LENGTH">MEM_DEVERR_PARAM_LENGTH (C macro)</a>
+</li>
+      <li><a href="04_DriverModules/Mem/reference/02_errors.html#c.MEM_DEVERR_PARAM_PTR">MEM_DEVERR_PARAM_PTR (C macro)</a>
+</li>
+      <li><a href="04_DriverModules/Mem/reference/02_errors.html#c.MEM_DEVERR_UNINIT">MEM_DEVERR_UNINIT (C macro)</a>
+</li>
+      <li><a href="04_DriverModules/Mem/reference/00_api.html#_CPPv49Mem_Erase18Mem_InstanceIdType15Mem_AddressType14Mem_LengthType">Mem_Erase (C++ function)</a>
+</li>
+      <li><a href="04_DriverModules/Mem/reference/00_api.html#_CPPv416Mem_GetJobResult18Mem_InstanceIdType">Mem_GetJobResult (C++ function)</a>
+</li>
+      <li><a href="04_DriverModules/Mem/reference/00_api.html#_CPPv419Mem_HwServiceIdType">Mem_HwServiceIdType (C++ type)</a>
+</li>
+      <li><a href="04_DriverModules/Mem/reference/00_api.html#_CPPv421Mem_HwSpecificService18Mem_InstanceIdType19Mem_HwServiceIdTypeP12Mem_DataTypeP14Mem_LengthType">Mem_HwSpecificService (C++ function)</a>
+</li>
+      <li><a href="04_DriverModules/Mem/reference/00_api.html#_CPPv48Mem_InitPKv">Mem_Init (C++ function)</a>
+</li>
+      <li><a href="04_DriverModules/Mem/reference/00_api.html#_CPPv418Mem_InstanceIdType">Mem_InstanceIdType (C++ type)</a>
+</li>
+      <li><a href="04_DriverModules/Mem/reference/00_api.html#_CPPv417Mem_JobResultType">Mem_JobResultType (C++ enum)</a>
+</li>
+      <li><a href="04_DriverModules/Mem/reference/00_api.html#_CPPv4N17Mem_JobResultType27MEM_JOB_ERROR_ECC_CORRECTEDE">Mem_JobResultType::MEM_JOB_ERROR_ECC_CORRECTED (C++ enumerator)</a>
+</li>
+      <li><a href="04_DriverModules/Mem/reference/00_api.html#_CPPv4N17Mem_JobResultType29MEM_JOB_ERROR_ECC_UNCORRECTEDE">Mem_JobResultType::MEM_JOB_ERROR_ECC_UNCORRECTED (C++ enumerator)</a>
+</li>
+      <li><a href="04_DriverModules/Mem/reference/00_api.html#_CPPv4N17Mem_JobResultType14MEM_JOB_FAILEDE">Mem_JobResultType::MEM_JOB_FAILED (C++ enumerator)</a>
+</li>
+      <li><a href="04_DriverModules/Mem/reference/00_api.html#_CPPv4N17Mem_JobResultType16MEM_JOB_FINISHEDE">Mem_JobResultType::MEM_JOB_FINISHED (C++ enumerator)</a>
+</li>
+      <li><a href="04_DriverModules/Mem/reference/00_api.html#_CPPv4N17Mem_JobResultType25MEM_JOB_PAGE_INCONSISTENTE">Mem_JobResultType::MEM_JOB_PAGE_INCONSISTENT (C++ enumerator)</a>
+</li>
+      <li><a href="04_DriverModules/Mem/reference/00_api.html#_CPPv4N17Mem_JobResultType15MEM_JOB_PENDINGE">Mem_JobResultType::MEM_JOB_PENDING (C++ enumerator)</a>
+</li>
+      <li><a href="04_DriverModules/Mem/reference/00_api.html#_CPPv414Mem_LengthType">Mem_LengthType (C++ type)</a>
+</li>
+      <li><a href="04_DriverModules/Mem/reference/00_api.html#_CPPv411Mem_OnError18Mem_InstanceIdType">Mem_OnError (C++ function)</a>
+</li>
+      <li><a href="04_DriverModules/Mem/reference/00_api.html#_CPPv416Mem_PollFunctionv">Mem_PollFunction (C++ function)</a>
+</li>
+      <li><a href="04_DriverModules/Mem/reference/00_api.html#_CPPv48Mem_Read18Mem_InstanceIdType15Mem_AddressTypeP12Mem_DataType14Mem_LengthType">Mem_Read (C++ function)</a>
+</li>
+      <li><a href="04_DriverModules/Mem/reference/00_api.html#_CPPv413Mem_ResumeJob18Mem_InstanceIdType">Mem_ResumeJob (C++ function)</a>
+</li>
+      <li><a href="04_DriverModules/Mem/reference/00_api.html#_CPPv414Mem_SuspendJob18Mem_InstanceIdType">Mem_SuspendJob (C++ function)</a>
+</li>
+      <li><a href="04_DriverModules/Mem/reference/00_api.html#_CPPv415Mem_VerifyBlank18Mem_InstanceIdType15Mem_AddressType14Mem_LengthType">Mem_VerifyBlank (C++ function)</a>
+</li>
+      <li><a href="04_DriverModules/Mem/reference/00_api.html#_CPPv49Mem_Write18Mem_InstanceIdType15Mem_AddressTypePK12Mem_DataType14Mem_LengthType">Mem_Write (C++ function)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="N">N</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="appendix.html#term-NACK"><strong>NACK</strong></a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="P">P</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="appendix.html#term-Page-Burst"><strong>Page Burst</strong></a>
+</li>
+      <li><a href="appendix.html#term-Port"><strong>Port</strong></a>
+</li>
+      <li><a href="04_DriverModules/Port/reference/00_api.html#_CPPv428Port_Callout_OnEdgeDetection6uint16">Port_Callout_OnEdgeDetection (C++ function)</a>
+</li>
+      <li><a href="04_DriverModules/Port/reference/00_api.html#_CPPv415Port_ConfigType">Port_ConfigType (C++ struct)</a>
+</li>
+      <li><a href="04_DriverModules/Port/reference/02_errors.html#c.PORT_DEVERR_INVALID_STATE">PORT_DEVERR_INVALID_STATE (C macro)</a>
+</li>
+      <li><a href="04_DriverModules/Port/reference/02_errors.html#c.PORT_DEVERR_PARAM_EDGE_CONFIG">PORT_DEVERR_PARAM_EDGE_CONFIG (C macro)</a>
+</li>
+      <li><a href="04_DriverModules/Port/reference/02_errors.html#c.PORT_DEVERR_PARAM_PIN">PORT_DEVERR_PARAM_PIN (C macro)</a>
+</li>
+      <li><a href="04_DriverModules/Port/reference/02_errors.html#c.PORT_DEVERR_PARAM_PIN_VALUE">PORT_DEVERR_PARAM_PIN_VALUE (C macro)</a>
+</li>
+      <li><a href="04_DriverModules/Port/reference/02_errors.html#c.PORT_DEVERR_PARAM_POINTER">PORT_DEVERR_PARAM_POINTER (C macro)</a>
+</li>
+      <li><a href="04_DriverModules/Port/reference/02_errors.html#c.PORT_DEVERR_PARAM_PORT">PORT_DEVERR_PARAM_PORT (C macro)</a>
+</li>
+      <li><a href="04_DriverModules/Port/reference/02_errors.html#c.PORT_DEVERR_UNINIT">PORT_DEVERR_UNINIT (C macro)</a>
+</li>
+      <li><a href="04_DriverModules/Port/reference/00_api.html#_CPPv419Port_EdgeConfigType">Port_EdgeConfigType (C++ enum)</a>
+</li>
+      <li><a href="04_DriverModules/Port/reference/00_api.html#_CPPv4N19Port_EdgeConfigType21PORT_EDGE_CONFIG_BOTHE">Port_EdgeConfigType::PORT_EDGE_CONFIG_BOTH (C++ enumerator)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="04_DriverModules/Port/reference/00_api.html#_CPPv4N19Port_EdgeConfigType24PORT_EDGE_CONFIG_FALLINGE">Port_EdgeConfigType::PORT_EDGE_CONFIG_FALLING (C++ enumerator)</a>
+</li>
+      <li><a href="04_DriverModules/Port/reference/00_api.html#_CPPv4N19Port_EdgeConfigType21PORT_EDGE_CONFIG_NONEE">Port_EdgeConfigType::PORT_EDGE_CONFIG_NONE (C++ enumerator)</a>
+</li>
+      <li><a href="04_DriverModules/Port/reference/00_api.html#_CPPv4N19Port_EdgeConfigType23PORT_EDGE_CONFIG_RISINGE">Port_EdgeConfigType::PORT_EDGE_CONFIG_RISING (C++ enumerator)</a>
+</li>
+      <li><a href="04_DriverModules/Port/reference/00_api.html#_CPPv416Port_GetPinValue6uint16">Port_GetPinValue (C++ function)</a>
+</li>
+      <li><a href="04_DriverModules/Port/reference/00_api.html#_CPPv417Port_GetPortValue5uint8">Port_GetPortValue (C++ function)</a>
+</li>
+      <li><a href="04_DriverModules/Port/reference/00_api.html#_CPPv49Port_InitPK15Port_ConfigType">Port_Init (C++ function)</a>
+</li>
+      <li><a href="04_DriverModules/Port/reference/00_api.html#c.PORT_PIN_MASK_ALL">PORT_PIN_MASK_ALL (C macro)</a>
+</li>
+      <li><a href="04_DriverModules/Port/reference/00_api.html#_CPPv417Port_PinValueType">Port_PinValueType (C++ type)</a>
+</li>
+      <li><a href="04_DriverModules/Port/reference/00_api.html#_CPPv417Port_PollFunctionv">Port_PollFunction (C++ function)</a>
+</li>
+      <li><a href="04_DriverModules/Port/reference/00_api.html#_CPPv421Port_SetEdgeDetection6uint1619Port_EdgeConfigType">Port_SetEdgeDetection (C++ function)</a>
+</li>
+      <li><a href="04_DriverModules/Port/reference/00_api.html#_CPPv423Port_SetMaskedPortValue5uint86uint326uint32">Port_SetMaskedPortValue (C++ function)</a>
+</li>
+      <li><a href="04_DriverModules/Port/reference/00_api.html#_CPPv416Port_SetPinValue6uint1617Port_PinValueType">Port_SetPinValue (C++ function)</a>
+</li>
+      <li><a href="04_DriverModules/Port/reference/00_api.html#_CPPv419Port_TogglePinValue6uint16">Port_TogglePinValue (C++ function)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="R">R</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="appendix.html#term-Receive-Mailbox"><strong>Receive Mailbox</strong></a>
+</li>
+      <li>
+    RFC
+
+      <ul>
+        <li><a href="00_about/01_keywords.html#index-0">RFC 2119</a>, <a href="00_about/01_keywords.html#index-1">[1]</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="appendix.html#term-RX"><strong>RX</strong></a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="S">S</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="appendix.html#term-Sector"><strong>Sector</strong></a>
+</li>
+      <li><a href="appendix.html#term-Sector-Batch"><strong>Sector Batch</strong></a>
+</li>
+      <li><a href="appendix.html#term-Sector-Burst"><strong>Sector Burst</strong></a>
+</li>
+      <li><a href="appendix.html#term-SPI"><strong>SPI</strong></a>
+</li>
+      <li><a href="appendix.html#term-SPI-Device"><strong>SPI Device</strong></a>
+</li>
+      <li><a href="04_DriverModules/Spi/reference/00_api.html#_CPPv418Spi_BufferDataType">Spi_BufferDataType (C++ type)</a>
+</li>
+      <li><a href="04_DriverModules/Spi/reference/00_api.html#_CPPv417Spi_BufferSetType">Spi_BufferSetType (C++ struct)</a>
+</li>
+      <li><a href="04_DriverModules/Spi/reference/00_api.html#_CPPv4N17Spi_BufferSetType9bufferPtrE">Spi_BufferSetType::bufferPtr (C++ member)</a>
+</li>
+      <li><a href="04_DriverModules/Spi/reference/00_api.html#_CPPv4N17Spi_BufferSetType11numOfBufferE">Spi_BufferSetType::numOfBuffer (C++ member)</a>
+</li>
+      <li><a href="04_DriverModules/Spi/reference/00_api.html#_CPPv414Spi_BufferType">Spi_BufferType (C++ struct)</a>
+</li>
+      <li><a href="04_DriverModules/Spi/reference/00_api.html#_CPPv4N14Spi_BufferType13bufferDataPtrE">Spi_BufferType::bufferDataPtr (C++ member)</a>
+</li>
+      <li><a href="04_DriverModules/Spi/reference/00_api.html#_CPPv4N14Spi_BufferType6lengthE">Spi_BufferType::length (C++ member)</a>
+</li>
+      <li><a href="04_DriverModules/Spi/reference/00_api.html#_CPPv421Spi_Callout_CsControl5uint85uint87boolean">Spi_Callout_CsControl (C++ function)</a>
+</li>
+      <li><a href="04_DriverModules/Spi/reference/00_api.html#_CPPv428Spi_Callout_OnTransactionEnd5uint85uint86uint16">Spi_Callout_OnTransactionEnd (C++ function)</a>
+</li>
+      <li><a href="04_DriverModules/Spi/reference/00_api.html#_CPPv421Spi_CancelTransaction5uint8">Spi_CancelTransaction (C++ function)</a>
+</li>
+      <li><a href="04_DriverModules/Spi/reference/00_api.html#_CPPv420Spi_ChannelStateType">Spi_ChannelStateType (C++ enum)</a>
+</li>
+      <li><a href="04_DriverModules/Spi/reference/00_api.html#_CPPv4N20Spi_ChannelStateType17SPI_CH_STATE_BUSYE">Spi_ChannelStateType::SPI_CH_STATE_BUSY (C++ enumerator)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="04_DriverModules/Spi/reference/00_api.html#_CPPv4N20Spi_ChannelStateType17SPI_CH_STATE_IDLEE">Spi_ChannelStateType::SPI_CH_STATE_IDLE (C++ enumerator)</a>
+</li>
+      <li><a href="04_DriverModules/Spi/reference/00_api.html#_CPPv4N20Spi_ChannelStateType18SPI_CH_STATE_READYE">Spi_ChannelStateType::SPI_CH_STATE_READY (C++ enumerator)</a>
+</li>
+      <li><a href="04_DriverModules/Spi/reference/00_api.html#_CPPv4N20Spi_ChannelStateType19SPI_CH_STATE_UNINITE">Spi_ChannelStateType::SPI_CH_STATE_UNINIT (C++ enumerator)</a>
+</li>
+      <li><a href="04_DriverModules/Spi/reference/00_api.html#_CPPv414Spi_ConfigType">Spi_ConfigType (C++ struct)</a>
+</li>
+      <li><a href="04_DriverModules/Spi/reference/02_errors.html#c.SPI_CS_UNSPECIFIED">SPI_CS_UNSPECIFIED (C macro)</a>
+</li>
+      <li><a href="04_DriverModules/Spi/reference/00_api.html#_CPPv410Spi_DeInitv">Spi_DeInit (C++ function)</a>
+</li>
+      <li><a href="04_DriverModules/Spi/reference/02_errors.html#c.SPI_DEVERR_INVALID_CH_STATE">SPI_DEVERR_INVALID_CH_STATE (C macro)</a>
+</li>
+      <li><a href="04_DriverModules/Spi/reference/02_errors.html#c.SPI_DEVERR_PARAM_CHANNELID">SPI_DEVERR_PARAM_CHANNELID (C macro)</a>
+</li>
+      <li><a href="04_DriverModules/Spi/reference/02_errors.html#c.SPI_DEVERR_PARAM_CS">SPI_DEVERR_PARAM_CS (C macro)</a>
+</li>
+      <li><a href="04_DriverModules/Spi/reference/02_errors.html#c.SPI_DEVERR_PARAM_LENGTH">SPI_DEVERR_PARAM_LENGTH (C macro)</a>
+</li>
+      <li><a href="04_DriverModules/Spi/reference/02_errors.html#c.SPI_DEVERR_PARAM_POINTER">SPI_DEVERR_PARAM_POINTER (C macro)</a>
+</li>
+      <li><a href="04_DriverModules/Spi/reference/02_errors.html#c.SPI_DEVERR_UNINIT">SPI_DEVERR_UNINIT (C macro)</a>
+</li>
+      <li><a href="04_DriverModules/Spi/reference/00_api.html#_CPPv419Spi_GetChannelState5uint8">Spi_GetChannelState (C++ function)</a>
+</li>
+      <li><a href="04_DriverModules/Spi/reference/00_api.html#_CPPv48Spi_InitPK14Spi_ConfigType">Spi_Init (C++ function)</a>
+</li>
+      <li><a href="04_DriverModules/Spi/reference/00_api.html#_CPPv48Spi_OnCs5uint85uint87boolean">Spi_OnCs (C++ function)</a>
+</li>
+      <li><a href="04_DriverModules/Spi/reference/00_api.html#_CPPv416Spi_PollFunctionv">Spi_PollFunction (C++ function)</a>
+</li>
+      <li><a href="04_DriverModules/Spi/reference/02_errors.html#c.SPI_RTERR">SPI_RTERR (C macro)</a>
+</li>
+      <li><a href="04_DriverModules/Spi/reference/00_api.html#_CPPv420Spi_StartTransaction5uint85uint8PK17Spi_BufferSetTypeP17Spi_BufferSetType">Spi_StartTransaction (C++ function)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="T">T</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="appendix.html#term-Target-Responder-Node"><strong>Target/Responder Node</strong></a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="appendix.html#term-Transmit-Mailbox"><strong>Transmit Mailbox</strong></a>
+</li>
+      <li><a href="appendix.html#term-TX"><strong>TX</strong></a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="U">U</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="appendix.html#term-UART"><strong>UART</strong></a>
+</li>
+      <li><a href="04_DriverModules/Uart/reference/00_api.html#_CPPv424Uart_Callout_OnReception5uint86uint16">Uart_Callout_OnReception (C++ function)</a>
+</li>
+      <li><a href="04_DriverModules/Uart/reference/00_api.html#_CPPv435Uart_Callout_OnStreamingDataRequest5uint86uint16">Uart_Callout_OnStreamingDataRequest (C++ function)</a>
+</li>
+      <li><a href="04_DriverModules/Uart/reference/00_api.html#_CPPv427Uart_Callout_OnTransmission5uint86uint16">Uart_Callout_OnTransmission (C++ function)</a>
+</li>
+      <li><a href="04_DriverModules/Uart/reference/00_api.html#_CPPv424Uart_CancelRxTransaction5uint8">Uart_CancelRxTransaction (C++ function)</a>
+</li>
+      <li><a href="04_DriverModules/Uart/reference/00_api.html#_CPPv423Uart_ChannelRxStateType">Uart_ChannelRxStateType (C++ enum)</a>
+</li>
+      <li><a href="04_DriverModules/Uart/reference/00_api.html#_CPPv4N23Uart_ChannelRxStateType21UART_CH_RX_STATE_BUSYE">Uart_ChannelRxStateType::UART_CH_RX_STATE_BUSY (C++ enumerator)</a>
+</li>
+      <li><a href="04_DriverModules/Uart/reference/00_api.html#_CPPv4N23Uart_ChannelRxStateType21UART_CH_RX_STATE_IDLEE">Uart_ChannelRxStateType::UART_CH_RX_STATE_IDLE (C++ enumerator)</a>
+</li>
+      <li><a href="04_DriverModules/Uart/reference/00_api.html#_CPPv4N23Uart_ChannelRxStateType23UART_CH_RX_STATE_UNINITE">Uart_ChannelRxStateType::UART_CH_RX_STATE_UNINIT (C++ enumerator)</a>
+</li>
+      <li><a href="04_DriverModules/Uart/reference/00_api.html#_CPPv423Uart_ChannelTxStateType">Uart_ChannelTxStateType (C++ enum)</a>
+</li>
+      <li><a href="04_DriverModules/Uart/reference/00_api.html#_CPPv4N23Uart_ChannelTxStateType21UART_CH_TX_STATE_BUSYE">Uart_ChannelTxStateType::UART_CH_TX_STATE_BUSY (C++ enumerator)</a>
+</li>
+      <li><a href="04_DriverModules/Uart/reference/00_api.html#_CPPv4N23Uart_ChannelTxStateType21UART_CH_TX_STATE_IDLEE">Uart_ChannelTxStateType::UART_CH_TX_STATE_IDLE (C++ enumerator)</a>
+</li>
+      <li><a href="04_DriverModules/Uart/reference/00_api.html#_CPPv4N23Uart_ChannelTxStateType22UART_CH_TX_STATE_READYE">Uart_ChannelTxStateType::UART_CH_TX_STATE_READY (C++ enumerator)</a>
+</li>
+      <li><a href="04_DriverModules/Uart/reference/00_api.html#_CPPv4N23Uart_ChannelTxStateType23UART_CH_TX_STATE_UNINITE">Uart_ChannelTxStateType::UART_CH_TX_STATE_UNINIT (C++ enumerator)</a>
+</li>
+      <li><a href="04_DriverModules/Uart/reference/00_api.html#_CPPv415Uart_ConfigType">Uart_ConfigType (C++ struct)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="04_DriverModules/Uart/reference/00_api.html#_CPPv411Uart_DeInitv">Uart_DeInit (C++ function)</a>
+</li>
+      <li><a href="04_DriverModules/Uart/reference/02_errors.html#c.UART_DEVERR_INVALID_CH_STATE">UART_DEVERR_INVALID_CH_STATE (C macro)</a>
+</li>
+      <li><a href="04_DriverModules/Uart/reference/02_errors.html#c.UART_DEVERR_PARAM_CHANNELID">UART_DEVERR_PARAM_CHANNELID (C macro)</a>
+</li>
+      <li><a href="04_DriverModules/Uart/reference/02_errors.html#c.UART_DEVERR_PARAM_DATA_LENGTH">UART_DEVERR_PARAM_DATA_LENGTH (C macro)</a>
+</li>
+      <li><a href="04_DriverModules/Uart/reference/02_errors.html#c.UART_DEVERR_PARAM_POINTER">UART_DEVERR_PARAM_POINTER (C macro)</a>
+</li>
+      <li><a href="04_DriverModules/Uart/reference/02_errors.html#c.UART_DEVERR_UNINIT">UART_DEVERR_UNINIT (C macro)</a>
+</li>
+      <li><a href="04_DriverModules/Uart/reference/00_api.html#_CPPv422Uart_GetChannelRxState5uint8">Uart_GetChannelRxState (C++ function)</a>
+</li>
+      <li><a href="04_DriverModules/Uart/reference/00_api.html#_CPPv422Uart_GetChannelTxState5uint8">Uart_GetChannelTxState (C++ function)</a>
+</li>
+      <li><a href="04_DriverModules/Uart/reference/00_api.html#_CPPv49Uart_InitPK15Uart_ConfigType">Uart_Init (C++ function)</a>
+</li>
+      <li><a href="04_DriverModules/Uart/reference/00_api.html#_CPPv417Uart_PollFunctionv">Uart_PollFunction (C++ function)</a>
+</li>
+      <li><a href="04_DriverModules/Uart/reference/02_errors.html#c.UART_RTERR_RX">UART_RTERR_RX (C macro)</a>
+</li>
+      <li><a href="04_DriverModules/Uart/reference/02_errors.html#c.UART_RTERR_RX_OVERFLOW">UART_RTERR_RX_OVERFLOW (C macro)</a>
+</li>
+      <li><a href="04_DriverModules/Uart/reference/02_errors.html#c.UART_RTERR_TX">UART_RTERR_TX (C macro)</a>
+</li>
+      <li><a href="04_DriverModules/Uart/reference/00_api.html#_CPPv426Uart_SetAdditionalRxLenTrg5uint86uint16">Uart_SetAdditionalRxLenTrg (C++ function)</a>
+</li>
+      <li><a href="04_DriverModules/Uart/reference/00_api.html#_CPPv423Uart_StartRxTransaction5uint8P5uint86uint166uint16">Uart_StartRxTransaction (C++ function)</a>
+</li>
+      <li><a href="04_DriverModules/Uart/reference/00_api.html#_CPPv423Uart_StartTxTransaction5uint8PK5uint86uint16">Uart_StartTxTransaction (C++ function)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="W">W</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="appendix.html#term-WDG"><strong>WDG</strong></a>
+</li>
+      <li><a href="04_DriverModules/Wdg/reference/00_api.html#_CPPv414Wdg_ConfigType">Wdg_ConfigType (C++ struct)</a>
+</li>
+      <li><a href="04_DriverModules/Wdg/reference/02_errors.html#c.WDG_DEVERR_DRIVER_STATE">WDG_DEVERR_DRIVER_STATE (C macro)</a>
+</li>
+      <li><a href="04_DriverModules/Wdg/reference/02_errors.html#c.WDG_DEVERR_PARAM_MODE">WDG_DEVERR_PARAM_MODE (C macro)</a>
+</li>
+      <li><a href="04_DriverModules/Wdg/reference/02_errors.html#c.WDG_DEVERR_PARAM_POINTER">WDG_DEVERR_PARAM_POINTER (C macro)</a>
+</li>
+      <li><a href="04_DriverModules/Wdg/reference/02_errors.html#c.WDG_DEVERR_PARAM_TIMEOUT">WDG_DEVERR_PARAM_TIMEOUT (C macro)</a>
+</li>
+      <li><a href="04_DriverModules/Wdg/reference/00_api.html#_CPPv410Wdg_FeedHwv">Wdg_FeedHw (C++ function)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="04_DriverModules/Wdg/reference/00_api.html#_CPPv48Wdg_InitPK14Wdg_ConfigType">Wdg_Init (C++ function)</a>
+</li>
+      <li><a href="04_DriverModules/Wdg/reference/00_api.html#_CPPv412Wdg_ModeType">Wdg_ModeType (C++ enum)</a>
+</li>
+      <li><a href="04_DriverModules/Wdg/reference/00_api.html#_CPPv4N12Wdg_ModeType20WDG_MODE_ALTERNATIVEE">Wdg_ModeType::WDG_MODE_ALTERNATIVE (C++ enumerator)</a>
+</li>
+      <li><a href="04_DriverModules/Wdg/reference/00_api.html#_CPPv4N12Wdg_ModeType15WDG_MODE_NORMALE">Wdg_ModeType::WDG_MODE_NORMAL (C++ enumerator)</a>
+</li>
+      <li><a href="04_DriverModules/Wdg/reference/00_api.html#_CPPv4N12Wdg_ModeType12WDG_MODE_OFFE">Wdg_ModeType::WDG_MODE_OFF (C++ enumerator)</a>
+</li>
+      <li><a href="04_DriverModules/Wdg/reference/00_api.html#_CPPv411Wdg_SetMode12Wdg_ModeType">Wdg_SetMode (C++ function)</a>
+</li>
+      <li><a href="04_DriverModules/Wdg/reference/00_api.html#_CPPv417Wdg_UpdateTimeout6uint16">Wdg_UpdateTimeout (C++ function)</a>
+</li>
+      <li><a href="appendix.html#term-Write-Page"><strong>Write Page</strong></a>
+</li>
+  </ul></td>
+</tr></table>
+
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026 by Vector Informatik GmbH and Infineon Technologies AG. All rights reserved.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

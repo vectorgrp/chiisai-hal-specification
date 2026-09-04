@@ -1,0 +1,841 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Concepts &mdash; Chiisai HAL Specification  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css?v=4ae1632d" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-data-viewer/jsonview.bundle.css?v=f6ef2277" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/libs/html/datatables.min.css?v=4b4fd840" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/common_css/needstable.css?v=5e1b6797" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/common_css/need_core.css?v=f5b60a78" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/common_css/need_links.css?v=2150a916" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/common_css/need_style.css?v=92936fa5" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/common_css/need_toggle.css?v=5c6620df" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/modern.css?v=803738c0" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=4f645179" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
+      <script src="../../../_static/sphinx-data-viewer/jsonview.bundle.js?v=18cd53c5"></script>
+      <script src="../../../_static/sphinx-data-viewer/jsonview_loader.js?v=f7ff7e7d"></script>
+      <script src="../../../_static/sphinx-needs/libs/html/datatables.min.js?v=8a4aee21"></script>
+      <script src="../../../_static/sphinx-needs/libs/html/datatables_loader.js?v=a2cae175"></script>
+      <script src="../../../_static/sphinx-needs/libs/html/sphinx_needs_collapse.js?v=dca66431"></script>
+      <script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
+      <script type="module">import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.12.1/dist/mermaid.esm.min.mjs";
+
+
+
+const initStyles = () => {
+    const defaultStyle = document.createElement('style');
+    defaultStyle.textContent = "pre.mermaid {\n    /* Same as .mermaid-container > pre */\n    display: block;\n    width: 100%;\n}\n\npre.mermaid > svg {\n    /* Same as .mermaid-container > pre > svg */\n    height: 500px;\n    width: 100%;\n    max-width: 100% !important;\n}";
+    document.head.appendChild(defaultStyle);
+
+    const fullscreenStyle = document.createElement('style');
+    fullscreenStyle.textContent = ".mermaid-container {\n    position: relative;\n    display: flex;\n    flex-direction: row;\n    width: 100%;\n}\n\n.mermaid-container > pre {\n    display: block;\n    width: 100%;\n}\n\n.mermaid-container > pre > svg {\n    height: 500px;\n    width: 100%;\n    max-width: 100% !important;\n}\n\n.mermaid-fullscreen-btn {\n    position: absolute;\n    width: 28px;\n    height: 28px;\n    background: rgba(255, 255, 255, 0.95);\n    border: 1px solid rgba(0, 0, 0, 0.3);\n    border-radius: 4px;\n    cursor: pointer;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    transition: all 0.2s;\n    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);\n    font-size: 14px;\n    line-height: 1;\n    padding: 0;\n    color: #333;\n}\n\n.mermaid-fullscreen-btn:hover {\n    opacity: 100% !important;\n    background: rgba(255, 255, 255, 1);\n    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);\n    transform: scale(1.1);\n}\n\n.mermaid-fullscreen-btn.dark-theme {\n    background: rgba(50, 50, 50, 0.95);\n    border: 1px solid rgba(255, 255, 255, 0.3);\n    color: #e0e0e0;\n}\n\n.mermaid-fullscreen-btn.dark-theme:hover {\n    background: rgba(60, 60, 60, 1);\n    box-shadow: 0 3px 10px rgba(255, 255, 255, 0.2);\n}\n\n.mermaid-fullscreen-modal {\n    display: none;\n    position: fixed !important;\n    top: 0 !important;\n    left: 0 !important;\n    width: 95vw;\n    height: 100vh;\n    background: rgba(255, 255, 255, 0.98);\n    z-index: 9999;\n    padding: 20px;\n    overflow: auto;\n}\n\n.mermaid-fullscreen-modal.dark-theme {\n    background: rgba(0, 0, 0, 0.98);\n}\n\n.mermaid-fullscreen-modal.active {\n    display: flex;\n    align-items: center;\n    justify-content: center;\n}\n\n.mermaid-container-fullscreen {\n    position: relative;\n    width: 95vw;\n    height: 90vh;\n    max-width: 95vw;\n    max-height: 90vh;\n    background: white;\n    border-radius: 8px;\n    padding: 20px;\n    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);\n    overflow: auto;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n}\n\n.mermaid-container-fullscreen.dark-theme {\n    background: #1a1a1a;\n    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);\n}\n\n.mermaid-container-fullscreen pre.mermaid {\n    width: 100%;\n    height: 100%;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n}\n\n.mermaid-container-fullscreen .mermaid svg {\n    height: 100% !important;\n    width: 100% !important;\n    cursor: grab;\n}\n\n.mermaid-fullscreen-close {\n    position: fixed !important;\n    top: 20px !important;\n    right: 20px !important;\n    width: 40px;\n    height: 40px;\n    background: rgba(255, 255, 255, 0.95);\n    border: 1px solid rgba(0, 0, 0, 0.2);\n    border-radius: 50%;\n    cursor: pointer;\n    z-index: 10000;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);\n    transition: all 0.2s;\n    font-size: 24px;\n    line-height: 1;\n    color: #333;\n}\n\n.mermaid-fullscreen-close:hover {\n    background: white;\n    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);\n    transform: scale(1.1);\n}\n\n.mermaid-fullscreen-close.dark-theme {\n    background: rgba(50, 50, 50, 0.95);\n    border: 1px solid rgba(255, 255, 255, 0.2);\n    color: #e0e0e0;\n}\n\n.mermaid-fullscreen-close.dark-theme:hover {\n    background: rgba(60, 60, 60, 1);\n    box-shadow: 0 6px 16px rgba(255, 255, 255, 0.2);\n}\n\n.mermaid-fullscreen-modal .mermaid-fullscreen-btn {\n    display: none !important;\n}";
+    document.head.appendChild(fullscreenStyle);
+}
+
+// Detect if page has dark background
+const isDarkTheme = () => {
+    // We use a set of heuristics:
+    // 1. Check for common dark mode classes or attributes
+    // 2. Check computed background color brightness
+    if (document.documentElement.classList.contains('dark') ||
+        document.documentElement.getAttribute('data-theme') === 'dark' ||
+        document.body.classList.contains('dark') ||
+        document.body.getAttribute('data-theme') === 'dark') {
+        // console.log("Dark theme detected via class/attribute");
+        return true;
+    }
+    if (document.documentElement.classList.contains('light') ||
+        document.documentElement.getAttribute('data-theme') === 'light' ||
+        document.body.classList.contains('light') ||
+        document.body.getAttribute('data-theme') === 'light') {
+        // console.log("Light theme detected via class/attribute");
+        return false;
+    }
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        // console.log("Dark theme detected via prefers-color-scheme");
+        return true;
+    }
+    const bgColor = window.getComputedStyle(document.body).backgroundColor;
+    const match = bgColor.match(/rgb\((\d+),\s*(\d+),\s*(\d+)/);
+    if (match) {
+        const r = parseInt(match[1]);
+        const g = parseInt(match[2]);
+        const b = parseInt(match[3]);
+        const brightness = (r * 299 + g * 587 + b * 114) / 1000;
+        // console.log("Background color brightness:", brightness);
+        return brightness < 128;
+    }
+    // console.log("No dark or light theme detected, defaulting to light theme");
+    return false;
+};
+
+let darkTheme = isDarkTheme();
+let modal = null;
+let modalContent = null;
+let previousScrollOffset = [window.scrollX, window.scrollY];
+let _lazyObserver = null;
+let _renderQueue = Promise.resolve();
+let closeModal = () => {};
+
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal?.classList.contains('active')) {
+        closeModal();
+    }
+});
+
+// Apply d3 zoom to each SVG. Idempotent: an SVG already wrapped is skipped,
+// so this is safe to call both for the initial batch and for diagrams that
+// render lazily once they become visible.
+const addZoomToSvgs = (svgs) => {
+    svgs.each(function() {
+        if (this.getAttribute('data-zoom-applied') === 'true') return;
+        var svg = d3.select(this);
+        svg.html("<g class='wrapper'>" + svg.html() + "</g>");
+        var inner = svg.select("g");
+        var zoom = d3.zoom().on("zoom", function(event) {
+            inner.attr("transform", event.transform);
+        });
+        svg.call(zoom);
+        this.setAttribute('data-zoom-applied', 'true');
+    });
+};
+
+const runMermaid = async (rerun) => {
+    console.log("Running mermaid diagrams, rerun =", rerun);
+    // clear all existing mermaid charts
+    let all_mermaids = document.querySelectorAll(".mermaid");
+
+    if (rerun) {
+        // Disconnect any previous lazy rendering observer
+        if (_lazyObserver) {
+            _lazyObserver.disconnect();
+            _lazyObserver = null;
+        }
+
+        all_mermaids.forEach((el) => {
+            el.removeAttribute('data-mermaid-deferred');
+            el.removeAttribute('data-mermaid-render-failed');
+            if(!el.hasAttribute("data-original-code")) {
+                // store original code
+                // console.log(`Storing original code for first run: `, el.innerHTML);
+                el.setAttribute('data-original-code', el.innerHTML);
+            }
+            if(el.getAttribute("data-processed") === "true") {
+                // remove and restore original
+                el.removeAttribute("data-processed");
+                // console.log(`Restoring original code for re-run: `, el.getAttribute('data-original-code'));
+                el.innerHTML = el.getAttribute('data-original-code');
+            } else {
+                // store original code
+                // console.log(`Storing original code for re-run: `, el.innerHTML);
+                el.setAttribute('data-original-code', el.innerHTML);
+            }
+        });
+
+        // Separate visible and hidden elements. Mermaid's layout engine measures
+        // text dimensions via the DOM, which fails for elements hidden by a parent
+        // (e.g., Reveal.js non-active slides, sphinx-design unopened tabs),
+        // producing broken SVGs. Render visible elements now, defer hidden ones.
+        const visible = [];
+        const hidden = [];
+        all_mermaids.forEach((el) => {
+            // offsetParent is null for display:none ancestors.
+            // getClientRects().length > 0 catches position:fixed elements
+            // (which also have null offsetParent but are still visible).
+            if (el.offsetParent !== null || el.getClientRects().length > 0) {
+                visible.push(el);
+            } else {
+                hidden.push(el);
+                el.setAttribute('data-mermaid-deferred', 'true');
+            }
+        });
+
+        if (visible.length > 0) {
+            try {
+                await mermaid.run({ nodes: visible });
+            } catch (e) {
+                console.error("Mermaid rendering failed:", e);
+            }
+        }
+
+        // Lazily render hidden elements when they become visible.
+        // Uses a promise chain (_renderQueue) to serialize rendering,
+        // since IntersectionObserver may report multiple entries at once
+        // and mermaid.run() is not safe to call concurrently.
+        if (hidden.length > 0) {
+            if (typeof IntersectionObserver === 'undefined') {
+                console.warn("IntersectionObserver not available; hidden mermaid diagrams will not render.");
+            } else {
+                _renderQueue = Promise.resolve();
+                _lazyObserver = new IntersectionObserver((entries) => {
+                    for (const entry of entries) {
+                        if (entry.isIntersecting && entry.target.getAttribute("data-processed") !== "true") {
+                            _lazyObserver.unobserve(entry.target);
+                            const el = entry.target;
+                            _renderQueue = _renderQueue.then(async () => {
+                                try {
+                                    await mermaid.run({ nodes: [el] });
+                                    el.removeAttribute('data-mermaid-deferred');
+                                    // Apply zoom to the now-rendered diagram, matching
+                                    // the decoration visible diagrams receive.
+                                    if (true) {
+                                        addZoomToSvgs(d3.selectAll(".mermaid").select(function() {
+                                            return this.querySelector("svg");
+                                        }));
+                                    }
+                                } catch (e) {
+                                    console.error("Mermaid deferred rendering failed:", e);
+                                    el.removeAttribute('data-mermaid-deferred');
+                                    el.setAttribute('data-mermaid-render-failed', 'true');
+                                }
+                            });
+                        }
+                    }
+                });
+                hidden.forEach((el) => _lazyObserver.observe(el));
+            }
+        }
+    }
+
+    all_mermaids = document.querySelectorAll(".mermaid");
+    // Exclude deferred (hidden) and render-failed elements from completion checks
+    const mermaids_active = document.querySelectorAll(".mermaid:not([data-mermaid-deferred]):not([data-mermaid-render-failed])");
+    const mermaids_processed = document.querySelectorAll(".mermaid:not([data-mermaid-deferred]):not([data-mermaid-render-failed])[data-processed='true']");
+
+    if (true) {
+        const mermaids_to_add_zoom = -1 === -1 ? mermaids_active.length : -1;
+        if(mermaids_to_add_zoom > 0) {
+            var svgs = d3.selectAll(".mermaid").select(function() {
+                return this.querySelector("svg");
+            });
+            // Wait until every active (visible) diagram has rendered. Deferred
+            // diagrams are excluded, so a fixed d3_node_count that counts a
+            // hidden diagram no longer loops forever waiting for its SVG.
+            if(mermaids_active.length !== mermaids_processed.length) {
+                setTimeout(() => runMermaid(false), 200);
+                return;
+            }
+            addZoomToSvgs(svgs);
+        }
+    } else if(mermaids_active.length !== mermaids_processed.length) {
+        // Wait for mermaid to process all diagrams
+        setTimeout(() => runMermaid(false), 200);
+        return;
+    }
+
+    // Stop here if not adding fullscreen capability
+    if (!true) return;
+
+    if (modal !== null ) {
+        // Destroy existing modal
+        modal.remove();
+        modal = null;
+        modalContent = null;
+    }
+
+    modal = document.createElement('div');
+    modal.className = 'mermaid-fullscreen-modal' + (darkTheme ? ' dark-theme' : '');
+    modal.setAttribute('role', 'dialog');
+    modal.setAttribute('aria-modal', 'true');
+    modal.setAttribute('aria-label', 'Fullscreen diagram viewer');
+    modal.innerHTML = `
+        <button class="mermaid-fullscreen-close${darkTheme ? ' dark-theme' : ''}" aria-label="Close fullscreen">✕</button>
+        <div class="mermaid-container-fullscreen${darkTheme ? ' dark-theme' : ''}"></div>
+    `;
+    document.body.appendChild(modal);
+
+    modalContent = modal.querySelector('.mermaid-container-fullscreen');
+    const closeBtn = modal.querySelector('.mermaid-fullscreen-close');
+
+    closeModal = () => {
+        modal.classList.remove('active');
+        modalContent.innerHTML = '';
+        document.body.style.overflow = ''
+        window.scrollTo({left: previousScrollOffset[0], top: previousScrollOffset[1], behavior: 'instant'});
+    };
+
+    closeBtn.addEventListener('click', closeModal);
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) closeModal();
+    });
+    document.querySelectorAll('.mermaid').forEach((mermaidDiv) => {
+        if (mermaidDiv.parentNode.classList.contains('mermaid-container') ||
+            mermaidDiv.closest('.mermaid-fullscreen-modal')) {
+            // Already processed, adjust button class if needed
+            const existingBtn = mermaidDiv.parentNode.querySelector('.mermaid-fullscreen-btn');
+            if (existingBtn) {
+                existingBtn.className = 'mermaid-fullscreen-btn' + (darkTheme ? ' dark-theme' : '');
+            }
+            return;
+        }
+
+        const container = document.createElement('div');
+        container.className = 'mermaid-container';
+        mermaidDiv.parentNode.insertBefore(container, mermaidDiv);
+        container.appendChild(mermaidDiv);
+
+        const fullscreenBtn = document.createElement('button');
+        fullscreenBtn.className = 'mermaid-fullscreen-btn' + (darkTheme ? ' dark-theme' : '');
+        fullscreenBtn.setAttribute('aria-label', 'View diagram in fullscreen');
+        fullscreenBtn.textContent = "\u26f6";
+        fullscreenBtn.style.opacity = "50%";
+
+        // Calculate dynamic position based on diagram's margin and padding
+        const diagramStyle = window.getComputedStyle(mermaidDiv);
+        const marginTop = parseFloat(diagramStyle.marginTop) || 0;
+        const marginRight = parseFloat(diagramStyle.marginRight) || 0;
+        const paddingTop = parseFloat(diagramStyle.paddingTop) || 0;
+        const paddingRight = parseFloat(diagramStyle.paddingRight) || 0;
+        fullscreenBtn.style.top = `${marginTop + paddingTop + 4}px`;
+        fullscreenBtn.style.right = `${marginRight + paddingRight + 4}px`;
+
+        fullscreenBtn.addEventListener('click', () => {
+            previousScrollOffset = [window.scrollX, window.scrollY];
+            const clone = mermaidDiv.cloneNode(true);
+            modalContent.innerHTML = '';
+            modalContent.appendChild(clone);
+
+            const svg = clone.querySelector('svg');
+            if (svg) {
+                svg.removeAttribute('width');
+                svg.removeAttribute('height');
+                svg.style.width = '100%';
+                svg.style.height = 'auto';
+                svg.style.maxWidth = '100%';
+                svg.style.display = 'block';
+
+                if (true) {
+                    setTimeout(() => {
+                        const g = svg.querySelector('g');
+                        if (g) {
+                            var svgD3 = d3.select(svg);
+                            svgD3.html("<g class='wrapper'>" + svgD3.html() + "</g>");
+                            var inner = svgD3.select("g");
+                            var zoom = d3.zoom().on("zoom", function(event) {
+                                inner.attr("transform", event.transform);
+                            });
+                            svgD3.call(zoom);
+                        }
+                    }, 100);
+                }
+            }
+
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+        container.appendChild(fullscreenBtn);
+    });
+};
+
+
+
+const load = async () => {
+    initStyles();
+
+
+    await runMermaid(true);
+
+    const reRunIfThemeChanges = async () => {
+        const newDarkTheme = isDarkTheme();
+        if (newDarkTheme !== darkTheme) {
+            darkTheme = newDarkTheme;
+            console.log("Theme change detected, re-running mermaid with", darkTheme ? "dark" : "default", "theme");
+            await mermaid.initialize(
+                {...{"startOnLoad": false},
+                ...{ darkMode: darkTheme, theme: darkTheme ? "dark" : "default" },
+                }
+            );
+            await runMermaid(true);
+        }
+    };
+
+    // Update theme classes when theme changes
+    const themeObserver = new MutationObserver(reRunIfThemeChanges);
+    themeObserver.observe(document.documentElement, {
+        attributes: true,
+        attributeFilter: ['class', 'style', 'data-theme']
+    });
+    themeObserver.observe(document.body, {
+        attributes: true,
+        attributeFilter: ['class', 'style', 'data-theme']
+    });
+};
+
+
+
+
+
+console.log("Initializing mermaid with", darkTheme ? "dark" : "default", "theme");
+mermaid.initialize(
+    {...{"startOnLoad": false},
+    ...{ darkMode: darkTheme, theme: darkTheme ? "dark" : "default" },
+    }
+);
+
+window.addEventListener("load", load);
+window.runMermaid = runMermaid;</script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Guide" href="../guide/index.html" />
+    <link rel="prev" title="Overview" href="00_overview.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            Chiisai HAL Specification
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../00_about/index.html">About This Specification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../01_general/index.html">General</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Chiisai HAL Driver Modules</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Can</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">General</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="00_overview.html">Overview</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Concepts</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../guide/index.html">Guide</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../reference/index.html">Reference</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../00_requirements.html">Can — Requirements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01_design_decisions.html">Design Decisions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../I2c/index.html">I2c</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Lin/index.html">Lin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Mcu/index.html">Mcu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Mem/index.html">Mem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Port/index.html">Port</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Spi/index.html">Spi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Uart/index.html">Uart</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Wdg/index.html">Wdg</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../appendix.html">Appendix</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Chiisai HAL Specification</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Chiisai HAL Driver Modules</a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Can</a></li>
+          <li class="breadcrumb-item"><a href="index.html">General</a></li>
+      <li class="breadcrumb-item active">Concepts</li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="concepts">
+<h1>Concepts<a class="headerlink" href="#concepts" title="Link to this heading"></a></h1>
+<div class="informative admonition">
+<p class="admonition-title">Informative</p>
+<p>The model behind the CAN driver: its two-level state machine, timing model, and event handling.
+Non-binding; the normative rules live in <a class="reference internal" href="../00_requirements.html"><span class="doc">Can — Requirements</span></a>.</p>
+</div>
+<section id="state-machine">
+<h2>State machine<a class="headerlink" href="#state-machine" title="Link to this heading"></a></h2>
+<p>The driver has a <strong>driver-wide</strong> state and, independently, a <strong>per-channel</strong> state.</p>
+<section id="driver-state">
+<h3>Driver state<a class="headerlink" href="#driver-state" title="Link to this heading"></a></h3>
+<pre  class="mermaid">
+        stateDiagram-v2
+   [*] --&gt; CAN_DRV_STATE_UNINIT : Reset
+   CAN_DRV_STATE_UNINIT --&gt; CAN_DRV_STATE_INIT : Can_Init()
+   CAN_DRV_STATE_INIT --&gt; CAN_DRV_STATE_UNINIT : Can_DeInit()
+    </pre><table class="docutils align-default">
+<colgroup>
+<col style="width: 30.0%" />
+<col style="width: 45.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Driver state</p></th>
+<th class="head"><p>Meaning</p></th>
+<th class="head"><p>API calls accepted</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">CAN_DRV_STATE_UNINIT</span></code></p></td>
+<td><p>Not yet initialized (state after reset/startup)</p></td>
+<td><p>Only <code class="docutils literal notranslate"><span class="pre">Can_Init()</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">CAN_DRV_STATE_INIT</span></code></p></td>
+<td><p>Initialized; service APIs are accepted</p></td>
+<td><p>All</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="channel-state">
+<h3>Channel state<a class="headerlink" href="#channel-state" title="Link to this heading"></a></h3>
+<p>After <code class="docutils literal notranslate"><span class="pre">Can_Init</span></code>, every channel starts in <code class="docutils literal notranslate"><span class="pre">STOPPED</span></code>. The upper layer drives transitions with
+<code class="docutils literal notranslate"><span class="pre">Can_SetChannelState</span></code>; hardware events (bus-off) can force a channel back to <code class="docutils literal notranslate"><span class="pre">STOPPED</span></code>.</p>
+<p>All upper-layer channel transitions go through the single <code class="docutils literal notranslate"><span class="pre">Can_SetChannelState</span></code> API; the argument
+is the requested target state. The three operational states are grouped below as <em>Initialized</em> —
+<code class="docutils literal notranslate"><span class="pre">Can_Init</span></code> enters the group and <code class="docutils literal notranslate"><span class="pre">Can_DeInit</span></code> leaves it from any of them.</p>
+<pre  class="mermaid">
+        stateDiagram-v2
+   direction LR
+
+   [*] --&gt; CAN_CH_STATE_UNINIT : Reset
+
+   state &quot;Initialized&quot; as INIT {
+      direction TB
+      [*] --&gt; CAN_CH_STATE_STOPPED
+      CAN_CH_STATE_STOPPED --&gt; CAN_CH_STATE_STARTED : SetChannelState(STARTED)
+      CAN_CH_STATE_STARTED --&gt; CAN_CH_STATE_STOPPED : SetChannelState(STOPPED)&lt;br/&gt;bus-off / unrecoverable error
+      CAN_CH_STATE_STOPPED --&gt; CAN_CH_STATE_SLEEP : SetChannelState(SLEEP)
+      CAN_CH_STATE_SLEEP --&gt; CAN_CH_STATE_STOPPED : SetChannelState(STOPPED)
+   }
+
+   CAN_CH_STATE_UNINIT --&gt; INIT : Can_Init()
+   INIT --&gt; CAN_CH_STATE_UNINIT : Can_DeInit()
+    </pre><table class="docutils align-default">
+<colgroup>
+<col style="width: 28.0%" />
+<col style="width: 42.0%" />
+<col style="width: 30.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Channel state</p></th>
+<th class="head"><p>Meaning</p></th>
+<th class="head"><p>Valid transitions requested via</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">CAN_CH_STATE_UNINIT</span></code></p></td>
+<td><p>Hardware not configured</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Can_Init()</span></code> → <code class="docutils literal notranslate"><span class="pre">STOPPED</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">CAN_CH_STATE_STOPPED</span></code></p></td>
+<td><p>Initialized, not participating on the bus</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">STARTED</span></code>, <code class="docutils literal notranslate"><span class="pre">SLEEP</span></code>, or <code class="docutils literal notranslate"><span class="pre">Can_DeInit()</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">CAN_CH_STATE_STARTED</span></code></p></td>
+<td><p>Actively participating; TX/RX enabled</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">STOPPED</span></code> (also entered automatically on bus-off)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">CAN_CH_STATE_SLEEP</span></code></p></td>
+<td><p>Logical sleep (no wakeup detection)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">STOPPED</span></code>, or <code class="docutils literal notranslate"><span class="pre">Can_DeInit()</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>A requested transition may not take effect immediately if the hardware needs status-register
+polling to confirm it. In that case <code class="docutils literal notranslate"><span class="pre">Can_SetChannelState</span></code> does not block; completion is
+detected later by <code class="docutils literal notranslate"><span class="pre">Can_CyclicFunction</span></code> and reported via <code class="docutils literal notranslate"><span class="pre">CanIf_OnChannelState</span></code>. See
+<a class="reference internal" href="../00_requirements.html"><span class="doc">Can — Requirements</span></a> (<a class="reference internal" href="../00_requirements.html#CHI-CAN-MUST-03" title="CHI-CAN-MUST-03"><em class="xref need">CHI-CAN-MUST-03</em></a>).</p>
+</div>
+</section>
+<section id="state-transition-sequence">
+<h3>State transition sequence<a class="headerlink" href="#state-transition-sequence" title="Link to this heading"></a></h3>
+<p>The sequence below shows the two-step transition model: <code class="docutils literal notranslate"><span class="pre">Can_SetChannelState</span></code> requests a change,
+and — when the hardware cannot confirm it synchronously — <code class="docutils literal notranslate"><span class="pre">Can_CyclicFunction</span></code> later observes
+completion and reports it via <code class="docutils literal notranslate"><span class="pre">CanIf_OnChannelState</span></code>. This is the informative view of <a class="reference internal" href="../00_requirements.html#CHI-CAN-MUST-03" title="CHI-CAN-MUST-03"><em class="xref need">CHI-CAN-MUST-03</em></a>.</p>
+<pre  class="mermaid">
+        sequenceDiagram
+   participant A as UpperLayer
+   participant B as CanDrv
+   participant C as CAN HW
+
+   Note over A,C: Init time
+
+   A-&gt;&gt;B: Can_Init(&amp;CanConfig)
+   activate B
+   B-&gt;&gt;C: Initialize the hardware
+   B--&gt;&gt;A: return
+   deactivate B
+
+   Note over A,C: Channel state change via Can_SetChannelState()
+
+   A-&gt;&gt;B: Can_SetChannelState(channelId, channelState)
+   activate A
+   activate B
+   alt a development error is detected
+      B--&gt;&gt;A: E_NOT_OK
+   else
+      B-&gt;&gt;C: Set up HW registers / message objects
+      opt HW transitions without delay
+         B-&gt;&gt;A: CanIf_OnChannelState(channel, channelState)
+         activate A
+         A--&gt;&gt;B: return
+         deactivate A
+      end
+      B--&gt;&gt;A: E_OK
+   end
+   deactivate A
+   deactivate B
+
+   alt transition not yet complete in Can_SetChannelState()
+      A-&gt;&gt;B: Can_CyclicFunction()
+      activate A
+      activate B
+      B-&gt;&gt;C: Get HW status
+      C--&gt;&gt;B: HW status
+      opt HW has reached the requested state
+         B-&gt;&gt;A: CanIf_OnChannelState(channel, channelState)
+         activate A
+         A--&gt;&gt;B: return
+         deactivate A
+      end
+      B--&gt;&gt;A: return
+      deactivate A
+      deactivate B
+   end
+    </pre></section>
+</section>
+<section id="mailboxes-and-hardware-objects">
+<h2>Mailboxes and hardware objects<a class="headerlink" href="#mailboxes-and-hardware-objects" title="Link to this heading"></a></h2>
+<p>CAN hardware exposes a set of <strong>message objects</strong>, each holding an ID, a DLC, and the SDU data. The
+driver groups these into <strong>mailboxes</strong>: a mailbox is backed by one or more <strong>hardware object handles
+(HOHs)</strong>, and both TX and RX mailboxes are configurable (<a class="reference internal" href="../00_requirements.html#CHI-CAN-MUST-17" title="CHI-CAN-MUST-17"><em class="xref need">CHI-CAN-MUST-17</em></a>). How many hardware
+objects a mailbox uses determines its behavior:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 15.0%" />
+<col style="width: 25.0%" />
+<col style="width: 60.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Mailbox</p></th>
+<th class="head"><p>Hardware objects</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>RX</p></td>
+<td><p>one</p></td>
+<td><p>A single message object receives into the mailbox.</p></td>
+</tr>
+<tr class="row-odd"><td><p>RX</p></td>
+<td><p>several (same setup)</p></td>
+<td><p>A hardware FIFO or several identically-configured objects (shadow buffer) back one RX mailbox,
+so a burst of frames is not lost (<a class="reference internal" href="../00_requirements.html#CHI-CAN-MUST-16" title="CHI-CAN-MUST-16"><em class="xref need">CHI-CAN-MUST-16</em></a>).</p></td>
+</tr>
+<tr class="row-even"><td><p>TX</p></td>
+<td><p>one</p></td>
+<td><p>A single message object transmits the mailbox’s frames.</p></td>
+</tr>
+<tr class="row-odd"><td><p>TX</p></td>
+<td><p>several</p></td>
+<td><p>Multiple hardware objects assigned to one TX mailbox for multiplexed transmission — an
+optional feature (<a class="reference internal" href="../00_requirements.html#CHI-CAN-MAY-01" title="CHI-CAN-MAY-01"><em class="xref need">CHI-CAN-MAY-01</em></a>).</p></td>
+</tr>
+</tbody>
+</table>
+<p>Not every hardware object has to be assigned; unused objects simply carry no mailbox.</p>
+</section>
+<section id="timing-model-two-scheduling-functions">
+<h2>Timing model: two scheduling functions<a class="headerlink" href="#timing-model-two-scheduling-functions" title="Link to this heading"></a></h2>
+<p>Polling-mode work is split across two functions by their timing needs:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 20.0%" />
+<col style="width: 55.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Function</p></th>
+<th class="head"><p>Typical period</p></th>
+<th class="head"><p>Handles (when configured for polling)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">Can_PollFunction</span></code></p></td>
+<td><p>sub-millisecond / high frequency</p></td>
+<td><p>TX-completion and RX events — the fast data path</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">Can_CyclicFunction</span></code></p></td>
+<td><p>≥ 1 ms</p></td>
+<td><p>Bus-off, other unrecoverable errors, and channel state-transition completion</p></td>
+</tr>
+</tbody>
+</table>
+<p>Either may be an empty function if the corresponding events are all handled by interrupt.</p>
+</section>
+<section id="event-handling-interrupt-or-polling">
+<h2>Event handling: interrupt or polling<a class="headerlink" href="#event-handling-interrupt-or-polling" title="Link to this heading"></a></h2>
+<p>For each channel, <strong>TX</strong>, <strong>RX</strong>, and <strong>bus-off/error</strong> handling is independently configured as
+either <em>interrupt</em> or <em>polling</em>:</p>
+<ul class="simple">
+<li><p><strong>Interrupt</strong> — <code class="docutils literal notranslate"><span class="pre">Can_Init</span></code> enables the corresponding interrupt; <code class="docutils literal notranslate"><span class="pre">Can_Interrupt</span></code> services it.</p></li>
+<li><p><strong>Polling</strong> — <code class="docutils literal notranslate"><span class="pre">Can_Init</span></code> disables the interrupt; <code class="docutils literal notranslate"><span class="pre">Can_PollFunction</span></code> / <code class="docutils literal notranslate"><span class="pre">Can_CyclicFunction</span></code>
+service the event.</p></li>
+</ul>
+<p>Either way, the same upper-layer callbacks are invoked (<code class="docutils literal notranslate"><span class="pre">CanIf_OnReception</span></code>,
+<code class="docutils literal notranslate"><span class="pre">CanIf_OnTransmission</span></code>, <code class="docutils literal notranslate"><span class="pre">CanIf_OnError</span></code>, <code class="docutils literal notranslate"><span class="pre">CanIf_OnChannelState</span></code>).</p>
+</section>
+<section id="event-handling-sequence">
+<h2>Event handling sequence<a class="headerlink" href="#event-handling-sequence" title="Link to this heading"></a></h2>
+<p>The sequence below traces a transmission request and the subsequent event handling for both modes.
+In <strong>interrupt</strong> mode, <code class="docutils literal notranslate"><span class="pre">Can_Interrupt</span></code> services the hardware event; in <strong>polling</strong> mode, the same
+handling is driven from <code class="docutils literal notranslate"><span class="pre">Can_PollFunction</span></code> / <code class="docutils literal notranslate"><span class="pre">Can_CyclicFunction</span></code>. Either path fans out into the
+TX-completion, RX, bus-off, and error branches and invokes the same upper-layer callbacks.</p>
+<pre  class="mermaid">
+        sequenceDiagram
+   participant INTEG as Integration code
+   participant UPL as UpperLayer
+   participant DRV as CanDrv
+   participant HW as CAN HW
+
+   Note over INTEG,HW: TX L-PDU
+
+   UPL-&gt;&gt;DRV: Can_Transmit(mailboxId, &amp;pdu)
+   activate DRV
+   activate UPL
+   alt a development error is detected
+      DRV--&gt;&gt;UPL: E_NOT_OK
+   else HW buffer for the mailbox is BUSY
+      DRV--&gt;&gt;UPL: CAN_BUSY
+   else HW buffer is available
+      DRV-&gt;&gt;HW: Set up HW registers / message objects
+      DRV-&gt;&gt;HW: Initiate transmission
+      DRV--&gt;&gt;UPL: E_OK
+   end
+   deactivate DRV
+   deactivate UPL
+
+   Note over INTEG,HW: Event handling
+
+   alt event handling mode = interrupt
+      HW-&gt;&gt;DRV: Can_Interrupt()
+      activate DRV
+      opt unrecoverable error other than bus-off
+         DRV-&gt;&gt;HW: Cancel pending messages
+         DRV-&gt;&gt;HW: Reset / disable channel if needed
+         DRV-&gt;&gt;INTEG: LogM_Report(..., CAN_RTERR_UNRECOVERABLE)
+         activate INTEG
+         INTEG--&gt;&gt;DRV: return
+         deactivate INTEG
+      end
+      opt bus-off detection
+         DRV-&gt;&gt;HW: Cancel pending messages
+         DRV-&gt;&gt;HW: Reset / disable channel if needed
+         DRV-&gt;&gt;UPL: CanIf_OnError(channel, CAN_ERR_BUS_OFF)
+         activate UPL
+         UPL--&gt;&gt;DRV: return
+         deactivate UPL
+      end
+      opt TX L-PDU completion
+         DRV-&gt;&gt;UPL: CanIf_OnTransmission(canTxPduId)
+         activate UPL
+         UPL--&gt;&gt;DRV: return
+         deactivate UPL
+      end
+      opt lost L-PDU
+         DRV-&gt;&gt;INTEG: LogM_Report(..., CAN_RTERR_DATALOST)
+         activate INTEG
+         INTEG--&gt;&gt;DRV: return
+         deactivate INTEG
+      end
+      opt RX L-PDU
+         DRV-&gt;&gt;HW: Interpret mailbox, extract L-PDU
+         DRV-&gt;&gt;UPL: CanIf_OnReception(messageInfo, &amp;pdu)
+         activate UPL
+         UPL--&gt;&gt;DRV: return
+         deactivate UPL
+      end
+      DRV--&gt;&gt;HW: return from interrupt
+      deactivate DRV
+   else event handling mode = polling
+      UPL-&gt;&gt;DRV: Can_PollFunction() / Can_CyclicFunction()
+      activate UPL
+      activate DRV
+      DRV-&gt;&gt;HW: Get HW status
+      Note left of DRV: Same handling as interrupt mode
+      DRV--&gt;&gt;UPL: return
+      deactivate DRV
+      deactivate UPL
+   end
+    </pre></section>
+<section id="wakeup-and-sleep">
+<h2>Wakeup and sleep<a class="headerlink" href="#wakeup-and-sleep" title="Link to this heading"></a></h2>
+<p>A typical CAN transceiver can detect bus wakeup, but the CanDrv deliberately omits wakeup
+detection. Consequently <code class="docutils literal notranslate"><span class="pre">SLEEP</span></code> is a <strong>logical</strong> state: the channel stops participating but the
+driver does not arm any wakeup source.</p>
+</section>
+<section id="key-terms">
+<h2>Key terms<a class="headerlink" href="#key-terms" title="Link to this heading"></a></h2>
+<p>For CAN glossary terms — CAN controller, CAN channel, Hardware Object Handle (HOH), Hardware
+Object, Receive/Transmit Mailbox, CAN L-PDU / L-SDU — see the glossary in the appendix.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="00_overview.html" class="btn btn-neutral float-left" title="Overview" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../guide/index.html" class="btn btn-neutral float-right" title="Guide" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026 by Vector Informatik GmbH and Infineon Technologies AG. All rights reserved.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

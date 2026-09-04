@@ -1,0 +1,747 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>API Reference &mdash; Chiisai HAL Specification  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css?v=4ae1632d" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-data-viewer/jsonview.bundle.css?v=f6ef2277" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/libs/html/datatables.min.css?v=4b4fd840" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/common_css/needstable.css?v=5e1b6797" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/common_css/need_core.css?v=f5b60a78" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/common_css/need_links.css?v=2150a916" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/common_css/need_style.css?v=92936fa5" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/common_css/need_toggle.css?v=5c6620df" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/modern.css?v=803738c0" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=4f645179" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
+      <script src="../../../_static/sphinx-data-viewer/jsonview.bundle.js?v=18cd53c5"></script>
+      <script src="../../../_static/sphinx-data-viewer/jsonview_loader.js?v=f7ff7e7d"></script>
+      <script src="../../../_static/sphinx-needs/libs/html/datatables.min.js?v=8a4aee21"></script>
+      <script src="../../../_static/sphinx-needs/libs/html/datatables_loader.js?v=a2cae175"></script>
+      <script src="../../../_static/sphinx-needs/libs/html/sphinx_needs_collapse.js?v=dca66431"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Configuration Reference" href="01_configuration.html" />
+    <link rel="prev" title="Reference" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            Chiisai HAL Specification
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../00_about/index.html">About This Specification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../01_general/index.html">General</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Chiisai HAL Driver Modules</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../Can/index.html">Can</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../I2c/index.html">I2c</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Lin/index.html">Lin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Mcu/index.html">Mcu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Mem/index.html">Mem</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Port</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../general/index.html">General</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../guide/index.html">Guide</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">Reference</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">API Reference</a></li>
+<li class="toctree-l4"><a class="reference internal" href="01_configuration.html">Configuration Reference</a></li>
+<li class="toctree-l4"><a class="reference internal" href="02_errors.html">Errors</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../00_requirements.html">Port — Requirements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01_design_decisions.html">Design Decisions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../Spi/index.html">Spi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Uart/index.html">Uart</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Wdg/index.html">Wdg</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../appendix.html">Appendix</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Chiisai HAL Specification</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Chiisai HAL Driver Modules</a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Port</a></li>
+          <li class="breadcrumb-item"><a href="index.html">Reference</a></li>
+      <li class="breadcrumb-item active">API Reference</li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="api-reference">
+<h1>API Reference<a class="headerlink" href="#api-reference" title="Link to this heading"></a></h1>
+<div class="normative admonition">
+<p class="admonition-title">Normative</p>
+<p>The Port driver API contract. A conformant driver <strong>MUST</strong> provide these types and functions with
+the behavior described. Function and type signatures are extracted from the driver headers with
+Doxygen/Breathe; only the interrupt handler is hand-framed, because its name is
+vendor-specific. Keywords per <a class="reference internal" href="../../../00_about/01_keywords.html"><span class="doc">Requirement Keywords</span></a>;
+behavioral rules in <a class="reference internal" href="../00_requirements.html"><span class="doc">Port — Requirements</span></a>; error codes in <a class="reference internal" href="02_errors.html"><span class="doc">Errors</span></a>.</p>
+</div>
+<p class="rubric">Data types at a glance</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 32.0%" />
+<col style="width: 13.0%" />
+<col style="width: 55.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Type</p></th>
+<th class="head"><p>Kind</p></th>
+<th class="head"><p>Purpose</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference internal" href="#port-api-port-configtype"><span class="std std-ref">Port_ConfigType</span></a></p></td>
+<td><p>struct</p></td>
+<td><p>Root configuration structure (build-time; <code class="docutils literal notranslate"><span class="pre">Port_Init</span></code> takes <code class="docutils literal notranslate"><span class="pre">NULL_PTR</span></code>).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#port-api-port-pinvaluetype"><span class="std std-ref">Port_PinValueType</span></a></p></td>
+<td><p>typedef</p></td>
+<td><p>A pin’s physical value (<code class="docutils literal notranslate"><span class="pre">PORT_PIN_VALUE_LOW</span></code> / <code class="docutils literal notranslate"><span class="pre">PORT_PIN_VALUE_HIGH</span></code>).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#port-api-port-edgeconfigtype"><span class="std std-ref">Port_EdgeConfigType</span></a></p></td>
+<td><p>enum</p></td>
+<td><p>Edge-detection selection (none / rising / falling / both).</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">API at a glance</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 32.0%" />
+<col style="width: 30.0%" />
+<col style="width: 38.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Function</p></th>
+<th class="head"><p>Group</p></th>
+<th class="head"><p>Purpose</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference internal" href="#port-api-port-init"><span class="std std-ref">Port_Init</span></a></p></td>
+<td><p>Initialization</p></td>
+<td><p>Apply every pin’s configured function, direction, and value.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#port-api-port-getpinvalue"><span class="std std-ref">Port_GetPinValue</span></a></p></td>
+<td><p>Pin and port access</p></td>
+<td><p>Read one pin.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#port-api-port-setpinvalue"><span class="std std-ref">Port_SetPinValue</span></a></p></td>
+<td><p>Pin and port access</p></td>
+<td><p>Write one pin.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#port-api-port-togglepinvalue"><span class="std std-ref">Port_TogglePinValue</span></a></p></td>
+<td><p>Pin and port access</p></td>
+<td><p>Toggle one pin; return the new value.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#port-api-port-getportvalue"><span class="std std-ref">Port_GetPortValue</span></a></p></td>
+<td><p>Pin and port access</p></td>
+<td><p>Read all pins of a port.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#port-api-port-setmaskedportvalue"><span class="std std-ref">Port_SetMaskedPortValue</span></a></p></td>
+<td><p>Pin and port access</p></td>
+<td><p>Write masked pins of a port atomically.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#port-api-port-setedgedetection"><span class="std std-ref">Port_SetEdgeDetection</span></a></p></td>
+<td><p>Edge detection and scheduling</p></td>
+<td><p>Configure edge detection for a pin.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#port-api-port-pollfunction"><span class="std std-ref">Port_PollFunction</span></a></p></td>
+<td><p>Edge detection and scheduling</p></td>
+<td><p>Service edge events for polled pins.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#port-api-port-interrupt"><span class="std std-ref">Port_Interrupt</span></a></p></td>
+<td><p>Edge detection and scheduling</p></td>
+<td><p>Driver interrupt service routine.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Callouts and expected interfaces at a glance</p>
+<p>The functions the integrator <strong>MUST</strong> provide where applicable (<a class="reference internal" href="../00_requirements.html#CHI-PORT-MUST-08" title="CHI-PORT-MUST-08"><em class="xref need">CHI-PORT-MUST-08</em></a>, <a class="reference internal" href="../00_requirements.html#CHI-PORT-MUST-12" title="CHI-PORT-MUST-12"><em class="xref need">CHI-PORT-MUST-12</em></a>); see the
+<a class="reference internal" href="#port-api-callouts"><span class="std std-ref">Callouts</span></a> group below. PortDrv has no upper-layer interface stack, so it
+reports its events through <strong>callouts</strong> that the integrator implements in the generated
+<code class="docutils literal notranslate"><span class="pre">Port_Callout_Stubs.c</span></code> (see <a class="reference internal" href="../../../01_general/guide/02_callout_file.html"><span class="doc">The Callout Stub File</span></a>).</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 30.0%" />
+<col style="width: 20.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Function</p></th>
+<th class="head"><p>Kind</p></th>
+<th class="head"><p>Purpose</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference internal" href="#port-api-callout-onedgedetection"><span class="std std-ref">Port_Callout_OnEdgeDetection</span></a></p></td>
+<td><p>Callout</p></td>
+<td><p>Notifies the integration code of a detected pin edge.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="../../../01_general/reference/02_services.html#gen-ref-logm"><span class="std std-ref">LogM_Report</span></a></p></td>
+<td><p>Common (optional)</p></td>
+<td><p>Reports development errors with a log level.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;Mip&gt;_EnterCriticalSection</span></code> / <code class="docutils literal notranslate"><span class="pre">&lt;Mip&gt;_ExitCriticalSection</span></code></p></td>
+<td><p>Common (optional)</p></td>
+<td><p>Bracket sections requiring exclusive access — see
+<a class="reference internal" href="../../../01_general/reference/02_services.html#gen-ref-critical-section"><span class="std std-ref">critical sections</span></a>.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Generated symbols</p>
+<p>The configuration generator emits, in the configuration header, the <code class="docutils literal notranslate"><span class="pre">PORT_PORT_P&lt;n&gt;</span></code> /
+<code class="docutils literal notranslate"><span class="pre">PORT_PORT_&lt;name&gt;</span></code> port-id symbols and the <code class="docutils literal notranslate"><span class="pre">PORT_PIN_P&lt;port&gt;_&lt;pin&gt;</span></code> / <code class="docutils literal notranslate"><span class="pre">PORT_PIN_&lt;name&gt;</span></code> pin-id
+symbols (a pin id is <code class="docutils literal notranslate"><span class="pre">(portId</span> <span class="pre">&lt;&lt;</span> <span class="pre">8)</span> <span class="pre">|</span> <span class="pre">pinIndex</span></code>), plus <code class="docutils literal notranslate"><span class="pre">PORT_PIN_MASK_ALL</span></code> for whole-port writes
+(<a class="reference internal" href="../00_requirements.html#CHI-PORT-MUST-10" title="CHI-PORT-MUST-10"><em class="xref need">CHI-PORT-MUST-10</em></a>, <a class="reference internal" href="../00_requirements.html#CHI-PORT-MUST-11" title="CHI-PORT-MUST-11"><em class="xref need">CHI-PORT-MUST-11</em></a>). Always address pins/ports through these symbols.</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-list-unordered" viewBox="0 0 16 16" aria-hidden="true"><path d="M5.75 2.5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5Zm0 5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5Zm0 5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5ZM2 14a1 1 0 1 1 0-2 1 1 0 0 1 0 2Zm1-6a1 1 0 1 1-2 0 1 1 0 0 1 2 0ZM2 4a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg></span><span class="sd-summary-text">Data types</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils" id="port-api-port-configtype">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Port_ConfigType</div>
+<dl class="cpp struct">
+<dt class="sig sig-object cpp" id="_CPPv415Port_ConfigType">
+<span id="_CPPv315Port_ConfigType"></span><span id="_CPPv215Port_ConfigType"></span><span id="Port_ConfigType"></span><span class="target" id="struct_port___config_type"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Port_ConfigType</span></span></span><a class="headerlink" href="#_CPPv415Port_ConfigType" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">Configuration structure type. </p>
+</dd></dl>
+
+<p class="sd-card-text">Configuration variants are selected at build time; <code class="docutils literal notranslate"><span class="pre">Port_Init</span></code> currently takes <code class="docutils literal notranslate"><span class="pre">NULL_PTR</span></code>.
+<em>Available via:</em> <code class="docutils literal notranslate"><span class="pre">Port.h</span></code></p>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils" id="port-api-port-pinvaluetype">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Port_PinValueType</div>
+<dl class="cpp type">
+<dt class="sig sig-object cpp" id="_CPPv417Port_PinValueType">
+<span id="_CPPv317Port_PinValueType"></span><span id="_CPPv217Port_PinValueType"></span><span id="Port_PinValueType"></span><span class="target" id="_port___driver_types_8h_1a5ab6e46b131512785560e314eecfa97d"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="n"><span class="pre">uint8</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Port_PinValueType</span></span></span><a class="headerlink" href="#_CPPv417Port_PinValueType" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">This type represents the pin physical value. </p>
+<p class="sd-card-text"><dl class="simple">
+<dt><strong>Range: </strong></dt><dd><p class="sd-card-text"><p class="sd-card-text">PORT_PIN_VALUE_LOW - 0u - Physical pin value low</p>
+<p class="sd-card-text">PORT_PIN_VALUE_HIGH - 1u - Physical pin value high</p>
+</p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<p class="sd-card-text">Values: <code class="docutils literal notranslate"><span class="pre">PORT_PIN_VALUE_LOW</span></code> (0) and <code class="docutils literal notranslate"><span class="pre">PORT_PIN_VALUE_HIGH</span></code> (1).
+<em>Available via:</em> <code class="docutils literal notranslate"><span class="pre">Port_DriverTypes.h</span></code></p>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils" id="port-api-port-edgeconfigtype">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Port_EdgeConfigType</div>
+<dl class="cpp enum">
+<dt class="sig sig-object cpp" id="_CPPv419Port_EdgeConfigType">
+<span id="_CPPv319Port_EdgeConfigType"></span><span id="_CPPv219Port_EdgeConfigType"></span><span class="target" id="_port___driver_types_8h_1a0d8b053e6af8feac1ca2a44deb6a0a06"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Port_EdgeConfigType</span></span></span><a class="headerlink" href="#_CPPv419Port_EdgeConfigType" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">Pin edge detection configuration type. </p>
+<p class="sd-card-text"><em>Values:</em></p>
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N19Port_EdgeConfigType21PORT_EDGE_CONFIG_NONEE">
+<span id="_CPPv3N19Port_EdgeConfigType21PORT_EDGE_CONFIG_NONEE"></span><span id="_CPPv2N19Port_EdgeConfigType21PORT_EDGE_CONFIG_NONEE"></span><span class="target" id="_port___driver_types_8h_1a0d8b053e6af8feac1ca2a44deb6a0a06a3cd5c6d901733b3a8bf420e91193c96d"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PORT_EDGE_CONFIG_NONE</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0x00</span></span><a class="headerlink" href="#_CPPv4N19Port_EdgeConfigType21PORT_EDGE_CONFIG_NONEE" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">Disable pin edge detection </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N19Port_EdgeConfigType23PORT_EDGE_CONFIG_RISINGE">
+<span id="_CPPv3N19Port_EdgeConfigType23PORT_EDGE_CONFIG_RISINGE"></span><span id="_CPPv2N19Port_EdgeConfigType23PORT_EDGE_CONFIG_RISINGE"></span><span class="target" id="_port___driver_types_8h_1a0d8b053e6af8feac1ca2a44deb6a0a06aa9801449c1cc4ab75da06174bb56ad63"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PORT_EDGE_CONFIG_RISING</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0x01</span></span><a class="headerlink" href="#_CPPv4N19Port_EdgeConfigType23PORT_EDGE_CONFIG_RISINGE" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">Enable pin rising edge detection </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N19Port_EdgeConfigType24PORT_EDGE_CONFIG_FALLINGE">
+<span id="_CPPv3N19Port_EdgeConfigType24PORT_EDGE_CONFIG_FALLINGE"></span><span id="_CPPv2N19Port_EdgeConfigType24PORT_EDGE_CONFIG_FALLINGE"></span><span class="target" id="_port___driver_types_8h_1a0d8b053e6af8feac1ca2a44deb6a0a06a336d49859593d081eb39dc33283008d1"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PORT_EDGE_CONFIG_FALLING</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0x02</span></span><a class="headerlink" href="#_CPPv4N19Port_EdgeConfigType24PORT_EDGE_CONFIG_FALLINGE" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">Enable pin falling edge detection </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N19Port_EdgeConfigType21PORT_EDGE_CONFIG_BOTHE">
+<span id="_CPPv3N19Port_EdgeConfigType21PORT_EDGE_CONFIG_BOTHE"></span><span id="_CPPv2N19Port_EdgeConfigType21PORT_EDGE_CONFIG_BOTHE"></span><span class="target" id="_port___driver_types_8h_1a0d8b053e6af8feac1ca2a44deb6a0a06a2f045776e6315247103bab8d7d6fc757"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PORT_EDGE_CONFIG_BOTH</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0x03</span></span><a class="headerlink" href="#_CPPv4N19Port_EdgeConfigType21PORT_EDGE_CONFIG_BOTHE" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">Enable pin rising and falling edge detection </p>
+</dd></dl>
+
+</dd></dl>
+
+<p class="sd-card-text"><em>Available via:</em> <code class="docutils literal notranslate"><span class="pre">Port_DriverTypes.h</span></code></p>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils" id="port-api-port-mask-symbol">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+PORT_PIN_MASK_ALL</div>
+<dl>
+<dt class="sig sig-object cpp">
+<span class="target" id="group___port___mask_symbol"></span></dt>
+<dd><p class="sd-card-text">Pin mask definition. This symbol is intended to be used with Port_SetMaskedPortValue to update all pins in the port. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-defines">Defines</p>
+<dl class="cpp macro">
+<dt class="sig sig-object cpp" id="c.PORT_PIN_MASK_ALL">
+<span class="target" id="group___port___mask_symbol_1ga546dc0047c45ee57db1459deed425184"></span><span class="sig-name descname"><span class="n"><span class="pre">PORT_PIN_MASK_ALL</span></span></span> <span class="pre">(0xFFu)</span><a class="headerlink" href="#c.PORT_PIN_MASK_ALL" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">‘1’ for bit positions where a pin is considered, and ‘0’ for pins that are ignored. For a hardware port with 8 pins, the mask value would be 0xFFu, which considers all available pins on that port. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<p class="sd-card-text">Use as the <code class="docutils literal notranslate"><span class="pre">mask</span></code> for <code class="docutils literal notranslate"><span class="pre">Port_SetMaskedPortValue</span></code> to update every pin in a port.
+<em>Available via:</em> <code class="docutils literal notranslate"><span class="pre">Port_DriverTypes.h</span></code></p>
+</div>
+</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0ZM1.5 8a6.5 6.5 0 1 0 13 0 6.5 6.5 0 0 0-13 0Zm4.879-2.773 4.264 2.559a.25.25 0 0 1 0 .428l-4.264 2.559A.25.25 0 0 1 6 10.559V5.442a.25.25 0 0 1 .379-.215Z"></path></svg></span><span class="sd-summary-text">Initialization</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils" id="port-api-port-init">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Port_Init</div>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv49Port_InitPK15Port_ConfigType">
+<span id="_CPPv39Port_InitPK15Port_ConfigType"></span><span id="_CPPv29Port_InitPK15Port_ConfigType"></span><span id="Port_Init__Port_ConfigTypeCP"></span><span class="target" id="_port_8h_1a774ecaee59cd44b419e7204f021587e6"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Port_Init</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv415Port_ConfigType" title="Port_ConfigType"><span class="n"><span class="pre">Port_ConfigType</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">configPtr</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv49Port_InitPK15Port_ConfigType" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">Initializes the driver and HW. </p>
+<p class="sd-card-text"><dl class="simple">
+<dt><strong>Sync/Async:</strong></dt><dd><p class="sd-card-text">Synchronous </p>
+</dd>
+<dt><strong>Reentrancy:</strong></dt><dd><p class="sd-card-text">Non reentrant </p>
+</dd>
+<dt><strong>Service ID [hex]:</strong></dt><dd><p class="sd-card-text">0x00 </p>
+</dd>
+<dt><strong>Development error(s):</strong></dt><dd><p class="sd-card-text"><ul class="simple">
+<li><p class="sd-card-text"><a class="reference internal" href="02_errors.html#group___port___development_errors_1gaabd66caa4d90ab8e39abf02739654dc1"><span class="std std-ref">PORT_DEVERR_INVALID_STATE</span></a> PortDrv is NOT in PORT_DRV_STATE_UNINIT</p></li>
+<li><p class="sd-card-text"><a class="reference internal" href="02_errors.html#group___port___development_errors_1ga3354d2b13cc2822a0905f93593ffa670"><span class="std std-ref">PORT_DEVERR_PARAM_POINTER</span></a> configPtr is NOT null pointer </p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p class="sd-card-text"><strong>configPtr</strong> – <strong>[in]</strong> Pointer to the configuration structure. This parameter is intended for future extensions to support runtime-selectable configuration variants, which allow the selection and initialization of specific variants during runtime. As this functionality is not currently supported, a NULL_PTR SHALL be provided. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p class="sd-card-text">None. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<p class="sd-card-text"><strong>When to call:</strong> once, before any other Port function, with the driver in
+<code class="docutils literal notranslate"><span class="pre">PORT_DRV_STATE_UNINIT</span></code>. <code class="docutils literal notranslate"><span class="pre">configPtr</span></code> MUST be <code class="docutils literal notranslate"><span class="pre">NULL_PTR</span></code>.</p>
+<p class="sd-card-text"><strong>Effect:</strong> applies every configured pin’s function mode, direction, and initial value —
+glitch-free — disables edge detection on every pin, and moves the driver to
+<code class="docutils literal notranslate"><span class="pre">PORT_DRV_STATE_INIT</span></code>. <strong>Errors:</strong> see <a class="reference internal" href="02_errors.html"><span class="doc">Errors</span></a>. <em>Available via:</em> <code class="docutils literal notranslate"><span class="pre">Port.h</span></code></p>
+</div>
+</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-pencil" viewBox="0 0 16 16" aria-hidden="true"><path d="M11.013 1.427a1.75 1.75 0 0 1 2.474 0l1.086 1.086a1.75 1.75 0 0 1 0 2.474l-8.61 8.61c-.21.21-.47.364-.756.445l-3.251.93a.75.75 0 0 1-.927-.928l.929-3.25c.081-.286.235-.547.445-.758l8.61-8.61Zm.176 4.823L9.75 4.81l-6.286 6.287a.253.253 0 0 0-.064.108l-.558 1.953 1.953-.558a.253.253 0 0 0 .108-.064Zm1.238-3.763a.25.25 0 0 0-.354 0L10.811 3.75l1.439 1.44 1.263-1.263a.25.25 0 0 0 0-.354Z"></path></svg></span><span class="sd-summary-text">Pin and port access</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils" id="port-api-port-getpinvalue">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Port_GetPinValue</div>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv416Port_GetPinValue6uint16">
+<span id="_CPPv316Port_GetPinValue6uint16"></span><span id="_CPPv216Port_GetPinValue6uint16"></span><span id="Port_GetPinValue__uint16"></span><span class="target" id="_port_8h_1a61da419af9ca7af7ad84e1107a200207"></span><a class="reference internal" href="#_CPPv417Port_PinValueType" title="Port_PinValueType"><span class="n"><span class="pre">Port_PinValueType</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Port_GetPinValue</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint16</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">pinId</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv416Port_GetPinValue6uint16" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">Returns the value of the specified pin. </p>
+<p class="sd-card-text"><dl class="simple">
+<dt><strong>Sync/Async:</strong></dt><dd><p class="sd-card-text">Synchronous </p>
+</dd>
+<dt><strong>Reentrancy:</strong></dt><dd><p class="sd-card-text">Reentrant </p>
+</dd>
+<dt><strong>Service ID [hex]:</strong></dt><dd><p class="sd-card-text">0x01 </p>
+</dd>
+<dt><strong>Development error(s):</strong></dt><dd><p class="sd-card-text"><ul class="simple">
+<li><p class="sd-card-text"><a class="reference internal" href="02_errors.html#group___port___development_errors_1ga946e23ff92d7042f5d677a670bc40c5f"><span class="std std-ref">PORT_DEVERR_PARAM_PIN</span></a> The pin specified by pinId is not configured. </p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p class="sd-card-text"><strong>pinId</strong> – <strong>[in]</strong> Pin ID to be addressed </p>
+</dd>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
+<dd class="field-even"><p class="sd-card-text"><strong>The</strong> – physical pin value. </p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p class="sd-card-text"><a class="reference internal" href="#_port___driver_types_8h_1a5ab6e46b131512785560e314eecfa97d"><span class="std std-ref">Port_PinValueType</span></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<p class="sd-card-text"><strong>Effect:</strong> returns the pin’s value (physical read-back where supported, otherwise the latched
+output value); works for input and output pins. Returns <code class="docutils literal notranslate"><span class="pre">PORT_PIN_VALUE_LOW</span></code> on error.
+<strong>Errors:</strong> see <a class="reference internal" href="02_errors.html"><span class="doc">Errors</span></a>. <em>Available via:</em> <code class="docutils literal notranslate"><span class="pre">Port.h</span></code></p>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils" id="port-api-port-setpinvalue">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Port_SetPinValue</div>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv416Port_SetPinValue6uint1617Port_PinValueType">
+<span id="_CPPv316Port_SetPinValue6uint1617Port_PinValueType"></span><span id="_CPPv216Port_SetPinValue6uint1617Port_PinValueType"></span><span id="Port_SetPinValue__uint16.Port_PinValueType"></span><span class="target" id="_port_8h_1a2e201c9be1b3344c07f0e2d3052c1445"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Port_SetPinValue</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint16</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">pinId</span></span>, <a class="reference internal" href="#_CPPv417Port_PinValueType" title="Port_PinValueType"><span class="n"><span class="pre">Port_PinValueType</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">value</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv416Port_SetPinValue6uint1617Port_PinValueType" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">Sets the pin value to the specified value. </p>
+<p class="sd-card-text"><dl class="simple">
+<dt><strong>Sync/Async:</strong></dt><dd><p class="sd-card-text">Synchronous </p>
+</dd>
+<dt><strong>Reentrancy:</strong></dt><dd><p class="sd-card-text">Reentrant </p>
+</dd>
+<dt><strong>Service ID [hex]:</strong></dt><dd><p class="sd-card-text">0x02 </p>
+</dd>
+<dt><strong>Development error(s):</strong></dt><dd><p class="sd-card-text"><ul class="simple">
+<li><p class="sd-card-text"><a class="reference internal" href="02_errors.html#group___port___development_errors_1ga946e23ff92d7042f5d677a670bc40c5f"><span class="std std-ref">PORT_DEVERR_PARAM_PIN</span></a> The pin specified by pinId is not configured.</p></li>
+<li><p class="sd-card-text"><a class="reference internal" href="02_errors.html#group___port___development_errors_1ga6029a894804496e3df4db12f799cc56c"><span class="std std-ref">PORT_DEVERR_PARAM_PIN_VALUE</span></a> value is out of range </p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p class="sd-card-text"><strong>pinId</strong> – <strong>[in]</strong> Pin ID to be addressed. </p></li>
+<li><p class="sd-card-text"><strong>value</strong> – <strong>[in]</strong> Value to be written. </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p class="sd-card-text">None. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<p class="sd-card-text"><strong>Effect:</strong> writes <code class="docutils literal notranslate"><span class="pre">value</span></code> to the pin (thread-safe). Writing an input pin is
+implementation-defined. <strong>Errors:</strong> see <a class="reference internal" href="02_errors.html"><span class="doc">Errors</span></a>. <em>Available via:</em> <code class="docutils literal notranslate"><span class="pre">Port.h</span></code></p>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils" id="port-api-port-togglepinvalue">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Port_TogglePinValue</div>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv419Port_TogglePinValue6uint16">
+<span id="_CPPv319Port_TogglePinValue6uint16"></span><span id="_CPPv219Port_TogglePinValue6uint16"></span><span id="Port_TogglePinValue__uint16"></span><span class="target" id="_port_8h_1af4bd408b112c06bacbe7195c47aac51a"></span><a class="reference internal" href="#_CPPv417Port_PinValueType" title="Port_PinValueType"><span class="n"><span class="pre">Port_PinValueType</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Port_TogglePinValue</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint16</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">pinId</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv419Port_TogglePinValue6uint16" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">Toggles the pin value (LOW to HIGH, HIGH to LOW). </p>
+<p class="sd-card-text"><dl class="simple">
+<dt><strong>Sync/Async:</strong></dt><dd><p class="sd-card-text">Synchronous </p>
+</dd>
+<dt><strong>Reentrancy:</strong></dt><dd><p class="sd-card-text">Reentrant </p>
+</dd>
+<dt><strong>Service ID [hex]:</strong></dt><dd><p class="sd-card-text">0x05 </p>
+</dd>
+<dt><strong>Development error(s):</strong></dt><dd><p class="sd-card-text"><ul class="simple">
+<li><p class="sd-card-text"><a class="reference internal" href="02_errors.html#group___port___development_errors_1ga946e23ff92d7042f5d677a670bc40c5f"><span class="std std-ref">PORT_DEVERR_PARAM_PIN</span></a> The pin specified by pinId is not configured. </p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p class="sd-card-text"><strong>pinId</strong> – <strong>[in]</strong> Pin ID to be addressed. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p class="sd-card-text"><a class="reference internal" href="#_port___driver_types_8h_1a5ab6e46b131512785560e314eecfa97d"><span class="std std-ref">Port_PinValueType</span></a> Pin value after toggling the pin value. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<p class="sd-card-text"><strong>Effect:</strong> flips the pin (LOW↔HIGH) and returns the new value. <strong>Errors:</strong> see <a class="reference internal" href="02_errors.html"><span class="doc">Errors</span></a>.
+<em>Available via:</em> <code class="docutils literal notranslate"><span class="pre">Port.h</span></code></p>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils" id="port-api-port-getportvalue">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Port_GetPortValue</div>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv417Port_GetPortValue5uint8">
+<span id="_CPPv317Port_GetPortValue5uint8"></span><span id="_CPPv217Port_GetPortValue5uint8"></span><span id="Port_GetPortValue__uint8"></span><span class="target" id="_port_8h_1a0c3edf0c27f0771f295089748d6269eb"></span><span class="n"><span class="pre">uint32</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Port_GetPortValue</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint8</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">portId</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv417Port_GetPortValue5uint8" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">Returns value of all pins in the specified port. </p>
+<p class="sd-card-text"><dl class="simple">
+<dt><strong>Sync/Async:</strong></dt><dd><p class="sd-card-text">Synchronous </p>
+</dd>
+<dt><strong>Reentrancy:</strong></dt><dd><p class="sd-card-text">Reentrant </p>
+</dd>
+<dt><strong>Service ID [hex]:</strong></dt><dd><p class="sd-card-text">0x03 </p>
+</dd>
+<dt><strong>Development error(s):</strong></dt><dd><p class="sd-card-text"><ul class="simple">
+<li><p class="sd-card-text"><a class="reference internal" href="02_errors.html#group___port___development_errors_1gab60e241bbb9cf0f8e703b68b4621010f"><span class="std std-ref">PORT_DEVERR_PARAM_PORT</span></a> portId is out of range from used HW setup </p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p class="sd-card-text"><strong>portId</strong> – <strong>[in]</strong> <a class="reference internal" href="../../../appendix.html#term-Port"><span class="xref std std-term">Port</span></a> ID to be addressed. </p>
+</dd>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
+<dd class="field-even"><p class="sd-card-text"><strong>Pin</strong> – values in the specified port. Bit n in value represents index n pin value. </p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p class="sd-card-text">uint32 </p>
+</dd>
+</dl>
+</dd></dl>
+
+<p class="sd-card-text"><strong>Effect:</strong> returns all pins of the port as a <code class="docutils literal notranslate"><span class="pre">uint32</span></code> (bit <em>n</em> = pin <em>n</em>); undefined pins and
+the all-error case read <code class="docutils literal notranslate"><span class="pre">PORT_PIN_VALUE_LOW</span></code>. <strong>Errors:</strong> see <a class="reference internal" href="02_errors.html"><span class="doc">Errors</span></a>.
+<em>Available via:</em> <code class="docutils literal notranslate"><span class="pre">Port.h</span></code></p>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils" id="port-api-port-setmaskedportvalue">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Port_SetMaskedPortValue</div>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv423Port_SetMaskedPortValue5uint86uint326uint32">
+<span id="_CPPv323Port_SetMaskedPortValue5uint86uint326uint32"></span><span id="_CPPv223Port_SetMaskedPortValue5uint86uint326uint32"></span><span id="Port_SetMaskedPortValue__uint8.uint32.uint32"></span><span class="target" id="_port_8h_1adeff85fe1d5b17861055ef4e54fa1331"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Port_SetMaskedPortValue</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint8</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">portId</span></span>, <span class="n"><span class="pre">uint32</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">value</span></span>, <span class="n"><span class="pre">uint32</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">mask</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv423Port_SetMaskedPortValue5uint86uint326uint32" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">Sets level of output pins in a <a class="reference internal" href="../../../appendix.html#term-Port"><span class="xref std std-term">port</span></a> with a bitmask. </p>
+<p class="sd-card-text"><dl class="simple">
+<dt><strong>Sync/Async:</strong></dt><dd><p class="sd-card-text">Synchronous </p>
+</dd>
+<dt><strong>Reentrancy:</strong></dt><dd><p class="sd-card-text">Reentrant </p>
+</dd>
+<dt><strong>Service ID [hex]:</strong></dt><dd><p class="sd-card-text">0x04 </p>
+</dd>
+<dt><strong>Development error(s):</strong></dt><dd><p class="sd-card-text"><ul class="simple">
+<li><p class="sd-card-text"><a class="reference internal" href="02_errors.html#group___port___development_errors_1gab60e241bbb9cf0f8e703b68b4621010f"><span class="std std-ref">PORT_DEVERR_PARAM_PORT</span></a> portId is out of range from used HW setup </p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p class="sd-card-text"><strong>portId</strong> – <strong>[in]</strong> <a class="reference internal" href="../../../appendix.html#term-Port"><span class="xref std std-term">Port</span></a> ID to be addressed. </p></li>
+<li><p class="sd-card-text"><strong>value</strong> – <strong>[in]</strong> Value assigned to the pins in the specified port. Bit n in value represents index n pin value. </p></li>
+<li><p class="sd-card-text"><strong>mask</strong> – <strong>[in]</strong> Mask value that indicates which pins will be modified. </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p class="sd-card-text">None. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<p class="sd-card-text"><strong>Effect:</strong> writes <code class="docutils literal notranslate"><span class="pre">value</span> <span class="pre">&amp;</span> <span class="pre">mask</span></code> to the port, changing only the masked pins and — where the
+hardware allows — updating them simultaneously. Use <code class="docutils literal notranslate"><span class="pre">PORT_PIN_MASK_ALL</span></code> for all pins.
+<strong>Errors:</strong> see <a class="reference internal" href="02_errors.html"><span class="doc">Errors</span></a>. <em>Available via:</em> <code class="docutils literal notranslate"><span class="pre">Port.h</span></code></p>
+</div>
+</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-pulse" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 2c.306 0 .582.187.696.471L10 10.731l1.304-3.26A.751.751 0 0 1 12 7h3.25a.75.75 0 0 1 0 1.5h-2.742l-1.812 4.528a.751.751 0 0 1-1.392 0L6 4.77 4.696 8.03A.75.75 0 0 1 4 8.5H.75a.75.75 0 0 1 0-1.5h2.742l1.812-4.529A.751.751 0 0 1 6 2Z"></path></svg></span><span class="sd-summary-text">Edge detection and scheduling</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils" id="port-api-port-setedgedetection">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Port_SetEdgeDetection</div>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv421Port_SetEdgeDetection6uint1619Port_EdgeConfigType">
+<span id="_CPPv321Port_SetEdgeDetection6uint1619Port_EdgeConfigType"></span><span id="_CPPv221Port_SetEdgeDetection6uint1619Port_EdgeConfigType"></span><span id="Port_SetEdgeDetection__uint16.Port_EdgeConfigType"></span><span class="target" id="_port_8h_1ab261dd05e056a94b113e50d5adc67f12"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Port_SetEdgeDetection</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint16</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">pinId</span></span>, <a class="reference internal" href="#_CPPv419Port_EdgeConfigType" title="Port_EdgeConfigType"><span class="n"><span class="pre">Port_EdgeConfigType</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">edgeConfig</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv421Port_SetEdgeDetection6uint1619Port_EdgeConfigType" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">Sets the pin edge detection functionality. </p>
+<p class="sd-card-text"><dl class="simple">
+<dt><strong>Sync/Async:</strong></dt><dd><p class="sd-card-text">Synchronous </p>
+</dd>
+<dt><strong>Reentrancy:</strong></dt><dd><p class="sd-card-text">Conditionally reentrant (reentrant for different pinId) </p>
+</dd>
+<dt><strong>Service ID [hex]:</strong></dt><dd><p class="sd-card-text">0x06 </p>
+</dd>
+<dt><strong>Development error(s):</strong></dt><dd><p class="sd-card-text"><ul class="simple">
+<li><p class="sd-card-text"><a class="reference internal" href="02_errors.html#group___port___development_errors_1gaa4ed30747812bbe3957315753dfa3709"><span class="std std-ref">PORT_DEVERR_UNINIT</span></a> PortDrv is NOT initialized</p></li>
+<li><p class="sd-card-text"><a class="reference internal" href="02_errors.html#group___port___development_errors_1ga946e23ff92d7042f5d677a670bc40c5f"><span class="std std-ref">PORT_DEVERR_PARAM_PIN</span></a> The pin specified by pinId is not configured</p></li>
+<li><p class="sd-card-text"><a class="reference internal" href="02_errors.html#group___port___development_errors_1ga03c73e48595f1d44dea0ff21ee921ae4"><span class="std std-ref">PORT_DEVERR_PARAM_EDGE_CONFIG</span></a> Given edgeConfig selection is not supported </p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p class="sd-card-text"><strong>pinId</strong> – <strong>[in]</strong> Pin ID to be addressed. </p></li>
+<li><p class="sd-card-text"><strong>edgeConfig</strong> – <strong>[in]</strong> Edge detection type to be set. </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p class="sd-card-text">None. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<p class="sd-card-text"><strong>Effect:</strong> sets the pin’s edge-detection mode (<a class="reference internal" href="#port-api-port-edgeconfigtype"><span class="std std-ref">Port_EdgeConfigType</span></a>). A configured edge triggers <code class="docutils literal notranslate"><span class="pre">Port_Callout_OnEdgeDetection</span></code>.
+<strong>Errors:</strong> see <a class="reference internal" href="02_errors.html"><span class="doc">Errors</span></a>. <em>Available via:</em> <code class="docutils literal notranslate"><span class="pre">Port.h</span></code></p>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils" id="port-api-port-pollfunction">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Port_PollFunction</div>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv417Port_PollFunctionv">
+<span id="_CPPv317Port_PollFunctionv"></span><span id="_CPPv217Port_PollFunctionv"></span><span id="Port_PollFunction__void"></span><span class="target" id="_port_8h_1a3ff7464a0b0c459b2a64b307db9aa88e"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Port_PollFunction</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv417Port_PollFunctionv" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">This function is called to check an edge detection event via a pin. </p>
+<p class="sd-card-text"><dl class="simple">
+<dt><strong>Reentrancy:</strong></dt><dd><p class="sd-card-text">Non reentrant </p>
+</dd>
+<dt><strong>Service ID [hex]:</strong></dt><dd><p class="sd-card-text">0x08 </p>
+</dd>
+</dl>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p class="sd-card-text"><strong>None</strong> – </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p class="sd-card-text">None. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<p class="sd-card-text"><strong>When to call:</strong> cyclically, for pins configured for polling. Handles the same edge events as
+<code class="docutils literal notranslate"><span class="pre">Port_Interrupt</span></code>. <em>Available via:</em> <code class="docutils literal notranslate"><span class="pre">Port.h</span></code></p>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils" id="port-api-port-interrupt">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Port_Interrupt</div>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="n">Port_Interrupt</span><span class="o">&lt;</span><span class="n">vectorNr</span><span class="o">&gt;</span><span class="p">[</span><span class="o">&lt;</span><span class="n">VendorSpecificSuffix</span><span class="o">&gt;</span><span class="p">](</span><span class="kt">void</span><span class="p">)</span>
+</pre></div>
+</div>
+<p class="sd-card-text"><strong>Effect:</strong> the driver interrupt service routine; handles pin-edge events and calls
+<code class="docutils literal notranslate"><span class="pre">Port_Callout_OnEdgeDetection</span></code>. Define it with the <code class="docutils literal notranslate"><span class="pre">ISR()</span></code> macro (see
+<a class="reference internal" href="../../../01_general/reference/02_services.html#gen-ref-isr"><span class="std std-ref">the general reference</span></a>). <em>Available via:</em> <code class="docutils literal notranslate"><span class="pre">Port.h</span></code></p>
+</div>
+</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" id="port-api-callouts">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-plug" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 8H2.5a1 1 0 0 0-1 1v5.25a.75.75 0 0 1-1.5 0V9a2.5 2.5 0 0 1 2.5-2.5H4V5.133a1.75 1.75 0 0 1 1.533-1.737l2.831-.353.76-.913c.332-.4.825-.63 1.344-.63h.782c.966 0 1.75.784 1.75 1.75V4h2.25a.75.75 0 0 1 0 1.5H13v4h2.25a.75.75 0 0 1 0 1.5H13v.75a1.75 1.75 0 0 1-1.75 1.75h-.782c-.519 0-1.012-.23-1.344-.63l-.761-.912-2.83-.354A1.75 1.75 0 0 1 4 9.867Zm6.276-4.91-.95 1.14a.753.753 0 0 1-.483.265l-3.124.39a.25.25 0 0 0-.219.248v4.734c0 .126.094.233.219.249l3.124.39a.752.752 0 0 1 .483.264l.95 1.14a.25.25 0 0 0 .192.09h.782a.25.25 0 0 0 .25-.25v-8.5a.25.25 0 0 0-.25-.25h-.782a.25.25 0 0 0-.192.09Z"></path></svg></span><span class="sd-summary-text">Callouts the integrator provides</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">The driver calls these callouts; the integrator MUST provide them where applicable
+(<a class="reference internal" href="../00_requirements.html#CHI-PORT-MUST-08" title="CHI-PORT-MUST-08"><em class="xref need">CHI-PORT-MUST-08</em></a>) by filling in the matching user code block in <code class="docutils literal notranslate"><span class="pre">Port_Callout_Stubs.c</span></code>
+(see <a class="reference internal" href="../../../01_general/guide/02_callout_file.html"><span class="doc">The Callout Stub File</span></a>). The prototypes are declared in <code class="docutils literal notranslate"><span class="pre">Port.h</span></code>.
+<a class="reference internal" href="../../../01_general/reference/02_services.html#gen-ref-logm"><span class="std std-ref">LogM_Report</span></a> and the
+<a class="reference internal" href="../../../01_general/reference/02_services.html#gen-ref-critical-section"><span class="std std-ref">critical-section services</span></a> are documented in the general
+reference.</p>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils" id="port-api-callout-onedgedetection">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Port_Callout_OnEdgeDetection</div>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv428Port_Callout_OnEdgeDetection6uint16">
+<span id="_CPPv328Port_Callout_OnEdgeDetection6uint16"></span><span id="_CPPv228Port_Callout_OnEdgeDetection6uint16"></span><span id="Port_Callout_OnEdgeDetection__uint16"></span><span class="target" id="_port_8h_1a155422a49d401a0c35568304df0bb828"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Port_Callout_OnEdgeDetection</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint16</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">pinId</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv428Port_Callout_OnEdgeDetection6uint16" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">This service notifies an edge detection event detected by a pin. </p>
+<p class="sd-card-text"><dl class="simple">
+<dt><strong>Sync/Async:</strong></dt><dd><p class="sd-card-text">Synchronous </p>
+</dd>
+<dt><strong>Reentrancy:</strong></dt><dd><p class="sd-card-text">Reentrant </p>
+</dd>
+</dl>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p class="sd-card-text"><strong>pinId</strong> – <strong>[in]</strong> The ID of the pin that detects the edge. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p class="sd-card-text">None. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<p class="sd-card-text">Notifies the integration code that pin <code class="docutils literal notranslate"><span class="pre">pinId</span></code> detected a configured edge.
+<em>Available via:</em> <code class="docutils literal notranslate"><span class="pre">Port.h</span></code>; implement it in <code class="docutils literal notranslate"><span class="pre">Port_Callout_Stubs.c</span></code>.</p>
+</div>
+</div>
+</div>
+</details></section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Reference" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="01_configuration.html" class="btn btn-neutral float-right" title="Configuration Reference" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026 by Vector Informatik GmbH and Infineon Technologies AG. All rights reserved.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

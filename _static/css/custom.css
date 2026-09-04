@@ -1,0 +1,46 @@
+.wy-nav-content {
+    max-width: none;
+}
+
+/* ==========================================================================
+   Audience banners: normative vs. informative
+   Used via ``.. admonition:: Normative`` / ``.. admonition:: Informative``
+   with ``:class: normative`` / ``:class: informative``.
+   ========================================================================== */
+
+/* Normative — the driver contract (amber) */
+.admonition.normative {
+    background: #fff8e6;
+    border-left: 4px solid #e0a800;
+}
+.admonition.normative > .admonition-title {
+    background: #e0a800;
+    color: #2b2b2b;
+}
+.admonition.normative > .admonition-title::before {
+    content: "\f0e3";  /* gavel / contract */
+}
+
+/* Informative — usage guidance, non-binding (blue) */
+.admonition.informative {
+    background: #eef5fb;
+    border-left: 4px solid #2980b9;
+}
+.admonition.informative > .admonition-title {
+    background: #2980b9;
+    color: #ffffff;
+}
+.admonition.informative > .admonition-title::before {
+    content: "\f05a";  /* info circle */
+}
+
+/* ==========================================================================
+   Custom requirement layout (sphinx-needs "chiisai_spec")
+   The 'simple' grid always emits a meta row; we render no meta (severity is
+   conveyed by the enclosing severity dropdown), so hide the empty row to avoid
+   a blank strip under each requirement's head.
+   ========================================================================== */
+table.needs_layout_chiisai_spec tr.need.meta,
+table.needs_layout_chiisai_spec td.need.meta {
+    display: none !important;
+}

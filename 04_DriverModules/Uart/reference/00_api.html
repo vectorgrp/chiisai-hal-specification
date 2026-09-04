@@ -1,0 +1,867 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>API Reference &mdash; Chiisai HAL Specification  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css?v=4ae1632d" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-data-viewer/jsonview.bundle.css?v=f6ef2277" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/libs/html/datatables.min.css?v=4b4fd840" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/common_css/needstable.css?v=5e1b6797" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/common_css/need_core.css?v=f5b60a78" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/common_css/need_links.css?v=2150a916" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/common_css/need_style.css?v=92936fa5" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/common_css/need_toggle.css?v=5c6620df" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/modern.css?v=803738c0" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=4f645179" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
+      <script src="../../../_static/sphinx-data-viewer/jsonview.bundle.js?v=18cd53c5"></script>
+      <script src="../../../_static/sphinx-data-viewer/jsonview_loader.js?v=f7ff7e7d"></script>
+      <script src="../../../_static/sphinx-needs/libs/html/datatables.min.js?v=8a4aee21"></script>
+      <script src="../../../_static/sphinx-needs/libs/html/datatables_loader.js?v=a2cae175"></script>
+      <script src="../../../_static/sphinx-needs/libs/html/sphinx_needs_collapse.js?v=dca66431"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Configuration Reference" href="01_configuration.html" />
+    <link rel="prev" title="Reference" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            Chiisai HAL Specification
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../00_about/index.html">About This Specification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../01_general/index.html">General</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Chiisai HAL Driver Modules</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../Can/index.html">Can</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../I2c/index.html">I2c</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Lin/index.html">Lin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Mcu/index.html">Mcu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Mem/index.html">Mem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Port/index.html">Port</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Spi/index.html">Spi</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Uart</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../general/index.html">General</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../guide/index.html">Guide</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">Reference</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">API Reference</a></li>
+<li class="toctree-l4"><a class="reference internal" href="01_configuration.html">Configuration Reference</a></li>
+<li class="toctree-l4"><a class="reference internal" href="02_errors.html">Errors</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../00_requirements.html">Uart — Requirements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01_design_decisions.html">Design Decisions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../Wdg/index.html">Wdg</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../appendix.html">Appendix</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Chiisai HAL Specification</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Chiisai HAL Driver Modules</a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Uart</a></li>
+          <li class="breadcrumb-item"><a href="index.html">Reference</a></li>
+      <li class="breadcrumb-item active">API Reference</li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="api-reference">
+<h1>API Reference<a class="headerlink" href="#api-reference" title="Link to this heading"></a></h1>
+<div class="normative admonition">
+<p class="admonition-title">Normative</p>
+<p>The UART driver API contract. A conformant driver <strong>MUST</strong> provide these types and functions with
+the behavior described. Function and type signatures are extracted from the driver headers with
+Doxygen/Breathe; only the interrupt handler is hand-framed, because its name is
+vendor-specific. Keywords per <a class="reference internal" href="../../../00_about/01_keywords.html"><span class="doc">Requirement Keywords</span></a>; behavioral rules in
+<a class="reference internal" href="../00_requirements.html"><span class="doc">Uart — Requirements</span></a>; error codes in <a class="reference internal" href="02_errors.html"><span class="doc">Errors</span></a>.</p>
+</div>
+<p class="rubric">Data types at a glance</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 32.0%" />
+<col style="width: 13.0%" />
+<col style="width: 55.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Type</p></th>
+<th class="head"><p>Kind</p></th>
+<th class="head"><p>Purpose</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference internal" href="#uart-api-uart-configtype"><span class="std std-ref">Uart_ConfigType</span></a></p></td>
+<td><p>struct</p></td>
+<td><p>Root configuration structure (build-time; <code class="docutils literal notranslate"><span class="pre">Uart_Init</span></code> takes <code class="docutils literal notranslate"><span class="pre">NULL_PTR</span></code>).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#uart-api-uart-channeltxstatetype"><span class="std std-ref">Uart_ChannelTxStateType</span></a></p></td>
+<td><p>enum</p></td>
+<td><p>TX channel state (UNINIT / IDLE / READY / BUSY).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#uart-api-uart-channelrxstatetype"><span class="std std-ref">Uart_ChannelRxStateType</span></a></p></td>
+<td><p>enum</p></td>
+<td><p>RX channel state (UNINIT / IDLE / BUSY).</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">API at a glance</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 34.0%" />
+<col style="width: 28.0%" />
+<col style="width: 38.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Function</p></th>
+<th class="head"><p>Group</p></th>
+<th class="head"><p>Purpose</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference internal" href="#uart-api-uart-init"><span class="std std-ref">Uart_Init</span></a></p></td>
+<td><p>Initialization and shutdown</p></td>
+<td><p>Initialize the driver and every channel.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#uart-api-uart-deinit"><span class="std std-ref">Uart_DeInit</span></a></p></td>
+<td><p>Initialization and shutdown</p></td>
+<td><p>Abort transfers and de-initialize the driver.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#uart-api-uart-starttxtransaction"><span class="std std-ref">Uart_StartTxTransaction</span></a></p></td>
+<td><p>Transmission</p></td>
+<td><p>Start transmitting a buffer.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#uart-api-uart-startrxtransaction"><span class="std std-ref">Uart_StartRxTransaction</span></a></p></td>
+<td><p>Reception</p></td>
+<td><p>Arm reception into a buffer, with an optional trigger.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#uart-api-uart-cancelrxtransaction"><span class="std std-ref">Uart_CancelRxTransaction</span></a></p></td>
+<td><p>Reception</p></td>
+<td><p>Stop hardware reception.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#uart-api-uart-setadditionalrxlentrg"><span class="std std-ref">Uart_SetAdditionalRxLenTrg</span></a></p></td>
+<td><p>Reception</p></td>
+<td><p>Re-arm the mid-transfer trigger (from the callout).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#uart-api-uart-getchanneltxstate"><span class="std std-ref">Uart_GetChannelTxState</span></a></p></td>
+<td><p>Status and scheduling</p></td>
+<td><p>Read a channel’s TX state.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#uart-api-uart-getchannelrxstate"><span class="std std-ref">Uart_GetChannelRxState</span></a></p></td>
+<td><p>Status and scheduling</p></td>
+<td><p>Read a channel’s RX state.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#uart-api-uart-pollfunction"><span class="std std-ref">Uart_PollFunction</span></a></p></td>
+<td><p>Status and scheduling</p></td>
+<td><p>Service events for polled channels.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#uart-api-uart-interrupt"><span class="std std-ref">Uart_Interrupt</span></a></p></td>
+<td><p>Status and scheduling</p></td>
+<td><p>Driver interrupt service routine.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Callouts and expected interfaces at a glance</p>
+<p>The functions the integrator <strong>MUST</strong> provide (<a class="reference internal" href="../00_requirements.html#CHI-UART-MUST-21" title="CHI-UART-MUST-21"><em class="xref need">CHI-UART-MUST-21</em></a>); see the
+<a class="reference internal" href="#uart-api-callouts"><span class="std std-ref">Callouts</span></a> group below. UartDrv has no upper-layer interface stack, so it
+reports its events through <strong>callouts</strong> that the integrator implements in the generated
+<code class="docutils literal notranslate"><span class="pre">Uart_Callout_Stubs.c</span></code> (see <a class="reference internal" href="../../../01_general/guide/02_callout_file.html"><span class="doc">The Callout Stub File</span></a>).</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 34.0%" />
+<col style="width: 20.0%" />
+<col style="width: 46.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Function</p></th>
+<th class="head"><p>Kind</p></th>
+<th class="head"><p>Purpose</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference internal" href="#uart-api-callout-onreception"><span class="std std-ref">Uart_Callout_OnReception</span></a></p></td>
+<td><p>Callout</p></td>
+<td><p>Reception reached the trigger length or filled the buffer.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#uart-api-callout-ontransmission"><span class="std std-ref">Uart_Callout_OnTransmission</span></a></p></td>
+<td><p>Callout</p></td>
+<td><p>A transmission completed on the bus (HwCompletion).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#uart-api-callout-onstreamingdatarequest"><span class="std std-ref">Uart_Callout_OnStreamingDataRequest</span></a></p></td>
+<td><p>Callout</p></td>
+<td><p>The software TX buffer emptied (Streaming).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="../../../01_general/reference/02_services.html#gen-ref-logm"><span class="std std-ref">LogM_Report</span></a></p></td>
+<td><p>Common</p></td>
+<td><p>Reports development / runtime errors with a log level.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;Mip&gt;_EnterCriticalSection</span></code> / <code class="docutils literal notranslate"><span class="pre">&lt;Mip&gt;_ExitCriticalSection</span></code></p></td>
+<td><p>Common</p></td>
+<td><p>Bracket sections requiring exclusive access — see
+<a class="reference internal" href="../../../01_general/reference/02_services.html#gen-ref-critical-section"><span class="std std-ref">critical sections</span></a>.</p></td>
+</tr>
+</tbody>
+</table>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-list-unordered" viewBox="0 0 16 16" aria-hidden="true"><path d="M5.75 2.5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5Zm0 5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5Zm0 5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5ZM2 14a1 1 0 1 1 0-2 1 1 0 0 1 0 2Zm1-6a1 1 0 1 1-2 0 1 1 0 0 1 2 0ZM2 4a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg></span><span class="sd-summary-text">Data types</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils" id="uart-api-uart-configtype">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Uart_ConfigType</div>
+<dl class="cpp struct">
+<dt class="sig sig-object cpp" id="_CPPv415Uart_ConfigType">
+<span id="_CPPv315Uart_ConfigType"></span><span id="_CPPv215Uart_ConfigType"></span><span id="Uart_ConfigType"></span><span class="target" id="struct_uart___config_type"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Uart_ConfigType</span></span></span><a class="headerlink" href="#_CPPv415Uart_ConfigType" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">Configuration structure type. </p>
+</dd></dl>
+
+<p class="sd-card-text">Configuration variants are selected at build time; <code class="docutils literal notranslate"><span class="pre">Uart_Init</span></code> currently takes <code class="docutils literal notranslate"><span class="pre">NULL_PTR</span></code>.
+<em>Available via:</em> <code class="docutils literal notranslate"><span class="pre">Uart.h</span></code></p>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils" id="uart-api-uart-channeltxstatetype">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Uart_ChannelTxStateType</div>
+<dl class="cpp enum">
+<dt class="sig sig-object cpp" id="_CPPv423Uart_ChannelTxStateType">
+<span id="_CPPv323Uart_ChannelTxStateType"></span><span id="_CPPv223Uart_ChannelTxStateType"></span><span class="target" id="_uart___driver_types_8h_1a6491c07af9671caf5e48639fa6b1848e"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Uart_ChannelTxStateType</span></span></span><a class="headerlink" href="#_CPPv423Uart_ChannelTxStateType" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">Specifies the UartDrv <a class="reference internal" href="../../../appendix.html#term-TX"><span class="xref std std-term">TX</span></a> state. </p>
+<p class="sd-card-text"><em>Values:</em></p>
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N23Uart_ChannelTxStateType23UART_CH_TX_STATE_UNINITE">
+<span id="_CPPv3N23Uart_ChannelTxStateType23UART_CH_TX_STATE_UNINITE"></span><span id="_CPPv2N23Uart_ChannelTxStateType23UART_CH_TX_STATE_UNINITE"></span><span class="target" id="_uart___driver_types_8h_1a6491c07af9671caf5e48639fa6b1848ea0b8d85f480028ee122170219440fa690"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">UART_CH_TX_STATE_UNINIT</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0x00</span></span><a class="headerlink" href="#_CPPv4N23Uart_ChannelTxStateType23UART_CH_TX_STATE_UNINITE" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">UartDrv is not yet initialized </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N23Uart_ChannelTxStateType21UART_CH_TX_STATE_IDLEE">
+<span id="_CPPv3N23Uart_ChannelTxStateType21UART_CH_TX_STATE_IDLEE"></span><span id="_CPPv2N23Uart_ChannelTxStateType21UART_CH_TX_STATE_IDLEE"></span><span class="target" id="_uart___driver_types_8h_1a6491c07af9671caf5e48639fa6b1848ea87c3d24b18492d5475a5c0e5c537f4e7"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">UART_CH_TX_STATE_IDLE</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0x01</span></span><a class="headerlink" href="#_CPPv4N23Uart_ChannelTxStateType21UART_CH_TX_STATE_IDLEE" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">No transmission is on-going </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N23Uart_ChannelTxStateType22UART_CH_TX_STATE_READYE">
+<span id="_CPPv3N23Uart_ChannelTxStateType22UART_CH_TX_STATE_READYE"></span><span id="_CPPv2N23Uart_ChannelTxStateType22UART_CH_TX_STATE_READYE"></span><span class="target" id="_uart___driver_types_8h_1a6491c07af9671caf5e48639fa6b1848eadfde58bf2c5b80cd18c23070966385e6"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">UART_CH_TX_STATE_READY</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0x02</span></span><a class="headerlink" href="#_CPPv4N23Uart_ChannelTxStateType22UART_CH_TX_STATE_READYE" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">Ready to set up the next <a class="reference internal" href="../../../appendix.html#term-TX"><span class="xref std std-term">TX</span></a> buffer (All data has been put to hardware). However, a transmission is still ongoing. </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N23Uart_ChannelTxStateType21UART_CH_TX_STATE_BUSYE">
+<span id="_CPPv3N23Uart_ChannelTxStateType21UART_CH_TX_STATE_BUSYE"></span><span id="_CPPv2N23Uart_ChannelTxStateType21UART_CH_TX_STATE_BUSYE"></span><span class="target" id="_uart___driver_types_8h_1a6491c07af9671caf5e48639fa6b1848ea8970056b86d87e85c317d004775748c4"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">UART_CH_TX_STATE_BUSY</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0x03</span></span><a class="headerlink" href="#_CPPv4N23Uart_ChannelTxStateType21UART_CH_TX_STATE_BUSYE" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">A transmission is on-going </p>
+</dd></dl>
+
+</dd></dl>
+
+<p class="sd-card-text"><em>Available via:</em> <code class="docutils literal notranslate"><span class="pre">Uart_DriverTypes.h</span></code></p>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils" id="uart-api-uart-channelrxstatetype">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Uart_ChannelRxStateType</div>
+<dl class="cpp enum">
+<dt class="sig sig-object cpp" id="_CPPv423Uart_ChannelRxStateType">
+<span id="_CPPv323Uart_ChannelRxStateType"></span><span id="_CPPv223Uart_ChannelRxStateType"></span><span class="target" id="_uart___driver_types_8h_1a52a76e3cd91086e27dd151aa29d8dcdb"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Uart_ChannelRxStateType</span></span></span><a class="headerlink" href="#_CPPv423Uart_ChannelRxStateType" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">Specifies the UartDrv <a class="reference internal" href="../../../appendix.html#term-RX"><span class="xref std std-term">RX</span></a> state. </p>
+<p class="sd-card-text"><em>Values:</em></p>
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N23Uart_ChannelRxStateType23UART_CH_RX_STATE_UNINITE">
+<span id="_CPPv3N23Uart_ChannelRxStateType23UART_CH_RX_STATE_UNINITE"></span><span id="_CPPv2N23Uart_ChannelRxStateType23UART_CH_RX_STATE_UNINITE"></span><span class="target" id="_uart___driver_types_8h_1a52a76e3cd91086e27dd151aa29d8dcdba6503e2d4a41be858cc4159230aeb2459"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">UART_CH_RX_STATE_UNINIT</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0x00</span></span><a class="headerlink" href="#_CPPv4N23Uart_ChannelRxStateType23UART_CH_RX_STATE_UNINITE" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">UartDrv is not yet initialized </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N23Uart_ChannelRxStateType21UART_CH_RX_STATE_IDLEE">
+<span id="_CPPv3N23Uart_ChannelRxStateType21UART_CH_RX_STATE_IDLEE"></span><span id="_CPPv2N23Uart_ChannelRxStateType21UART_CH_RX_STATE_IDLEE"></span><span class="target" id="_uart___driver_types_8h_1a52a76e3cd91086e27dd151aa29d8dcdba7a09c09a014d81fc4dc2ff3cf5b72576"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">UART_CH_RX_STATE_IDLE</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0x01</span></span><a class="headerlink" href="#_CPPv4N23Uart_ChannelRxStateType21UART_CH_RX_STATE_IDLEE" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">No receiving data. (<a class="reference internal" href="../../../appendix.html#term-UART"><span class="xref std std-term">UART</span></a> hardware does not keep any data and not receiving now). </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N23Uart_ChannelRxStateType21UART_CH_RX_STATE_BUSYE">
+<span id="_CPPv3N23Uart_ChannelRxStateType21UART_CH_RX_STATE_BUSYE"></span><span id="_CPPv2N23Uart_ChannelRxStateType21UART_CH_RX_STATE_BUSYE"></span><span class="target" id="_uart___driver_types_8h_1a52a76e3cd91086e27dd151aa29d8dcdbae2cece78b44c89d46b92363e7c3c9f8f"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">UART_CH_RX_STATE_BUSY</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0x02</span></span><a class="headerlink" href="#_CPPv4N23Uart_ChannelRxStateType21UART_CH_RX_STATE_BUSYE" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">There are some receiving data. (<a class="reference internal" href="../../../appendix.html#term-UART"><span class="xref std std-term">UART</span></a> hardware has the data which not stored into buffer, or currently receiving a new data) </p>
+</dd></dl>
+
+</dd></dl>
+
+<p class="sd-card-text"><em>Available via:</em> <code class="docutils literal notranslate"><span class="pre">Uart_DriverTypes.h</span></code></p>
+</div>
+</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0ZM1.5 8a6.5 6.5 0 1 0 13 0 6.5 6.5 0 0 0-13 0Zm4.879-2.773 4.264 2.559a.25.25 0 0 1 0 .428l-4.264 2.559A.25.25 0 0 1 6 10.559V5.442a.25.25 0 0 1 .379-.215Z"></path></svg></span><span class="sd-summary-text">Initialization and shutdown</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils" id="uart-api-uart-init">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Uart_Init</div>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv49Uart_InitPK15Uart_ConfigType">
+<span id="_CPPv39Uart_InitPK15Uart_ConfigType"></span><span id="_CPPv29Uart_InitPK15Uart_ConfigType"></span><span id="Uart_Init__Uart_ConfigTypeCP"></span><span class="target" id="_uart_8h_1a686d4aa89b6d3602eec836d2b737c01d"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Uart_Init</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv415Uart_ConfigType" title="Uart_ConfigType"><span class="n"><span class="pre">Uart_ConfigType</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">configPtr</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv49Uart_InitPK15Uart_ConfigType" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">Initializes the driver and hardware. </p>
+<p class="sd-card-text"><dl class="simple">
+<dt><strong>Sync/Async:</strong></dt><dd><p class="sd-card-text">Synchronous </p>
+</dd>
+<dt><strong>Reentrancy:</strong></dt><dd><p class="sd-card-text">Non reentrant </p>
+</dd>
+<dt><strong>Service ID [hex]:</strong></dt><dd><p class="sd-card-text">0x01 </p>
+</dd>
+<dt><strong>Development error(s):</strong></dt><dd><p class="sd-card-text"><ul class="simple">
+<li><p class="sd-card-text"><a class="reference internal" href="02_errors.html#group___uart___development_errors_1ga09266fc8a1dbd6a720bf23f491a0ffae"><span class="std std-ref">UART_DEVERR_INVALID_CH_STATE</span></a> Called when the internal state is not UART_DRV_STATE_UNINIT</p></li>
+<li><p class="sd-card-text"><a class="reference internal" href="02_errors.html#group___uart___development_errors_1ga4a5601a971a55ba8a02f7b3c56025ff2"><span class="std std-ref">UART_DEVERR_PARAM_POINTER</span></a> configPtr is NOT null pointer </p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p class="sd-card-text"><strong>configPtr</strong> – <strong>[in]</strong> Pointer to the configuration structure. This parameter is intended for future extensions to support runtime-selectable configuration variants, which allow the selection and initialization of specific variants during runtime. As this functionality is not currently supported, a NULL_PTR SHALL be provided. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p class="sd-card-text">None. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<p class="sd-card-text"><strong>When to call:</strong> once, before any other UART function, with the driver in
+<code class="docutils literal notranslate"><span class="pre">UART_DRV_STATE_UNINIT</span></code>. <code class="docutils literal notranslate"><span class="pre">configPtr</span></code> MUST be <code class="docutils literal notranslate"><span class="pre">NULL_PTR</span></code>.</p>
+<p class="sd-card-text"><strong>Effect:</strong> initialises the driver and hardware; leaves every channel’s TX and RX state
+<code class="docutils literal notranslate"><span class="pre">IDLE</span></code>; does not receive until <code class="docutils literal notranslate"><span class="pre">Uart_StartRxTransaction</span></code>. <strong>Errors:</strong> see <a class="reference internal" href="02_errors.html"><span class="doc">Errors</span></a>.
+<em>Available via:</em> <code class="docutils literal notranslate"><span class="pre">Uart.h</span></code></p>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils" id="uart-api-uart-deinit">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Uart_DeInit</div>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv411Uart_DeInitv">
+<span id="_CPPv311Uart_DeInitv"></span><span id="_CPPv211Uart_DeInitv"></span><span id="Uart_DeInit__void"></span><span class="target" id="_uart_8h_1acc4da0decdedddf9b5d1ef2210efeaea"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Uart_DeInit</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv411Uart_DeInitv" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">Abort on-going transmission and de-initialize <a class="reference internal" href="../../../appendix.html#term-UART"><span class="xref std std-term">UART</span></a> hardware. Typically used when micro controller will be switched to other state (e.g. low power mode) or recovery from <a class="reference internal" href="../../../appendix.html#term-UART"><span class="xref std std-term">UART</span></a> communication erroneous state. </p>
+<p class="sd-card-text"><dl class="simple">
+<dt><strong>Sync/Async:</strong></dt><dd><p class="sd-card-text">Synchronous </p>
+</dd>
+<dt><strong>Reentrancy:</strong></dt><dd><p class="sd-card-text">Non reentrant </p>
+</dd>
+<dt><strong>Service ID [hex]:</strong></dt><dd><p class="sd-card-text">0x0A </p>
+</dd>
+</dl>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p class="sd-card-text"><strong>None</strong> – </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p class="sd-card-text">None. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<p class="sd-card-text"><strong>Effect:</strong> immediately aborts ongoing transmission and reception and de-initialises the
+driver, returning it to <code class="docutils literal notranslate"><span class="pre">UART_DRV_STATE_UNINIT</span></code>. <em>Available via:</em> <code class="docutils literal notranslate"><span class="pre">Uart.h</span></code></p>
+</div>
+</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-arrow-up" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.47 7.78a.75.75 0 0 1 0-1.06l4.25-4.25a.75.75 0 0 1 1.06 0l4.25 4.25a.751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018L9 4.81v7.44a.75.75 0 0 1-1.5 0V4.81L4.53 7.78a.75.75 0 0 1-1.06 0Z"></path></svg></span><span class="sd-summary-text">Transmission</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils" id="uart-api-uart-starttxtransaction">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Uart_StartTxTransaction</div>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv423Uart_StartTxTransaction5uint8PK5uint86uint16">
+<span id="_CPPv323Uart_StartTxTransaction5uint8PK5uint86uint16"></span><span id="_CPPv223Uart_StartTxTransaction5uint8PK5uint86uint16"></span><span id="Uart_StartTxTransaction__uint8.uint8CP.uint16"></span><span class="target" id="_uart_8h_1a74a6de8081113f8ae1aa5a34cc8f2eac"></span><span class="n"><span class="pre">Std_ReturnType</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Uart_StartTxTransaction</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint8</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">channelId</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">uint8</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">txDataPtr</span></span>, <span class="n"><span class="pre">uint16</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">txDataLength</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv423Uart_StartTxTransaction5uint8PK5uint86uint16" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">Sets up the transmit data and start transmission. Once a transmission is initiated, this <a class="reference internal" href="../../../appendix.html#term-interface"><span class="xref std std-term">interface</span></a> can be called only when the <a class="reference internal" href="../../../appendix.html#term-TX"><span class="xref std std-term">TX</span></a> state is not in BUSY. (i.e. driver state is UART_CH_TX_STATE_IDLE or UART_CH_TX_STATE_READY). </p>
+<p class="sd-card-text"><dl class="simple">
+<dt><strong>Sync/Async:</strong></dt><dd><p class="sd-card-text">Asynchronous </p>
+</dd>
+<dt><strong>Reentrancy:</strong></dt><dd><p class="sd-card-text">Conditionally reentrant (reentrant when called with different channelId) </p>
+</dd>
+<dt><strong>Service ID [hex]:</strong></dt><dd><p class="sd-card-text">0x02 </p>
+</dd>
+<dt><strong>Development error(s):</strong></dt><dd><p class="sd-card-text"><ul class="simple">
+<li><p class="sd-card-text"><a class="reference internal" href="02_errors.html#group___uart___development_errors_1gabc9e3b43d942e446327cd0a10402540d"><span class="std std-ref">UART_DEVERR_PARAM_CHANNELID</span></a> channelId is out of range from configured channels.</p></li>
+<li><p class="sd-card-text"><a class="reference internal" href="02_errors.html#group___uart___development_errors_1ga4a5601a971a55ba8a02f7b3c56025ff2"><span class="std std-ref">UART_DEVERR_PARAM_POINTER</span></a> txDataPtr is NULL</p></li>
+<li><p class="sd-card-text"><a class="reference internal" href="02_errors.html#group___uart___development_errors_1ga4942b2ec7b64c82421471d14fa679cd4"><span class="std std-ref">UART_DEVERR_PARAM_DATA_LENGTH</span></a> txDataLength is 0</p></li>
+<li><p class="sd-card-text"><a class="reference internal" href="02_errors.html#group___uart___development_errors_1gae8c16ab4d7fc9145f71841cfec21cbaa"><span class="std std-ref">UART_DEVERR_UNINIT</span></a> Called when the internal state is UART_CH_TX_STATE_UNINIT</p></li>
+<li><p class="sd-card-text"><a class="reference internal" href="02_errors.html#group___uart___development_errors_1ga09266fc8a1dbd6a720bf23f491a0ffae"><span class="std std-ref">UART_DEVERR_INVALID_CH_STATE</span></a> Called when the internal state is NOT UART_CH_TX_STATE_IDLE nor UART_CH_TX_STATE_READY </p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p class="sd-card-text"><strong>channelId</strong> – <strong>[in]</strong> ID of the <a class="reference internal" href="../../../appendix.html#term-UART"><span class="xref std std-term">UART</span></a> channel to be addressed </p></li>
+<li><p class="sd-card-text"><strong>txDataPtr</strong> – <strong>[in]</strong> Buffer address for transmit data </p></li>
+<li><p class="sd-card-text"><strong>txDataLength</strong> – <strong>[in]</strong> Specifies the buffer length. Must be &gt; 0. </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p class="sd-card-text"><strong>E_OK</strong> – Request has been accepted </p></li>
+<li><p class="sd-card-text"><strong>E_NOT_OK</strong> – Development error detected </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<p class="sd-card-text"><strong>When to call:</strong> on a channel that is <code class="docutils literal notranslate"><span class="pre">IDLE</span></code> or (streaming) <code class="docutils literal notranslate"><span class="pre">READY</span></code> — not <code class="docutils literal notranslate"><span class="pre">BUSY</span></code>.
+<strong>Returns:</strong> <code class="docutils literal notranslate"><span class="pre">E_OK</span></code> if accepted, else <code class="docutils literal notranslate"><span class="pre">E_NOT_OK</span></code>. The caller MUST keep <code class="docutils literal notranslate"><span class="pre">txDataPtr</span></code> valid
+until the completion / streaming callout. <strong>Errors:</strong> see <a class="reference internal" href="02_errors.html"><span class="doc">Errors</span></a>. <em>Available via:</em>
+<code class="docutils literal notranslate"><span class="pre">Uart.h</span></code></p>
+</div>
+</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-arrow-down" viewBox="0 0 16 16" aria-hidden="true"><path d="M13.03 8.22a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L3.47 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l2.97 2.97V3.75a.75.75 0 0 1 1.5 0v7.44l2.97-2.97a.75.75 0 0 1 1.06 0Z"></path></svg></span><span class="sd-summary-text">Reception</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils" id="uart-api-uart-startrxtransaction">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Uart_StartRxTransaction</div>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv423Uart_StartRxTransaction5uint8P5uint86uint166uint16">
+<span id="_CPPv323Uart_StartRxTransaction5uint8P5uint86uint166uint16"></span><span id="_CPPv223Uart_StartRxTransaction5uint8P5uint86uint166uint16"></span><span id="Uart_StartRxTransaction__uint8.uint8P.uint16.uint16"></span><span class="target" id="_uart_8h_1a6964dce66e154a5115a76af6d11b619b"></span><span class="n"><span class="pre">Std_ReturnType</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Uart_StartRxTransaction</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint8</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">channelId</span></span>, <span class="n"><span class="pre">uint8</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">rxDataPtr</span></span>, <span class="n"><span class="pre">uint16</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">rxDataLength</span></span>, <span class="n"><span class="pre">uint16</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">additionalRxLenTrg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv423Uart_StartRxTransaction5uint8P5uint86uint166uint16" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">Sets up the <a class="reference internal" href="../../../appendix.html#term-RX"><span class="xref std std-term">RX</span></a> buffer to store the received data. If reception has not been started, this <a class="reference internal" href="../../../appendix.html#term-interface"><span class="xref std std-term">interface</span></a> will start reception. This <a class="reference internal" href="../../../appendix.html#term-interface"><span class="xref std std-term">interface</span></a> can be called only when reception is IDLE or during Uart_Callout_OnReception (i.e. reception is stopped or previous reception has been completed). </p>
+<p class="sd-card-text"><dl class="simple">
+<dt><strong>Sync/Async:</strong></dt><dd><p class="sd-card-text">Asynchronous </p>
+</dd>
+<dt><strong>Reentrancy:</strong></dt><dd><p class="sd-card-text">Conditionally reentrant (reentrant when called with different channelId) </p>
+</dd>
+<dt><strong>Service ID [hex]:</strong></dt><dd><p class="sd-card-text">0x03 </p>
+</dd>
+<dt><strong>Development error(s):</strong></dt><dd><p class="sd-card-text"><ul class="simple">
+<li><p class="sd-card-text"><a class="reference internal" href="02_errors.html#group___uart___development_errors_1gabc9e3b43d942e446327cd0a10402540d"><span class="std std-ref">UART_DEVERR_PARAM_CHANNELID</span></a> channelId is out of range from configured channels.</p></li>
+<li><p class="sd-card-text"><a class="reference internal" href="02_errors.html#group___uart___development_errors_1ga4a5601a971a55ba8a02f7b3c56025ff2"><span class="std std-ref">UART_DEVERR_PARAM_POINTER</span></a> rxDataPtr is NULL_PTR</p></li>
+<li><p class="sd-card-text"><a class="reference internal" href="02_errors.html#group___uart___development_errors_1ga4942b2ec7b64c82421471d14fa679cd4"><span class="std std-ref">UART_DEVERR_PARAM_DATA_LENGTH</span></a> rxDataLength == 0</p></li>
+<li><p class="sd-card-text"><a class="reference internal" href="02_errors.html#group___uart___development_errors_1ga4942b2ec7b64c82421471d14fa679cd4"><span class="std std-ref">UART_DEVERR_PARAM_DATA_LENGTH</span></a> additionalRxLenTrg &gt; rxDataLength</p></li>
+<li><p class="sd-card-text"><a class="reference internal" href="02_errors.html#group___uart___development_errors_1gae8c16ab4d7fc9145f71841cfec21cbaa"><span class="std std-ref">UART_DEVERR_UNINIT</span></a> Called when the internal state is UART_CH_RX_STATE_UNINIT</p></li>
+<li><p class="sd-card-text"><a class="reference internal" href="02_errors.html#group___uart___development_errors_1ga09266fc8a1dbd6a720bf23f491a0ffae"><span class="std std-ref">UART_DEVERR_INVALID_CH_STATE</span></a> Called when the internal state is NOT UART_CH_RX_STATE_IDLE </p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p class="sd-card-text"><strong>channelId</strong> – <strong>[in]</strong> ID of the <a class="reference internal" href="../../../appendix.html#term-UART"><span class="xref std std-term">UART</span></a> channel to be addressed </p></li>
+<li><p class="sd-card-text"><strong>rxDataPtr</strong> – <strong>[in]</strong> Buffer pointer to store the received data. </p></li>
+<li><p class="sd-card-text"><strong>rxDataLength</strong> – <strong>[in]</strong> Specifies the buffer length. Must be &gt; 0. </p></li>
+<li><p class="sd-card-text"><strong>additionalRxLenTrg</strong> – <strong>[in]</strong> Specifies the receive data length for additional indication at the middle of reception. If additionalRxLenTrg &gt; 0, Uart_Callout_OnReception will be called when the received data length reaches additionalRxLenTrg, in addition to when the receive buffer is full. If additionalRxLenTrg is 0, the additional indication won’t be notified. Must be &lt;= rxDataLength. </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p class="sd-card-text"><strong>E_OK</strong> – Request has been accepted </p></li>
+<li><p class="sd-card-text"><strong>E_NOT_OK</strong> – Development error detected </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<p class="sd-card-text"><strong>When to call:</strong> on an <code class="docutils literal notranslate"><span class="pre">IDLE</span></code> RX channel, or from within <code class="docutils literal notranslate"><span class="pre">Uart_Callout_OnReception</span></code> to hand over
+the next buffer (streaming). <code class="docutils literal notranslate"><span class="pre">additionalRxLenTrg</span></code> (≤ <code class="docutils literal notranslate"><span class="pre">rxDataLength</span></code>) requests a
+mid-transfer <code class="docutils literal notranslate"><span class="pre">Uart_Callout_OnReception</span></code>; <code class="docutils literal notranslate"><span class="pre">0</span></code> disables it. The caller MUST keep
+<code class="docutils literal notranslate"><span class="pre">rxDataPtr</span></code> valid until the callout. <strong>Errors:</strong> see <a class="reference internal" href="02_errors.html"><span class="doc">Errors</span></a>. <em>Available via:</em> <code class="docutils literal notranslate"><span class="pre">Uart.h</span></code></p>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils" id="uart-api-uart-cancelrxtransaction">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Uart_CancelRxTransaction</div>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv424Uart_CancelRxTransaction5uint8">
+<span id="_CPPv324Uart_CancelRxTransaction5uint8"></span><span id="_CPPv224Uart_CancelRxTransaction5uint8"></span><span id="Uart_CancelRxTransaction__uint8"></span><span class="target" id="_uart_8h_1a9de29e148e4e9bb71de092e046ce8827"></span><span class="n"><span class="pre">Std_ReturnType</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Uart_CancelRxTransaction</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint8</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">channelId</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv424Uart_CancelRxTransaction5uint8" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text"><p class="sd-card-text">Cancel <a class="reference internal" href="../../../appendix.html#term-RX"><span class="xref std std-term">RX</span></a> transaction. This <a class="reference internal" href="../../../appendix.html#term-interface"><span class="xref std std-term">interface</span></a> is intended to be used for:</p>
+<p class="sd-card-text">.</p>
+</p>
+<p class="sd-card-text"><ul class="simple">
+<li><p class="sd-card-text">Stop HW <a class="reference internal" href="../../../appendix.html#term-RX"><span class="xref std std-term">RX</span></a> operation The UartDrv does not stop HW <a class="reference internal" href="../../../appendix.html#term-RX"><span class="xref std std-term">RX</span></a> operation once it’s started by Uart_StartRxTransaction for streaming usage. The UartDrv continues HW reception when the given <a class="reference internal" href="../../../appendix.html#term-RX"><span class="xref std std-term">RX</span></a> buffer fulfilled and expects buffer switching by Uart_StartRxTransaction. To stop HW <a class="reference internal" href="../../../appendix.html#term-RX"><span class="xref std std-term">RX</span></a> operation, need to call this <a class="reference internal" href="../../../appendix.html#term-interface"><span class="xref std std-term">interface</span></a>.</p></li>
+<li><p class="sd-card-text">Cancel <a class="reference internal" href="../../../appendix.html#term-RX"><span class="xref std std-term">RX</span></a> transaction after interpreting 1st <a class="reference internal" href="../../../appendix.html#term-RX"><span class="xref std std-term">RX</span></a> data <a class="reference internal" href="../../../appendix.html#term-RX"><span class="xref std std-term">RX</span></a> transaction is separated into multiple chunks by additionalRxLenTrg and 1st chunk means command. Command reception is indicated by Uart_Callout_OnReception. Then upper layer interprets the command. If no more <a class="reference internal" href="../../../appendix.html#term-RX"><span class="xref std std-term">RX</span></a> needs in the transaction, then call this <a class="reference internal" href="../../../appendix.html#term-interface"><span class="xref std std-term">interface</span></a> to cancel the transaction.</p></li>
+</ul>
+</p>
+<p class="sd-card-text"><dl class="simple">
+<dt><strong>Sync/Async:</strong></dt><dd><p class="sd-card-text">Synchronous </p>
+</dd>
+<dt><strong>Reentrancy:</strong></dt><dd><p class="sd-card-text">Conditionally reentrant (reentrant when called with different channelId) </p>
+</dd>
+<dt><strong>Service ID [hex]:</strong></dt><dd><p class="sd-card-text">0x04 </p>
+</dd>
+<dt><strong>Development error(s):</strong></dt><dd><p class="sd-card-text"><ul class="simple">
+<li><p class="sd-card-text"><a class="reference internal" href="02_errors.html#group___uart___development_errors_1gabc9e3b43d942e446327cd0a10402540d"><span class="std std-ref">UART_DEVERR_PARAM_CHANNELID</span></a> channelId is out of range from configured channelIds.</p></li>
+<li><p class="sd-card-text"><a class="reference internal" href="02_errors.html#group___uart___development_errors_1gae8c16ab4d7fc9145f71841cfec21cbaa"><span class="std std-ref">UART_DEVERR_UNINIT</span></a> Called when the internal state is UART_CH_RX_STATE_UNINIT </p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p class="sd-card-text"><strong>channelId</strong> – <strong>[in]</strong> ID of the <a class="reference internal" href="../../../appendix.html#term-UART"><span class="xref std std-term">UART</span></a> channel to be addressed </p>
+</dd>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p class="sd-card-text"><strong>E_OK</strong> – Request has been accepted. If no <a class="reference internal" href="../../../appendix.html#term-RX"><span class="xref std std-term">RX</span></a> transaction is on-going to be canceled return E_OK. </p></li>
+<li><p class="sd-card-text"><strong>E_NOT_OK</strong> – Development error detected </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<p class="sd-card-text"><strong>Effect:</strong> stops hardware reception and returns the RX channel to <code class="docutils literal notranslate"><span class="pre">IDLE</span></code>. Returns <code class="docutils literal notranslate"><span class="pre">E_OK</span></code>
+even when no reception is ongoing. <strong>Errors:</strong> see <a class="reference internal" href="02_errors.html"><span class="doc">Errors</span></a>. <em>Available via:</em> <code class="docutils literal notranslate"><span class="pre">Uart.h</span></code></p>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils" id="uart-api-uart-setadditionalrxlentrg">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Uart_SetAdditionalRxLenTrg</div>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv426Uart_SetAdditionalRxLenTrg5uint86uint16">
+<span id="_CPPv326Uart_SetAdditionalRxLenTrg5uint86uint16"></span><span id="_CPPv226Uart_SetAdditionalRxLenTrg5uint86uint16"></span><span id="Uart_SetAdditionalRxLenTrg__uint8.uint16"></span><span class="target" id="_uart_8h_1abeede402bb66be376d8bc148d58e9562"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Uart_SetAdditionalRxLenTrg</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint8</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">channelId</span></span>, <span class="n"><span class="pre">uint16</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">additionalRxLenTrg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv426Uart_SetAdditionalRxLenTrg5uint86uint16" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">Sets a trigger for additional calls of Uart_Callout_OnReception. This <a class="reference internal" href="../../../appendix.html#term-interface"><span class="xref std std-term">interface</span></a> can be called only in Uart_Callout_OnReception. </p>
+<p class="sd-card-text"><dl class="simple">
+<dt><strong>Sync/Async:</strong></dt><dd><p class="sd-card-text">Synchronous </p>
+</dd>
+<dt><strong>Reentrancy:</strong></dt><dd><p class="sd-card-text">Conditionally reentrant (reentrant when called with different channelId) </p>
+</dd>
+<dt><strong>Service ID [hex]:</strong></dt><dd><p class="sd-card-text">0x05 </p>
+</dd>
+<dt><strong>Development error(s):</strong></dt><dd><p class="sd-card-text"><ul class="simple">
+<li><p class="sd-card-text"><a class="reference internal" href="02_errors.html#group___uart___development_errors_1gabc9e3b43d942e446327cd0a10402540d"><span class="std std-ref">UART_DEVERR_PARAM_CHANNELID</span></a> channelId is out of range from configured channelIds.</p></li>
+<li><p class="sd-card-text"><a class="reference internal" href="02_errors.html#group___uart___development_errors_1gae8c16ab4d7fc9145f71841cfec21cbaa"><span class="std std-ref">UART_DEVERR_UNINIT</span></a> Called when the internal state is UART_CH_RX_STATE_UNINIT </p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p class="sd-card-text"><strong>channelId</strong> – <strong>[in]</strong> ID of the <a class="reference internal" href="../../../appendix.html#term-UART"><span class="xref std std-term">UART</span></a> channel to be addressed </p></li>
+<li><p class="sd-card-text"><strong>additionalRxLenTrg</strong> – <strong>[in]</strong> Specifies the receive data length for additional indication at the middle of reception. If additionalRxLenTrg &gt; 0, Uart_Callout_OnReception will be called when the received data length reaches additionalRxLenTrg, in addition to when the receive buffer is full. If additionalRxLenTrg is 0, the additional indication won’t be notified. Note that Uart_Callout_OnReception on <a class="reference internal" href="../../../appendix.html#term-RX"><span class="xref std std-term">RX</span></a> buffer full will be called even if additionalRxLenTrg parameter is 0. </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p class="sd-card-text">None. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<p class="sd-card-text"><strong>When to call:</strong> only from within <code class="docutils literal notranslate"><span class="pre">Uart_Callout_OnReception</span></code>, to re-arm the mid-transfer trigger.
+<strong>Errors:</strong> see <a class="reference internal" href="02_errors.html"><span class="doc">Errors</span></a>. <em>Available via:</em> <code class="docutils literal notranslate"><span class="pre">Uart.h</span></code></p>
+</div>
+</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-clock" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0ZM1.5 8a6.5 6.5 0 1 0 13 0 6.5 6.5 0 0 0-13 0Zm7-3.25v2.992l2.028.812a.75.75 0 0 1-.557 1.392l-2.5-1A.751.751 0 0 1 7 8.25v-3.5a.75.75 0 0 1 1.5 0Z"></path></svg></span><span class="sd-summary-text">Status and scheduling</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils" id="uart-api-uart-getchanneltxstate">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Uart_GetChannelTxState</div>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv422Uart_GetChannelTxState5uint8">
+<span id="_CPPv322Uart_GetChannelTxState5uint8"></span><span id="_CPPv222Uart_GetChannelTxState5uint8"></span><span id="Uart_GetChannelTxState__uint8"></span><span class="target" id="_uart_8h_1aadd4b3a383ac5cd4d4e87e84aa30b0d9"></span><a class="reference internal" href="#_CPPv423Uart_ChannelTxStateType" title="Uart_ChannelTxStateType"><span class="n"><span class="pre">Uart_ChannelTxStateType</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Uart_GetChannelTxState</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint8</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">channelId</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv422Uart_GetChannelTxState5uint8" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">Returns the driver <a class="reference internal" href="../../../appendix.html#term-TX"><span class="xref std std-term">TX</span></a> state. </p>
+<p class="sd-card-text"><dl class="simple">
+<dt><strong>Sync/Async:</strong></dt><dd><p class="sd-card-text">Synchronous </p>
+</dd>
+<dt><strong>Reentrancy:</strong></dt><dd><p class="sd-card-text">Reentrant </p>
+</dd>
+<dt><strong>Service ID [hex]:</strong></dt><dd><p class="sd-card-text">0x08 </p>
+</dd>
+<dt><strong>Development error(s):</strong></dt><dd><p class="sd-card-text"><ul class="simple">
+<li><p class="sd-card-text"><a class="reference internal" href="02_errors.html#group___uart___development_errors_1gabc9e3b43d942e446327cd0a10402540d"><span class="std std-ref">UART_DEVERR_PARAM_CHANNELID</span></a> channelId is out of range from configured channelIds. </p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p class="sd-card-text"><strong>channelId</strong> – <strong>[in]</strong> ID of the <a class="reference internal" href="../../../appendix.html#term-UART"><span class="xref std std-term">UART</span></a> channel to be addressed </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p class="sd-card-text">Informs the driver <a class="reference internal" href="../../../appendix.html#term-TX"><span class="xref std std-term">TX</span></a> state </p>
+</dd>
+</dl>
+</dd></dl>
+
+<p class="sd-card-text"><strong>Effect:</strong> returns the channel’s current
+<a class="reference internal" href="#uart-api-uart-channeltxstatetype"><span class="std std-ref">TX state</span></a>. <strong>Errors:</strong> see <a class="reference internal" href="02_errors.html"><span class="doc">Errors</span></a>.
+<em>Available via:</em> <code class="docutils literal notranslate"><span class="pre">Uart.h</span></code></p>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils" id="uart-api-uart-getchannelrxstate">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Uart_GetChannelRxState</div>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv422Uart_GetChannelRxState5uint8">
+<span id="_CPPv322Uart_GetChannelRxState5uint8"></span><span id="_CPPv222Uart_GetChannelRxState5uint8"></span><span id="Uart_GetChannelRxState__uint8"></span><span class="target" id="_uart_8h_1a0807052adc6f86e216642ca55f27155f"></span><a class="reference internal" href="#_CPPv423Uart_ChannelRxStateType" title="Uart_ChannelRxStateType"><span class="n"><span class="pre">Uart_ChannelRxStateType</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Uart_GetChannelRxState</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint8</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">channelId</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv422Uart_GetChannelRxState5uint8" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">Returns the driver <a class="reference internal" href="../../../appendix.html#term-RX"><span class="xref std std-term">RX</span></a> state. </p>
+<p class="sd-card-text"><dl class="simple">
+<dt><strong>Sync/Async:</strong></dt><dd><p class="sd-card-text">Synchronous </p>
+</dd>
+<dt><strong>Reentrancy:</strong></dt><dd><p class="sd-card-text">Reentrant </p>
+</dd>
+<dt><strong>Service ID [hex]:</strong></dt><dd><p class="sd-card-text">0x09 </p>
+</dd>
+<dt><strong>Development error(s):</strong></dt><dd><p class="sd-card-text"><ul class="simple">
+<li><p class="sd-card-text"><a class="reference internal" href="02_errors.html#group___uart___development_errors_1gabc9e3b43d942e446327cd0a10402540d"><span class="std std-ref">UART_DEVERR_PARAM_CHANNELID</span></a> channelId is out of range from configured channelIds. </p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p class="sd-card-text"><strong>channelId</strong> – <strong>[in]</strong> ID of the <a class="reference internal" href="../../../appendix.html#term-UART"><span class="xref std std-term">UART</span></a> channel to be addressed </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p class="sd-card-text">Informs the driver <a class="reference internal" href="../../../appendix.html#term-RX"><span class="xref std std-term">RX</span></a> state </p>
+</dd>
+</dl>
+</dd></dl>
+
+<p class="sd-card-text"><strong>Effect:</strong> returns the channel’s current
+<a class="reference internal" href="#uart-api-uart-channelrxstatetype"><span class="std std-ref">RX state</span></a>. <strong>Errors:</strong> see <a class="reference internal" href="02_errors.html"><span class="doc">Errors</span></a>.
+<em>Available via:</em> <code class="docutils literal notranslate"><span class="pre">Uart.h</span></code></p>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils" id="uart-api-uart-pollfunction">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Uart_PollFunction</div>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv417Uart_PollFunctionv">
+<span id="_CPPv317Uart_PollFunctionv"></span><span id="_CPPv217Uart_PollFunctionv"></span><span id="Uart_PollFunction__void"></span><span class="target" id="_uart_8h_1ab577cca06565d40980209ce824e2c3ea"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Uart_PollFunction</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv417Uart_PollFunctionv" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">Handles <a class="reference internal" href="../../../appendix.html#term-UART"><span class="xref std std-term">UART</span></a> event by polling hardware event. </p>
+<p class="sd-card-text"><dl class="simple">
+<dt><strong>Reentrancy:</strong></dt><dd><p class="sd-card-text">Non reentrant </p>
+</dd>
+<dt><strong>Service ID [hex]:</strong></dt><dd><p class="sd-card-text">0x07 </p>
+</dd>
+</dl>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p class="sd-card-text"><strong>None</strong> – </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p class="sd-card-text">None. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<p class="sd-card-text"><strong>When to call:</strong> cyclically, for channels configured for polling. Handles the same events as
+<code class="docutils literal notranslate"><span class="pre">Uart_Interrupt</span></code>. <em>Available via:</em> <code class="docutils literal notranslate"><span class="pre">Uart.h</span></code></p>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils" id="uart-api-uart-interrupt">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Uart_Interrupt</div>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="n">Uart_Interrupt</span><span class="o">&lt;</span><span class="n">vectorNr</span><span class="o">&gt;</span><span class="p">[</span><span class="o">&lt;</span><span class="n">VendorSpecificSuffix</span><span class="o">&gt;</span><span class="p">](</span><span class="kt">void</span><span class="p">)</span>
+</pre></div>
+</div>
+<p class="sd-card-text"><strong>Effect:</strong> the driver interrupt service routine; pumps TX/RX bytes and fires the completion,
+streaming, reception, and error notifications. Define it with the <code class="docutils literal notranslate"><span class="pre">ISR()</span></code> macro (see
+<a class="reference internal" href="../../../01_general/reference/02_services.html#gen-ref-isr"><span class="std std-ref">the general reference</span></a>). <em>Available via:</em> <code class="docutils literal notranslate"><span class="pre">Uart.h</span></code></p>
+</div>
+</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" id="uart-api-callouts">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-plug" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 8H2.5a1 1 0 0 0-1 1v5.25a.75.75 0 0 1-1.5 0V9a2.5 2.5 0 0 1 2.5-2.5H4V5.133a1.75 1.75 0 0 1 1.533-1.737l2.831-.353.76-.913c.332-.4.825-.63 1.344-.63h.782c.966 0 1.75.784 1.75 1.75V4h2.25a.75.75 0 0 1 0 1.5H13v4h2.25a.75.75 0 0 1 0 1.5H13v.75a1.75 1.75 0 0 1-1.75 1.75h-.782c-.519 0-1.012-.23-1.344-.63l-.761-.912-2.83-.354A1.75 1.75 0 0 1 4 9.867Zm6.276-4.91-.95 1.14a.753.753 0 0 1-.483.265l-3.124.39a.25.25 0 0 0-.219.248v4.734c0 .126.094.233.219.249l3.124.39a.752.752 0 0 1 .483.264l.95 1.14a.25.25 0 0 0 .192.09h.782a.25.25 0 0 0 .25-.25v-8.5a.25.25 0 0 0-.25-.25h-.782a.25.25 0 0 0-.192.09Z"></path></svg></span><span class="sd-summary-text">Callouts the integrator provides</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">The driver calls these callouts; the integrator MUST provide them (<a class="reference internal" href="../00_requirements.html#CHI-UART-MUST-21" title="CHI-UART-MUST-21"><em class="xref need">CHI-UART-MUST-21</em></a>) by
+filling in the matching user code block in <code class="docutils literal notranslate"><span class="pre">Uart_Callout_Stubs.c</span></code>
+(see <a class="reference internal" href="../../../01_general/guide/02_callout_file.html"><span class="doc">The Callout Stub File</span></a>). The prototypes are declared in <code class="docutils literal notranslate"><span class="pre">Uart.h</span></code>.
+<a class="reference internal" href="../../../01_general/reference/02_services.html#gen-ref-logm"><span class="std std-ref">LogM_Report</span></a> and the <a class="reference internal" href="../../../01_general/reference/02_services.html#gen-ref-critical-section"><span class="std std-ref">critical-section services</span></a> are documented in the general
+reference.</p>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils" id="uart-api-callout-onreception">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Uart_Callout_OnReception</div>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv424Uart_Callout_OnReception5uint86uint16">
+<span id="_CPPv324Uart_Callout_OnReception5uint86uint16"></span><span id="_CPPv224Uart_Callout_OnReception5uint86uint16"></span><span id="Uart_Callout_OnReception__uint8.uint16"></span><span class="target" id="_uart_8h_1acfc284446524c81a888a99da874374d6"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Uart_Callout_OnReception</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint8</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">channelId</span></span>, <span class="n"><span class="pre">uint16</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">length</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv424Uart_Callout_OnReception5uint86uint16" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">Notifies data length reaches additionalRxLenTrg or <a class="reference internal" href="../../../appendix.html#term-RX"><span class="xref std std-term">RX</span></a> buffer fulfilled. </p>
+<p class="sd-card-text"><dl class="simple">
+<dt><strong>Sync/Async:</strong></dt><dd><p class="sd-card-text">Synchronous </p>
+</dd>
+<dt><strong>Reentrancy:</strong></dt><dd><p class="sd-card-text">Conditionally reentrant (reentrant when called with different channelId) </p>
+</dd>
+</dl>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p class="sd-card-text"><strong>channelId</strong> – <strong>[in]</strong> ID of the <a class="reference internal" href="../../../appendix.html#term-UART"><span class="xref std std-term">UART</span></a> channel which informs the event </p></li>
+<li><p class="sd-card-text"><strong>length</strong> – <strong>[in]</strong> Total <a class="reference internal" href="../../../appendix.html#term-RX"><span class="xref std std-term">RX</span></a> length in the current transaction </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p class="sd-card-text">None. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<p class="sd-card-text">Reception reached <code class="docutils literal notranslate"><span class="pre">additionalRxLenTrg</span></code> or filled the buffer; <code class="docutils literal notranslate"><span class="pre">length</span></code> is the total
+received in the current transaction. <em>Available via:</em> <code class="docutils literal notranslate"><span class="pre">Uart.h</span></code>; implement it in <code class="docutils literal notranslate"><span class="pre">Uart_Callout_Stubs.c</span></code></p>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils" id="uart-api-callout-ontransmission">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Uart_Callout_OnTransmission</div>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv427Uart_Callout_OnTransmission5uint86uint16">
+<span id="_CPPv327Uart_Callout_OnTransmission5uint86uint16"></span><span id="_CPPv227Uart_Callout_OnTransmission5uint86uint16"></span><span id="Uart_Callout_OnTransmission__uint8.uint16"></span><span class="target" id="_uart_8h_1a2125a136afd919641684bf9fb49c3b29"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Uart_Callout_OnTransmission</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint8</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">channelId</span></span>, <span class="n"><span class="pre">uint16</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">length</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv427Uart_Callout_OnTransmission5uint86uint16" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">Notifies that the data transmission requested by Uart_StartTxTransaction has been completed. This <a class="reference internal" href="../../../appendix.html#term-interface"><span class="xref std std-term">interface</span></a> is called when the <a class="reference internal" href="../../../appendix.html#term-UART"><span class="xref std std-term">UART</span></a> HW has sent the whole data on the <a class="reference internal" href="../../../appendix.html#term-UART"><span class="xref std std-term">UART</span></a> bus (i.e. HW FIFO and the shift register do not hold any data to be sent). This <a class="reference internal" href="../../../appendix.html#term-API"><span class="xref std std-term">API</span></a> can be used if the upper layer requires a confirmation once all data has been successfully transmitted on the bus. </p>
+<p class="sd-card-text"><dl class="simple">
+<dt><strong>Sync/Async:</strong></dt><dd><p class="sd-card-text">Synchronous </p>
+</dd>
+<dt><strong>Reentrancy:</strong></dt><dd><p class="sd-card-text">Conditionally reentrant (reentrant when called with different channelId) </p>
+</dd>
+</dl>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p class="sd-card-text"><strong>channelId</strong> – <strong>[in]</strong> ID of the <a class="reference internal" href="../../../appendix.html#term-UART"><span class="xref std std-term">UART</span></a> channel which informs the event </p></li>
+<li><p class="sd-card-text"><strong>length</strong> – <strong>[in]</strong> Total <a class="reference internal" href="../../../appendix.html#term-TX"><span class="xref std std-term">TX</span></a> length in the current transaction </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p class="sd-card-text">None. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<p class="sd-card-text">HwCompletion channels: the whole buffer has been sent on the bus (FIFO and shift register
+empty). <em>Available via:</em> <code class="docutils literal notranslate"><span class="pre">Uart.h</span></code>; implement it in <code class="docutils literal notranslate"><span class="pre">Uart_Callout_Stubs.c</span></code></p>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils" id="uart-api-callout-onstreamingdatarequest">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Uart_Callout_OnStreamingDataRequest</div>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv435Uart_Callout_OnStreamingDataRequest5uint86uint16">
+<span id="_CPPv335Uart_Callout_OnStreamingDataRequest5uint86uint16"></span><span id="_CPPv235Uart_Callout_OnStreamingDataRequest5uint86uint16"></span><span id="Uart_Callout_OnStreamingDataRequest__uint8.uint16"></span><span class="target" id="_uart_8h_1af02a0d9933b0c794b6cef5a421c1a5d9"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Uart_Callout_OnStreamingDataRequest</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint8</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">channelId</span></span>, <span class="n"><span class="pre">uint16</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">length</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv435Uart_Callout_OnStreamingDataRequest5uint86uint16" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">Notifies that the SW <a class="reference internal" href="../../../appendix.html#term-TX"><span class="xref std std-term">TX</span></a> buffer is empty and a new transaction can be initiated (The HW FIFO or the shift register can still hold data from the previous transaction request that is about to be sent). This <a class="reference internal" href="../../../appendix.html#term-API"><span class="xref std std-term">API</span></a> can be used to optimize the use of the <a class="reference internal" href="../../../appendix.html#term-UART"><span class="xref std std-term">UART</span></a> controller in transmission mode for streaming purposes. </p>
+<p class="sd-card-text"><dl class="simple">
+<dt><strong>Sync/Async:</strong></dt><dd><p class="sd-card-text">Synchronous </p>
+</dd>
+<dt><strong>Reentrancy:</strong></dt><dd><p class="sd-card-text">Conditionally reentrant (reentrant when called with different channelId) </p>
+</dd>
+</dl>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p class="sd-card-text"><strong>channelId</strong> – <strong>[in]</strong> ID of the <a class="reference internal" href="../../../appendix.html#term-UART"><span class="xref std std-term">UART</span></a> channel which informs the event </p></li>
+<li><p class="sd-card-text"><strong>length</strong> – <strong>[in]</strong> Total <a class="reference internal" href="../../../appendix.html#term-TX"><span class="xref std std-term">TX</span></a> length in the current transaction </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p class="sd-card-text">None. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<p class="sd-card-text">Streaming channels: the software TX buffer is empty and a new transaction can be staged (the
+HW may still be draining). A channel uses this <strong>or</strong> <code class="docutils literal notranslate"><span class="pre">Uart_Callout_OnTransmission</span></code>, never both.
+<em>Available via:</em> <code class="docutils literal notranslate"><span class="pre">Uart.h</span></code>; implement it in <code class="docutils literal notranslate"><span class="pre">Uart_Callout_Stubs.c</span></code></p>
+</div>
+</div>
+</div>
+</details></section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Reference" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="01_configuration.html" class="btn btn-neutral float-right" title="Configuration Reference" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026 by Vector Informatik GmbH and Infineon Technologies AG. All rights reserved.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,212 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Conformance &mdash; Chiisai HAL Specification  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=4ae1632d" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx-data-viewer/jsonview.bundle.css?v=f6ef2277" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx-needs/libs/html/datatables.min.css?v=4b4fd840" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx-needs/common_css/needstable.css?v=5e1b6797" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx-needs/common_css/need_core.css?v=f5b60a78" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx-needs/common_css/need_links.css?v=2150a916" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx-needs/common_css/need_style.css?v=92936fa5" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx-needs/common_css/need_toggle.css?v=5c6620df" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx-needs/modern.css?v=803738c0" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=4f645179" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../_static/design-tabs.js?v=f930bc37"></script>
+      <script src="../_static/sphinx-data-viewer/jsonview.bundle.js?v=18cd53c5"></script>
+      <script src="../_static/sphinx-data-viewer/jsonview_loader.js?v=f7ff7e7d"></script>
+      <script src="../_static/sphinx-needs/libs/html/datatables.min.js?v=8a4aee21"></script>
+      <script src="../_static/sphinx-needs/libs/html/datatables_loader.js?v=a2cae175"></script>
+      <script src="../_static/sphinx-needs/libs/html/sphinx_needs_collapse.js?v=dca66431"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Revision History" href="03_revision_history.html" />
+    <link rel="prev" title="Requirement Keywords" href="01_keywords.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Chiisai HAL Specification
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">About This Specification</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="00_reading_guide.html">How to Read This Specification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01_keywords.html">Requirement Keywords</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Conformance</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#conformance-statement">Conformance statement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#claiming-conformance">Claiming conformance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#what-conformance-does-not-require">What conformance does <strong>not</strong> require</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#specification-lifecycle-status">Specification lifecycle status</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="03_revision_history.html">Revision History</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04_contact_information.html">Contact Information</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../01_general/index.html">General</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../04_DriverModules/index.html">Chiisai HAL Driver Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix.html">Appendix</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Chiisai HAL Specification</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">About This Specification</a></li>
+      <li class="breadcrumb-item active">Conformance</li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="conformance">
+<h1>Conformance<a class="headerlink" href="#conformance" title="Link to this heading"></a></h1>
+<div class="normative admonition">
+<p class="admonition-title">Normative</p>
+<p>This page defines what it means to be a conformant Chiisai HAL driver.</p>
+</div>
+<section id="conformance-statement">
+<h2>Conformance statement<a class="headerlink" href="#conformance-statement" title="Link to this heading"></a></h2>
+<p>A driver implementation is a <strong>conformant Chiisai HAL driver</strong> for a given module if, and only if,
+it satisfies <strong>every Mandatory (MUST / MUST NOT) requirement</strong> defined for that module.</p>
+<ul class="simple">
+<li><p><strong>Recommended (SHOULD)</strong> and <strong>Optional (MAY)</strong> requirements do <strong>not</strong> affect conformance. An
+implementation that omits them is still conformant, though it may be less capable or less
+robust than one that adopts them.</p></li>
+<li><p>Conformance is claimed <strong>per module</strong>. An implementation states which modules it supports (for
+example, “Chiisai HAL CAN and SPI”); the claim covers the Mandatory requirements of exactly
+those modules.</p></li>
+<li><p>Requirement keywords are interpreted per <a class="reference internal" href="01_keywords.html"><span class="doc">Requirement Keywords</span></a>.</p></li>
+</ul>
+</section>
+<section id="claiming-conformance">
+<h2>Claiming conformance<a class="headerlink" href="#claiming-conformance" title="Link to this heading"></a></h2>
+<p>An implementation claiming conformance for a module <strong>MUST</strong> be able to demonstrate that each
+Mandatory requirement is met. Every requirement carries an id of the form
+<code class="docutils literal notranslate"><span class="pre">CHI-&lt;MODULE&gt;-&lt;BAND&gt;-&lt;NN&gt;</span></code>, where <code class="docutils literal notranslate"><span class="pre">&lt;BAND&gt;</span></code> is the severity (<code class="docutils literal notranslate"><span class="pre">MUST</span></code>, <code class="docutils literal notranslate"><span class="pre">SHOULD</span></code>, or <code class="docutils literal notranslate"><span class="pre">MAY</span></code>) and
+<code class="docutils literal notranslate"><span class="pre">&lt;NN&gt;</span></code> numbers the requirements within that band; the Mandatory requirements that conformance
+depends on are therefore exactly the <code class="docutils literal notranslate"><span class="pre">CHI-&lt;MODULE&gt;-MUST-&lt;NN&gt;</span></code> ids. The specification does not
+mandate a particular evidence format; a requirement-id-indexed test or review matrix is the expected
+practice.</p>
+</section>
+<section id="what-conformance-does-not-require">
+<h2>What conformance does <strong>not</strong> require<a class="headerlink" href="#what-conformance-does-not-require" title="Link to this heading"></a></h2>
+<p>To keep the barrier to entry low and the standard distinct from heavyweight compliance regimes,
+conformance intentionally does <strong>not</strong> require:</p>
+<ul class="simple">
+<li><p>adoption of any particular operating system, scheduler, or RTOS;</p></li>
+<li><p>adherence to an external coding-rule regime as a precondition of conformance;</p></li>
+<li><p>inter-module version-check machinery;</p></li>
+<li><p>tool-specific configuration formats.</p></li>
+</ul>
+<p>These may be adopted by an integrator as project policy, but they are outside the Chiisai HAL
+conformance contract.</p>
+</section>
+<section id="specification-lifecycle-status">
+<h2>Specification lifecycle status<a class="headerlink" href="#specification-lifecycle-status" title="Link to this heading"></a></h2>
+<p>The Chiisai HAL specification set as a whole carries a single lifecycle status:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Status</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">draft</span></code></p></td>
+<td><p>Under active development; requirements may change without notice.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">approved</span></code></p></td>
+<td><p>Reviewed and accepted; changes are controlled.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">released</span></code></p></td>
+<td><p>Published for implementation; stability guarantees apply.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>Current status of this specification set:</strong> <code class="docutils literal notranslate"><span class="pre">released</span></code>.</p>
+</div>
+<p>Individual requirements do not carry their own status — the set-level status above applies to all
+of them.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="01_keywords.html" class="btn btn-neutral float-left" title="Requirement Keywords" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="03_revision_history.html" class="btn btn-neutral float-right" title="Revision History" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026 by Vector Informatik GmbH and Infineon Technologies AG. All rights reserved.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,345 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Errors &mdash; Chiisai HAL Specification  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css?v=4ae1632d" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-data-viewer/jsonview.bundle.css?v=f6ef2277" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/libs/html/datatables.min.css?v=4b4fd840" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/common_css/needstable.css?v=5e1b6797" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/common_css/need_core.css?v=f5b60a78" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/common_css/need_links.css?v=2150a916" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/common_css/need_style.css?v=92936fa5" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/common_css/need_toggle.css?v=5c6620df" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/modern.css?v=803738c0" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=4f645179" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
+      <script src="../../../_static/sphinx-data-viewer/jsonview.bundle.js?v=18cd53c5"></script>
+      <script src="../../../_static/sphinx-data-viewer/jsonview_loader.js?v=f7ff7e7d"></script>
+      <script src="../../../_static/sphinx-needs/libs/html/datatables.min.js?v=8a4aee21"></script>
+      <script src="../../../_static/sphinx-needs/libs/html/datatables_loader.js?v=a2cae175"></script>
+      <script src="../../../_static/sphinx-needs/libs/html/sphinx_needs_collapse.js?v=dca66431"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Spi — Requirements" href="../00_requirements.html" />
+    <link rel="prev" title="Configuration Reference" href="01_configuration.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            Chiisai HAL Specification
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../00_about/index.html">About This Specification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../01_general/index.html">General</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Chiisai HAL Driver Modules</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../Can/index.html">Can</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../I2c/index.html">I2c</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Lin/index.html">Lin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Mcu/index.html">Mcu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Mem/index.html">Mem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Port/index.html">Port</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Spi</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../general/index.html">General</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../guide/index.html">Guide</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">Reference</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="00_api.html">API Reference</a></li>
+<li class="toctree-l4"><a class="reference internal" href="01_configuration.html">Configuration Reference</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Errors</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../00_requirements.html">Spi — Requirements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01_design_decisions.html">Design Decisions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../Uart/index.html">Uart</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Wdg/index.html">Wdg</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../appendix.html">Appendix</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Chiisai HAL Specification</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Chiisai HAL Driver Modules</a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Spi</a></li>
+          <li class="breadcrumb-item"><a href="index.html">Reference</a></li>
+      <li class="breadcrumb-item active">Errors</li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="errors">
+<h1>Errors<a class="headerlink" href="#errors" title="Link to this heading"></a></h1>
+<div class="normative admonition">
+<p class="admonition-title">Normative</p>
+<p>The error and return codes a conformant SPI driver reports. Development errors are only raised
+when development error reporting is enabled (see <code class="docutils literal notranslate"><span class="pre">enable_development_error_reporting</span></code> in
+<a class="reference internal" href="01_configuration.html"><span class="doc">Configuration Reference</span></a>). Governed by <a class="reference internal" href="../00_requirements.html#CHI-SPI-MUST-20" title="CHI-SPI-MUST-20"><em class="xref need">CHI-SPI-MUST-20</em></a> and <a class="reference internal" href="../00_requirements.html#CHI-SPI-MUST-22" title="CHI-SPI-MUST-22"><em class="xref need">CHI-SPI-MUST-22</em></a> (and
+<a class="reference internal" href="../00_requirements.html#CHI-SPI-MUST-18" title="CHI-SPI-MUST-18"><em class="xref need">CHI-SPI-MUST-18</em></a> for runtime errors) in <a class="reference internal" href="../00_requirements.html"><span class="doc">Spi — Requirements</span></a>.</p>
+</div>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-alert" viewBox="0 0 16 16" aria-hidden="true"><path d="M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"></path></svg></span><span class="sd-summary-text">Development errors</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">When development error reporting is enabled, each API detects the conditions below and raises the
+listed error via <a class="reference internal" href="../../../01_general/reference/02_services.html#gen-ref-logm"><span class="std std-ref">LogM_Report</span></a> with development-error level.</p>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Development errors by API</div>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 34.0%" />
+<col style="width: 40.0%" />
+<col style="width: 26.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p class="sd-card-text">API</p></th>
+<th class="head"><p class="sd-card-text">Condition</p></th>
+<th class="head"><p class="sd-card-text">Error id</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">Spi_Init</span></code></p></td>
+<td><p class="sd-card-text">Driver not in <code class="docutils literal notranslate"><span class="pre">SPI_DRV_STATE_UNINIT</span></code></p></td>
+<td><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">SPI_DEVERR_INVALID_CH_STATE</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">Spi_Init</span></code></p></td>
+<td><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">configPtr</span></code> is not <code class="docutils literal notranslate"><span class="pre">NULL_PTR</span></code></p></td>
+<td><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">SPI_DEVERR_PARAM_POINTER</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">Spi_StartTransaction</span></code></p></td>
+<td><p class="sd-card-text">Driver not initialized</p></td>
+<td><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">SPI_DEVERR_UNINIT</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">Spi_StartTransaction</span></code></p></td>
+<td><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">channelId</span></code> out of range</p></td>
+<td><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">SPI_DEVERR_PARAM_CHANNELID</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">Spi_StartTransaction</span></code></p></td>
+<td><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">csId</span></code> out of range</p></td>
+<td><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">SPI_DEVERR_PARAM_CS</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">Spi_StartTransaction</span></code></p></td>
+<td><p class="sd-card-text">TX/RX total transfer length inconsistent</p></td>
+<td><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">SPI_DEVERR_PARAM_LENGTH</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">Spi_StartTransaction</span></code></p></td>
+<td><p class="sd-card-text">Channel not in <code class="docutils literal notranslate"><span class="pre">SPI_CH_STATE_IDLE</span></code></p></td>
+<td><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">SPI_DEVERR_INVALID_CH_STATE</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">Spi_GetChannelState</span></code></p></td>
+<td><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">channelId</span></code> out of range</p></td>
+<td><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">SPI_DEVERR_PARAM_CHANNELID</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">Spi_OnCs</span></code></p></td>
+<td><p class="sd-card-text">Channel in <code class="docutils literal notranslate"><span class="pre">SPI_CH_STATE_UNINIT</span></code></p></td>
+<td><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">SPI_DEVERR_UNINIT</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">Spi_OnCs</span></code></p></td>
+<td><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">channelId</span></code> / <code class="docutils literal notranslate"><span class="pre">csId</span></code> out of range</p></td>
+<td><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">SPI_DEVERR_PARAM_CHANNELID</span></code> / <code class="docutils literal notranslate"><span class="pre">SPI_DEVERR_PARAM_CS</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">Spi_CancelTransaction</span></code></p></td>
+<td><p class="sd-card-text">Channel in <code class="docutils literal notranslate"><span class="pre">SPI_CH_STATE_UNINIT</span></code></p></td>
+<td><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">SPI_DEVERR_UNINIT</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">Spi_CancelTransaction</span></code></p></td>
+<td><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">channelId</span></code> out of range</p></td>
+<td><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">SPI_DEVERR_PARAM_CHANNELID</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Development error code group</div>
+<dl>
+<dt class="sig sig-object cpp">
+<span class="target" id="group___spi___development_errors"></span></dt>
+<dd><p class="sd-card-text">Development error type </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-defines">Defines</p>
+<dl class="cpp macro">
+<dt class="sig sig-object cpp" id="c.SPI_DEVERR_UNINIT">
+<span class="target" id="group___spi___development_errors_1gae1579705bf4ffa8b3f3b31b9c210de8b"></span><span class="sig-name descname"><span class="n"><span class="pre">SPI_DEVERR_UNINIT</span></span></span> <span class="pre">(1U)</span><a class="headerlink" href="#c.SPI_DEVERR_UNINIT" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text"><a class="reference internal" href="../../../appendix.html#term-API"><span class="xref std std-term">API</span></a> service called without initialization. </p>
+</dd></dl>
+
+<dl class="cpp macro">
+<dt class="sig sig-object cpp" id="c.SPI_DEVERR_INVALID_CH_STATE">
+<span class="target" id="group___spi___development_errors_1ga045b42f36c5aecd02523a7558db35f82"></span><span class="sig-name descname"><span class="n"><span class="pre">SPI_DEVERR_INVALID_CH_STATE</span></span></span> <span class="pre">(2U)</span><a class="headerlink" href="#c.SPI_DEVERR_INVALID_CH_STATE" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text"><a class="reference internal" href="../../../appendix.html#term-API"><span class="xref std std-term">API</span></a> service called with invalid state. </p>
+</dd></dl>
+
+<dl class="cpp macro">
+<dt class="sig sig-object cpp" id="c.SPI_DEVERR_PARAM_CHANNELID">
+<span class="target" id="group___spi___development_errors_1gab9ea9374c1702b6c34855528bba3072d"></span><span class="sig-name descname"><span class="n"><span class="pre">SPI_DEVERR_PARAM_CHANNELID</span></span></span> <span class="pre">(3U)</span><a class="headerlink" href="#c.SPI_DEVERR_PARAM_CHANNELID" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text"><a class="reference internal" href="../../../appendix.html#term-API"><span class="xref std std-term">API</span></a> service is called with invalid HW channel. </p>
+</dd></dl>
+
+<dl class="cpp macro">
+<dt class="sig sig-object cpp" id="c.SPI_DEVERR_PARAM_CS">
+<span class="target" id="group___spi___development_errors_1gaf9e52bdac920ff892ca3f48088c5108e"></span><span class="sig-name descname"><span class="n"><span class="pre">SPI_DEVERR_PARAM_CS</span></span></span> <span class="pre">(4U)</span><a class="headerlink" href="#c.SPI_DEVERR_PARAM_CS" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text"><a class="reference internal" href="../../../appendix.html#term-API"><span class="xref std std-term">API</span></a> service is called with invalid chip select ID. </p>
+</dd></dl>
+
+<dl class="cpp macro">
+<dt class="sig sig-object cpp" id="c.SPI_DEVERR_PARAM_LENGTH">
+<span class="target" id="group___spi___development_errors_1gaa884549173dc4a70bfade2ca3b4aa1a9"></span><span class="sig-name descname"><span class="n"><span class="pre">SPI_DEVERR_PARAM_LENGTH</span></span></span> <span class="pre">(5U)</span><a class="headerlink" href="#c.SPI_DEVERR_PARAM_LENGTH" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text"><a class="reference internal" href="../../../appendix.html#term-API"><span class="xref std std-term">API</span></a> service is called with invalid data length. </p>
+</dd></dl>
+
+<dl class="cpp macro">
+<dt class="sig sig-object cpp" id="c.SPI_DEVERR_PARAM_POINTER">
+<span class="target" id="group___spi___development_errors_1gafdc58b768b048e546b67f7df89f0f561"></span><span class="sig-name descname"><span class="n"><span class="pre">SPI_DEVERR_PARAM_POINTER</span></span></span> <span class="pre">(6U)</span><a class="headerlink" href="#c.SPI_DEVERR_PARAM_POINTER" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text"><a class="reference internal" href="../../../appendix.html#term-API"><span class="xref std std-term">API</span></a> service called with invalid pointer parameter. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<p class="sd-card-text"><em>Available via:</em> <code class="docutils literal notranslate"><span class="pre">Spi_DriverTypes.h</span></code>. Vendor-specific error definitions MUST be provided
+via <code class="docutils literal notranslate"><span class="pre">Spi.h</span></code> instead.</p>
+</div>
+</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-info" viewBox="0 0 16 16" aria-hidden="true"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg></span><span class="sd-summary-text">Runtime errors</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Runtime errors are reported via <a class="reference internal" href="../../../01_general/reference/02_services.html#gen-ref-logm"><span class="std std-ref">LogM_Report</span></a> with runtime-error level. When
+the failure is not tied to a specific chip select, the reported <code class="docutils literal notranslate"><span class="pre">csId</span></code> is <code class="docutils literal notranslate"><span class="pre">SPI_CS_UNSPECIFIED</span></code>.</p>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Runtime error code group</div>
+<dl>
+<dt class="sig sig-object cpp">
+<span class="target" id="group___spi___runtime_errors"></span></dt>
+<dd><p class="sd-card-text">Specifies error types which are logged via LogM_Report with logLevel runtime error. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-defines">Defines</p>
+<dl class="cpp macro">
+<dt class="sig sig-object cpp" id="c.SPI_RTERR">
+<span class="target" id="group___spi___runtime_errors_1gac10d730c5e6c0d8fe2bb9fe97b602932"></span><span class="sig-name descname"><span class="n"><span class="pre">SPI_RTERR</span></span></span> <span class="pre">(16U)</span><a class="headerlink" href="#c.SPI_RTERR" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text"><p class="sd-card-text">Specifies an error has been detected. If user doesn’t need detailed error information.</p>
+<p class="sd-card-text">If user wants to know error detail, then check below vendor specific errors</p>
+</p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<p class="sd-card-text">A vendor MAY expand <code class="docutils literal notranslate"><span class="pre">SPI_RTERR</span></code> into more detailed <code class="docutils literal notranslate"><span class="pre">SPI_RTERR_&lt;VENDOR_SPECIFIC&gt;</span></code> codes in
+the range <code class="docutils literal notranslate"><span class="pre">[0x10,</span> <span class="pre">0xFF]</span></code>; those MUST be provided via <code class="docutils literal notranslate"><span class="pre">Spi.h</span></code>, not <code class="docutils literal notranslate"><span class="pre">Spi_DriverTypes.h</span></code>.
+<em>Available via:</em> <code class="docutils literal notranslate"><span class="pre">Spi_DriverTypes.h</span></code>.</p>
+</div>
+</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-number" viewBox="0 0 16 16" aria-hidden="true"><path d="M9 4.75A.75.75 0 0 1 9.75 4h4a.75.75 0 0 1 .53 1.28l-1.89 1.892c.312.076.604.18.867.319.742.391 1.244 1.063 1.244 2.005 0 .653-.231 1.208-.629 1.627-.386.408-.894.653-1.408.777-1.01.243-2.225.063-3.124-.527a.751.751 0 0 1 .822-1.254c.534.35 1.32.474 1.951.322.306-.073.53-.201.67-.349.129-.136.218-.32.218-.596 0-.308-.123-.509-.444-.678-.373-.197-.98-.318-1.806-.318a.75.75 0 0 1-.53-1.28l1.72-1.72H9.75A.75.75 0 0 1 9 4.75Zm-3.587 5.763c-.35-.05-.77.113-.983.572a.75.75 0 1 1-1.36-.632c.508-1.094 1.589-1.565 2.558-1.425 1 .145 1.872.945 1.872 2.222 0 1.433-1.088 2.192-1.79 2.681-.308.216-.571.397-.772.573H7a.75.75 0 0 1 0 1.5H3.75a.75.75 0 0 1-.75-.75c0-.69.3-1.211.67-1.61.348-.372.8-.676 1.15-.92.8-.56 1.18-.904 1.18-1.474 0-.473-.267-.69-.587-.737ZM5.604.089A.75.75 0 0 1 6 .75v4.77h.711a.75.75 0 0 1 0 1.5H3.759a.75.75 0 0 1 0-1.5H4.5V2.15l-.334.223a.75.75 0 0 1-.832-1.248l1.5-1a.75.75 0 0 1 .77-.037Z"></path></svg></span><span class="sd-summary-text">Chip-select definition</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+SPI_CS_UNSPECIFIED</div>
+<dl>
+<dt class="sig sig-object cpp">
+<span class="target" id="group___spi___chip_select_definition"></span></dt>
+<dd><p class="sd-card-text">SpiDrv <a class="reference internal" href="../../../appendix.html#term-CS"><span class="xref std std-term">CS</span></a> definition </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-defines">Defines</p>
+<dl class="cpp macro">
+<dt class="sig sig-object cpp" id="c.SPI_CS_UNSPECIFIED">
+<span class="target" id="group___spi___chip_select_definition_1gabd4e1e59ddf88ab2afd9b7c4dec6db37"></span><span class="sig-name descname"><span class="n"><span class="pre">SPI_CS_UNSPECIFIED</span></span></span> <span class="pre">(255U)</span><a class="headerlink" href="#c.SPI_CS_UNSPECIFIED" title="Link to this definition"></a><br /></dt>
+<dd><p class="sd-card-text">Specifies the detected error does not relate to a <a class="reference internal" href="../../../appendix.html#term-CS"><span class="xref std std-term">CS</span></a> but <a class="reference internal" href="../../../appendix.html#term-SPI"><span class="xref std std-term">SPI</span></a> controller HW or bus common failure. Also, this symbol is used as the default parameter of csId for Spi_StartTransaction in case of <a class="reference internal" href="../../../appendix.html#term-Target-Responder-Node"><span class="xref std std-term">Target Mode</span></a>. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<p class="sd-card-text">Used as the <code class="docutils literal notranslate"><span class="pre">csId</span></code> a target passes to <code class="docutils literal notranslate"><span class="pre">Spi_StartTransaction</span></code> and as the <code class="docutils literal notranslate"><span class="pre">csId</span></code> for a
+controller-level error not tied to a chip select. <em>Available via:</em> <code class="docutils literal notranslate"><span class="pre">Spi_DriverTypes.h</span></code>.</p>
+</div>
+</div>
+</div>
+</details></section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="01_configuration.html" class="btn btn-neutral float-left" title="Configuration Reference" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../00_requirements.html" class="btn btn-neutral float-right" title="Spi — Requirements" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026 by Vector Informatik GmbH and Infineon Technologies AG. All rights reserved.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
