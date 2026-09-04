@@ -5,7 +5,7 @@
 
 # Chiisai HAL Specification
 
-A standardised, open, resource‑conscious **Hardware Abstraction Layer (HAL)** for small,
+An open, resource‑conscious **Hardware Abstraction Layer (HAL)** for small,
 low‑power microcontrollers with tight memory budgets — the kind used in cost‑sensitive
 embedded systems such as sensors and actuators in automotive E/E architectures.
 
