@@ -12,7 +12,7 @@ An open, royalty-free standard for the Hardware Abstraction Layer (HAL) of small
 
 ## Viewing the specification
 
-- **Online:** *[chiisai-hal-specification](https://github.com/vectorgrp/chiisai-hal-specification)*
+- **Online:** [chiisai-hal-specification](https://github.com/vectorgrp/chiisai-hal-specification)
 - **Offline:** download or clone this repository and open **`index.html`** in a web browser. All
   pages, search, diagrams, and cross‑links work from the local files — no server or build step
   required.
@@ -64,6 +64,6 @@ See [LICENSE](https://github.com/vectorgrp/chiisai-hal-specification/blob/main/L
 
 The Chiisai HAL Specification is maintained by the Chiisai project contributors.
 
-For questions, feedback, bug reports, or proposals for improvements, please open an issue in the project's GitHub repository
+For questions, feedback, bug reports, or proposals for improvements, please open an issue in this repository.
 For general inquiries regarding the specification, please contact the project maintainers: support@vector.com
 
