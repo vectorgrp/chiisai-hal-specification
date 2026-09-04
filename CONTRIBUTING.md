@@ -1,13 +1,19 @@
-# Contributing to the Chiisai HAL Specification Project
+# Contributing to the Chiisai HAL Specification
 
-Welcome, and thank you for your interest in contributing to the open source Chiisai HAL Specification project. 
+Thank you for your interest in the Chiisai HAL Specification — we're glad you're here!
 
-Chiisai HAL Specification is developed and maintained by Vector Informatik and Infineon in collaboration, as part of the broader Chiisai ecosystem for small and resource-constrained microcontrollers.
+This is an open specification for the Hardware Abstraction Layer of small,
+resource-constrained microcontrollers, and it grows through community input.
+Your feedback genuinely helps shape it.
 
-We are sorry, but at the moment, we do not accept external contributions until we have established a contribution process. However, you can contribute to the open-source project by creating an issue to discuss bugs or feature requests in public.
+## How to contribute right now
 
-We're working behind the scenes to get this ready in the future. Until then, we would kindly ask you to not open pull requests.
+At this stage, the best way to contribute is by **opening an issue**. Whether it's a
+bug, an unclear passage, an idea, or a feature request — please
+[open an issue](https://github.com/vectorgrp/chiisai-hal-specification/issues) and
+start the conversation with us in the open.
 
-We will update this document when we are ready for your submissions. 
+We're still setting up a full process for pull-request contributions.
+Until that's ready, we kindly ask you to hold off on pull requests — but issues are always welcome and read.
 
-Thank you and stay tuned!
+Thank you for being part of it and stay tuned!
