@@ -1,5 +1,5 @@
 [![license](https://img.shields.io/badge/license-Apache%202.0-blue)](https://github.com/vectorgrp/chiisai-hal-specification/blob/main/LICENSE)
-[![documentation](https://img.shields.io/badge/documentation-HTML-blue)](README.md)
+[![documentation](https://img.shields.io/badge/documentation-HTML-blue)](https://vectorgrp.github.io/chiisai-hal-specification/)
 [![vectorSite](https://img.shields.io/badge/vector-product%20site-red)](https://www.vector.com/us/en/)
 [![infineonSite](https://img.shields.io/badge/infineon-product%20site-purple)](https://www.infineon.com/)
 
@@ -12,7 +12,7 @@ An open, royalty-free standard for the Hardware Abstraction Layer (HAL) of small
 
 ## Viewing the specification
 
-- **Online:** [chiisai-hal-specification](https://github.com/vectorgrp/chiisai-hal-specification)
+- **Online (rendered documentation):** [chiisai-hal-specification.github.io](https://vectorgrp.github.io/chiisai-hal-specification/)
 - **Offline:** download or clone this repository and open **`index.html`** in a web browser. All
   pages, search, diagrams, and cross‑links work from the local files — no server or build step
   required.
