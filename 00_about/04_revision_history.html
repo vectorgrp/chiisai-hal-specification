@@ -7,7 +7,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Overview &mdash; Chiisai HAL Specification released documentation</title>
+  <title>Revision History &mdash; Chiisai HAL Specification released documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
       <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=4ae1632d" />
@@ -37,8 +37,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Architecture and Layering" href="01_architecture.html" />
-    <link rel="prev" title="General" href="index.html" /> 
+    <link rel="next" title="Contact Information" href="05_contact_information.html" />
+    <link rel="prev" title="Conformance" href="03_conformance.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -64,24 +64,16 @@
 
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../00_about/index.html">About This Specification</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">General</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Overview</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#what-the-chiisai-hal-is">What the Chiisai HAL is</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#what-every-driver-provides">What every driver provides</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#scope">Scope</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#out-of-scope">Out of scope</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">About This Specification</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="00_status.html">Specification Status</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01_reading_guide.html">How to Read This Specification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02_keywords.html">Requirement Keywords</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03_conformance.html">Conformance</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Revision History</a></li>
+<li class="toctree-l2"><a class="reference internal" href="05_contact_information.html">Contact Information</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="01_architecture.html">Architecture and Layering</a></li>
-<li class="toctree-l2"><a class="reference internal" href="02_conventions.html">Naming Conventions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="03_integration.html">Integration Guidelines</a></li>
-<li class="toctree-l2"><a class="reference internal" href="guide/index.html">Guide</a></li>
-<li class="toctree-l2"><a class="reference internal" href="reference/index.html">Reference</a></li>
-<li class="toctree-l2"><a class="reference internal" href="04_requirements.html">Requirements</a></li>
-<li class="toctree-l2"><a class="reference internal" href="05_design_decisions.html">Design Decisions</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="../01_general/index.html">General</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../04_DriverModules/index.html">Chiisai HAL Driver Modules</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../appendix.html">Appendix</a></li>
 </ul>
@@ -100,68 +92,47 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-          <li class="breadcrumb-item"><a href="index.html">General</a></li>
-      <li class="breadcrumb-item active">Overview</li>
+          <li class="breadcrumb-item"><a href="index.html">About This Specification</a></li>
+      <li class="breadcrumb-item active">Revision History</li>
   </ul>
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="overview">
-<h1>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h1>
+  <section id="revision-history">
+<h1>Revision History<a class="headerlink" href="#revision-history" title="Link to this heading"></a></h1>
 <div class="informative admonition">
 <p class="admonition-title">Informative</p>
-<p>What the Chiisai HAL is, why it exists, and what it deliberately leaves out. For who should read
-the specification and how it is organized, see <a class="reference internal" href="../00_about/01_reading_guide.html"><span class="doc">How to Read This Specification</span></a>.</p>
+<p>Record of changes to the Chiisai HAL specification set across its published revisions.</p>
 </div>
-<section id="what-the-chiisai-hal-is">
-<h2>What the Chiisai HAL is<a class="headerlink" href="#what-the-chiisai-hal-is" title="Link to this heading"></a></h2>
-<p>The Chiisai HAL is a standardized, open, resource-conscious hardware-abstraction layer for small,
-low-power microcontrollers with tight memory budgets — the kind used in cost-sensitive embedded
-systems such as sensors and actuators in automotive E/E architectures.</p>
-<p>It abstracts hardware-dependent functionality — especially communication peripherals — so that
-middleware and application code run across different MCU platforms without tight hardware coupling
-or restrictive licensing. Each driver encapsulates hardware-specific access behind a
-hardware-independent API and configuration, giving upper layers a unified interface for the core
-functionality while staying flexible enough to expose platform-specific features.</p>
-</section>
-<section id="what-every-driver-provides">
-<h2>What every driver provides<a class="headerlink" href="#what-every-driver-provides" title="Link to this heading"></a></h2>
-<p>Across modules, a Chiisai HAL driver typically provides:</p>
-<ul class="simple">
-<li><p>initialization and de-initialization of the underlying hardware;</p></li>
-<li><p>configuration of module- and channel-specific parameters;</p></li>
-<li><p>data I/O relevant to the hardware domain (transmit/receive, pin control, memory
-read/write/erase/blank-check, …);</p></li>
-<li><p>status reporting, error indication, and optional notification (event or polling).</p></li>
-</ul>
-<p>Module-specific capabilities and constraints are defined in the respective driver chapters under
-<a class="reference internal" href="../04_DriverModules/index.html"><span class="doc">Chiisai HAL Driver Modules</span></a>.</p>
-</section>
-<section id="scope">
-<h2>Scope<a class="headerlink" href="#scope" title="Link to this heading"></a></h2>
-<p>To balance generalisation with extensibility, the specification covers only the hardware elements
-commonly required by middleware layers — GPIO, memory, and the common communication interfaces
-(SPI, I2C, UART, CAN, LIN). This keeps the standard small while remaining flexible enough to
-accommodate platform-specific features without imposing rigid constraints.</p>
-</section>
-<section id="out-of-scope">
-<h2>Out of scope<a class="headerlink" href="#out-of-scope" title="Link to this heading"></a></h2>
-<p>The specification is strictly limited to the HAL layer. It deliberately excludes:</p>
-<ul class="simple">
-<li><p>application logic, operating-system components, and low-level driver internals;</p></li>
-<li><p>specialised peripherals such as <strong>ADC</strong> and <strong>PWM</strong>, left to silicon vendors as differentiators.</p></li>
-</ul>
-</section>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 15.0%" />
+<col style="width: 25.0%" />
+<col style="width: 60.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Rev.</p></th>
+<th class="head"><p>Date</p></th>
+<th class="head"><p>Description of Change</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1.00</p></td>
+<td><p>2026-09-08</p></td>
+<td><p>Initial release</p></td>
+</tr>
+</tbody>
+</table>
 </section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="index.html" class="btn btn-neutral float-left" title="General" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="01_architecture.html" class="btn btn-neutral float-right" title="Architecture and Layering" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="03_conformance.html" class="btn btn-neutral float-left" title="Conformance" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="05_contact_information.html" class="btn btn-neutral float-right" title="Contact Information" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

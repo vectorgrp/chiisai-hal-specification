@@ -1,12 +1,13 @@
 
 
+
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" data-content_root="../">
 <head>
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>About This Specification &mdash; Chiisai HAL Specification  documentation</title>
+  <title>About This Specification &mdash; Chiisai HAL Specification released documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
       <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=4ae1632d" />
@@ -19,12 +20,12 @@
       <link rel="stylesheet" type="text/css" href="../_static/sphinx-needs/common_css/need_style.css?v=92936fa5" />
       <link rel="stylesheet" type="text/css" href="../_static/sphinx-needs/common_css/need_toggle.css?v=5c6620df" />
       <link rel="stylesheet" type="text/css" href="../_static/sphinx-needs/modern.css?v=803738c0" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=4f645179" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=d26aa23c" />
 
   
       <script src="../_static/jquery.js?v=5d32c60e"></script>
       <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../_static/documentation_options.js?v=d68ad217"></script>
       <script src="../_static/doctools.js?v=fd6eb6e6"></script>
       <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
       <script src="../_static/design-tabs.js?v=f930bc37"></script>
@@ -36,8 +37,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="How to Read This Specification" href="00_reading_guide.html" />
-    <link rel="prev" title="Chiisai Project Documentation" href="../index.html" /> 
+    <link rel="next" title="Specification Status" href="00_status.html" />
+    <link rel="prev" title="Chiisai HAL Specification" href="../index.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -45,6 +46,7 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
+  
 
           
           
@@ -58,14 +60,17 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
+  <div class="spec-status-badge">Status: released</div>
+
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">About This Specification</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="00_reading_guide.html">How to Read This Specification</a></li>
-<li class="toctree-l2"><a class="reference internal" href="01_keywords.html">Requirement Keywords</a></li>
-<li class="toctree-l2"><a class="reference internal" href="02_conformance.html">Conformance</a></li>
-<li class="toctree-l2"><a class="reference internal" href="03_revision_history.html">Revision History</a></li>
-<li class="toctree-l2"><a class="reference internal" href="04_contact_information.html">Contact Information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="00_status.html">Specification Status</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01_reading_guide.html">How to Read This Specification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02_keywords.html">Requirement Keywords</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03_conformance.html">Conformance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04_revision_history.html">Revision History</a></li>
+<li class="toctree-l2"><a class="reference internal" href="05_contact_information.html">Contact Information</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../01_general/index.html">General</a></li>
@@ -96,19 +101,33 @@
              
   <section id="about-this-specification">
 <h1>About This Specification<a class="headerlink" href="#about-this-specification" title="Link to this heading"></a></h1>
-<div class="informative admonition">
-<p class="admonition-title">Informative</p>
-<p>Orientation material for readers of the Chiisai HAL specification: how it is structured, the
-requirement keywords it uses, and what conformance means.</p>
-</div>
+<p>This part is orientation material — read it first. It explains the current status of the
+specification, how it is structured, the requirement keywords it uses, and what conformance means.</p>
+<p><strong>What you’ll find here:</strong></p>
+<ul class="simple">
+<li><p><strong>Specification Status</strong> — the lifecycle status of the specification set (currently <strong>released</strong>)
+and what each status means.</p></li>
+<li><p><strong>How to Read This Specification</strong> — how the specification is organized: the three tiers (Guide,
+Reference, Requirements) and their audiences, the split between <em>normative</em> and <em>informative</em>
+content, and how requirement identifiers are formed.</p></li>
+<li><p><strong>Requirement Keywords</strong> — the RFC 2119 keywords (<strong>MUST</strong>, <strong>SHOULD</strong>, <strong>MAY</strong>, …) and how to
+interpret them wherever they appear in normative text.</p></li>
+<li><p><strong>Conformance</strong> — the single, authoritative definition of what makes a driver a <em>conformant</em>
+Chiisai HAL driver.</p></li>
+<li><p><strong>Revision History</strong> — the record of changes to the specification set across its published
+revisions.</p></li>
+<li><p><strong>Contact Information</strong> — how to reach the maintainers and where to raise questions, feedback, bug
+reports, or improvement proposals.</p></li>
+</ul>
 <div class="toctree-wrapper compound">
 <p class="caption" role="heading"><span class="caption-text">About:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="00_reading_guide.html">How to Read This Specification</a></li>
-<li class="toctree-l1"><a class="reference internal" href="01_keywords.html">Requirement Keywords</a></li>
-<li class="toctree-l1"><a class="reference internal" href="02_conformance.html">Conformance</a></li>
-<li class="toctree-l1"><a class="reference internal" href="03_revision_history.html">Revision History</a></li>
-<li class="toctree-l1"><a class="reference internal" href="04_contact_information.html">Contact Information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="00_status.html">Specification Status</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01_reading_guide.html">How to Read This Specification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_keywords.html">Requirement Keywords</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_conformance.html">Conformance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_revision_history.html">Revision History</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_contact_information.html">Contact Information</a></li>
 </ul>
 </div>
 </section>
@@ -117,14 +136,14 @@ requirement keywords it uses, and what conformance means.</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../index.html" class="btn btn-neutral float-left" title="Chiisai Project Documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="00_reading_guide.html" class="btn btn-neutral float-right" title="How to Read This Specification" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../index.html" class="btn btn-neutral float-left" title="Chiisai HAL Specification" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="00_status.html" class="btn btn-neutral float-right" title="Specification Status" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2026 by Vector Informatik GmbH and Infineon Technologies AG. All rights reserved.</p>
+    <p>&#169; Copyright 2023-2026 by Vector Informatik GmbH and Infineon Technologies AG. All rights reserved.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

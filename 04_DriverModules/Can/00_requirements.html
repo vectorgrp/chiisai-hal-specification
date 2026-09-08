@@ -1,12 +1,13 @@
 
 
+
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" data-content_root="../../">
 <head>
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Can — Requirements &mdash; Chiisai HAL Specification  documentation</title>
+  <title>Can — Requirements &mdash; Chiisai HAL Specification released documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=9edc463e" />
       <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css?v=4ae1632d" />
@@ -19,12 +20,12 @@
       <link rel="stylesheet" type="text/css" href="../../_static/sphinx-needs/common_css/need_style.css?v=92936fa5" />
       <link rel="stylesheet" type="text/css" href="../../_static/sphinx-needs/common_css/need_toggle.css?v=5c6620df" />
       <link rel="stylesheet" type="text/css" href="../../_static/sphinx-needs/modern.css?v=803738c0" />
-      <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=4f645179" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=d26aa23c" />
 
   
       <script src="../../_static/jquery.js?v=5d32c60e"></script>
       <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../../_static/documentation_options.js?v=d68ad217"></script>
       <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
       <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
       <script src="../../_static/design-tabs.js?v=f930bc37"></script>
@@ -45,6 +46,7 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
+  
 
           
           
@@ -58,6 +60,8 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
+  <div class="spec-status-badge">Status: released</div>
+
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../00_about/index.html">About This Specification</a></li>
@@ -112,8 +116,8 @@
 <div class="normative admonition">
 <p class="admonition-title">Normative</p>
 <p>Defines what a conformant CAN driver <strong>MUST</strong> do. Requirements are clustered by severity so the
-essential contract is read first — expand a cluster below. Keywords per <a class="reference internal" href="../../00_about/01_keywords.html"><span class="doc">Requirement Keywords</span></a>;
-conformance per <a class="reference internal" href="../../00_about/02_conformance.html"><span class="doc">Conformance</span></a>. Requirements do not carry individual status — the
+essential contract is read first — expand a cluster below. Keywords per <a class="reference internal" href="../../00_about/02_keywords.html"><span class="doc">Requirement Keywords</span></a>;
+conformance per <a class="reference internal" href="../../00_about/03_conformance.html"><span class="doc">Conformance</span></a>. Requirements do not carry individual status — the
 set-level status applies to all of them. Exact signatures, error codes, and configuration
 properties are in the <a class="reference internal" href="reference/00_api.html"><span class="doc">API Reference</span></a>, <a class="reference internal" href="reference/02_errors.html"><span class="doc">Errors</span></a>, and
 <a class="reference internal" href="reference/01_configuration.html"><span class="doc">Configuration Reference</span></a> pages.</p>
@@ -126,7 +130,7 @@ properties are in the <a class="reference internal" href="reference/00_api.html"
 <div class="sd-card-body docutils">
 <div class="sd-card-title sd-font-weight-bold docutils">
 Lifecycle and State Handling</div>
-<div class="need_container docutils container" id="SNCB-c292e09b">
+<div class="need_container docutils container" id="SNCB-627bb243">
 <table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-CAN-MUST-01">
 <tbody>
 <tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
@@ -143,7 +147,7 @@ Lifecycle and State Handling</div>
 </tbody>
 </table>
 </div>
-<div class="need_container docutils container" id="SNCB-f47e7c71">
+<div class="need_container docutils container" id="SNCB-014a917c">
 <table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-CAN-MUST-02">
 <tbody>
 <tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
@@ -163,7 +167,7 @@ no sleep state, a SLEEP→STOPPED request MUST leave the (already stopped) chann
 </tbody>
 </table>
 </div>
-<div class="need_container docutils container" id="SNCB-77d9fc39">
+<div class="need_container docutils container" id="SNCB-733c7a22">
 <table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-CAN-MUST-03">
 <tbody>
 <tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
@@ -182,7 +186,7 @@ synchronously).</p></td>
 </tbody>
 </table>
 </div>
-<div class="need_container docutils container" id="SNCB-9f239ee1">
+<div class="need_container docutils container" id="SNCB-9ff7b961">
 <table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-CAN-MUST-04">
 <tbody>
 <tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
@@ -205,7 +209,7 @@ messages.</p></td>
 <div class="sd-card-body docutils">
 <div class="sd-card-title sd-font-weight-bold docutils">
 Bus Participation</div>
-<div class="need_container docutils container" id="SNCB-0910ee8d">
+<div class="need_container docutils container" id="SNCB-724ce681">
 <table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-CAN-MUST-05">
 <tbody>
 <tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
@@ -221,7 +225,7 @@ configure the CAN hardware to ignore and reject all incoming remote transmission
 </tbody>
 </table>
 </div>
-<div class="need_container docutils container" id="SNCB-50f6c332">
+<div class="need_container docutils container" id="SNCB-13121e9e">
 <table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-CAN-MUST-06">
 <tbody>
 <tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
@@ -240,7 +244,7 @@ in polling mode, <code class="docutils literal notranslate"><span class="pre">Ca
 </tbody>
 </table>
 </div>
-<div class="need_container docutils container" id="SNCB-31aabc45">
+<div class="need_container docutils container" id="SNCB-00354076">
 <table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-CAN-MUST-07">
 <tbody>
 <tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
@@ -262,7 +266,7 @@ the upper layer’s responsibility (rationale: <a class="reference internal" hre
 <div class="sd-card-body docutils">
 <div class="sd-card-title sd-font-weight-bold docutils">
 Transmission</div>
-<div class="need_container docutils container" id="SNCB-f673dff0">
+<div class="need_container docutils container" id="SNCB-f5cc6638">
 <table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-CAN-MUST-08">
 <tbody>
 <tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
@@ -280,7 +284,7 @@ cancel that request, MUST take no action, and MUST return <code class="docutils 
 </tbody>
 </table>
 </div>
-<div class="need_container docutils container" id="SNCB-07128fb0">
+<div class="need_container docutils container" id="SNCB-5023d497">
 <table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-CAN-MUST-09">
 <tbody>
 <tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
@@ -297,7 +301,7 @@ completes.</p></td>
 </tbody>
 </table>
 </div>
-<div class="need_container docutils container" id="SNCB-f710d6c3">
+<div class="need_container docutils container" id="SNCB-3790f37c">
 <table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-CAN-MUST-10">
 <tbody>
 <tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
@@ -313,7 +317,7 @@ completes.</p></td>
 </tbody>
 </table>
 </div>
-<div class="need_container docutils container" id="SNCB-99e08d3b">
+<div class="need_container docutils container" id="SNCB-c5655e1a">
 <table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-CAN-MUST-11">
 <tbody>
 <tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
@@ -329,7 +333,7 @@ capability or be managed by the upper layer.</p></td>
 </tbody>
 </table>
 </div>
-<div class="need_container docutils container" id="SNCB-38c3e81f">
+<div class="need_container docutils container" id="SNCB-54145674">
 <table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-CAN-MUST-12">
 <tbody>
 <tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
@@ -354,7 +358,7 @@ and pad the unused bytes with the configured padding value.</p></td>
 <div class="sd-card-body docutils">
 <div class="sd-card-title sd-font-weight-bold docutils">
 Reception</div>
-<div class="need_container docutils container" id="SNCB-493a46e0">
+<div class="need_container docutils container" id="SNCB-5e0a397c">
 <table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-CAN-MUST-13">
 <tbody>
 <tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
@@ -370,7 +374,7 @@ the frame type (classic / CAN FD) and the ID type (standard / extended).</p></td
 </tbody>
 </table>
 </div>
-<div class="need_container docutils container" id="SNCB-8ff7d66f">
+<div class="need_container docutils container" id="SNCB-db1c55ad">
 <table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-CAN-MUST-14">
 <tbody>
 <tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
@@ -387,7 +391,7 @@ MUST rearrange the data so the upper layer always sees this order.</p></td>
 </tbody>
 </table>
 </div>
-<div class="need_container docutils container" id="SNCB-e148ae31">
+<div class="need_container docutils container" id="SNCB-5b37f7fc">
 <table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-CAN-MUST-15">
 <tbody>
 <tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
@@ -402,7 +406,7 @@ MUST rearrange the data so the upper layer always sees this order.</p></td>
 </tbody>
 </table>
 </div>
-<div class="need_container docutils container" id="SNCB-3e3be848">
+<div class="need_container docutils container" id="SNCB-1d76112d">
 <table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-CAN-MUST-16">
 <tbody>
 <tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
@@ -424,7 +428,7 @@ hardware FIFO or as multiple identically-configured objects (shadow buffer).</p>
 <div class="sd-card-body docutils">
 <div class="sd-card-title sd-font-weight-bold docutils">
 Configuration objects</div>
-<div class="need_container docutils container" id="SNCB-02d03cc5">
+<div class="need_container docutils container" id="SNCB-7a893edc">
 <table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-CAN-MUST-17">
 <tbody>
 <tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
@@ -446,7 +450,7 @@ consists of one or more hardware object handles (HOHs).</p></td>
 <div class="sd-card-body docutils">
 <div class="sd-card-title sd-font-weight-bold docutils">
 Events, Notifications, and Scheduling</div>
-<div class="need_container docutils container" id="SNCB-bafd97a8">
+<div class="need_container docutils container" id="SNCB-816fd27d">
 <table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-CAN-MUST-18">
 <tbody>
 <tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
@@ -464,7 +468,7 @@ polling.</p></td>
 </tbody>
 </table>
 </div>
-<div class="need_container docutils container" id="SNCB-f47529b9">
+<div class="need_container docutils container" id="SNCB-13da0b06">
 <table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-CAN-MUST-19">
 <tbody>
 <tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
@@ -482,7 +486,7 @@ polling mode, from the appropriate scheduling function.</p></td>
 </tbody>
 </table>
 </div>
-<div class="need_container docutils container" id="SNCB-3607104b">
+<div class="need_container docutils container" id="SNCB-c42654f0">
 <table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-CAN-MUST-20">
 <tbody>
 <tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
@@ -506,7 +510,7 @@ polling.</p></td>
 <div class="sd-card-body docutils">
 <div class="sd-card-title sd-font-weight-bold docutils">
 Errors</div>
-<div class="need_container docutils container" id="SNCB-2a188822">
+<div class="need_container docutils container" id="SNCB-b97f0f05">
 <table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-CAN-MUST-21">
 <tbody>
 <tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
@@ -523,7 +527,7 @@ channel or mailbox id, null pointer, invalid length, invalid state transition).<
 </tbody>
 </table>
 </div>
-<div class="need_container docutils container" id="SNCB-1e4040f8">
+<div class="need_container docutils container" id="SNCB-acdd6ff3">
 <table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-CAN-MUST-22">
 <tbody>
 <tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
@@ -546,7 +550,7 @@ mode, <code class="docutils literal notranslate"><span class="pre">Can_CyclicFun
 <div class="sd-card-body docutils">
 <div class="sd-card-title sd-font-weight-bold docutils">
 API, Types and Interfaces</div>
-<div class="need_container docutils container" id="SNCB-4e1db99a">
+<div class="need_container docutils container" id="SNCB-04451458">
 <table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-CAN-MUST-23">
 <tbody>
 <tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
@@ -564,7 +568,7 @@ return values, and side effects described there.</p></td>
 </tbody>
 </table>
 </div>
-<div class="need_container docutils container" id="SNCB-3481bcf7">
+<div class="need_container docutils container" id="SNCB-8a79bafc">
 <table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-CAN-MUST-24">
 <tbody>
 <tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
@@ -581,7 +585,7 @@ return values, and side effects described there.</p></td>
 </tbody>
 </table>
 </div>
-<div class="need_container docutils container" id="SNCB-2bc7cea4">
+<div class="need_container docutils container" id="SNCB-7761c203">
 <table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-CAN-MUST-25">
 <tbody>
 <tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
@@ -599,7 +603,7 @@ return values, and side effects described there.</p></td>
 </tbody>
 </table>
 </div>
-<div class="need_container docutils container" id="SNCB-5e740c0a">
+<div class="need_container docutils container" id="SNCB-dcd3d7e6">
 <table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-CAN-MUST-26">
 <tbody>
 <tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
@@ -628,7 +632,7 @@ toolchain and file schema are implementation-defined.</p></td>
 <div class="sd-card-body docutils">
 <div class="sd-card-title sd-font-weight-bold docutils">
 Runtime Configuration</div>
-<div class="need_container docutils container" id="SNCB-3742a52c">
+<div class="need_container docutils container" id="SNCB-ca8563a9">
 <table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-CAN-SHOULD-01">
 <tbody>
 <tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
@@ -657,7 +661,7 @@ select a preconfigured baudrate set while the channel is in <code class="docutil
 <div class="sd-card-body docutils">
 <div class="sd-card-title sd-font-weight-bold docutils">
 Optional Features</div>
-<div class="need_container docutils container" id="SNCB-e4935ceb">
+<div class="need_container docutils container" id="SNCB-64afc16a">
 <table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-CAN-MAY-01">
 <tbody>
 <tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
@@ -673,7 +677,7 @@ single TX mailbox and using the corresponding hardware mechanism.</p></td>
 </tbody>
 </table>
 </div>
-<div class="need_container docutils container" id="SNCB-79c89772">
+<div class="need_container docutils container" id="SNCB-771980f4">
 <table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-CAN-MAY-02">
 <tbody>
 <tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
@@ -705,7 +709,7 @@ a lost received frame via <code class="docutils literal notranslate"><span class
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2026 by Vector Informatik GmbH and Infineon Technologies AG. All rights reserved.</p>
+    <p>&#169; Copyright 2023-2026 by Vector Informatik GmbH and Infineon Technologies AG. All rights reserved.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

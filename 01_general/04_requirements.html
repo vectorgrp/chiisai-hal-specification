@@ -1,12 +1,13 @@
 
 
+
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" data-content_root="../">
 <head>
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Requirements &mdash; Chiisai HAL Specification  documentation</title>
+  <title>Requirements &mdash; Chiisai HAL Specification released documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
       <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=4ae1632d" />
@@ -19,12 +20,12 @@
       <link rel="stylesheet" type="text/css" href="../_static/sphinx-needs/common_css/need_style.css?v=92936fa5" />
       <link rel="stylesheet" type="text/css" href="../_static/sphinx-needs/common_css/need_toggle.css?v=5c6620df" />
       <link rel="stylesheet" type="text/css" href="../_static/sphinx-needs/modern.css?v=803738c0" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=4f645179" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=d26aa23c" />
 
   
       <script src="../_static/jquery.js?v=5d32c60e"></script>
       <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../_static/documentation_options.js?v=d68ad217"></script>
       <script src="../_static/doctools.js?v=fd6eb6e6"></script>
       <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
       <script src="../_static/design-tabs.js?v=f930bc37"></script>
@@ -45,6 +46,7 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
+  
 
           
           
@@ -58,6 +60,8 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
+  <div class="spec-status-badge">Status: released</div>
+
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../00_about/index.html">About This Specification</a></li>
@@ -104,7 +108,7 @@
 <p class="admonition-title">Normative</p>
 <p>The cross-module rules every conformant Chiisai HAL driver <strong>MUST</strong> satisfy, in addition to its
 own module requirements. Clustered by severity — expand a cluster below. Keywords per
-<a class="reference internal" href="../00_about/01_keywords.html"><span class="doc">Requirement Keywords</span></a>; conformance per <a class="reference internal" href="../00_about/02_conformance.html"><span class="doc">Conformance</span></a>. Requirements do not carry
+<a class="reference internal" href="../00_about/02_keywords.html"><span class="doc">Requirement Keywords</span></a>; conformance per <a class="reference internal" href="../00_about/03_conformance.html"><span class="doc">Conformance</span></a>. Requirements do not carry
 individual status — the set-level status applies to all of them. The naming scheme is illustrated
 in <a class="reference internal" href="02_conventions.html"><span class="doc">Naming Conventions</span></a>; the shared types and services are catalogued in the
 <a class="reference internal" href="reference/index.html"><span class="doc">Reference</span></a>.</p>
@@ -117,7 +121,7 @@ in <a class="reference internal" href="02_conventions.html"><span class="doc">Na
 <div class="sd-card-body docutils">
 <div class="sd-card-title sd-font-weight-bold docutils">
 Naming</div>
-<div class="need_container docutils container" id="SNCB-27bbfcb5">
+<div class="need_container docutils container" id="SNCB-08f0e08e">
 <table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-GEN-MUST-01">
 <tbody>
 <tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
@@ -134,7 +138,7 @@ infixes MAY be omitted for a single-instance microcontroller-internal driver.</p
 </tbody>
 </table>
 </div>
-<div class="need_container docutils container" id="SNCB-0e487866">
+<div class="need_container docutils container" id="SNCB-839f4cc8">
 <table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-GEN-MUST-02">
 <tbody>
 <tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
@@ -158,7 +162,7 @@ variables as <code class="docutils literal notranslate"><span class="pre">&lt;Mi
 <div class="sd-card-body docutils">
 <div class="sd-card-title sd-font-weight-bold docutils">
 Files and packaging</div>
-<div class="need_container docutils container" id="SNCB-273b444a">
+<div class="need_container docutils container" id="SNCB-66cada41">
 <table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-GEN-MUST-03">
 <tbody>
 <tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
@@ -176,7 +180,7 @@ header other than the general types header MUST carry an include guard named aft
 </tbody>
 </table>
 </div>
-<div class="need_container docutils container" id="SNCB-9941e242">
+<div class="need_container docutils container" id="SNCB-ea0e1b23">
 <table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-GEN-MUST-04">
 <tbody>
 <tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
@@ -195,7 +199,7 @@ interface stack MUST name it <code class="docutils literal notranslate"><span cl
 </tbody>
 </table>
 </div>
-<div class="need_container docutils container" id="SNCB-a3d6c41d">
+<div class="need_container docutils container" id="SNCB-a89deba6">
 <table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-GEN-MUST-05">
 <tbody>
 <tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
@@ -212,7 +216,7 @@ the toolchain checks declarations against definitions (consistency check).</p></
 </tbody>
 </table>
 </div>
-<div class="need_container docutils container" id="SNCB-11bbba86">
+<div class="need_container docutils container" id="SNCB-059f4a0b">
 <table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-GEN-MUST-06">
 <tbody>
 <tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
@@ -223,7 +227,7 @@ the toolchain checks declarations against definitions (consistency check).</p></
 <tr class="need meta row-even"><td class="need meta"></td>
 </tr>
 <tr class="need content row-odd"><td class="need content" colspan="1"><p class="sd-card-text">Each module package MUST follow the common directory structure (<code class="docutils literal notranslate"><span class="pre">&lt;Mip&gt;/</span></code> containing
-<code class="docutils literal notranslate"><span class="pre">documentation/</span></code>, <code class="docutils literal notranslate"><span class="pre">generator/</span></code>, and <code class="docutils literal notranslate"><span class="pre">implementation/</span></code> as sibling folders — see
+<code class="docutils literal notranslate"><span class="pre">Documentation/</span></code>, <code class="docutils literal notranslate"><span class="pre">Generator/</span></code>, and <code class="docutils literal notranslate"><span class="pre">Implementation/</span></code> as sibling folders — see
 <a class="reference internal" href="03_integration.html"><span class="doc">Integration Guidelines</span></a>). Additional sub-folders under <code class="docutils literal notranslate"><span class="pre">&lt;Mip&gt;</span></code> are allowed.</p></td>
 </tr>
 </tbody>
@@ -235,7 +239,7 @@ the toolchain checks declarations against definitions (consistency check).</p></
 <div class="sd-card-body docutils">
 <div class="sd-card-title sd-font-weight-bold docutils">
 Memory mapping</div>
-<div class="need_container docutils container" id="SNCB-5893fa99">
+<div class="need_container docutils container" id="SNCB-31288ac5">
 <table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-GEN-MUST-07">
 <tbody>
 <tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
@@ -253,7 +257,7 @@ memory-mapping header MUST select sections by checking the module-specific alloc
 </tbody>
 </table>
 </div>
-<div class="need_container docutils container" id="SNCB-9755a788">
+<div class="need_container docutils container" id="SNCB-4f87a4c0">
 <table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-GEN-MUST-08">
 <tbody>
 <tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
@@ -282,7 +286,7 @@ with <code class="docutils literal notranslate"><span class="pre">&lt;INIT_POLIC
 <div class="sd-card-body docutils">
 <div class="sd-card-title sd-font-weight-bold docutils">
 Shared type and service contract</div>
-<div class="need_container docutils container" id="SNCB-a0a4be8e">
+<div class="need_container docutils container" id="SNCB-70e8448e">
 <table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-GEN-MUST-09">
 <tbody>
 <tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
@@ -303,7 +307,7 @@ platform integer and float types, <code class="docutils literal notranslate"><sp
 </tbody>
 </table>
 </div>
-<div class="need_container docutils container" id="SNCB-9675de2c">
+<div class="need_container docutils container" id="SNCB-0f32ba1f">
 <table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-GEN-MUST-10">
 <tbody>
 <tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
@@ -329,7 +333,7 @@ macro, and use the standard memory utilities (<code class="docutils literal notr
 <div class="sd-card-body docutils">
 <div class="sd-card-title sd-font-weight-bold docutils">
 Handlers</div>
-<div class="need_container docutils container" id="SNCB-774048e3">
+<div class="need_container docutils container" id="SNCB-7a7e36f6">
 <table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-GEN-MUST-11">
 <tbody>
 <tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
@@ -353,7 +357,7 @@ corresponding events are interrupt-driven), so integration code stays uniform.</
 <div class="sd-card-body docutils">
 <div class="sd-card-title sd-font-weight-bold docutils">
 Configuration and documentation</div>
-<div class="need_container docutils container" id="SNCB-7a7d066a">
+<div class="need_container docutils container" id="SNCB-87170468">
 <table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-GEN-MUST-12">
 <tbody>
 <tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
@@ -371,7 +375,7 @@ and enum values <code class="docutils literal notranslate"><span class="pre">SNA
 </tbody>
 </table>
 </div>
-<div class="need_container docutils container" id="SNCB-73a82189">
+<div class="need_container docutils container" id="SNCB-e61de1c7">
 <table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-GEN-MUST-13">
 <tbody>
 <tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
@@ -397,7 +401,7 @@ family / derivative / stepping, the toolchain name, version, and options, and th
 <div class="sd-card-body docutils">
 <div class="sd-card-title sd-font-weight-bold docutils">
 Callouts</div>
-<div class="need_container docutils container" id="SNCB-d32177ee">
+<div class="need_container docutils container" id="SNCB-c1244a92">
 <table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-GEN-MUST-14">
 <tbody>
 <tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
@@ -415,7 +419,7 @@ overwrite), and the callout prototype MUST be available via the module public he
 </tbody>
 </table>
 </div>
-<div class="need_container docutils container" id="SNCB-a7399fd2">
+<div class="need_container docutils container" id="SNCB-02c7ae0c">
 <table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-GEN-MUST-15">
 <tbody>
 <tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
@@ -454,7 +458,7 @@ documented among the module’s services — not among its callouts.</p>
 </tbody>
 </table>
 </div>
-<div class="need_container docutils container" id="SNCB-fe42ff96">
+<div class="need_container docutils container" id="SNCB-126f4d15">
 <table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-GEN-MUST-16">
 <tbody>
 <tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
@@ -495,7 +499,7 @@ and MUST be wrapped in a code-section pair per <a class="reference internal" hre
 <div class="sd-card-body docutils">
 <div class="sd-card-title sd-font-weight-bold docutils">
 Instances and vendor differentiation</div>
-<div class="need_container docutils container" id="SNCB-e7f58a21">
+<div class="need_container docutils container" id="SNCB-92fcbe70">
 <table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-GEN-SHOULD-01">
 <tbody>
 <tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
@@ -512,7 +516,7 @@ avoid symbol conflicts. External-hardware drivers in particular SHOULD use the i
 </tbody>
 </table>
 </div>
-<div class="need_container docutils container" id="SNCB-4ec3842e">
+<div class="need_container docutils container" id="SNCB-d1d5c5a5">
 <table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-GEN-SHOULD-02">
 <tbody>
 <tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
@@ -535,7 +539,7 @@ number, or a target such as <code class="docutils literal notranslate"><span cla
 <div class="sd-card-body docutils">
 <div class="sd-card-title sd-font-weight-bold docutils">
 Memory mapping</div>
-<div class="need_container docutils container" id="SNCB-14dd2c10">
+<div class="need_container docutils container" id="SNCB-f832c517">
 <table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-GEN-SHOULD-03">
 <tbody>
 <tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
@@ -568,7 +572,7 @@ memory sections as the driver (via its own memory-mapping mechanism or a linker 
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2026 by Vector Informatik GmbH and Infineon Technologies AG. All rights reserved.</p>
+    <p>&#169; Copyright 2023-2026 by Vector Informatik GmbH and Infineon Technologies AG. All rights reserved.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

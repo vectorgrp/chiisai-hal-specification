@@ -1,12 +1,13 @@
 
 
+
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" data-content_root="../">
 <head>
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>How to Read This Specification &mdash; Chiisai HAL Specification  documentation</title>
+  <title>How to Read This Specification &mdash; Chiisai HAL Specification released documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
       <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=4ae1632d" />
@@ -19,12 +20,12 @@
       <link rel="stylesheet" type="text/css" href="../_static/sphinx-needs/common_css/need_style.css?v=92936fa5" />
       <link rel="stylesheet" type="text/css" href="../_static/sphinx-needs/common_css/need_toggle.css?v=5c6620df" />
       <link rel="stylesheet" type="text/css" href="../_static/sphinx-needs/modern.css?v=803738c0" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=4f645179" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=d26aa23c" />
 
   
       <script src="../_static/jquery.js?v=5d32c60e"></script>
       <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../_static/documentation_options.js?v=d68ad217"></script>
       <script src="../_static/doctools.js?v=fd6eb6e6"></script>
       <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
       <script src="../_static/design-tabs.js?v=f930bc37"></script>
@@ -36,8 +37,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Requirement Keywords" href="01_keywords.html" />
-    <link rel="prev" title="About This Specification" href="index.html" /> 
+    <link rel="next" title="Requirement Keywords" href="02_keywords.html" />
+    <link rel="prev" title="Specification Status" href="00_status.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -45,6 +46,7 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
+  
 
           
           
@@ -58,19 +60,22 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
+  <div class="spec-status-badge">Status: released</div>
+
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">About This Specification</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="00_status.html">Specification Status</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">How to Read This Specification</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#the-three-tiers">The Three Tiers</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#normative-vs-informative">Normative vs. Informative</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#requirements-ids-and-status">Requirements, IDs, and status</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="01_keywords.html">Requirement Keywords</a></li>
-<li class="toctree-l2"><a class="reference internal" href="02_conformance.html">Conformance</a></li>
-<li class="toctree-l2"><a class="reference internal" href="03_revision_history.html">Revision History</a></li>
-<li class="toctree-l2"><a class="reference internal" href="04_contact_information.html">Contact Information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02_keywords.html">Requirement Keywords</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03_conformance.html">Conformance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04_revision_history.html">Revision History</a></li>
+<li class="toctree-l2"><a class="reference internal" href="05_contact_information.html">Contact Information</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../01_general/index.html">General</a></li>
@@ -151,7 +156,7 @@ relevant API reference block, to the requirement IDs that govern it, via cross-l
 <p>Every page declares which kind of content it is:</p>
 <div class="normative admonition">
 <p class="admonition-title">Normative</p>
-<p>Defines what a conformant driver <strong>MUST</strong> do. Requirement keywords follow <a class="reference internal" href="01_keywords.html"><span class="doc">Requirement Keywords</span></a>.
+<p>Defines what a conformant driver <strong>MUST</strong> do. Requirement keywords follow <a class="reference internal" href="02_keywords.html"><span class="doc">Requirement Keywords</span></a>.
 Normative content appears on <strong>Reference</strong> and <strong>Requirements</strong> pages.</p>
 </div>
 <div class="informative admonition">
@@ -173,10 +178,10 @@ example <code class="docutils literal notranslate"><span class="pre">CHI-CAN-MUS
 independently per module. One identifier corresponds to one functional rule, not to each
 sentence.</p></li>
 <li><p>Within a module, requirements are grouped under <strong>Mandatory (MUST)</strong>, <strong>Recommended (SHOULD)</strong>,
-and <strong>Optional (MAY)</strong> so the essential contract is read first. See <a class="reference internal" href="01_keywords.html"><span class="doc">Requirement Keywords</span></a>.</p></li>
+and <strong>Optional (MAY)</strong> so the essential contract is read first. See <a class="reference internal" href="02_keywords.html"><span class="doc">Requirement Keywords</span></a>.</p></li>
 <li><p>The specification set carries a <strong>single lifecycle status</strong> (<code class="docutils literal notranslate"><span class="pre">draft</span></code> → <code class="docutils literal notranslate"><span class="pre">approved</span></code> →
 <code class="docutils literal notranslate"><span class="pre">released</span></code>); individual requirements do not repeat it.</p></li>
-<li><p>Conformance is defined once, in <a class="reference internal" href="02_conformance.html"><span class="doc">Conformance</span></a>.</p></li>
+<li><p>Conformance is defined once, in <a class="reference internal" href="03_conformance.html"><span class="doc">Conformance</span></a>.</p></li>
 </ul>
 </section>
 </section>
@@ -185,14 +190,14 @@ and <strong>Optional (MAY)</strong> so the essential contract is read first. See
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="index.html" class="btn btn-neutral float-left" title="About This Specification" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="01_keywords.html" class="btn btn-neutral float-right" title="Requirement Keywords" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="00_status.html" class="btn btn-neutral float-left" title="Specification Status" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="02_keywords.html" class="btn btn-neutral float-right" title="Requirement Keywords" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2026 by Vector Informatik GmbH and Infineon Technologies AG. All rights reserved.</p>
+    <p>&#169; Copyright 2023-2026 by Vector Informatik GmbH and Infineon Technologies AG. All rights reserved.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

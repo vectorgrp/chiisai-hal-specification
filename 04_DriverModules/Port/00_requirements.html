@@ -1,12 +1,13 @@
 
 
+
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" data-content_root="../../">
 <head>
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Port — Requirements &mdash; Chiisai HAL Specification  documentation</title>
+  <title>Port — Requirements &mdash; Chiisai HAL Specification released documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=9edc463e" />
       <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css?v=4ae1632d" />
@@ -19,12 +20,12 @@
       <link rel="stylesheet" type="text/css" href="../../_static/sphinx-needs/common_css/need_style.css?v=92936fa5" />
       <link rel="stylesheet" type="text/css" href="../../_static/sphinx-needs/common_css/need_toggle.css?v=5c6620df" />
       <link rel="stylesheet" type="text/css" href="../../_static/sphinx-needs/modern.css?v=803738c0" />
-      <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=4f645179" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=d26aa23c" />
 
   
       <script src="../../_static/jquery.js?v=5d32c60e"></script>
       <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../../_static/documentation_options.js?v=d68ad217"></script>
       <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
       <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
       <script src="../../_static/design-tabs.js?v=f930bc37"></script>
@@ -45,6 +46,7 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
+  
 
           
           
@@ -58,6 +60,8 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
+  <div class="spec-status-badge">Status: released</div>
+
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../00_about/index.html">About This Specification</a></li>
@@ -111,8 +115,8 @@
 <h1>Port — Requirements<a class="headerlink" href="#port-requirements" title="Link to this heading"></a></h1>
 <div class="normative admonition">
 <p class="admonition-title">Normative</p>
-<p>Defines what a conformant Port driver <strong>MUST</strong> do. Keywords per <a class="reference internal" href="../../00_about/01_keywords.html"><span class="doc">Requirement Keywords</span></a>;
-conformance per <a class="reference internal" href="../../00_about/02_conformance.html"><span class="doc">Conformance</span></a>. Requirements do not carry individual status —
+<p>Defines what a conformant Port driver <strong>MUST</strong> do. Keywords per <a class="reference internal" href="../../00_about/02_keywords.html"><span class="doc">Requirement Keywords</span></a>;
+conformance per <a class="reference internal" href="../../00_about/03_conformance.html"><span class="doc">Conformance</span></a>. Requirements do not carry individual status —
 the set-level status applies to all of them. Signatures, error codes, and configuration
 properties are in the <a class="reference internal" href="reference/00_api.html"><span class="doc">API Reference</span></a>, <a class="reference internal" href="reference/02_errors.html"><span class="doc">Errors</span></a>, and
 <a class="reference internal" href="reference/01_configuration.html"><span class="doc">Configuration Reference</span></a> pages. Cross-module rules (types, error model, naming, memory mapping) are in
@@ -126,7 +130,7 @@ properties are in the <a class="reference internal" href="reference/00_api.html"
 <div class="sd-card-body docutils">
 <div class="sd-card-title sd-font-weight-bold docutils">
 State machine and lifecycle</div>
-<div class="need_container docutils container" id="SNCB-0412dc6f">
+<div class="need_container docutils container" id="SNCB-c2bdc4b2">
 <table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-PORT-MUST-01">
 <tbody>
 <tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
@@ -143,7 +147,7 @@ pin’s function and direction are fixed once <code class="docutils literal notr
 </tbody>
 </table>
 </div>
-<div class="need_container docutils container" id="SNCB-bc25b696">
+<div class="need_container docutils container" id="SNCB-d0b72b29">
 <table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-PORT-MUST-02">
 <tbody>
 <tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
@@ -166,7 +170,7 @@ disable edge detection on every pin. <code class="docutils literal notranslate">
 <div class="sd-card-body docutils">
 <div class="sd-card-title sd-font-weight-bold docutils">
 Pin and port access</div>
-<div class="need_container docutils container" id="SNCB-850c5575">
+<div class="need_container docutils container" id="SNCB-494b7b62">
 <table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-PORT-MUST-03">
 <tbody>
 <tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
@@ -185,7 +189,7 @@ Get API MUST return <code class="docutils literal notranslate"><span class="pre"
 </tbody>
 </table>
 </div>
-<div class="need_container docutils container" id="SNCB-91400f08">
+<div class="need_container docutils container" id="SNCB-1ae7a421">
 <table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-PORT-MUST-04">
 <tbody>
 <tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
@@ -201,7 +205,7 @@ Get API MUST return <code class="docutils literal notranslate"><span class="pre"
 </tbody>
 </table>
 </div>
-<div class="need_container docutils container" id="SNCB-2851bf8e">
+<div class="need_container docutils container" id="SNCB-086af279">
 <table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-PORT-MUST-05">
 <tbody>
 <tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
@@ -218,7 +222,7 @@ thread-safe (e.g. via an atomic manipulation or a HW read-modify-write protectio
 </tbody>
 </table>
 </div>
-<div class="need_container docutils container" id="SNCB-6294ac1c">
+<div class="need_container docutils container" id="SNCB-1ff71501">
 <table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-PORT-MUST-06">
 <tbody>
 <tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
@@ -241,7 +245,7 @@ select every pin in the port.</p></td>
 <div class="sd-card-body docutils">
 <div class="sd-card-title sd-font-weight-bold docutils">
 Edge detection</div>
-<div class="need_container docutils container" id="SNCB-aa7c5131">
+<div class="need_container docutils container" id="SNCB-71e32b45">
 <table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-PORT-MUST-07">
 <tbody>
 <tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
@@ -258,7 +262,7 @@ after <code class="docutils literal notranslate"><span class="pre">Port_Init</sp
 </tbody>
 </table>
 </div>
-<div class="need_container docutils container" id="SNCB-6d326889">
+<div class="need_container docutils container" id="SNCB-cd845b78">
 <table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-PORT-MUST-08">
 <tbody>
 <tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
@@ -274,7 +278,7 @@ id. <code class="docutils literal notranslate"><span class="pre">Port_Interrupt<
 </tbody>
 </table>
 </div>
-<div class="need_container docutils container" id="SNCB-a0b0312c">
+<div class="need_container docutils container" id="SNCB-fea6b5a3">
 <table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-PORT-MUST-09">
 <tbody>
 <tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
@@ -296,7 +300,7 @@ polling the hardware, for pins configured for polling.</p></td>
 <div class="sd-card-body docutils">
 <div class="sd-card-title sd-font-weight-bold docutils">
 Symbols, types, errors, and configuration</div>
-<div class="need_container docutils container" id="SNCB-dff95377">
+<div class="need_container docutils container" id="SNCB-127fe8c6">
 <table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-PORT-MUST-10">
 <tbody>
 <tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
@@ -315,7 +319,7 @@ symbols <code class="docutils literal notranslate"><span class="pre">PORT_PORT_P
 </tbody>
 </table>
 </div>
-<div class="need_container docutils container" id="SNCB-119ce7c7">
+<div class="need_container docutils container" id="SNCB-7de93a26">
 <table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-PORT-MUST-11">
 <tbody>
 <tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
@@ -331,7 +335,7 @@ symbols <code class="docutils literal notranslate"><span class="pre">PORT_PORT_P
 </tbody>
 </table>
 </div>
-<div class="need_container docutils container" id="SNCB-ff6d4117">
+<div class="need_container docutils container" id="SNCB-47e8ea7b">
 <table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-PORT-MUST-12">
 <tbody>
 <tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
@@ -351,7 +355,7 @@ defined there, and MUST use the shared type system from <a class="reference inte
 </tbody>
 </table>
 </div>
-<div class="need_container docutils container" id="SNCB-55d3bfea">
+<div class="need_container docutils container" id="SNCB-88d7e276">
 <table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-PORT-MUST-13">
 <tbody>
 <tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
@@ -378,7 +382,7 @@ list — following the common model in <a class="reference internal" href="../..
 <div class="sd-card-body docutils">
 <div class="sd-card-title sd-font-weight-bold docutils">
 Masked writes</div>
-<div class="need_container docutils container" id="SNCB-505c6ce5">
+<div class="need_container docutils container" id="SNCB-964a26c2">
 <table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-PORT-SHOULD-01">
 <tbody>
 <tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
@@ -411,7 +415,7 @@ call.</p></td>
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2026 by Vector Informatik GmbH and Infineon Technologies AG. All rights reserved.</p>
+    <p>&#169; Copyright 2023-2026 by Vector Informatik GmbH and Infineon Technologies AG. All rights reserved.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

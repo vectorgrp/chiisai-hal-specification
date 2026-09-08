@@ -1,12 +1,13 @@
 
 
+
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" data-content_root="../">
 <head>
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>General &mdash; Chiisai HAL Specification  documentation</title>
+  <title>General &mdash; Chiisai HAL Specification released documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
       <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=4ae1632d" />
@@ -19,12 +20,12 @@
       <link rel="stylesheet" type="text/css" href="../_static/sphinx-needs/common_css/need_style.css?v=92936fa5" />
       <link rel="stylesheet" type="text/css" href="../_static/sphinx-needs/common_css/need_toggle.css?v=5c6620df" />
       <link rel="stylesheet" type="text/css" href="../_static/sphinx-needs/modern.css?v=803738c0" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=4f645179" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=d26aa23c" />
 
   
       <script src="../_static/jquery.js?v=5d32c60e"></script>
       <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../_static/documentation_options.js?v=d68ad217"></script>
       <script src="../_static/doctools.js?v=fd6eb6e6"></script>
       <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
       <script src="../_static/design-tabs.js?v=f930bc37"></script>
@@ -37,7 +38,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Overview" href="00_overview.html" />
-    <link rel="prev" title="Contact Information" href="../00_about/04_contact_information.html" /> 
+    <link rel="prev" title="Contact Information" href="../00_about/05_contact_information.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -45,6 +46,7 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
+  
 
           
           
@@ -58,6 +60,8 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
+  <div class="spec-status-badge">Status: released</div>
+
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../00_about/index.html">About This Specification</a></li>
@@ -99,13 +103,27 @@
              
   <section id="general">
 <h1>General<a class="headerlink" href="#general" title="Link to this heading"></a></h1>
-<div class="informative admonition">
-<p class="admonition-title">Informative</p>
-<p>The cross-module foundation of the Chiisai HAL: what it is, how it is layered, the conventions
-every driver follows, how a driver is integrated, the shared type and error contract all modules
-build on, and the rationale behind the cross-module rules. Read this before the individual driver
-modules. Requirement keywords and conformance are defined in <a class="reference internal" href="../00_about/index.html"><span class="doc">About This Specification</span></a>.</p>
-</div>
+<p>This part establishes the shared foundation that every driver module builds on — read it before the
+individual modules. Requirement keywords and conformance are defined in <a class="reference internal" href="../00_about/index.html"><span class="doc">About This Specification</span></a>.</p>
+<p><strong>What you’ll find here:</strong></p>
+<ul class="simple">
+<li><p><strong>Overview</strong> — what the Chiisai HAL is, the peripherals it covers, and what it deliberately leaves
+out.</p></li>
+<li><p><strong>Architecture and Layering</strong> — where a driver sits in the system, how it is layered against the
+software above and the hardware below, and how it reports events upward.</p></li>
+<li><p><strong>Naming Conventions</strong> — the naming scheme and file layout every driver follows, so modules from
+different vendors look and integrate consistently.</p></li>
+<li><p><strong>Integration Guidelines</strong> — how a driver is packaged, configured, and wired into a project, from
+the integrator’s point of view.</p></li>
+<li><p><strong>Guide</strong> — worked examples of the shared concepts in real driver code, generalized skeletons of
+the foundation headers, and the callout file an integrator fills in.</p></li>
+<li><p><strong>Reference</strong> — the shared type system, compiler abstraction, and services every driver <strong>MUST</strong>
+provide and use (normative).</p></li>
+<li><p><strong>Requirements</strong> — the cross-module rules every conformant driver <strong>MUST</strong> satisfy, clustered by
+severity.</p></li>
+<li><p><strong>Design Decisions</strong> — the rationale behind the cross-module rules, so you understand <em>why</em> the
+contract looks the way it does.</p></li>
+</ul>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="00_overview.html">Overview</a></li>
@@ -124,14 +142,14 @@ modules. Requirement keywords and conformance are defined in <a class="reference
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../00_about/04_contact_information.html" class="btn btn-neutral float-left" title="Contact Information" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../00_about/05_contact_information.html" class="btn btn-neutral float-left" title="Contact Information" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="00_overview.html" class="btn btn-neutral float-right" title="Overview" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2026 by Vector Informatik GmbH and Infineon Technologies AG. All rights reserved.</p>
+    <p>&#169; Copyright 2023-2026 by Vector Informatik GmbH and Infineon Technologies AG. All rights reserved.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

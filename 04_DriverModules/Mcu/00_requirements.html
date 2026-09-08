@@ -1,12 +1,13 @@
 
 
+
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" data-content_root="../../">
 <head>
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mcu — Requirements &mdash; Chiisai HAL Specification  documentation</title>
+  <title>Mcu — Requirements &mdash; Chiisai HAL Specification released documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=9edc463e" />
       <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css?v=4ae1632d" />
@@ -19,12 +20,12 @@
       <link rel="stylesheet" type="text/css" href="../../_static/sphinx-needs/common_css/need_style.css?v=92936fa5" />
       <link rel="stylesheet" type="text/css" href="../../_static/sphinx-needs/common_css/need_toggle.css?v=5c6620df" />
       <link rel="stylesheet" type="text/css" href="../../_static/sphinx-needs/modern.css?v=803738c0" />
-      <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=4f645179" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=d26aa23c" />
 
   
       <script src="../../_static/jquery.js?v=5d32c60e"></script>
       <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../../_static/documentation_options.js?v=d68ad217"></script>
       <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
       <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
       <script src="../../_static/design-tabs.js?v=f930bc37"></script>
@@ -45,6 +46,7 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
+  
 
           
           
@@ -58,6 +60,8 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
+  <div class="spec-status-badge">Status: released</div>
+
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../00_about/index.html">About This Specification</a></li>
@@ -111,8 +115,8 @@
 <h1>Mcu — Requirements<a class="headerlink" href="#mcu-requirements" title="Link to this heading"></a></h1>
 <div class="normative admonition">
 <p class="admonition-title">Normative</p>
-<p>Defines what a conformant MCU driver <strong>MUST</strong> do. Keywords per <a class="reference internal" href="../../00_about/01_keywords.html"><span class="doc">Requirement Keywords</span></a>;
-conformance per <a class="reference internal" href="../../00_about/02_conformance.html"><span class="doc">Conformance</span></a>. Requirements do not carry individual status — the
+<p>Defines what a conformant MCU driver <strong>MUST</strong> do. Keywords per <a class="reference internal" href="../../00_about/02_keywords.html"><span class="doc">Requirement Keywords</span></a>;
+conformance per <a class="reference internal" href="../../00_about/03_conformance.html"><span class="doc">Conformance</span></a>. Requirements do not carry individual status — the
 set-level status applies to all of them. Signatures, error codes, and configuration properties are
 in the <a class="reference internal" href="reference/00_api.html"><span class="doc">API Reference</span></a>, <a class="reference internal" href="reference/02_errors.html"><span class="doc">Errors</span></a>, and <a class="reference internal" href="reference/01_configuration.html"><span class="doc">Configuration Reference</span></a>
 pages. Cross-module rules (types, error model, naming, memory mapping) are in
@@ -126,7 +130,7 @@ pages. Cross-module rules (types, error model, naming, memory mapping) are in
 <div class="sd-card-body docutils">
 <div class="sd-card-title sd-font-weight-bold docutils">
 State machine and lifecycle</div>
-<div class="need_container docutils container" id="SNCB-c2d40167">
+<div class="need_container docutils container" id="SNCB-d29fa36c">
 <table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-MCU-MUST-01">
 <tbody>
 <tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
@@ -142,7 +146,7 @@ State machine and lifecycle</div>
 </tbody>
 </table>
 </div>
-<div class="need_container docutils container" id="SNCB-be0f5ada">
+<div class="need_container docutils container" id="SNCB-9d5c8502">
 <table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-MCU-MUST-02">
 <tbody>
 <tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
@@ -159,7 +163,7 @@ but not the clock setup (<code class="docutils literal notranslate"><span class=
 </tbody>
 </table>
 </div>
-<div class="need_container docutils container" id="SNCB-b4fb5c23">
+<div class="need_container docutils container" id="SNCB-974aea95">
 <table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-MCU-MUST-03">
 <tbody>
 <tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
@@ -181,7 +185,7 @@ from the hardware, hold it in an internal variable, and then clear it from the h
 <div class="sd-card-body docutils">
 <div class="sd-card-title sd-font-weight-bold docutils">
 Clock management</div>
-<div class="need_container docutils container" id="SNCB-e5fe4de7">
+<div class="need_container docutils container" id="SNCB-62660fbc">
 <table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-MCU-MUST-04">
 <tbody>
 <tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
@@ -198,7 +202,7 @@ Clock management</div>
 </tbody>
 </table>
 </div>
-<div class="need_container docutils container" id="SNCB-16fa2659">
+<div class="need_container docutils container" id="SNCB-a0df652c">
 <table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-MCU-MUST-05">
 <tbody>
 <tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
@@ -215,7 +219,7 @@ stabilisation requires polling a status register, that MUST be handled by
 </tbody>
 </table>
 </div>
-<div class="need_container docutils container" id="SNCB-9c689680">
+<div class="need_container docutils container" id="SNCB-9e9a41ff">
 <table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-MCU-MUST-06">
 <tbody>
 <tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
@@ -232,7 +236,7 @@ after a reset before <code class="docutils literal notranslate"><span class="pre
 </tbody>
 </table>
 </div>
-<div class="need_container docutils container" id="SNCB-ef09f1ce">
+<div class="need_container docutils container" id="SNCB-4d1a5a17">
 <table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-MCU-MUST-07">
 <tbody>
 <tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
@@ -248,7 +252,7 @@ after stabilisation, and any configured clock supervision.</p></td>
 </tbody>
 </table>
 </div>
-<div class="need_container docutils container" id="SNCB-98e4c62b">
+<div class="need_container docutils container" id="SNCB-2787e1f3">
 <table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-MCU-MUST-08">
 <tbody>
 <tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
@@ -271,7 +275,7 @@ runtime-error level (<a class="reference internal" href="../../01_general/04_req
 <div class="sd-card-body docutils">
 <div class="sd-card-title sd-font-weight-bold docutils">
 Reset</div>
-<div class="need_container docutils container" id="SNCB-c6ba4383">
+<div class="need_container docutils container" id="SNCB-b2fd17ca">
 <table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-MCU-MUST-09">
 <tbody>
 <tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
@@ -287,7 +291,7 @@ bitwise-ORed <code class="docutils literal notranslate"><span class="pre">uint32
 </tbody>
 </table>
 </div>
-<div class="need_container docutils container" id="SNCB-8c0e3fce">
+<div class="need_container docutils container" id="SNCB-993f7dc0">
 <table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-MCU-MUST-10">
 <tbody>
 <tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
@@ -309,7 +313,7 @@ caller is responsible for ensuring no preemption during the call.</p></td>
 <div class="sd-card-body docutils">
 <div class="sd-card-title sd-font-weight-bold docutils">
 Errors, types, and configuration</div>
-<div class="need_container docutils container" id="SNCB-539b864e">
+<div class="need_container docutils container" id="SNCB-8015e17b">
 <table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-MCU-MUST-11">
 <tbody>
 <tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
@@ -325,7 +329,7 @@ Errors, types, and configuration</div>
 </tbody>
 </table>
 </div>
-<div class="need_container docutils container" id="SNCB-b0af2d3d">
+<div class="need_container docutils container" id="SNCB-d5d2357e">
 <table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-MCU-MUST-12">
 <tbody>
 <tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
@@ -343,7 +347,7 @@ the development and runtime error identifiers as defined in <a class="reference 
 </tbody>
 </table>
 </div>
-<div class="need_container docutils container" id="SNCB-f9cbe903">
+<div class="need_container docutils container" id="SNCB-4ad750d6">
 <table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-MCU-MUST-13">
 <tbody>
 <tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
@@ -370,7 +374,7 @@ by <code class="docutils literal notranslate"><span class="pre">clockId</span></
 <div class="sd-card-body docutils">
 <div class="sd-card-title sd-font-weight-bold docutils">
 Reset reason</div>
-<div class="need_container docutils container" id="SNCB-f502ef8d">
+<div class="need_container docutils container" id="SNCB-7bc2dd04">
 <table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-MCU-SHOULD-01">
 <tbody>
 <tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
@@ -402,7 +406,7 @@ return <code class="docutils literal notranslate"><span class="pre">MCU_RESET_PO
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2026 by Vector Informatik GmbH and Infineon Technologies AG. All rights reserved.</p>
+    <p>&#169; Copyright 2023-2026 by Vector Informatik GmbH and Infineon Technologies AG. All rights reserved.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
