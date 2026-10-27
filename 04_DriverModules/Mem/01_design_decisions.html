@@ -20,7 +20,7 @@
       <link rel="stylesheet" type="text/css" href="../../_static/sphinx-needs/common_css/need_style.css?v=92936fa5" />
       <link rel="stylesheet" type="text/css" href="../../_static/sphinx-needs/common_css/need_toggle.css?v=5c6620df" />
       <link rel="stylesheet" type="text/css" href="../../_static/sphinx-needs/modern.css?v=803738c0" />
-      <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=d26aa23c" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=ed454c3b" />
 
   
       <script src="../../_static/jquery.js?v=5d32c60e"></script>
@@ -77,10 +77,10 @@
 <li class="toctree-l3"><a class="reference internal" href="reference/index.html">Reference</a></li>
 <li class="toctree-l3"><a class="reference internal" href="00_requirements.html">Mem — Requirements</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Design Decisions</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#why-an-asynchronous-job-model-with-no-queue">Why an asynchronous job model with no queue?</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#why-no-alignment-buffering-or-result-verification">Why no alignment, buffering, or result verification?</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#why-offer-a-binary-image-and-dynamic-activation">Why offer a binary image and dynamic activation?</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#why-hardware-based-suspend-resume-and-a-single-hardware-service-dispatcher">Why hardware-based suspend/resume and a single hardware-service dispatcher?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#why-an-asynchronous-job-model-with-no-queue">Why an Asynchronous Job Model With No Queue?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#why-no-alignment-buffering-or-result-verification">Why No Alignment, Buffering, or Result Verification?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#why-offer-a-binary-image-and-dynamic-activation">Why Offer a Binary Image and Dynamic Activation?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#why-hardware-based-suspend-resume-and-a-single-hardware-service-dispatcher">Why Hardware-Based Suspend/Resume and a Single Hardware-Service Dispatcher?</a></li>
 </ul>
 </li>
 </ul>
@@ -110,7 +110,10 @@
       <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../index.html">Chiisai HAL Driver Modules</a></li>
           <li class="breadcrumb-item"><a href="index.html">Mem</a></li>
-      <li class="breadcrumb-item active">Design Decisions</li>
+      <li class="breadcrumb-item active">Design Decisions</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/04_DriverModules/Mem/01_design_decisions.rst.txt" rel="nofollow"> View page source</a>
+      </li>
   </ul>
   <hr/>
 </div>
@@ -119,13 +122,13 @@
              
   <section id="design-decisions">
 <h1>Design Decisions<a class="headerlink" href="#design-decisions" title="Link to this heading"></a></h1>
-<div class="informative admonition">
-<p class="admonition-title">Informative</p>
+<div class="content-kind content-kind-informative docutils container">
+<p><a class="content-kind-label reference internal" href="../../00_about/01_reading_guide.html#content-kinds" title="Informative: explains usage; does not constrain driver implementations. Click for details."><span class="content-kind-name">Informative</span><span class="content-kind-sep"> · </span><span class="content-kind-scope">non-binding</span></a></p>
+</div>
 <p>The rationale behind the memory driver contract. This helps implementers get the behavior right;
 it is not itself a requirement. Each entry points to the requirement it explains.</p>
-</div>
 <section id="why-an-asynchronous-job-model-with-no-queue">
-<h2>Why an asynchronous job model with no queue?<a class="headerlink" href="#why-an-asynchronous-job-model-with-no-queue" title="Link to this heading"></a></h2>
+<h2>Why an Asynchronous Job Model With No Queue?<a class="headerlink" href="#why-an-asynchronous-job-model-with-no-queue" title="Link to this heading"></a></h2>
 <p><em>Governs</em> <a class="reference internal" href="00_requirements.html#CHI-MEM-MUST-02" title="CHI-MEM-MUST-02"><em class="xref need">CHI-MEM-MUST-02</em></a>, <a class="reference internal" href="00_requirements.html#CHI-MEM-MUST-04" title="CHI-MEM-MUST-04"><em class="xref need">CHI-MEM-MUST-04</em></a>.</p>
 <p>Flash operations (erase in particular) take a long time relative to the CPU, so blocking calls would
 stall the system. Running each operation as an asynchronous job advanced by <code class="docutils literal notranslate"><span class="pre">Mem_PollFunction</span></code> lets
@@ -136,7 +139,7 @@ accepts one job at a time and rejects the rest.</p>
 requests while one is pending.</p>
 </section>
 <section id="why-no-alignment-buffering-or-result-verification">
-<h2>Why no alignment, buffering, or result verification?<a class="headerlink" href="#why-no-alignment-buffering-or-result-verification" title="Link to this heading"></a></h2>
+<h2>Why No Alignment, Buffering, or Result Verification?<a class="headerlink" href="#why-no-alignment-buffering-or-result-verification" title="Link to this heading"></a></h2>
 <p><em>Governs</em> <a class="reference internal" href="00_requirements.html#CHI-MEM-MUST-15" title="CHI-MEM-MUST-15"><em class="xref need">CHI-MEM-MUST-15</em></a>, <a class="reference internal" href="00_requirements.html#CHI-MEM-MUST-16" title="CHI-MEM-MUST-16"><em class="xref need">CHI-MEM-MUST-16</em></a>.</p>
 <p>Aligning and buffering sub-page writes, and reading back to verify, would each add code, RAM, and
 time. The upper layer already knows the device geometry and can align its requests, and can verify
@@ -145,7 +148,7 @@ where it needs to. Pushing these out of the driver keeps it minimal and predicta
 fixing it; do not read back after a write or erase.</p>
 </section>
 <section id="why-offer-a-binary-image-and-dynamic-activation">
-<h2>Why offer a binary image and dynamic activation?<a class="headerlink" href="#why-offer-a-binary-image-and-dynamic-activation" title="Link to this heading"></a></h2>
+<h2>Why Offer a Binary Image and Dynamic Activation?<a class="headerlink" href="#why-offer-a-binary-image-and-dynamic-activation" title="Link to this heading"></a></h2>
 <p><em>Relates to</em> <a class="reference internal" href="00_requirements.html#CHI-MEM-MUST-20" title="CHI-MEM-MUST-20"><em class="xref need">CHI-MEM-MUST-20</em></a>, <a class="reference internal" href="00_requirements.html#CHI-MEM-MUST-23" title="CHI-MEM-MUST-23"><em class="xref need">CHI-MEM-MUST-23</em></a>.</p>
 <p>Some systems must load or update a memory driver at runtime (for example to program flash from a
 relocatable routine running in RAM). A self-contained, position-independent binary image with a
@@ -156,7 +159,7 @@ consistency check.</p>
 external calls) and populate the function-pointer table for every service.</p>
 </section>
 <section id="why-hardware-based-suspend-resume-and-a-single-hardware-service-dispatcher">
-<h2>Why hardware-based suspend/resume and a single hardware-service dispatcher?<a class="headerlink" href="#why-hardware-based-suspend-resume-and-a-single-hardware-service-dispatcher" title="Link to this heading"></a></h2>
+<h2>Why Hardware-Based Suspend/Resume and a Single Hardware-Service Dispatcher?<a class="headerlink" href="#why-hardware-based-suspend-resume-and-a-single-hardware-service-dispatcher" title="Link to this heading"></a></h2>
 <p><em>Relates to</em> <a class="reference internal" href="00_requirements.html#CHI-MEM-MUST-11" title="CHI-MEM-MUST-11"><em class="xref need">CHI-MEM-MUST-11</em></a>, <a class="reference internal" href="00_requirements.html#CHI-MEM-MUST-12" title="CHI-MEM-MUST-12"><em class="xref need">CHI-MEM-MUST-12</em></a>.</p>
 <p>Suspend/resume and device-special operations are inherently hardware-specific. Rather than mandate a
 software emulation or grow the API with per-device functions, the driver exposes suspend/resume as
@@ -170,7 +173,8 @@ device features via <code class="docutils literal notranslate"><span class="pre"
 
            </div>
           </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+          
+<footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="00_requirements.html" class="btn btn-neutral float-left" title="Mem — Requirements" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="../Port/index.html" class="btn btn-neutral float-right" title="Port" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
@@ -178,7 +182,10 @@ device features via <code class="docutils literal notranslate"><span class="pre"
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2023-2026 by Vector Informatik GmbH and Infineon Technologies AG. Licensed under the Apache License, Version 2.0.</p>
+  
+    <p>&#169; Copyright 2023-2026 by Vector Informatik GmbH and Infineon Technologies AG.</p>
+  <p class="license-notice">Licensed under the Apache License 2.0.</p>
+
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

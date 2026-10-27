@@ -7,7 +7,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Initialize the driver &mdash; Chiisai HAL Specification released documentation</title>
+  <title>Initialize the Driver &mdash; Chiisai HAL Specification released documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=9edc463e" />
       <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css?v=4ae1632d" />
@@ -20,7 +20,7 @@
       <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/common_css/need_style.css?v=92936fa5" />
       <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/common_css/need_toggle.css?v=5c6620df" />
       <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/modern.css?v=803738c0" />
-      <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=d26aa23c" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=ed454c3b" />
 
   
       <script src="../../../_static/jquery.js?v=5d32c60e"></script>
@@ -79,10 +79,10 @@
 <li class="toctree-l3 current"><a class="reference internal" href="index.html">Guide</a><ul class="current">
 <li class="toctree-l4"><a class="reference internal" href="00_quickstart.html">Quickstart</a></li>
 <li class="toctree-l4"><a class="reference internal" href="01_configuration.html">Configuration</a></li>
-<li class="toctree-l4 current"><a class="current reference internal" href="#">Initialize the driver</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Initialize the Driver</a></li>
 <li class="toctree-l4"><a class="reference internal" href="03_transmit.html">Transmit</a></li>
 <li class="toctree-l4"><a class="reference internal" href="04_receive.html">Receive</a></li>
-<li class="toctree-l4"><a class="reference internal" href="05_common_mistakes.html">Common mistakes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="05_common_mistakes.html">Common Mistakes</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../reference/index.html">Reference</a></li>
@@ -113,7 +113,10 @@
           <li class="breadcrumb-item"><a href="../../index.html">Chiisai HAL Driver Modules</a></li>
           <li class="breadcrumb-item"><a href="../index.html">Uart</a></li>
           <li class="breadcrumb-item"><a href="index.html">Guide</a></li>
-      <li class="breadcrumb-item active">Initialize the driver</li>
+      <li class="breadcrumb-item active">Initialize the Driver</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/04_DriverModules/Uart/guide/02_initialise.rst.txt" rel="nofollow"> View page source</a>
+      </li>
   </ul>
   <hr/>
 </div>
@@ -121,19 +124,19 @@
            <div itemprop="articleBody">
              
   <section id="initialize-the-driver">
-<h1>Initialize the driver<a class="headerlink" href="#initialize-the-driver" title="Link to this heading"></a></h1>
-<div class="informative admonition">
-<p class="admonition-title">Informative</p>
+<h1>Initialize the Driver<a class="headerlink" href="#initialize-the-driver" title="Link to this heading"></a></h1>
+<div class="content-kind content-kind-informative docutils container">
+<p><a class="content-kind-label reference internal" href="../../../00_about/01_reading_guide.html#content-kinds" title="Informative: explains usage; does not constrain driver implementations. Click for details."><span class="content-kind-name">Informative</span><span class="content-kind-sep"> · </span><span class="content-kind-scope">non-binding</span></a></p>
+</div>
 <p>How to bring the UART driver up and down. Binding rules: <a class="reference internal" href="../00_requirements.html#CHI-UART-MUST-06" title="CHI-UART-MUST-06"><em class="xref need">CHI-UART-MUST-06</em></a> and
 <a class="reference internal" href="../00_requirements.html#CHI-UART-MUST-07" title="CHI-UART-MUST-07"><em class="xref need">CHI-UART-MUST-07</em></a> in <a class="reference internal" href="../00_requirements.html"><span class="doc">Uart — Requirements</span></a>; signatures in <a class="reference internal" href="../reference/00_api.html"><span class="doc">API Reference</span></a>.</p>
-</div>
 <section id="prerequisites">
 <h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Link to this heading"></a></h2>
 <p>Before <code class="docutils literal notranslate"><span class="pre">Uart_Init</span></code>, another module must have configured the channel’s <strong>input clock, port pins,
 and interrupt controller</strong>. The UART driver assumes these are ready (see <a class="reference internal" href="../general/00_overview.html"><span class="doc">Overview</span></a>).</p>
 </section>
 <section id="bring-the-driver-up">
-<h2>Bring the driver up<a class="headerlink" href="#bring-the-driver-up" title="Link to this heading"></a></h2>
+<h2>Bring the Driver Up<a class="headerlink" href="#bring-the-driver-up" title="Link to this heading"></a></h2>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">Uart_Init</span><span class="p">(</span><span class="n">NULL_PTR</span><span class="p">);</span><span class="w">          </span><span class="cm">/* driver: UNINIT -&gt; INIT; every channel TX/RX -&gt; IDLE */</span>
 </pre></div>
 </div>
@@ -143,7 +146,7 @@ channel’s TX and RX states are <code class="docutils literal notranslate"><spa
 is called — the driver does not receive frames straight after init.</p>
 </section>
 <section id="shut-down">
-<h2>Shut down<a class="headerlink" href="#shut-down" title="Link to this heading"></a></h2>
+<h2>Shut Down<a class="headerlink" href="#shut-down" title="Link to this heading"></a></h2>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">Uart_DeInit</span><span class="p">();</span><span class="w">                </span><span class="cm">/* aborts ongoing TX/RX; driver -&gt; UNINIT */</span>
 </pre></div>
 </div>
@@ -160,7 +163,8 @@ if you need to observe it.</p>
 
            </div>
           </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+          
+<footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="01_configuration.html" class="btn btn-neutral float-left" title="Configuration" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="03_transmit.html" class="btn btn-neutral float-right" title="Transmit" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
@@ -168,7 +172,10 @@ if you need to observe it.</p>
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2023-2026 by Vector Informatik GmbH and Infineon Technologies AG. Licensed under the Apache License, Version 2.0.</p>
+  
+    <p>&#169; Copyright 2023-2026 by Vector Informatik GmbH and Infineon Technologies AG.</p>
+  <p class="license-notice">Licensed under the Apache License 2.0.</p>
+
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

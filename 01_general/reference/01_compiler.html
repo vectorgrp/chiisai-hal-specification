@@ -20,7 +20,7 @@
       <link rel="stylesheet" type="text/css" href="../../_static/sphinx-needs/common_css/need_style.css?v=92936fa5" />
       <link rel="stylesheet" type="text/css" href="../../_static/sphinx-needs/common_css/need_toggle.css?v=5c6620df" />
       <link rel="stylesheet" type="text/css" href="../../_static/sphinx-needs/modern.css?v=803738c0" />
-      <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=d26aa23c" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=ed454c3b" />
 
   
       <script src="../../_static/jquery.js?v=5d32c60e"></script>
@@ -75,8 +75,8 @@
 <li class="toctree-l3"><a class="reference internal" href="00_types.html">Standard Types and Constants</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Compiler Abstraction</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#basics">Basics</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#memory-class-macros">Memory class macros</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#declaration-macros">Declaration macros</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#memory-class-macros">Memory Class Macros</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#declaration-macros">Declaration Macros</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="02_services.html">Services and Utilities</a></li>
@@ -106,7 +106,10 @@
       <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../index.html">General</a></li>
           <li class="breadcrumb-item"><a href="index.html">Reference</a></li>
-      <li class="breadcrumb-item active">Compiler Abstraction</li>
+      <li class="breadcrumb-item active">Compiler Abstraction</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/01_general/reference/01_compiler.rst.txt" rel="nofollow"> View page source</a>
+      </li>
   </ul>
   <hr/>
 </div>
@@ -115,13 +118,13 @@
              
   <section id="compiler-abstraction">
 <h1>Compiler Abstraction<a class="headerlink" href="#compiler-abstraction" title="Link to this heading"></a></h1>
-<div class="normative admonition">
-<p class="admonition-title">Normative</p>
+<div class="content-kind content-kind-normative docutils container">
+<p><a class="content-kind-label reference internal" href="../../00_about/01_reading_guide.html#content-kinds" title="Normative: defines what a conformant driver MUST do. Click for details."><span class="content-kind-name">Normative</span><span class="content-kind-sep"> · </span><span class="content-kind-scope">binding</span></a></p>
+</div>
 <p>Macros that keep driver source portable across compilers and memory architectures. Where the
 MCU/compiler has special keywords for memory addressing (e.g. <code class="docutils literal notranslate"><span class="pre">far</span></code> / <code class="docutils literal notranslate"><span class="pre">near</span></code>), declarations
 <strong>MUST</strong> be wrapped with these macros; where it does not, wrapping is not mandatory but the macro
 definitions <strong>MUST</strong> still exist. Keywords per <a class="reference internal" href="../../00_about/02_keywords.html"><span class="doc">Requirement Keywords</span></a>.</p>
-</div>
 <section id="basics">
 <span id="gen-ref-compiler-basics"></span><h2>Basics<a class="headerlink" href="#basics" title="Link to this heading"></a></h2>
 <p>Available via <code class="docutils literal notranslate"><span class="pre">Compiler.h</span></code>:</p>
@@ -149,7 +152,7 @@ definitions <strong>MUST</strong> still exist. Keywords per <a class="reference 
 </table>
 </section>
 <section id="memory-class-macros">
-<span id="gen-ref-memory-classes"></span><h2>Memory class macros<a class="headerlink" href="#memory-class-macros" title="Link to this heading"></a></h2>
+<span id="gen-ref-memory-classes"></span><h2>Memory Class Macros<a class="headerlink" href="#memory-class-macros" title="Link to this heading"></a></h2>
 <p>Memory classes name where an object lives so declarations stay portable. <code class="docutils literal notranslate"><span class="pre">AUTOMATIC</span></code>, <code class="docutils literal notranslate"><span class="pre">TYPEDEF</span></code>
 come from <code class="docutils literal notranslate"><span class="pre">Compiler.h</span></code>; the rest are module-specific and defined in <code class="docutils literal notranslate"><span class="pre">Compiler_Cfg.h</span></code>. Each
 developer delivers a <code class="docutils literal notranslate"><span class="pre">Compiler_Cfg.h</span></code> for their module; the integrator merges them into one and
@@ -203,7 +206,7 @@ maps each class to the required memory keyword.</p>
 </table>
 </section>
 <section id="declaration-macros">
-<span id="gen-ref-declaration-macros"></span><h2>Declaration macros<a class="headerlink" href="#declaration-macros" title="Link to this heading"></a></h2>
+<span id="gen-ref-declaration-macros"></span><h2>Declaration Macros<a class="headerlink" href="#declaration-macros" title="Link to this heading"></a></h2>
 <p>All available via <code class="docutils literal notranslate"><span class="pre">Compiler.h</span></code>. Each wraps a raw declaration so the memory/pointer class is applied
 portably. In the signatures below, <code class="docutils literal notranslate"><span class="pre">variable_type</span></code> / <code class="docutils literal notranslate"><span class="pre">return_type</span></code> is the underlying type,
 <code class="docutils literal notranslate"><span class="pre">memory_class</span></code> the class of the object itself, and <code class="docutils literal notranslate"><span class="pre">pointer_class</span></code> the class of the pointed-to
@@ -272,7 +275,8 @@ object.</p>
 
            </div>
           </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+          
+<footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="00_types.html" class="btn btn-neutral float-left" title="Standard Types and Constants" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="02_services.html" class="btn btn-neutral float-right" title="Services and Utilities" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
@@ -280,7 +284,10 @@ object.</p>
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2023-2026 by Vector Informatik GmbH and Infineon Technologies AG. Licensed under the Apache License, Version 2.0.</p>
+  
+    <p>&#169; Copyright 2023-2026 by Vector Informatik GmbH and Infineon Technologies AG.</p>
+  <p class="license-notice">Licensed under the Apache License 2.0.</p>
+
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

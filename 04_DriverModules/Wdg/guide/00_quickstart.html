@@ -20,7 +20,7 @@
       <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/common_css/need_style.css?v=92936fa5" />
       <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/common_css/need_toggle.css?v=5c6620df" />
       <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/modern.css?v=803738c0" />
-      <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=d26aa23c" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=ed454c3b" />
 
   
       <script src="../../../_static/jquery.js?v=5d32c60e"></script>
@@ -80,10 +80,10 @@
 <li class="toctree-l3 current"><a class="reference internal" href="index.html">Guide</a><ul class="current">
 <li class="toctree-l4 current"><a class="current reference internal" href="#">Quickstart</a></li>
 <li class="toctree-l4"><a class="reference internal" href="01_configuration.html">Configuration</a></li>
-<li class="toctree-l4"><a class="reference internal" href="02_initialise.html">Initialize the driver</a></li>
-<li class="toctree-l4"><a class="reference internal" href="03_modes.html">Watchdog modes</a></li>
-<li class="toctree-l4"><a class="reference internal" href="04_timeout.html">Refresh the timeout</a></li>
-<li class="toctree-l4"><a class="reference internal" href="05_common_mistakes.html">Common mistakes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="02_initialise.html">Initialize the Driver</a></li>
+<li class="toctree-l4"><a class="reference internal" href="03_modes.html">Watchdog Modes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="04_timeout.html">Refresh the Timeout</a></li>
+<li class="toctree-l4"><a class="reference internal" href="05_common_mistakes.html">Common Mistakes</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../reference/index.html">Reference</a></li>
@@ -113,7 +113,10 @@
           <li class="breadcrumb-item"><a href="../../index.html">Chiisai HAL Driver Modules</a></li>
           <li class="breadcrumb-item"><a href="../index.html">Wdg</a></li>
           <li class="breadcrumb-item"><a href="index.html">Guide</a></li>
-      <li class="breadcrumb-item active">Quickstart</li>
+      <li class="breadcrumb-item active">Quickstart</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/04_DriverModules/Wdg/guide/00_quickstart.rst.txt" rel="nofollow"> View page source</a>
+      </li>
   </ul>
   <hr/>
 </div>
@@ -122,20 +125,20 @@
              
   <section id="quickstart">
 <h1>Quickstart<a class="headerlink" href="#quickstart" title="Link to this heading"></a></h1>
-<div class="informative admonition">
-<p class="admonition-title">Informative</p>
+<div class="content-kind content-kind-informative docutils container">
+<p><a class="content-kind-label reference internal" href="../../../00_about/01_reading_guide.html#content-kinds" title="Informative: explains usage; does not constrain driver implementations. Click for details."><span class="content-kind-name">Informative</span><span class="content-kind-sep"> · </span><span class="content-kind-scope">non-binding</span></a></p>
+</div>
 <p>The shortest path to a working watchdog: initialize, then keep refreshing the timeout at your
 control-flow watchpoints. Binding rules are in <a class="reference internal" href="../00_requirements.html"><span class="doc">Wdg — Requirements</span></a>; signatures in
 <a class="reference internal" href="../reference/00_api.html"><span class="doc">API Reference</span></a>.</p>
-</div>
 <section id="bring-the-watchdog-up">
-<h2>Bring the watchdog up<a class="headerlink" href="#bring-the-watchdog-up" title="Link to this heading"></a></h2>
+<h2>Bring the Watchdog Up<a class="headerlink" href="#bring-the-watchdog-up" title="Link to this heading"></a></h2>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">Wdg_Init</span><span class="p">(</span><span class="n">NULL_PTR</span><span class="p">);</span><span class="w">          </span><span class="cm">/* applies the configured default mode + initial timeout */</span>
 </pre></div>
 </div>
 </section>
 <section id="refresh-the-timeout-at-watchpoints">
-<h2>Refresh the timeout at watchpoints<a class="headerlink" href="#refresh-the-timeout-at-watchpoints" title="Link to this heading"></a></h2>
+<h2>Refresh the Timeout at Watchpoints<a class="headerlink" href="#refresh-the-timeout-at-watchpoints" title="Link to this heading"></a></h2>
 <p>Call <code class="docutils literal notranslate"><span class="pre">Wdg_UpdateTimeout</span></code> wherever you want to prove the control flow is alive — each call delays
 the reset until the new timeout elapses:</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(;;)</span><span class="w"> </span><span class="p">{</span>
@@ -146,21 +149,22 @@ the reset until the new timeout elapses:</p>
 </div>
 </section>
 <section id="switch-mode-when-needed">
-<h2>Switch mode when needed<a class="headerlink" href="#switch-mode-when-needed" title="Link to this heading"></a></h2>
+<h2>Switch Mode When Needed<a class="headerlink" href="#switch-mode-when-needed" title="Link to this heading"></a></h2>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">Wdg_SetMode</span><span class="p">(</span><span class="n">WDG_MODE_ALTERNATIVE</span><span class="p">);</span><span class="w">   </span><span class="cm">/* e.g. a longer timeout for a startup/standby phase */</span>
 <span class="cm">/* ... */</span>
 <span class="n">Wdg_SetMode</span><span class="p">(</span><span class="n">WDG_MODE_NORMAL</span><span class="p">);</span><span class="w">        </span><span class="cm">/* back to normal running */</span>
 </pre></div>
 </div>
 <p>That is a complete direct-strategy watchdog. If your hardware needs the <strong>logical</strong> strategy, a
-periodic timer calls <code class="docutils literal notranslate"><span class="pre">Wdg_FeedHw</span></code> — see <a class="reference internal" href="04_timeout.html"><span class="doc">Refresh the timeout</span></a>. Modes are covered in <a class="reference internal" href="03_modes.html"><span class="doc">Watchdog modes</span></a>.</p>
+periodic timer calls <code class="docutils literal notranslate"><span class="pre">Wdg_FeedHw</span></code> — see <a class="reference internal" href="04_timeout.html"><span class="doc">Refresh the Timeout</span></a>. Modes are covered in <a class="reference internal" href="03_modes.html"><span class="doc">Watchdog Modes</span></a>.</p>
 </section>
 </section>
 
 
            </div>
           </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+          
+<footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="index.html" class="btn btn-neutral float-left" title="Guide" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="01_configuration.html" class="btn btn-neutral float-right" title="Configuration" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
@@ -168,7 +172,10 @@ periodic timer calls <code class="docutils literal notranslate"><span class="pre
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2023-2026 by Vector Informatik GmbH and Infineon Technologies AG. Licensed under the Apache License, Version 2.0.</p>
+  
+    <p>&#169; Copyright 2023-2026 by Vector Informatik GmbH and Infineon Technologies AG.</p>
+  <p class="license-notice">Licensed under the Apache License 2.0.</p>
+
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

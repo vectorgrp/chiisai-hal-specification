@@ -20,7 +20,7 @@
       <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/common_css/need_style.css?v=92936fa5" />
       <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/common_css/need_toggle.css?v=5c6620df" />
       <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/modern.css?v=803738c0" />
-      <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=d26aa23c" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=ed454c3b" />
 
   
       <script src="../../../_static/jquery.js?v=5d32c60e"></script>
@@ -466,7 +466,10 @@ window.runMermaid = runMermaid;</script>
           <li class="breadcrumb-item"><a href="../../index.html">Chiisai HAL Driver Modules</a></li>
           <li class="breadcrumb-item"><a href="../index.html">Port</a></li>
           <li class="breadcrumb-item"><a href="index.html">General</a></li>
-      <li class="breadcrumb-item active">Overview</li>
+      <li class="breadcrumb-item active">Overview</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/04_DriverModules/Port/general/00_overview.rst.txt" rel="nofollow"> View page source</a>
+      </li>
   </ul>
   <hr/>
 </div>
@@ -475,17 +478,17 @@ window.runMermaid = runMermaid;</script>
              
   <section id="overview">
 <h1>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h1>
-<div class="informative admonition">
-<p class="admonition-title">Informative</p>
+<div class="content-kind content-kind-informative docutils container">
+<p><a class="content-kind-label reference internal" href="../../../00_about/01_reading_guide.html#content-kinds" title="Informative: explains usage; does not constrain driver implementations. Click for details."><span class="content-kind-name">Informative</span><span class="content-kind-sep"> · </span><span class="content-kind-scope">non-binding</span></a></p>
+</div>
 <p>What the Port driver is, its boundaries, and where it sits. Non-binding orientation; the
 normative contract is in <a class="reference internal" href="../00_requirements.html"><span class="doc">Port — Requirements</span></a>. The driver builds on the shared foundation
 (type system, error model, naming, memory mapping) in <a class="reference internal" href="../../../01_general/index.html"><span class="doc">General</span></a>.</p>
-</div>
 <p><strong>In one sentence:</strong> the Port driver (PortDrv) provides a thin, portable abstraction over the MCU’s
 general-purpose I/O — it initialises pin functions and directions from configuration, reads and
 writes pin and port values, toggles pins, and reports pin-edge events to the integration code.</p>
 <section id="what-it-does">
-<h2>What it does<a class="headerlink" href="#what-it-does" title="Link to this heading"></a></h2>
+<h2>What It Does<a class="headerlink" href="#what-it-does" title="Link to this heading"></a></h2>
 <ul class="simple">
 <li><p>Brings all configured pins up to their configured function, direction, and initial value
 (<code class="docutils literal notranslate"><span class="pre">Port_Init</span></code>) — glitch-free.</p></li>
@@ -497,7 +500,7 @@ selected pins of a port atomically through a bitmask (<code class="docutils lite
 </ul>
 </section>
 <section id="what-it-does-not-do">
-<h2>What it does <strong>not</strong> do<a class="headerlink" href="#what-it-does-not-do" title="Link to this heading"></a></h2>
+<h2>What It Does <strong>Not</strong> Do<a class="headerlink" href="#what-it-does-not-do" title="Link to this heading"></a></h2>
 <ul class="simple">
 <li><p><strong>No runtime pin reconfiguration</strong> — a pin’s function and direction are fixed at <code class="docutils literal notranslate"><span class="pre">Port_Init</span></code>;
 there is no API to change them afterwards (edge detection is the only runtime-settable attribute).</p></li>
@@ -509,7 +512,7 @@ pull-up/down) is left implementation-defined.</p></li>
 </ul>
 </section>
 <section id="where-it-sits">
-<h2>Where it sits<a class="headerlink" href="#where-it-sits" title="Link to this heading"></a></h2>
+<h2>Where It Sits<a class="headerlink" href="#where-it-sits" title="Link to this heading"></a></h2>
 <pre  class="mermaid">
         flowchart TB
    INTEG[&quot;Integration code&lt;br/&gt;(Port_Callout_Stubs.c)&quot;]
@@ -576,7 +579,8 @@ builds on.</p></td>
 
            </div>
           </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+          
+<footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="index.html" class="btn btn-neutral float-left" title="General" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="01_concepts.html" class="btn btn-neutral float-right" title="Concepts" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
@@ -584,7 +588,10 @@ builds on.</p></td>
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2023-2026 by Vector Informatik GmbH and Infineon Technologies AG. Licensed under the Apache License, Version 2.0.</p>
+  
+    <p>&#169; Copyright 2023-2026 by Vector Informatik GmbH and Infineon Technologies AG.</p>
+  <p class="license-notice">Licensed under the Apache License 2.0.</p>
+
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

@@ -7,7 +7,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Refresh the timeout &mdash; Chiisai HAL Specification released documentation</title>
+  <title>Refresh the Timeout &mdash; Chiisai HAL Specification released documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=9edc463e" />
       <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css?v=4ae1632d" />
@@ -20,7 +20,7 @@
       <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/common_css/need_style.css?v=92936fa5" />
       <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/common_css/need_toggle.css?v=5c6620df" />
       <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/modern.css?v=803738c0" />
-      <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=d26aa23c" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=ed454c3b" />
 
   
       <script src="../../../_static/jquery.js?v=5d32c60e"></script>
@@ -37,8 +37,8 @@
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="Common mistakes" href="05_common_mistakes.html" />
-    <link rel="prev" title="Watchdog modes" href="03_modes.html" /> 
+    <link rel="next" title="Common Mistakes" href="05_common_mistakes.html" />
+    <link rel="prev" title="Watchdog Modes" href="03_modes.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -80,10 +80,10 @@
 <li class="toctree-l3 current"><a class="reference internal" href="index.html">Guide</a><ul class="current">
 <li class="toctree-l4"><a class="reference internal" href="00_quickstart.html">Quickstart</a></li>
 <li class="toctree-l4"><a class="reference internal" href="01_configuration.html">Configuration</a></li>
-<li class="toctree-l4"><a class="reference internal" href="02_initialise.html">Initialize the driver</a></li>
-<li class="toctree-l4"><a class="reference internal" href="03_modes.html">Watchdog modes</a></li>
-<li class="toctree-l4 current"><a class="current reference internal" href="#">Refresh the timeout</a></li>
-<li class="toctree-l4"><a class="reference internal" href="05_common_mistakes.html">Common mistakes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="02_initialise.html">Initialize the Driver</a></li>
+<li class="toctree-l4"><a class="reference internal" href="03_modes.html">Watchdog Modes</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Refresh the Timeout</a></li>
+<li class="toctree-l4"><a class="reference internal" href="05_common_mistakes.html">Common Mistakes</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../reference/index.html">Reference</a></li>
@@ -113,7 +113,10 @@
           <li class="breadcrumb-item"><a href="../../index.html">Chiisai HAL Driver Modules</a></li>
           <li class="breadcrumb-item"><a href="../index.html">Wdg</a></li>
           <li class="breadcrumb-item"><a href="index.html">Guide</a></li>
-      <li class="breadcrumb-item active">Refresh the timeout</li>
+      <li class="breadcrumb-item active">Refresh the Timeout</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/04_DriverModules/Wdg/guide/04_timeout.rst.txt" rel="nofollow"> View page source</a>
+      </li>
   </ul>
   <hr/>
 </div>
@@ -121,15 +124,15 @@
            <div itemprop="articleBody">
              
   <section id="refresh-the-timeout">
-<h1>Refresh the timeout<a class="headerlink" href="#refresh-the-timeout" title="Link to this heading"></a></h1>
-<div class="informative admonition">
-<p class="admonition-title">Informative</p>
+<h1>Refresh the Timeout<a class="headerlink" href="#refresh-the-timeout" title="Link to this heading"></a></h1>
+<div class="content-kind content-kind-informative docutils container">
+<p><a class="content-kind-label reference internal" href="../../../00_about/01_reading_guide.html#content-kinds" title="Informative: explains usage; does not constrain driver implementations. Click for details."><span class="content-kind-name">Informative</span><span class="content-kind-sep"> · </span><span class="content-kind-scope">non-binding</span></a></p>
+</div>
 <p>How to keep the watchdog alive — refreshing the timeout (direct strategy) and feeding it from a
 timer (logical strategy). Binding rules: <a class="reference internal" href="../00_requirements.html#CHI-WDG-MUST-06" title="CHI-WDG-MUST-06"><em class="xref need">CHI-WDG-MUST-06</em></a>, <a class="reference internal" href="../00_requirements.html#CHI-WDG-SHOULD-02" title="CHI-WDG-SHOULD-02"><em class="xref need">CHI-WDG-SHOULD-02</em></a>, and
 <a class="reference internal" href="../00_requirements.html#CHI-WDG-SHOULD-03" title="CHI-WDG-SHOULD-03"><em class="xref need">CHI-WDG-SHOULD-03</em></a> in <a class="reference internal" href="../00_requirements.html"><span class="doc">Wdg — Requirements</span></a>.</p>
-</div>
 <section id="refresh-at-watchpoints-direct-strategy">
-<h2>Refresh at watchpoints (direct strategy)<a class="headerlink" href="#refresh-at-watchpoints-direct-strategy" title="Link to this heading"></a></h2>
+<h2>Refresh at Watchpoints (Direct Strategy)<a class="headerlink" href="#refresh-at-watchpoints-direct-strategy" title="Link to this heading"></a></h2>
 <p>Call <code class="docutils literal notranslate"><span class="pre">Wdg_UpdateTimeout</span></code> at each point where you want to prove the control flow is progressing. Each
 call delays the reset until the new timeout (in milliseconds) elapses:</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">Wdg_UpdateTimeout</span><span class="p">(</span><span class="mi">50u</span><span class="p">);</span><span class="w">      </span><span class="cm">/* the MCU resets unless refreshed again within 50 ms */</span>
@@ -143,7 +146,7 @@ deliberate way to force a reset:</p>
 </div>
 </section>
 <section id="feed-from-a-timer-logical-strategy">
-<h2>Feed from a timer (logical strategy)<a class="headerlink" href="#feed-from-a-timer-logical-strategy" title="Link to this heading"></a></h2>
+<h2>Feed From a Timer (Logical Strategy)<a class="headerlink" href="#feed-from-a-timer-logical-strategy" title="Link to this heading"></a></h2>
 <p>If your hardware needs the <strong>logical</strong> strategy, the driver keeps the timeout in software and a
 periodic timer — owned by the <strong>upper layer</strong> — calls <code class="docutils literal notranslate"><span class="pre">Wdg_FeedHw</span></code> to re-trigger the hardware:</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cm">/* in the upper layer&#39;s periodic timer interrupt */</span>
@@ -169,15 +172,19 @@ hardware, so the reset fires (<a class="reference internal" href="../00_requirem
 
            </div>
           </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="03_modes.html" class="btn btn-neutral float-left" title="Watchdog modes" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="05_common_mistakes.html" class="btn btn-neutral float-right" title="Common mistakes" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+          
+<footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="03_modes.html" class="btn btn-neutral float-left" title="Watchdog Modes" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="05_common_mistakes.html" class="btn btn-neutral float-right" title="Common Mistakes" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2023-2026 by Vector Informatik GmbH and Infineon Technologies AG. Licensed under the Apache License, Version 2.0.</p>
+  
+    <p>&#169; Copyright 2023-2026 by Vector Informatik GmbH and Infineon Technologies AG.</p>
+  <p class="license-notice">Licensed under the Apache License 2.0.</p>
+
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

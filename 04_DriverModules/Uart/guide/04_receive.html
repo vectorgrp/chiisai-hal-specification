@@ -20,7 +20,7 @@
       <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/common_css/need_style.css?v=92936fa5" />
       <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/common_css/need_toggle.css?v=5c6620df" />
       <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/modern.css?v=803738c0" />
-      <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=d26aa23c" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=ed454c3b" />
 
   
       <script src="../../../_static/jquery.js?v=5d32c60e"></script>
@@ -37,7 +37,7 @@
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="Common mistakes" href="05_common_mistakes.html" />
+    <link rel="next" title="Common Mistakes" href="05_common_mistakes.html" />
     <link rel="prev" title="Transmit" href="03_transmit.html" /> 
 </head>
 
@@ -79,10 +79,10 @@
 <li class="toctree-l3 current"><a class="reference internal" href="index.html">Guide</a><ul class="current">
 <li class="toctree-l4"><a class="reference internal" href="00_quickstart.html">Quickstart</a></li>
 <li class="toctree-l4"><a class="reference internal" href="01_configuration.html">Configuration</a></li>
-<li class="toctree-l4"><a class="reference internal" href="02_initialise.html">Initialize the driver</a></li>
+<li class="toctree-l4"><a class="reference internal" href="02_initialise.html">Initialize the Driver</a></li>
 <li class="toctree-l4"><a class="reference internal" href="03_transmit.html">Transmit</a></li>
 <li class="toctree-l4 current"><a class="current reference internal" href="#">Receive</a></li>
-<li class="toctree-l4"><a class="reference internal" href="05_common_mistakes.html">Common mistakes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="05_common_mistakes.html">Common Mistakes</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../reference/index.html">Reference</a></li>
@@ -113,7 +113,10 @@
           <li class="breadcrumb-item"><a href="../../index.html">Chiisai HAL Driver Modules</a></li>
           <li class="breadcrumb-item"><a href="../index.html">Uart</a></li>
           <li class="breadcrumb-item"><a href="index.html">Guide</a></li>
-      <li class="breadcrumb-item active">Receive</li>
+      <li class="breadcrumb-item active">Receive</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/04_DriverModules/Uart/guide/04_receive.rst.txt" rel="nofollow"> View page source</a>
+      </li>
   </ul>
   <hr/>
 </div>
@@ -122,13 +125,13 @@
              
   <section id="receive">
 <h1>Receive<a class="headerlink" href="#receive" title="Link to this heading"></a></h1>
-<div class="informative admonition">
-<p class="admonition-title">Informative</p>
+<div class="content-kind content-kind-informative docutils container">
+<p><a class="content-kind-label reference internal" href="../../../00_about/01_reading_guide.html#content-kinds" title="Informative: explains usage; does not constrain driver implementations. Click for details."><span class="content-kind-name">Informative</span><span class="content-kind-sep"> · </span><span class="content-kind-scope">non-binding</span></a></p>
+</div>
 <p>How a channel receives data, using the mid-transfer trigger and streaming reception. Binding
 rules: <a class="reference internal" href="../00_requirements.html#CHI-UART-MUST-12" title="CHI-UART-MUST-12"><em class="xref need">CHI-UART-MUST-12</em></a>…<a class="reference internal" href="../00_requirements.html#CHI-UART-MUST-17" title="CHI-UART-MUST-17"><em class="xref need">CHI-UART-MUST-17</em></a> in <a class="reference internal" href="../00_requirements.html"><span class="doc">Uart — Requirements</span></a>.</p>
-</div>
 <section id="start-a-reception">
-<h2>Start a reception<a class="headerlink" href="#start-a-reception" title="Link to this heading"></a></h2>
+<h2>Start a Reception<a class="headerlink" href="#start-a-reception" title="Link to this heading"></a></h2>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">static</span><span class="w"> </span><span class="n">uint8</span><span class="w"> </span><span class="n">rxBuf</span><span class="p">[</span><span class="mi">16</span><span class="p">];</span>
 
 <span class="cm">/* notify only when the 16-byte buffer is full */</span>
@@ -139,7 +142,7 @@ rules: <a class="reference internal" href="../00_requirements.html#CHI-UART-MUST
 <code class="docutils literal notranslate"><span class="pre">Uart_Callout_OnReception</span></code> fires. The last parameter is <code class="docutils literal notranslate"><span class="pre">additionalRxLenTrg</span></code> (below).</p>
 </section>
 <section id="mid-transfer-trigger-additionalrxlentrg">
-<h2>Mid-transfer trigger (<code class="docutils literal notranslate"><span class="pre">additionalRxLenTrg</span></code>)<a class="headerlink" href="#mid-transfer-trigger-additionalrxlentrg" title="Link to this heading"></a></h2>
+<h2>Mid-Transfer Trigger (<code class="docutils literal notranslate"><span class="pre">additionalRxLenTrg</span></code>)<a class="headerlink" href="#mid-transfer-trigger-additionalrxlentrg" title="Link to this heading"></a></h2>
 <p>Set <code class="docutils literal notranslate"><span class="pre">additionalRxLenTrg</span> <span class="pre">&gt;</span> <span class="pre">0</span></code> to also be notified <strong>before</strong> the buffer fills — handy to inspect a
 command header, then decide how much more to read:</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cm">/* notify at 4 bytes (header), and again when the 16-byte buffer is full */</span>
@@ -159,7 +162,7 @@ command header, then decide how much more to read:</p>
 <strong>only</strong> from within <code class="docutils literal notranslate"><span class="pre">Uart_Callout_OnReception</span></code>.</p>
 </section>
 <section id="streaming-reception-no-dropped-bytes">
-<h2>Streaming reception (no dropped bytes)<a class="headerlink" href="#streaming-reception-no-dropped-bytes" title="Link to this heading"></a></h2>
+<h2>Streaming Reception (No Dropped Bytes)<a class="headerlink" href="#streaming-reception-no-dropped-bytes" title="Link to this heading"></a></h2>
 <p>The driver does <strong>not</strong> stop the hardware when the buffer fills — so you can hand over the next
 buffer from inside the callout without losing incoming bytes:</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">Uart_Callout_OnReception</span><span class="p">(</span><span class="n">uint8</span><span class="w"> </span><span class="n">channelId</span><span class="p">,</span><span class="w"> </span><span class="n">uint16</span><span class="w"> </span><span class="n">length</span><span class="p">)</span>
@@ -173,7 +176,7 @@ buffer from inside the callout without losing incoming bytes:</p>
 the callout returns.</p>
 </section>
 <section id="cancel-a-reception">
-<h2>Cancel a reception<a class="headerlink" href="#cancel-a-reception" title="Link to this heading"></a></h2>
+<h2>Cancel a Reception<a class="headerlink" href="#cancel-a-reception" title="Link to this heading"></a></h2>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">Uart_CancelRxTransaction</span><span class="p">(</span><span class="mi">0u</span><span class="p">);</span><span class="w">   </span><span class="cm">/* stop HW reception now */</span>
 </pre></div>
 </div>
@@ -191,15 +194,19 @@ and deciding no more data is needed. It returns <code class="docutils literal no
 
            </div>
           </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+          
+<footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="03_transmit.html" class="btn btn-neutral float-left" title="Transmit" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="05_common_mistakes.html" class="btn btn-neutral float-right" title="Common mistakes" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="05_common_mistakes.html" class="btn btn-neutral float-right" title="Common Mistakes" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2023-2026 by Vector Informatik GmbH and Infineon Technologies AG. Licensed under the Apache License, Version 2.0.</p>
+  
+    <p>&#169; Copyright 2023-2026 by Vector Informatik GmbH and Infineon Technologies AG.</p>
+  <p class="license-notice">Licensed under the Apache License 2.0.</p>
+
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

@@ -7,7 +7,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Receive a frame &mdash; Chiisai HAL Specification released documentation</title>
+  <title>Receive a Frame &mdash; Chiisai HAL Specification released documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=9edc463e" />
       <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css?v=4ae1632d" />
@@ -20,7 +20,7 @@
       <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/common_css/need_style.css?v=92936fa5" />
       <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/common_css/need_toggle.css?v=5c6620df" />
       <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/modern.css?v=803738c0" />
-      <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=d26aa23c" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=ed454c3b" />
 
   
       <script src="../../../_static/jquery.js?v=5d32c60e"></script>
@@ -37,8 +37,8 @@
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="Handle bus-off" href="05_busoff.html" />
-    <link rel="prev" title="Transmit a frame" href="03_transmit.html" /> 
+    <link rel="next" title="Handle Bus-Off" href="05_busoff.html" />
+    <link rel="prev" title="Transmit a Frame" href="03_transmit.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -72,11 +72,11 @@
 <li class="toctree-l3 current"><a class="reference internal" href="index.html">Guide</a><ul class="current">
 <li class="toctree-l4"><a class="reference internal" href="00_quickstart.html">Quickstart</a></li>
 <li class="toctree-l4"><a class="reference internal" href="01_configuration.html">Configuration</a></li>
-<li class="toctree-l4"><a class="reference internal" href="02_initialise.html">Initialize a channel</a></li>
-<li class="toctree-l4"><a class="reference internal" href="03_transmit.html">Transmit a frame</a></li>
-<li class="toctree-l4 current"><a class="current reference internal" href="#">Receive a frame</a></li>
-<li class="toctree-l4"><a class="reference internal" href="05_busoff.html">Handle bus-off</a></li>
-<li class="toctree-l4"><a class="reference internal" href="06_common_mistakes.html">Common mistakes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="02_initialise.html">Initialize a Channel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="03_transmit.html">Transmit a Frame</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Receive a Frame</a></li>
+<li class="toctree-l4"><a class="reference internal" href="05_busoff.html">Handle Bus-Off</a></li>
+<li class="toctree-l4"><a class="reference internal" href="06_common_mistakes.html">Common Mistakes</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../reference/index.html">Reference</a></li>
@@ -114,7 +114,10 @@
           <li class="breadcrumb-item"><a href="../../index.html">Chiisai HAL Driver Modules</a></li>
           <li class="breadcrumb-item"><a href="../index.html">Can</a></li>
           <li class="breadcrumb-item"><a href="index.html">Guide</a></li>
-      <li class="breadcrumb-item active">Receive a frame</li>
+      <li class="breadcrumb-item active">Receive a Frame</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/04_DriverModules/Can/guide/04_receive.rst.txt" rel="nofollow"> View page source</a>
+      </li>
   </ul>
   <hr/>
 </div>
@@ -122,18 +125,18 @@
            <div itemprop="articleBody">
              
   <section id="receive-a-frame">
-<h1>Receive a frame<a class="headerlink" href="#receive-a-frame" title="Link to this heading"></a></h1>
-<div class="informative admonition">
-<p class="admonition-title">Informative</p>
+<h1>Receive a Frame<a class="headerlink" href="#receive-a-frame" title="Link to this heading"></a></h1>
+<div class="content-kind content-kind-informative docutils container">
+<p><a class="content-kind-label reference internal" href="../../../00_about/01_reading_guide.html#content-kinds" title="Informative: explains usage; does not constrain driver implementations. Click for details."><span class="content-kind-name">Informative</span><span class="content-kind-sep"> · </span><span class="content-kind-scope">non-binding</span></a></p>
+</div>
 <p>How upper-layer software receives a CAN L-PDU. Binding rules: <a class="reference internal" href="../00_requirements.html#CHI-CAN-MUST-13" title="CHI-CAN-MUST-13"><em class="xref need">CHI-CAN-MUST-13</em></a> to <a class="reference internal" href="../00_requirements.html#CHI-CAN-MUST-16" title="CHI-CAN-MUST-16"><em class="xref need">CHI-CAN-MUST-16</em></a> in
 <a class="reference internal" href="../00_requirements.html"><span class="doc">Can — Requirements</span></a>; callback signature: <a class="reference internal" href="../reference/00_api.html"><span class="doc">API Reference</span></a>.</p>
-</div>
 <section id="goal">
 <h2>Goal<a class="headerlink" href="#goal" title="Link to this heading"></a></h2>
 <p>Get notified when a frame that passes your acceptance filter arrives on a <code class="docutils literal notranslate"><span class="pre">STARTED</span></code> channel.</p>
 </section>
 <section id="reception-is-push-not-pull">
-<h2>Reception is push, not pull<a class="headerlink" href="#reception-is-push-not-pull" title="Link to this heading"></a></h2>
+<h2>Reception Is Push, Not Pull<a class="headerlink" href="#reception-is-push-not-pull" title="Link to this heading"></a></h2>
 <p>You do not poll for frames from the application. When the driver receives a frame (in its ISR, or
 via <code class="docutils literal notranslate"><span class="pre">Can_PollFunction</span></code> for polled channels), it calls your callback:</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">CanIf_OnReception</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Can_MessageInfoType</span><span class="w"> </span><span class="o">*</span><span class="n">messageInfo</span><span class="p">,</span>
@@ -148,7 +151,7 @@ via <code class="docutils literal notranslate"><span class="pre">Can_PollFunctio
 </div>
 </section>
 <section id="which-frames-arrive">
-<h2>Which frames arrive<a class="headerlink" href="#which-frames-arrive" title="Link to this heading"></a></h2>
+<h2>Which Frames Arrive<a class="headerlink" href="#which-frames-arrive" title="Link to this heading"></a></h2>
 <p>Only frames accepted by the RX mailbox’s hardware filter (<code class="docutils literal notranslate"><span class="pre">hw_filter_code</span></code> / <code class="docutils literal notranslate"><span class="pre">hw_filter_mask</span></code>)
 are delivered. An RX mailbox may be backed by a hardware FIFO or several hardware objects, so
 bursts are handled without loss where the hardware allows (<a class="reference internal" href="../00_requirements.html#CHI-CAN-MUST-16" title="CHI-CAN-MUST-16"><em class="xref need">CHI-CAN-MUST-16</em></a>).</p>
@@ -170,15 +173,19 @@ TX-completion, bus-off, and error branches.</p>
 
            </div>
           </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="03_transmit.html" class="btn btn-neutral float-left" title="Transmit a frame" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="05_busoff.html" class="btn btn-neutral float-right" title="Handle bus-off" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+          
+<footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="03_transmit.html" class="btn btn-neutral float-left" title="Transmit a Frame" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="05_busoff.html" class="btn btn-neutral float-right" title="Handle Bus-Off" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2023-2026 by Vector Informatik GmbH and Infineon Technologies AG. Licensed under the Apache License, Version 2.0.</p>
+  
+    <p>&#169; Copyright 2023-2026 by Vector Informatik GmbH and Infineon Technologies AG.</p>
+  <p class="license-notice">Licensed under the Apache License 2.0.</p>
+
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

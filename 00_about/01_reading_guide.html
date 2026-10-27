@@ -7,7 +7,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>How to Read This Specification &mdash; Chiisai HAL Specification released documentation</title>
+  <title>How To Read This Specification &mdash; Chiisai HAL Specification released documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
       <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=4ae1632d" />
@@ -20,7 +20,7 @@
       <link rel="stylesheet" type="text/css" href="../_static/sphinx-needs/common_css/need_style.css?v=92936fa5" />
       <link rel="stylesheet" type="text/css" href="../_static/sphinx-needs/common_css/need_toggle.css?v=5c6620df" />
       <link rel="stylesheet" type="text/css" href="../_static/sphinx-needs/modern.css?v=803738c0" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=d26aa23c" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=ed454c3b" />
 
   
       <script src="../_static/jquery.js?v=5d32c60e"></script>
@@ -66,10 +66,10 @@
               <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">About This Specification</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="00_status.html">Specification Status</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">How to Read This Specification</a><ul>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">How To Read This Specification</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#the-three-tiers">The Three Tiers</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#normative-vs-informative">Normative vs. Informative</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#requirements-ids-and-status">Requirements, IDs, and status</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#requirements-ids-and-status">Requirements, IDs, and Status</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="02_keywords.html">Requirement Keywords</a></li>
@@ -98,7 +98,10 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="index.html">About This Specification</a></li>
-      <li class="breadcrumb-item active">How to Read This Specification</li>
+      <li class="breadcrumb-item active">How To Read This Specification</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/00_about/01_reading_guide.rst.txt" rel="nofollow"> View page source</a>
+      </li>
   </ul>
   <hr/>
 </div>
@@ -106,12 +109,12 @@
            <div itemprop="articleBody">
              
   <section id="how-to-read-this-specification">
-<h1>How to Read This Specification<a class="headerlink" href="#how-to-read-this-specification" title="Link to this heading"></a></h1>
-<div class="informative admonition">
-<p class="admonition-title">Informative</p>
+<h1>How To Read This Specification<a class="headerlink" href="#how-to-read-this-specification" title="Link to this heading"></a></h1>
+<div class="content-kind content-kind-informative docutils container">
+<p><a class="content-kind-label reference internal" href="#content-kinds" title="Informative: explains usage; does not constrain driver implementations. Click for details."><span class="content-kind-name">Informative</span><span class="content-kind-sep"> · </span><span class="content-kind-scope">non-binding</span></a></p>
+</div>
 <p>This page explains how the specification is organized. It does not itself impose any
 requirement on a driver implementation.</p>
-</div>
 <p>Chiisai HAL is a hardware-abstraction standard for small, cost-sensitive MCUs. It is written to
 be read and implemented — primarily by <strong>silicon vendors</strong> building a driver, and secondarily by
 <strong>application developers</strong> consuming one.</p>
@@ -152,25 +155,31 @@ headers so code and documentation stay in sync.</p></td>
 relevant API reference block, to the requirement IDs that govern it, via cross-links.</p>
 </section>
 <section id="normative-vs-informative">
-<h2>Normative vs. Informative<a class="headerlink" href="#normative-vs-informative" title="Link to this heading"></a></h2>
-<p>Every page declares which kind of content it is:</p>
-<div class="normative admonition">
-<p class="admonition-title">Normative</p>
+<span id="content-kinds"></span><h2>Normative vs. Informative<a class="headerlink" href="#normative-vs-informative" title="Link to this heading"></a></h2>
+<p>Every page declares which kind of content it is with a label directly under its title:</p>
+<div class="content-kind content-kind-normative docutils container">
+<p><span class="content-kind-label"><span class="content-kind-name">Normative</span><span class="content-kind-sep"> · </span><span class="content-kind-scope">binding</span></span></p>
+</div>
 <p>Defines what a conformant driver <strong>MUST</strong> do. Requirement keywords follow <a class="reference internal" href="02_keywords.html"><span class="doc">Requirement Keywords</span></a>.
 Normative content appears on <strong>Reference</strong> and <strong>Requirements</strong> pages.</p>
+<div class="content-kind content-kind-informative docutils container">
+<p><span class="content-kind-label"><span class="content-kind-name">Informative</span><span class="content-kind-sep"> · </span><span class="content-kind-scope">non-binding</span></span></p>
 </div>
-<div class="informative admonition">
-<p class="admonition-title">Informative</p>
 <p>Shows how upper-layer software <em>uses</em> the driver. It does <strong>not</strong> constrain how a driver is
 implemented internally. Informative content appears on <strong>Overview</strong>, <strong>Concepts</strong>, <strong>Guide</strong>,
 and <strong>Design Decisions</strong> pages.</p>
+<p>The label applies to the whole page. Boxes such as the one below are something else: they
+highlight a single remark inside the page and do not change whether the page is normative.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Example of an ordinary note.</p>
 </div>
 <p>The guiding rule for normative content: a requirement describes <em>what the driver must do from the
 outside</em>, never <em>how to write it on the inside</em>. Implementation rationale lives in
 <strong>Design Decisions</strong>.</p>
 </section>
 <section id="requirements-ids-and-status">
-<h2>Requirements, IDs, and status<a class="headerlink" href="#requirements-ids-and-status" title="Link to this heading"></a></h2>
+<h2>Requirements, IDs, and Status<a class="headerlink" href="#requirements-ids-and-status" title="Link to this heading"></a></h2>
 <ul class="simple">
 <li><p>Requirements carry short, stable identifiers of the form <code class="docutils literal notranslate"><span class="pre">CHI-&lt;MODULE&gt;-&lt;BAND&gt;-&lt;NN&gt;</span></code> (for
 example <code class="docutils literal notranslate"><span class="pre">CHI-CAN-MUST-01</span></code>), where <code class="docutils literal notranslate"><span class="pre">&lt;BAND&gt;</span></code> is the severity — <code class="docutils literal notranslate"><span class="pre">MUST</span></code>, <code class="docutils literal notranslate"><span class="pre">SHOULD</span></code>, or
@@ -189,7 +198,8 @@ and <strong>Optional (MAY)</strong> so the essential contract is read first. See
 
            </div>
           </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+          
+<footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="00_status.html" class="btn btn-neutral float-left" title="Specification Status" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="02_keywords.html" class="btn btn-neutral float-right" title="Requirement Keywords" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
@@ -197,7 +207,10 @@ and <strong>Optional (MAY)</strong> so the essential contract is read first. See
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2023-2026 by Vector Informatik GmbH and Infineon Technologies AG. Licensed under the Apache License, Version 2.0.</p>
+  
+    <p>&#169; Copyright 2023-2026 by Vector Informatik GmbH and Infineon Technologies AG.</p>
+  <p class="license-notice">Licensed under the Apache License 2.0.</p>
+
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

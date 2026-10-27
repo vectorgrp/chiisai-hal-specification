@@ -20,7 +20,7 @@
       <link rel="stylesheet" type="text/css" href="../../_static/sphinx-needs/common_css/need_style.css?v=92936fa5" />
       <link rel="stylesheet" type="text/css" href="../../_static/sphinx-needs/common_css/need_toggle.css?v=5c6620df" />
       <link rel="stylesheet" type="text/css" href="../../_static/sphinx-needs/modern.css?v=803738c0" />
-      <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=d26aa23c" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=ed454c3b" />
 
   
       <script src="../../_static/jquery.js?v=5d32c60e"></script>
@@ -104,7 +104,10 @@
       <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../index.html">Chiisai HAL Driver Modules</a></li>
           <li class="breadcrumb-item"><a href="index.html">Uart</a></li>
-      <li class="breadcrumb-item active">Uart — Requirements</li>
+      <li class="breadcrumb-item active">Uart — Requirements</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/04_DriverModules/Uart/00_requirements.rst.txt" rel="nofollow"> View page source</a>
+      </li>
   </ul>
   <hr/>
 </div>
@@ -113,15 +116,15 @@
              
   <section id="uart-requirements">
 <h1>Uart — Requirements<a class="headerlink" href="#uart-requirements" title="Link to this heading"></a></h1>
-<div class="normative admonition">
-<p class="admonition-title">Normative</p>
+<div class="content-kind content-kind-normative docutils container">
+<p><a class="content-kind-label reference internal" href="../../00_about/01_reading_guide.html#content-kinds" title="Normative: defines what a conformant driver MUST do. Click for details."><span class="content-kind-name">Normative</span><span class="content-kind-sep"> · </span><span class="content-kind-scope">binding</span></a></p>
+</div>
 <p>Defines what a conformant UART driver <strong>MUST</strong> do. Keywords per <a class="reference internal" href="../../00_about/02_keywords.html"><span class="doc">Requirement Keywords</span></a>;
 conformance per <a class="reference internal" href="../../00_about/03_conformance.html"><span class="doc">Conformance</span></a>. Requirements do not carry individual status —
 the set-level status applies to all of them. Signatures, error codes, and configuration
 properties are in the <a class="reference internal" href="reference/00_api.html"><span class="doc">API Reference</span></a>, <a class="reference internal" href="reference/02_errors.html"><span class="doc">Errors</span></a>, and
 <a class="reference internal" href="reference/01_configuration.html"><span class="doc">Configuration Reference</span></a> pages. Cross-module rules (types, error model, naming, memory mapping) are in
 <a class="reference internal" href="../../01_general/index.html"><span class="doc">General</span></a>.</p>
-</div>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
 <summary class="sd-summary-title sd-card-header sd-bg-warning sd-bg-text-warning">
 <span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-alert" viewBox="0 0 16 16" aria-hidden="true"><path d="M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"></path></svg></span><span class="sd-summary-text">Mandatory (MUST) - 23 Requirements</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
@@ -130,7 +133,7 @@ properties are in the <a class="reference internal" href="reference/00_api.html"
 <div class="sd-card-body docutils">
 <div class="sd-card-title sd-font-weight-bold docutils">
 Scope and event handling</div>
-<div class="need_container docutils container" id="SNCB-8b300c9e">
+<div class="need_container docutils container" id="SNCB-801758ba">
 <table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-UART-MUST-01">
 <tbody>
 <tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
@@ -146,7 +149,7 @@ multi-processor, and sub-modes such as Smart Card / IrDA are out of scope.</p></
 </tbody>
 </table>
 </div>
-<div class="need_container docutils container" id="SNCB-8e0d5b6a">
+<div class="need_container docutils container" id="SNCB-6e53a1a0">
 <table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-UART-MUST-02">
 <tbody>
 <tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
@@ -169,7 +172,7 @@ In interrupt mode <code class="docutils literal notranslate"><span class="pre">U
 <div class="sd-card-body docutils">
 <div class="sd-card-title sd-font-weight-bold docutils">
 State machine</div>
-<div class="need_container docutils container" id="SNCB-db25e483">
+<div class="need_container docutils container" id="SNCB-26142411">
 <table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-UART-MUST-03">
 <tbody>
 <tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
@@ -185,7 +188,7 @@ State machine</div>
 </tbody>
 </table>
 </div>
-<div class="need_container docutils container" id="SNCB-8b94664b">
+<div class="need_container docutils container" id="SNCB-0f616c34">
 <table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-UART-MUST-04">
 <tbody>
 <tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
@@ -204,7 +207,7 @@ the hardware finishes; and <code class="docutils literal notranslate"><span clas
 </tbody>
 </table>
 </div>
-<div class="need_container docutils container" id="SNCB-1cd7d308">
+<div class="need_container docutils container" id="SNCB-c657e68c">
 <table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-UART-MUST-05">
 <tbody>
 <tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
@@ -227,7 +230,7 @@ the hardware finishes; and <code class="docutils literal notranslate"><span clas
 <div class="sd-card-body docutils">
 <div class="sd-card-title sd-font-weight-bold docutils">
 Initialization and shutdown</div>
-<div class="need_container docutils container" id="SNCB-bc85c745">
+<div class="need_container docutils container" id="SNCB-e00a1ea0">
 <table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-UART-MUST-06">
 <tbody>
 <tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
@@ -244,7 +247,7 @@ MUST NOT receive any frame before <code class="docutils literal notranslate"><sp
 </tbody>
 </table>
 </div>
-<div class="need_container docutils container" id="SNCB-2d1307e1">
+<div class="need_container docutils container" id="SNCB-281af1e9">
 <table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-UART-MUST-07">
 <tbody>
 <tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
@@ -266,7 +269,7 @@ the hardware.</p></td>
 <div class="sd-card-body docutils">
 <div class="sd-card-title sd-font-weight-bold docutils">
 Transmission</div>
-<div class="need_container docutils container" id="SNCB-391c425e">
+<div class="need_container docutils container" id="SNCB-d66dfaff">
 <table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-UART-MUST-08">
 <tbody>
 <tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
@@ -284,7 +287,7 @@ MUST remain valid until the matching completion / streaming callout.</p></td>
 </tbody>
 </table>
 </div>
-<div class="need_container docutils container" id="SNCB-e4577089">
+<div class="need_container docutils container" id="SNCB-d5bfa3cf">
 <table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-UART-MUST-09">
 <tbody>
 <tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
@@ -300,7 +303,7 @@ data to the hardware.</p></td>
 </tbody>
 </table>
 </div>
-<div class="need_container docutils container" id="SNCB-a573fec1">
+<div class="need_container docutils container" id="SNCB-4ba3f6f2">
 <table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-UART-MUST-10">
 <tbody>
 <tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
@@ -317,7 +320,7 @@ shift register empty) the driver MUST move the channel to <code class="docutils 
 </tbody>
 </table>
 </div>
-<div class="need_container docutils container" id="SNCB-69cdc764">
+<div class="need_container docutils container" id="SNCB-4d1661cf">
 <table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-UART-MUST-11">
 <tbody>
 <tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
@@ -341,7 +344,7 @@ either <code class="docutils literal notranslate"><span class="pre">Uart_Callout
 <div class="sd-card-body docutils">
 <div class="sd-card-title sd-font-weight-bold docutils">
 Reception</div>
-<div class="need_container docutils container" id="SNCB-f541a514">
+<div class="need_container docutils container" id="SNCB-faf3b104">
 <table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-UART-MUST-12">
 <tbody>
 <tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
@@ -358,7 +361,7 @@ caller’s buffer MUST remain valid until the matching <code class="docutils lit
 </tbody>
 </table>
 </div>
-<div class="need_container docutils container" id="SNCB-f12a8e6d">
+<div class="need_container docutils container" id="SNCB-9db5db4f">
 <table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-UART-MUST-13">
 <tbody>
 <tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
@@ -376,7 +379,7 @@ length a multiple of the trigger) it MUST call <code class="docutils literal not
 </tbody>
 </table>
 </div>
-<div class="need_container docutils container" id="SNCB-08db189f">
+<div class="need_container docutils container" id="SNCB-a0dc0d70">
 <table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-UART-MUST-14">
 <tbody>
 <tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
@@ -394,7 +397,7 @@ reception was started.</p></td>
 </tbody>
 </table>
 </div>
-<div class="need_container docutils container" id="SNCB-88c607e2">
+<div class="need_container docutils container" id="SNCB-2b070e51">
 <table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-UART-MUST-15">
 <tbody>
 <tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
@@ -410,7 +413,7 @@ channel. It is intended to be called from within <code class="docutils literal n
 </tbody>
 </table>
 </div>
-<div class="need_container docutils container" id="SNCB-adf8f3a4">
+<div class="need_container docutils container" id="SNCB-3ac0a071">
 <table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-UART-MUST-16">
 <tbody>
 <tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
@@ -432,7 +435,7 @@ channel. It is intended to be called from within <code class="docutils literal n
 <div class="sd-card-body docutils">
 <div class="sd-card-title sd-font-weight-bold docutils">
 Errors, status, and scheduling</div>
-<div class="need_container docutils container" id="SNCB-603bed1c">
+<div class="need_container docutils container" id="SNCB-217be03d">
 <table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-UART-MUST-17">
 <tbody>
 <tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
@@ -450,7 +453,7 @@ it via <code class="docutils literal notranslate"><span class="pre">LogM_Report<
 </tbody>
 </table>
 </div>
-<div class="need_container docutils container" id="SNCB-ece7dce4">
+<div class="need_container docutils container" id="SNCB-8eb3cb36">
 <table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-UART-MUST-18">
 <tbody>
 <tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
@@ -466,7 +469,7 @@ the hardware, for channels configured for polling.</p></td>
 </tbody>
 </table>
 </div>
-<div class="need_container docutils container" id="SNCB-892309db">
+<div class="need_container docutils container" id="SNCB-a8e6e235">
 <table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-UART-MUST-19">
 <tbody>
 <tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
@@ -482,7 +485,7 @@ state of the requested channel.</p></td>
 </tbody>
 </table>
 </div>
-<div class="need_container docutils container" id="SNCB-7e1623e9">
+<div class="need_container docutils container" id="SNCB-bcfae275">
 <table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-UART-MUST-20">
 <tbody>
 <tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
@@ -504,7 +507,7 @@ state of the requested channel.</p></td>
 <div class="sd-card-body docutils">
 <div class="sd-card-title sd-font-weight-bold docutils">
 Types, callouts, and configuration</div>
-<div class="need_container docutils container" id="SNCB-0eab2c88">
+<div class="need_container docutils container" id="SNCB-4188cddd">
 <table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-UART-MUST-21">
 <tbody>
 <tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
@@ -521,7 +524,7 @@ Types, callouts, and configuration</div>
 </tbody>
 </table>
 </div>
-<div class="need_container docutils container" id="SNCB-79545764">
+<div class="need_container docutils container" id="SNCB-5e55cd00">
 <table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-UART-MUST-22">
 <tbody>
 <tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
@@ -539,7 +542,7 @@ Types, callouts, and configuration</div>
 </tbody>
 </table>
 </div>
-<div class="need_container docutils container" id="SNCB-1a505172">
+<div class="need_container docutils container" id="SNCB-a1ba7839">
 <table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-UART-MUST-23">
 <tbody>
 <tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
@@ -567,7 +570,7 @@ event-handling mode, and <code class="docutils literal notranslate"><span class=
 <div class="sd-card-body docutils">
 <div class="sd-card-title sd-font-weight-bold docutils">
 Flow control</div>
-<div class="need_container docutils container" id="SNCB-92f7e180">
+<div class="need_container docutils container" id="SNCB-460ccef2">
 <table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-UART-SHOULD-01">
 <tbody>
 <tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
@@ -589,7 +592,7 @@ Flow control</div>
 <div class="sd-card-body docutils">
 <div class="sd-card-title sd-font-weight-bold docutils">
 TX error handling</div>
-<div class="need_container docutils container" id="SNCB-7058a589">
+<div class="need_container docutils container" id="SNCB-afc7911c">
 <table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-UART-SHOULD-02">
 <tbody>
 <tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
@@ -614,7 +617,8 @@ transmission before notifying and report it via <code class="docutils literal no
 
            </div>
           </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+          
+<footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="reference/02_errors.html" class="btn btn-neutral float-left" title="Errors" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="01_design_decisions.html" class="btn btn-neutral float-right" title="Design Decisions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
@@ -622,7 +626,10 @@ transmission before notifying and report it via <code class="docutils literal no
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2023-2026 by Vector Informatik GmbH and Infineon Technologies AG. Licensed under the Apache License, Version 2.0.</p>
+  
+    <p>&#169; Copyright 2023-2026 by Vector Informatik GmbH and Infineon Technologies AG.</p>
+  <p class="license-notice">Licensed under the Apache License 2.0.</p>
+
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

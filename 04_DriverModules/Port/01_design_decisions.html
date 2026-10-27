@@ -20,7 +20,7 @@
       <link rel="stylesheet" type="text/css" href="../../_static/sphinx-needs/common_css/need_style.css?v=92936fa5" />
       <link rel="stylesheet" type="text/css" href="../../_static/sphinx-needs/common_css/need_toggle.css?v=5c6620df" />
       <link rel="stylesheet" type="text/css" href="../../_static/sphinx-needs/modern.css?v=803738c0" />
-      <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=d26aa23c" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=ed454c3b" />
 
   
       <script src="../../_static/jquery.js?v=5d32c60e"></script>
@@ -78,12 +78,12 @@
 <li class="toctree-l3"><a class="reference internal" href="reference/index.html">Reference</a></li>
 <li class="toctree-l3"><a class="reference internal" href="00_requirements.html">Port — Requirements</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Design Decisions</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#why-does-portdrv-have-no-portif-interface-layer">Why does PortDrv have no <code class="docutils literal notranslate"><span class="pre">PortIf</span></code> interface layer?</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#why-is-a-pin-s-function-and-direction-fixed-at-port-init">Why is a pin’s function and direction fixed at <code class="docutils literal notranslate"><span class="pre">Port_Init</span></code>?</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#why-is-writing-an-input-pin-left-implementation-defined">Why is writing an input pin left implementation-defined?</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#why-a-masked-port-write-instead-of-a-plain-port-write">Why a masked port write instead of a plain port write?</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#why-return-port-pin-value-low-on-a-read-error">Why return <code class="docutils literal notranslate"><span class="pre">PORT_PIN_VALUE_LOW</span></code> on a read error?</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#why-does-port-init-take-only-null-ptr">Why does <code class="docutils literal notranslate"><span class="pre">Port_Init</span></code> take only <code class="docutils literal notranslate"><span class="pre">NULL_PTR</span></code>?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#why-does-portdrv-have-no-portif-interface-layer">Why Does PortDrv Have No <code class="docutils literal notranslate"><span class="pre">PortIf</span></code> Interface Layer?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#why-is-a-pin-s-function-and-direction-fixed-at-port-init">Why Is a Pin’s Function and Direction Fixed at <code class="docutils literal notranslate"><span class="pre">Port_Init</span></code>?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#why-is-writing-an-input-pin-left-implementation-defined">Why Is Writing an Input Pin Left Implementation-Defined?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#why-a-masked-port-write-instead-of-a-plain-port-write">Why a Masked Port Write Instead of a Plain Port Write?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#why-return-port-pin-value-low-on-a-read-error">Why Return <code class="docutils literal notranslate"><span class="pre">PORT_PIN_VALUE_LOW</span></code> on a Read Error?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#why-does-port-init-take-only-null-ptr">Why Does <code class="docutils literal notranslate"><span class="pre">Port_Init</span></code> Take Only <code class="docutils literal notranslate"><span class="pre">NULL_PTR</span></code>?</a></li>
 </ul>
 </li>
 </ul>
@@ -112,7 +112,10 @@
       <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../index.html">Chiisai HAL Driver Modules</a></li>
           <li class="breadcrumb-item"><a href="index.html">Port</a></li>
-      <li class="breadcrumb-item active">Design Decisions</li>
+      <li class="breadcrumb-item active">Design Decisions</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/04_DriverModules/Port/01_design_decisions.rst.txt" rel="nofollow"> View page source</a>
+      </li>
   </ul>
   <hr/>
 </div>
@@ -121,13 +124,13 @@
              
   <section id="design-decisions">
 <h1>Design Decisions<a class="headerlink" href="#design-decisions" title="Link to this heading"></a></h1>
-<div class="informative admonition">
-<p class="admonition-title">Informative</p>
+<div class="content-kind content-kind-informative docutils container">
+<p><a class="content-kind-label reference internal" href="../../00_about/01_reading_guide.html#content-kinds" title="Informative: explains usage; does not constrain driver implementations. Click for details."><span class="content-kind-name">Informative</span><span class="content-kind-sep"> · </span><span class="content-kind-scope">non-binding</span></a></p>
+</div>
 <p>The rationale behind the Port driver contract. This helps implementers get the behavior right;
 it is not itself a requirement. Each entry points to the requirement it explains.</p>
-</div>
 <section id="why-does-portdrv-have-no-portif-interface-layer">
-<h2>Why does PortDrv have no <code class="docutils literal notranslate"><span class="pre">PortIf</span></code> interface layer?<a class="headerlink" href="#why-does-portdrv-have-no-portif-interface-layer" title="Link to this heading"></a></h2>
+<h2>Why Does PortDrv Have No <code class="docutils literal notranslate"><span class="pre">PortIf</span></code> Interface Layer?<a class="headerlink" href="#why-does-portdrv-have-no-portif-interface-layer" title="Link to this heading"></a></h2>
 <p><em>Relates to</em> <a class="reference internal" href="../../01_general/04_requirements.html#CHI-GEN-MUST-15" title="CHI-GEN-MUST-15"><em class="xref need">CHI-GEN-MUST-15</em></a>, <a class="reference internal" href="../../01_general/04_requirements.html#CHI-GEN-MUST-16" title="CHI-GEN-MUST-16"><em class="xref need">CHI-GEN-MUST-16</em></a>.</p>
 <p>There is no standardized interface stack above a port driver the way <code class="docutils literal notranslate"><span class="pre">CanIf</span></code> sits above a CAN
 driver, so a <code class="docutils literal notranslate"><span class="pre">PortIf</span></code> layer would have had no implementation and no owner. PortDrv therefore
@@ -138,7 +141,7 @@ the generated <code class="docutils literal notranslate"><span class="pre">Port_
 do not ship a <code class="docutils literal notranslate"><span class="pre">PortIf.h</span></code>.</p>
 </section>
 <section id="why-is-a-pin-s-function-and-direction-fixed-at-port-init">
-<h2>Why is a pin’s function and direction fixed at <code class="docutils literal notranslate"><span class="pre">Port_Init</span></code>?<a class="headerlink" href="#why-is-a-pin-s-function-and-direction-fixed-at-port-init" title="Link to this heading"></a></h2>
+<h2>Why Is a Pin’s Function and Direction Fixed at <code class="docutils literal notranslate"><span class="pre">Port_Init</span></code>?<a class="headerlink" href="#why-is-a-pin-s-function-and-direction-fixed-at-port-init" title="Link to this heading"></a></h2>
 <p><em>Governs</em> <a class="reference internal" href="00_requirements.html#CHI-PORT-MUST-01" title="CHI-PORT-MUST-01"><em class="xref need">CHI-PORT-MUST-01</em></a>, <a class="reference internal" href="00_requirements.html#CHI-PORT-MUST-02" title="CHI-PORT-MUST-02"><em class="xref need">CHI-PORT-MUST-02</em></a>.</p>
 <p>Pin routing is a board-level property that almost never changes at runtime, and reconfiguring a pin
 live is a common source of glitches (e.g. changing direction before the function mode has settled).
@@ -150,7 +153,7 @@ it genuinely varies with application state.</p>
 <code class="docutils literal notranslate"><span class="pre">Port_Init</span></code>; expose no runtime pin-reconfiguration API.</p>
 </section>
 <section id="why-is-writing-an-input-pin-left-implementation-defined">
-<h2>Why is writing an input pin left implementation-defined?<a class="headerlink" href="#why-is-writing-an-input-pin-left-implementation-defined" title="Link to this heading"></a></h2>
+<h2>Why Is Writing an Input Pin Left Implementation-Defined?<a class="headerlink" href="#why-is-writing-an-input-pin-left-implementation-defined" title="Link to this heading"></a></h2>
 <p><em>Relates to</em> <a class="reference internal" href="00_requirements.html#CHI-PORT-MUST-04" title="CHI-PORT-MUST-04"><em class="xref need">CHI-PORT-MUST-04</em></a>.</p>
 <p>Hardware disagrees on what “set an input pin” means: some MCUs use the output-register write to
 steer an internal pull-up/down on an input, others latch it harmlessly, and others forbid it. Rather
@@ -161,7 +164,7 @@ rely on it.</p>
 portable meaning.</p>
 </section>
 <section id="why-a-masked-port-write-instead-of-a-plain-port-write">
-<h2>Why a masked port write instead of a plain port write?<a class="headerlink" href="#why-a-masked-port-write-instead-of-a-plain-port-write" title="Link to this heading"></a></h2>
+<h2>Why a Masked Port Write Instead of a Plain Port Write?<a class="headerlink" href="#why-a-masked-port-write-instead-of-a-plain-port-write" title="Link to this heading"></a></h2>
 <p><em>Governs</em> <a class="reference internal" href="00_requirements.html#CHI-PORT-MUST-06" title="CHI-PORT-MUST-06"><em class="xref need">CHI-PORT-MUST-06</em></a>, <a class="reference internal" href="00_requirements.html#CHI-PORT-SHOULD-01" title="CHI-PORT-SHOULD-01"><em class="xref need">CHI-PORT-SHOULD-01</em></a>.</p>
 <p>Ports usually mix pins owned by different features. A plain whole-port write would force a caller to
 read-modify-write and would race with other owners. <code class="docutils literal notranslate"><span class="pre">Port_SetMaskedPortValue</span></code> lets a caller change
@@ -171,7 +174,7 @@ simultaneously so a coordinated change (some pins rising, some falling) takes ef
 single atomic HW write over a read-modify-write where possible.</p>
 </section>
 <section id="why-return-port-pin-value-low-on-a-read-error">
-<h2>Why return <code class="docutils literal notranslate"><span class="pre">PORT_PIN_VALUE_LOW</span></code> on a read error?<a class="headerlink" href="#why-return-port-pin-value-low-on-a-read-error" title="Link to this heading"></a></h2>
+<h2>Why Return <code class="docutils literal notranslate"><span class="pre">PORT_PIN_VALUE_LOW</span></code> on a Read Error?<a class="headerlink" href="#why-return-port-pin-value-low-on-a-read-error" title="Link to this heading"></a></h2>
 <p><em>Relates to</em> <a class="reference internal" href="00_requirements.html#CHI-PORT-MUST-03" title="CHI-PORT-MUST-03"><em class="xref need">CHI-PORT-MUST-03</em></a>.</p>
 <p>The Get APIs return a value, not a status code, so they need a defined result when the pin id is
 invalid. <code class="docutils literal notranslate"><span class="pre">PORT_PIN_VALUE_LOW</span></code> is the safe default (a de-asserted line), and the development-error
@@ -181,7 +184,7 @@ indistinguishable from an error — is why callers should validate ids up front.
 development error; do not invent an out-of-band error value.</p>
 </section>
 <section id="why-does-port-init-take-only-null-ptr">
-<h2>Why does <code class="docutils literal notranslate"><span class="pre">Port_Init</span></code> take only <code class="docutils literal notranslate"><span class="pre">NULL_PTR</span></code>?<a class="headerlink" href="#why-does-port-init-take-only-null-ptr" title="Link to this heading"></a></h2>
+<h2>Why Does <code class="docutils literal notranslate"><span class="pre">Port_Init</span></code> Take Only <code class="docutils literal notranslate"><span class="pre">NULL_PTR</span></code>?<a class="headerlink" href="#why-does-port-init-take-only-null-ptr" title="Link to this heading"></a></h2>
 <p><em>Relates to</em> <a class="reference internal" href="00_requirements.html#CHI-PORT-MUST-02" title="CHI-PORT-MUST-02"><em class="xref need">CHI-PORT-MUST-02</em></a>.</p>
 <p>Configuration variants are selected at build time, not passed at runtime. Requiring
 <code class="docutils literal notranslate"><span class="pre">configPtr</span> <span class="pre">==</span> <span class="pre">NULL_PTR</span></code> keeps the interface stable and avoids implying a runtime variant-selection
@@ -194,7 +197,8 @@ mechanism the driver does not provide.</p>
 
            </div>
           </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+          
+<footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="00_requirements.html" class="btn btn-neutral float-left" title="Port — Requirements" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="../Spi/index.html" class="btn btn-neutral float-right" title="Spi" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
@@ -202,7 +206,10 @@ mechanism the driver does not provide.</p>
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2023-2026 by Vector Informatik GmbH and Infineon Technologies AG. Licensed under the Apache License, Version 2.0.</p>
+  
+    <p>&#169; Copyright 2023-2026 by Vector Informatik GmbH and Infineon Technologies AG.</p>
+  <p class="license-notice">Licensed under the Apache License 2.0.</p>
+
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

@@ -7,7 +7,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Controller transactions &mdash; Chiisai HAL Specification released documentation</title>
+  <title>Controller Transactions &mdash; Chiisai HAL Specification released documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=9edc463e" />
       <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css?v=4ae1632d" />
@@ -20,7 +20,7 @@
       <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/common_css/need_style.css?v=92936fa5" />
       <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/common_css/need_toggle.css?v=5c6620df" />
       <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/modern.css?v=803738c0" />
-      <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=d26aa23c" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=ed454c3b" />
 
   
       <script src="../../../_static/jquery.js?v=5d32c60e"></script>
@@ -37,8 +37,8 @@
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="Target transactions" href="04_target.html" />
-    <link rel="prev" title="Initialize the driver" href="02_initialise.html" /> 
+    <link rel="next" title="Target Transactions" href="04_target.html" />
+    <link rel="prev" title="Initialize the Driver" href="02_initialise.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -78,10 +78,10 @@
 <li class="toctree-l3 current"><a class="reference internal" href="index.html">Guide</a><ul class="current">
 <li class="toctree-l4"><a class="reference internal" href="00_quickstart.html">Quickstart</a></li>
 <li class="toctree-l4"><a class="reference internal" href="01_configuration.html">Configuration</a></li>
-<li class="toctree-l4"><a class="reference internal" href="02_initialise.html">Initialize the driver</a></li>
-<li class="toctree-l4 current"><a class="current reference internal" href="#">Controller transactions</a></li>
-<li class="toctree-l4"><a class="reference internal" href="04_target.html">Target transactions</a></li>
-<li class="toctree-l4"><a class="reference internal" href="05_common_mistakes.html">Common mistakes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="02_initialise.html">Initialize the Driver</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Controller Transactions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="04_target.html">Target Transactions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="05_common_mistakes.html">Common Mistakes</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../reference/index.html">Reference</a></li>
@@ -113,7 +113,10 @@
           <li class="breadcrumb-item"><a href="../../index.html">Chiisai HAL Driver Modules</a></li>
           <li class="breadcrumb-item"><a href="../index.html">Spi</a></li>
           <li class="breadcrumb-item"><a href="index.html">Guide</a></li>
-      <li class="breadcrumb-item active">Controller transactions</li>
+      <li class="breadcrumb-item active">Controller Transactions</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/04_DriverModules/Spi/guide/03_controller.rst.txt" rel="nofollow"> View page source</a>
+      </li>
   </ul>
   <hr/>
 </div>
@@ -121,14 +124,14 @@
            <div itemprop="articleBody">
              
   <section id="controller-transactions">
-<h1>Controller transactions<a class="headerlink" href="#controller-transactions" title="Link to this heading"></a></h1>
-<div class="informative admonition">
-<p class="admonition-title">Informative</p>
+<h1>Controller Transactions<a class="headerlink" href="#controller-transactions" title="Link to this heading"></a></h1>
+<div class="content-kind content-kind-informative docutils container">
+<p><a class="content-kind-label reference internal" href="../../../00_about/01_reading_guide.html#content-kinds" title="Informative: explains usage; does not constrain driver implementations. Click for details."><span class="content-kind-name">Informative</span><span class="content-kind-sep"> · </span><span class="content-kind-scope">non-binding</span></a></p>
+</div>
 <p>How a controller-mode channel transfers data on the bus. Binding rules: <a class="reference internal" href="../00_requirements.html#CHI-SPI-MUST-01" title="CHI-SPI-MUST-01"><em class="xref need">CHI-SPI-MUST-01</em></a>,
 <a class="reference internal" href="../00_requirements.html#CHI-SPI-MUST-11" title="CHI-SPI-MUST-11"><em class="xref need">CHI-SPI-MUST-11</em></a>…<a class="reference internal" href="../00_requirements.html#CHI-SPI-MUST-14" title="CHI-SPI-MUST-14"><em class="xref need">CHI-SPI-MUST-14</em></a>, and <a class="reference internal" href="../00_requirements.html#CHI-SPI-MUST-16" title="CHI-SPI-MUST-16"><em class="xref need">CHI-SPI-MUST-16</em></a> in <a class="reference internal" href="../00_requirements.html"><span class="doc">Spi — Requirements</span></a>.</p>
-</div>
 <section id="full-duplex-transfer">
-<h2>Full-duplex transfer<a class="headerlink" href="#full-duplex-transfer" title="Link to this heading"></a></h2>
+<h2>Full-Duplex Transfer<a class="headerlink" href="#full-duplex-transfer" title="Link to this heading"></a></h2>
 <p>A controller transaction is full-duplex: you provide a TX buffer set, an RX buffer set, or both.
 Supply <code class="docutils literal notranslate"><span class="pre">NULL_PTR</span></code> for a direction you do not need — a null RX set discards the received data; a
 TX chunk with a null <code class="docutils literal notranslate"><span class="pre">bufferDataPtr</span></code> sends the configured <code class="docutils literal notranslate"><span class="pre">default_data</span></code>.</p>
@@ -158,7 +161,7 @@ the completion callout fires.</p>
 </div>
 </section>
 <section id="chip-select-control-gpio">
-<h2>Chip-select control (GPIO)<a class="headerlink" href="#chip-select-control-gpio" title="Link to this heading"></a></h2>
+<h2>Chip-Select Control (GPIO)<a class="headerlink" href="#chip-select-control-gpio" title="Link to this heading"></a></h2>
 <p>When a device is configured with <code class="docutils literal notranslate"><span class="pre">cs_ctrl:</span> <span class="pre">ViaGPIO</span></code>, the driver does <strong>not</strong> touch the CS pin. It
 asks the integration code to toggle it, just before the transfer and at the end:</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">Spi_Callout_CsControl</span><span class="p">(</span><span class="n">uint8</span><span class="w"> </span><span class="n">channelId</span><span class="p">,</span><span class="w"> </span><span class="n">uint8</span><span class="w"> </span><span class="n">csId</span><span class="p">,</span><span class="w"> </span><span class="n">boolean</span><span class="w"> </span><span class="n">status</span><span class="p">)</span>
@@ -171,7 +174,7 @@ asks the integration code to toggle it, just before the transfer and at the end:
 <p>With <code class="docutils literal notranslate"><span class="pre">cs_ctrl:</span> <span class="pre">ViaHW</span></code> the SPI hardware drives CS and this callout is not used.</p>
 </section>
 <section id="bus-errors">
-<h2>Bus errors<a class="headerlink" href="#bus-errors" title="Link to this heading"></a></h2>
+<h2>Bus Errors<a class="headerlink" href="#bus-errors" title="Link to this heading"></a></h2>
 <p>A bus error detected during a transfer is reported through <a class="reference internal" href="../../../01_general/reference/02_services.html#gen-ref-logm"><span class="std std-ref">LogM_Report</span></a> at
 runtime-error level with a vendor-specific <code class="docutils literal notranslate"><span class="pre">SPI_RTERR_*</span></code> code (<a class="reference internal" href="../00_requirements.html#CHI-SPI-MUST-18" title="CHI-SPI-MUST-18"><em class="xref need">CHI-SPI-MUST-18</em></a>); errors
 not tied to a specific chip select carry <code class="docutils literal notranslate"><span class="pre">SPI_CS_UNSPECIFIED</span></code>.</p>
@@ -181,15 +184,19 @@ not tied to a specific chip select carry <code class="docutils literal notransla
 
            </div>
           </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="02_initialise.html" class="btn btn-neutral float-left" title="Initialize the driver" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="04_target.html" class="btn btn-neutral float-right" title="Target transactions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+          
+<footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="02_initialise.html" class="btn btn-neutral float-left" title="Initialize the Driver" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="04_target.html" class="btn btn-neutral float-right" title="Target Transactions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2023-2026 by Vector Informatik GmbH and Infineon Technologies AG. Licensed under the Apache License, Version 2.0.</p>
+  
+    <p>&#169; Copyright 2023-2026 by Vector Informatik GmbH and Infineon Technologies AG.</p>
+  <p class="license-notice">Licensed under the Apache License 2.0.</p>
+
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

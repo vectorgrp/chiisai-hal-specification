@@ -3,35 +3,57 @@
 }
 
 /* ==========================================================================
-   Audience banners: normative vs. informative
-   Used via ``.. admonition:: Normative`` / ``.. admonition:: Informative``
-   with ``:class: normative`` / ``:class: informative``.
+   Content-kind label: ``.. content-kind:: normative|informative``
+   (extension ``_ext/content_kind.py``). A small pill directly under the page
+   title — deliberately not a box, no icon, no full-width background — so it
+   reads as page metadata and cannot be mistaken for a note/warning admonition.
+   Navy/grey avoid the theme's admonition palette (blue note, orange warning,
+   red danger, teal tip/important).
    ========================================================================== */
+.rst-content .content-kind {
+    margin: -12px 0 18px;          /* pull up towards the h1 */
+}
+.rst-content .content-kind > p {
+    margin: 0;
+}
+.rst-content .content-kind-label {
+    display: inline-block;
+    padding: 4px 18px;
+    border: 1.5px solid;
+    border-radius: 999px;
+    font-size: 12.5px;
+    line-height: 18px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-decoration: none;
+    white-space: nowrap;
+}
+.rst-content a.content-kind-label:hover {
+    text-decoration: underline;
+}
+.rst-content .content-kind-name {
+    text-transform: uppercase;
+}
+.rst-content .content-kind-sep,
+.rst-content .content-kind-scope {
+    font-weight: 400;
+    letter-spacing: 0.02em;
+}
 
-/* Normative — the driver contract (amber) */
-.admonition.normative {
-    background: #fff8e6;
-    border-left: 4px solid #e0a800;
-}
-.admonition.normative > .admonition-title {
-    background: #e0a800;
-    color: #2b2b2b;
-}
-.admonition.normative > .admonition-title::before {
-    content: "\f0e3";  /* gavel / contract */
-}
-
-/* Informative — usage guidance, non-binding (blue) */
-.admonition.informative {
-    background: #eef5fb;
-    border-left: 4px solid #2980b9;
-}
-.admonition.informative > .admonition-title {
-    background: #2980b9;
+/* Normative — filled navy */
+.rst-content .content-kind-normative .content-kind-label,
+.rst-content .content-kind-normative .content-kind-label:visited {
+    background: #1b2b44;
+    border-color: #1b2b44;
     color: #ffffff;
 }
-.admonition.informative > .admonition-title::before {
-    content: "\f05a";  /* info circle */
+
+/* Informative — grey outline */
+.rst-content .content-kind-informative .content-kind-label,
+.rst-content .content-kind-informative .content-kind-label:visited {
+    background: transparent;
+    border-color: #6c757d;
+    color: #4a5057;
 }
 
 /* ==========================================================================

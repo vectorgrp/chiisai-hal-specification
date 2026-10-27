@@ -7,7 +7,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Initialize the driver &mdash; Chiisai HAL Specification released documentation</title>
+  <title>Initialize the Driver &mdash; Chiisai HAL Specification released documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=9edc463e" />
       <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css?v=4ae1632d" />
@@ -20,7 +20,7 @@
       <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/common_css/need_style.css?v=92936fa5" />
       <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/common_css/need_toggle.css?v=5c6620df" />
       <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/modern.css?v=803738c0" />
-      <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=d26aa23c" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=ed454c3b" />
 
   
       <script src="../../../_static/jquery.js?v=5d32c60e"></script>
@@ -37,7 +37,7 @@
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="Reading and writing pins" href="03_pins.html" />
+    <link rel="next" title="Reading and Writing Pins" href="03_pins.html" />
     <link rel="prev" title="Configuration" href="01_configuration.html" /> 
 </head>
 
@@ -77,10 +77,10 @@
 <li class="toctree-l3 current"><a class="reference internal" href="index.html">Guide</a><ul class="current">
 <li class="toctree-l4"><a class="reference internal" href="00_quickstart.html">Quickstart</a></li>
 <li class="toctree-l4"><a class="reference internal" href="01_configuration.html">Configuration</a></li>
-<li class="toctree-l4 current"><a class="current reference internal" href="#">Initialize the driver</a></li>
-<li class="toctree-l4"><a class="reference internal" href="03_pins.html">Reading and writing pins</a></li>
-<li class="toctree-l4"><a class="reference internal" href="04_edges.html">Edge detection</a></li>
-<li class="toctree-l4"><a class="reference internal" href="05_common_mistakes.html">Common mistakes</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Initialize the Driver</a></li>
+<li class="toctree-l4"><a class="reference internal" href="03_pins.html">Reading and Writing Pins</a></li>
+<li class="toctree-l4"><a class="reference internal" href="04_edges.html">Edge Detection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="05_common_mistakes.html">Common Mistakes</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../reference/index.html">Reference</a></li>
@@ -113,7 +113,10 @@
           <li class="breadcrumb-item"><a href="../../index.html">Chiisai HAL Driver Modules</a></li>
           <li class="breadcrumb-item"><a href="../index.html">Port</a></li>
           <li class="breadcrumb-item"><a href="index.html">Guide</a></li>
-      <li class="breadcrumb-item active">Initialize the driver</li>
+      <li class="breadcrumb-item active">Initialize the Driver</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/04_DriverModules/Port/guide/02_initialise.rst.txt" rel="nofollow"> View page source</a>
+      </li>
   </ul>
   <hr/>
 </div>
@@ -121,14 +124,14 @@
            <div itemprop="articleBody">
              
   <section id="initialize-the-driver">
-<h1>Initialize the driver<a class="headerlink" href="#initialize-the-driver" title="Link to this heading"></a></h1>
-<div class="informative admonition">
-<p class="admonition-title">Informative</p>
+<h1>Initialize the Driver<a class="headerlink" href="#initialize-the-driver" title="Link to this heading"></a></h1>
+<div class="content-kind content-kind-informative docutils container">
+<p><a class="content-kind-label reference internal" href="../../../00_about/01_reading_guide.html#content-kinds" title="Informative: explains usage; does not constrain driver implementations. Click for details."><span class="content-kind-name">Informative</span><span class="content-kind-sep"> · </span><span class="content-kind-scope">non-binding</span></a></p>
+</div>
 <p>How to bring the Port driver up. Binding rules: <a class="reference internal" href="../00_requirements.html#CHI-PORT-MUST-01" title="CHI-PORT-MUST-01"><em class="xref need">CHI-PORT-MUST-01</em></a> and <a class="reference internal" href="../00_requirements.html#CHI-PORT-MUST-02" title="CHI-PORT-MUST-02"><em class="xref need">CHI-PORT-MUST-02</em></a> in
 <a class="reference internal" href="../00_requirements.html"><span class="doc">Port — Requirements</span></a>; signatures in <a class="reference internal" href="../reference/00_api.html"><span class="doc">API Reference</span></a>.</p>
-</div>
 <section id="bring-the-driver-up">
-<h2>Bring the driver up<a class="headerlink" href="#bring-the-driver-up" title="Link to this heading"></a></h2>
+<h2>Bring the Driver Up<a class="headerlink" href="#bring-the-driver-up" title="Link to this heading"></a></h2>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">Port_Init</span><span class="p">(</span><span class="n">NULL_PTR</span><span class="p">);</span><span class="w">         </span><span class="cm">/* driver: UNINIT -&gt; INIT */</span>
 </pre></div>
 </div>
@@ -136,7 +139,7 @@
 passed at runtime. <code class="docutils literal notranslate"><span class="pre">Port_Init</span></code> applies every configured pin’s <strong>function mode</strong>, <strong>direction</strong>,
 and <strong>initial output value</strong>, and it does so <strong>glitch-free</strong> (the initialization order avoids
 transient spikes, e.g. it does not change direction before the function mode is settled). It also
-<strong>disables edge detection</strong> on every pin — enable it afterwards where you need it (see <a class="reference internal" href="04_edges.html"><span class="doc">Edge detection</span></a>).</p>
+<strong>disables edge detection</strong> on every pin — enable it afterwards where you need it (see <a class="reference internal" href="04_edges.html"><span class="doc">Edge Detection</span></a>).</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The PortDrv has <strong>no de-init</strong> and is single-instance. It is brought up once, early in boot —
@@ -145,7 +148,7 @@ routed and configured.</p>
 </div>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
-<p><a class="reference internal" href="03_pins.html"><span class="doc">Reading and writing pins</span></a> — reading, writing, and toggling pins; <a class="reference internal" href="04_edges.html"><span class="doc">Edge detection</span></a> — pin-edge detection.</p>
+<p><a class="reference internal" href="03_pins.html"><span class="doc">Reading and Writing Pins</span></a> — reading, writing, and toggling pins; <a class="reference internal" href="04_edges.html"><span class="doc">Edge Detection</span></a> — pin-edge detection.</p>
 </div>
 </section>
 </section>
@@ -153,15 +156,19 @@ routed and configured.</p>
 
            </div>
           </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+          
+<footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="01_configuration.html" class="btn btn-neutral float-left" title="Configuration" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="03_pins.html" class="btn btn-neutral float-right" title="Reading and writing pins" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="03_pins.html" class="btn btn-neutral float-right" title="Reading and Writing Pins" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2023-2026 by Vector Informatik GmbH and Infineon Technologies AG. Licensed under the Apache License, Version 2.0.</p>
+  
+    <p>&#169; Copyright 2023-2026 by Vector Informatik GmbH and Infineon Technologies AG.</p>
+  <p class="license-notice">Licensed under the Apache License 2.0.</p>
+
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

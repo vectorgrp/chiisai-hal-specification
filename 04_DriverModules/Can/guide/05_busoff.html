@@ -7,7 +7,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Handle bus-off &mdash; Chiisai HAL Specification released documentation</title>
+  <title>Handle Bus-Off &mdash; Chiisai HAL Specification released documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=9edc463e" />
       <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css?v=4ae1632d" />
@@ -20,7 +20,7 @@
       <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/common_css/need_style.css?v=92936fa5" />
       <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/common_css/need_toggle.css?v=5c6620df" />
       <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/modern.css?v=803738c0" />
-      <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=d26aa23c" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=ed454c3b" />
 
   
       <script src="../../../_static/jquery.js?v=5d32c60e"></script>
@@ -37,8 +37,8 @@
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="Common mistakes" href="06_common_mistakes.html" />
-    <link rel="prev" title="Receive a frame" href="04_receive.html" /> 
+    <link rel="next" title="Common Mistakes" href="06_common_mistakes.html" />
+    <link rel="prev" title="Receive a Frame" href="04_receive.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -72,11 +72,11 @@
 <li class="toctree-l3 current"><a class="reference internal" href="index.html">Guide</a><ul class="current">
 <li class="toctree-l4"><a class="reference internal" href="00_quickstart.html">Quickstart</a></li>
 <li class="toctree-l4"><a class="reference internal" href="01_configuration.html">Configuration</a></li>
-<li class="toctree-l4"><a class="reference internal" href="02_initialise.html">Initialize a channel</a></li>
-<li class="toctree-l4"><a class="reference internal" href="03_transmit.html">Transmit a frame</a></li>
-<li class="toctree-l4"><a class="reference internal" href="04_receive.html">Receive a frame</a></li>
-<li class="toctree-l4 current"><a class="current reference internal" href="#">Handle bus-off</a></li>
-<li class="toctree-l4"><a class="reference internal" href="06_common_mistakes.html">Common mistakes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="02_initialise.html">Initialize a Channel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="03_transmit.html">Transmit a Frame</a></li>
+<li class="toctree-l4"><a class="reference internal" href="04_receive.html">Receive a Frame</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Handle Bus-Off</a></li>
+<li class="toctree-l4"><a class="reference internal" href="06_common_mistakes.html">Common Mistakes</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../reference/index.html">Reference</a></li>
@@ -114,7 +114,10 @@
           <li class="breadcrumb-item"><a href="../../index.html">Chiisai HAL Driver Modules</a></li>
           <li class="breadcrumb-item"><a href="../index.html">Can</a></li>
           <li class="breadcrumb-item"><a href="index.html">Guide</a></li>
-      <li class="breadcrumb-item active">Handle bus-off</li>
+      <li class="breadcrumb-item active">Handle Bus-Off</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/04_DriverModules/Can/guide/05_busoff.rst.txt" rel="nofollow"> View page source</a>
+      </li>
   </ul>
   <hr/>
 </div>
@@ -122,14 +125,14 @@
            <div itemprop="articleBody">
              
   <section id="handle-bus-off">
-<h1>Handle bus-off<a class="headerlink" href="#handle-bus-off" title="Link to this heading"></a></h1>
-<div class="informative admonition">
-<p class="admonition-title">Informative</p>
+<h1>Handle Bus-Off<a class="headerlink" href="#handle-bus-off" title="Link to this heading"></a></h1>
+<div class="content-kind content-kind-informative docutils container">
+<p><a class="content-kind-label reference internal" href="../../../00_about/01_reading_guide.html#content-kinds" title="Informative: explains usage; does not constrain driver implementations. Click for details."><span class="content-kind-name">Informative</span><span class="content-kind-sep"> · </span><span class="content-kind-scope">non-binding</span></a></p>
+</div>
 <p>How upper-layer software handles a bus-off event. Binding rules: <a class="reference internal" href="../00_requirements.html#CHI-CAN-MUST-06" title="CHI-CAN-MUST-06"><em class="xref need">CHI-CAN-MUST-06</em></a>/<a class="reference internal" href="../00_requirements.html#CHI-CAN-MUST-07" title="CHI-CAN-MUST-07"><em class="xref need">CHI-CAN-MUST-07</em></a> in
 <a class="reference internal" href="../00_requirements.html"><span class="doc">Can — Requirements</span></a>; rationale: <a class="reference internal" href="../01_design_decisions.html"><span class="doc">Design Decisions</span></a>.</p>
-</div>
 <section id="what-the-driver-does">
-<h2>What the driver does<a class="headerlink" href="#what-the-driver-does" title="Link to this heading"></a></h2>
+<h2>What the Driver Does<a class="headerlink" href="#what-the-driver-does" title="Link to this heading"></a></h2>
 <p>When the controller goes bus-off (or hits an unrecoverable channel error), the driver:</p>
 <ol class="arabic simple">
 <li><p>moves the channel to <code class="docutils literal notranslate"><span class="pre">CAN_CH_STATE_STOPPED</span></code> and stops it participating on the bus;</p></li>
@@ -140,7 +143,7 @@
 for polled ones.</p>
 </section>
 <section id="what-you-must-do">
-<h2>What you must do<a class="headerlink" href="#what-you-must-do" title="Link to this heading"></a></h2>
+<h2>What You Must Do<a class="headerlink" href="#what-you-must-do" title="Link to this heading"></a></h2>
 <p>The driver <strong>does not</strong> recover automatically (<a class="reference internal" href="../00_requirements.html#CHI-CAN-MUST-07" title="CHI-CAN-MUST-07"><em class="xref need">CHI-CAN-MUST-07</em></a>) — recovery is your decision:</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">CanIf_OnError</span><span class="p">(</span><span class="n">uint8</span><span class="w"> </span><span class="n">channel</span><span class="p">,</span><span class="w"> </span><span class="n">Can_ErrorType</span><span class="w"> </span><span class="n">error</span><span class="p">)</span>
 <span class="p">{</span>
@@ -171,15 +174,19 @@ a fault — the driver leaves that policy to you.</p>
 
            </div>
           </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="04_receive.html" class="btn btn-neutral float-left" title="Receive a frame" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="06_common_mistakes.html" class="btn btn-neutral float-right" title="Common mistakes" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+          
+<footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="04_receive.html" class="btn btn-neutral float-left" title="Receive a Frame" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="06_common_mistakes.html" class="btn btn-neutral float-right" title="Common Mistakes" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2023-2026 by Vector Informatik GmbH and Infineon Technologies AG. Licensed under the Apache License, Version 2.0.</p>
+  
+    <p>&#169; Copyright 2023-2026 by Vector Informatik GmbH and Infineon Technologies AG.</p>
+  <p class="license-notice">Licensed under the Apache License 2.0.</p>
+
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

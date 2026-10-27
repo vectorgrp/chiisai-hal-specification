@@ -20,7 +20,7 @@
       <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/common_css/need_style.css?v=92936fa5" />
       <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/common_css/need_toggle.css?v=5c6620df" />
       <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/modern.css?v=803738c0" />
-      <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=d26aa23c" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=ed454c3b" />
 
   
       <script src="../../../_static/jquery.js?v=5d32c60e"></script>
@@ -466,7 +466,10 @@ window.runMermaid = runMermaid;</script>
           <li class="breadcrumb-item"><a href="../../index.html">Chiisai HAL Driver Modules</a></li>
           <li class="breadcrumb-item"><a href="../index.html">Can</a></li>
           <li class="breadcrumb-item"><a href="index.html">General</a></li>
-      <li class="breadcrumb-item active">Concepts</li>
+      <li class="breadcrumb-item active">Concepts</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/04_DriverModules/Can/general/01_concepts.rst.txt" rel="nofollow"> View page source</a>
+      </li>
   </ul>
   <hr/>
 </div>
@@ -475,16 +478,16 @@ window.runMermaid = runMermaid;</script>
              
   <section id="concepts">
 <h1>Concepts<a class="headerlink" href="#concepts" title="Link to this heading"></a></h1>
-<div class="informative admonition">
-<p class="admonition-title">Informative</p>
+<div class="content-kind content-kind-informative docutils container">
+<p><a class="content-kind-label reference internal" href="../../../00_about/01_reading_guide.html#content-kinds" title="Informative: explains usage; does not constrain driver implementations. Click for details."><span class="content-kind-name">Informative</span><span class="content-kind-sep"> · </span><span class="content-kind-scope">non-binding</span></a></p>
+</div>
 <p>The model behind the CAN driver: its two-level state machine, timing model, and event handling.
 Non-binding; the normative rules live in <a class="reference internal" href="../00_requirements.html"><span class="doc">Can — Requirements</span></a>.</p>
-</div>
 <section id="state-machine">
-<h2>State machine<a class="headerlink" href="#state-machine" title="Link to this heading"></a></h2>
+<h2>State Machine<a class="headerlink" href="#state-machine" title="Link to this heading"></a></h2>
 <p>The driver has a <strong>driver-wide</strong> state and, independently, a <strong>per-channel</strong> state.</p>
 <section id="driver-state">
-<h3>Driver state<a class="headerlink" href="#driver-state" title="Link to this heading"></a></h3>
+<h3>Driver State<a class="headerlink" href="#driver-state" title="Link to this heading"></a></h3>
 <pre  class="mermaid">
         stateDiagram-v2
    [*] --&gt; CAN_DRV_STATE_UNINIT : Reset
@@ -515,7 +518,7 @@ Non-binding; the normative rules live in <a class="reference internal" href="../
 </table>
 </section>
 <section id="channel-state">
-<h3>Channel state<a class="headerlink" href="#channel-state" title="Link to this heading"></a></h3>
+<h3>Channel State<a class="headerlink" href="#channel-state" title="Link to this heading"></a></h3>
 <p>After <code class="docutils literal notranslate"><span class="pre">Can_Init</span></code>, every channel starts in <code class="docutils literal notranslate"><span class="pre">STOPPED</span></code>. The upper layer drives transitions with
 <code class="docutils literal notranslate"><span class="pre">Can_SetChannelState</span></code>; hardware events (bus-off) can force a channel back to <code class="docutils literal notranslate"><span class="pre">STOPPED</span></code>.</p>
 <p>All upper-layer channel transitions go through the single <code class="docutils literal notranslate"><span class="pre">Can_SetChannelState</span></code> API; the argument
@@ -578,7 +581,7 @@ detected later by <code class="docutils literal notranslate"><span class="pre">C
 </div>
 </section>
 <section id="state-transition-sequence">
-<h3>State transition sequence<a class="headerlink" href="#state-transition-sequence" title="Link to this heading"></a></h3>
+<h3>State Transition Sequence<a class="headerlink" href="#state-transition-sequence" title="Link to this heading"></a></h3>
 <p>The sequence below shows the two-step transition model: <code class="docutils literal notranslate"><span class="pre">Can_SetChannelState</span></code> requests a change,
 and — when the hardware cannot confirm it synchronously — <code class="docutils literal notranslate"><span class="pre">Can_CyclicFunction</span></code> later observes
 completion and reports it via <code class="docutils literal notranslate"><span class="pre">CanIf_OnChannelState</span></code>. This is the informative view of <a class="reference internal" href="../00_requirements.html#CHI-CAN-MUST-03" title="CHI-CAN-MUST-03"><em class="xref need">CHI-CAN-MUST-03</em></a>.</p>
@@ -635,7 +638,7 @@ completion and reports it via <code class="docutils literal notranslate"><span c
     </pre></section>
 </section>
 <section id="mailboxes-and-hardware-objects">
-<h2>Mailboxes and hardware objects<a class="headerlink" href="#mailboxes-and-hardware-objects" title="Link to this heading"></a></h2>
+<h2>Mailboxes and Hardware Objects<a class="headerlink" href="#mailboxes-and-hardware-objects" title="Link to this heading"></a></h2>
 <p>CAN hardware exposes a set of <strong>message objects</strong>, each holding an ID, a DLC, and the SDU data. The
 driver groups these into <strong>mailboxes</strong>: a mailbox is backed by one or more <strong>hardware object handles
 (HOHs)</strong>, and both TX and RX mailboxes are configurable (<a class="reference internal" href="../00_requirements.html#CHI-CAN-MUST-17" title="CHI-CAN-MUST-17"><em class="xref need">CHI-CAN-MUST-17</em></a>). How many hardware
@@ -676,7 +679,7 @@ optional feature (<a class="reference internal" href="../00_requirements.html#CH
 <p>Not every hardware object has to be assigned; unused objects simply carry no mailbox.</p>
 </section>
 <section id="timing-model-two-scheduling-functions">
-<h2>Timing model: two scheduling functions<a class="headerlink" href="#timing-model-two-scheduling-functions" title="Link to this heading"></a></h2>
+<h2>Timing Model: Two Scheduling Functions<a class="headerlink" href="#timing-model-two-scheduling-functions" title="Link to this heading"></a></h2>
 <p>Polling-mode work is split across two functions by their timing needs:</p>
 <table class="docutils align-default">
 <colgroup>
@@ -704,7 +707,7 @@ optional feature (<a class="reference internal" href="../00_requirements.html#CH
 <p>Either may be an empty function if the corresponding events are all handled by interrupt.</p>
 </section>
 <section id="event-handling-interrupt-or-polling">
-<h2>Event handling: interrupt or polling<a class="headerlink" href="#event-handling-interrupt-or-polling" title="Link to this heading"></a></h2>
+<h2>Event Handling: Interrupt or Polling<a class="headerlink" href="#event-handling-interrupt-or-polling" title="Link to this heading"></a></h2>
 <p>For each channel, <strong>TX</strong>, <strong>RX</strong>, and <strong>bus-off/error</strong> handling is independently configured as
 either <em>interrupt</em> or <em>polling</em>:</p>
 <ul class="simple">
@@ -716,7 +719,7 @@ service the event.</p></li>
 <code class="docutils literal notranslate"><span class="pre">CanIf_OnTransmission</span></code>, <code class="docutils literal notranslate"><span class="pre">CanIf_OnError</span></code>, <code class="docutils literal notranslate"><span class="pre">CanIf_OnChannelState</span></code>).</p>
 </section>
 <section id="event-handling-sequence">
-<h2>Event handling sequence<a class="headerlink" href="#event-handling-sequence" title="Link to this heading"></a></h2>
+<h2>Event Handling Sequence<a class="headerlink" href="#event-handling-sequence" title="Link to this heading"></a></h2>
 <p>The sequence below traces a transmission request and the subsequent event handling for both modes.
 In <strong>interrupt</strong> mode, <code class="docutils literal notranslate"><span class="pre">Can_Interrupt</span></code> services the hardware event; in <strong>polling</strong> mode, the same
 handling is driven from <code class="docutils literal notranslate"><span class="pre">Can_PollFunction</span></code> / <code class="docutils literal notranslate"><span class="pre">Can_CyclicFunction</span></code>. Either path fans out into the
@@ -799,13 +802,13 @@ TX-completion, RX, bus-off, and error branches and invokes the same upper-layer 
    end
     </pre></section>
 <section id="wakeup-and-sleep">
-<h2>Wakeup and sleep<a class="headerlink" href="#wakeup-and-sleep" title="Link to this heading"></a></h2>
+<h2>Wakeup and Sleep<a class="headerlink" href="#wakeup-and-sleep" title="Link to this heading"></a></h2>
 <p>A typical CAN transceiver can detect bus wakeup, but the CanDrv deliberately omits wakeup
 detection. Consequently <code class="docutils literal notranslate"><span class="pre">SLEEP</span></code> is a <strong>logical</strong> state: the channel stops participating but the
 driver does not arm any wakeup source.</p>
 </section>
 <section id="key-terms">
-<h2>Key terms<a class="headerlink" href="#key-terms" title="Link to this heading"></a></h2>
+<h2>Key Terms<a class="headerlink" href="#key-terms" title="Link to this heading"></a></h2>
 <p>For CAN glossary terms — CAN controller, CAN channel, Hardware Object Handle (HOH), Hardware
 Object, Receive/Transmit Mailbox, CAN L-PDU / L-SDU — see the glossary in the appendix.</p>
 </section>
@@ -814,7 +817,8 @@ Object, Receive/Transmit Mailbox, CAN L-PDU / L-SDU — see the glossary in the 
 
            </div>
           </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+          
+<footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="00_overview.html" class="btn btn-neutral float-left" title="Overview" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="../guide/index.html" class="btn btn-neutral float-right" title="Guide" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
@@ -822,7 +826,10 @@ Object, Receive/Transmit Mailbox, CAN L-PDU / L-SDU — see the glossary in the 
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2023-2026 by Vector Informatik GmbH and Infineon Technologies AG. Licensed under the Apache License, Version 2.0.</p>
+  
+    <p>&#169; Copyright 2023-2026 by Vector Informatik GmbH and Infineon Technologies AG.</p>
+  <p class="license-notice">Licensed under the Apache License 2.0.</p>
+
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

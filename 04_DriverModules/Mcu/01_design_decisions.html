@@ -20,7 +20,7 @@
       <link rel="stylesheet" type="text/css" href="../../_static/sphinx-needs/common_css/need_style.css?v=92936fa5" />
       <link rel="stylesheet" type="text/css" href="../../_static/sphinx-needs/common_css/need_toggle.css?v=5c6620df" />
       <link rel="stylesheet" type="text/css" href="../../_static/sphinx-needs/modern.css?v=803738c0" />
-      <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=d26aa23c" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=ed454c3b" />
 
   
       <script src="../../_static/jquery.js?v=5d32c60e"></script>
@@ -76,11 +76,11 @@
 <li class="toctree-l3"><a class="reference internal" href="reference/index.html">Reference</a></li>
 <li class="toctree-l3"><a class="reference internal" href="00_requirements.html">Mcu — Requirements</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Design Decisions</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#why-does-mcudrv-have-no-mcuif-interface-layer">Why does McuDrv have no <code class="docutils literal notranslate"><span class="pre">McuIf</span></code> interface layer?</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#why-is-clock-stabilisation-non-blocking">Why is clock stabilisation non-blocking?</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#why-capture-the-reset-reason-at-mcu-init-instead-of-reading-it-live">Why capture the reset reason at <code class="docutils literal notranslate"><span class="pre">Mcu_Init</span></code> instead of reading it live?</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#why-does-the-mcu-driver-have-no-de-init-and-no-low-power-modes">Why does the MCU driver have no de-init and no low-power modes?</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#why-does-mcu-init-take-only-null-ptr">Why does <code class="docutils literal notranslate"><span class="pre">Mcu_Init</span></code> take only <code class="docutils literal notranslate"><span class="pre">NULL_PTR</span></code>?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#why-does-mcudrv-have-no-mcuif-interface-layer">Why Does McuDrv Have No <code class="docutils literal notranslate"><span class="pre">McuIf</span></code> Interface Layer?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#why-is-clock-stabilisation-non-blocking">Why Is Clock Stabilisation Non-Blocking?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#why-capture-the-reset-reason-at-mcu-init-instead-of-reading-it-live">Why Capture the Reset Reason at <code class="docutils literal notranslate"><span class="pre">Mcu_Init</span></code> Instead of Reading It Live?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#why-does-the-mcu-driver-have-no-de-init-and-no-low-power-modes">Why Does the MCU Driver Have No De-Init and No Low-Power Modes?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#why-does-mcu-init-take-only-null-ptr">Why Does <code class="docutils literal notranslate"><span class="pre">Mcu_Init</span></code> Take Only <code class="docutils literal notranslate"><span class="pre">NULL_PTR</span></code>?</a></li>
 </ul>
 </li>
 </ul>
@@ -111,7 +111,10 @@
       <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../index.html">Chiisai HAL Driver Modules</a></li>
           <li class="breadcrumb-item"><a href="index.html">Mcu</a></li>
-      <li class="breadcrumb-item active">Design Decisions</li>
+      <li class="breadcrumb-item active">Design Decisions</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/04_DriverModules/Mcu/01_design_decisions.rst.txt" rel="nofollow"> View page source</a>
+      </li>
   </ul>
   <hr/>
 </div>
@@ -120,13 +123,13 @@
              
   <section id="design-decisions">
 <h1>Design Decisions<a class="headerlink" href="#design-decisions" title="Link to this heading"></a></h1>
-<div class="informative admonition">
-<p class="admonition-title">Informative</p>
+<div class="content-kind content-kind-informative docutils container">
+<p><a class="content-kind-label reference internal" href="../../00_about/01_reading_guide.html#content-kinds" title="Informative: explains usage; does not constrain driver implementations. Click for details."><span class="content-kind-name">Informative</span><span class="content-kind-sep"> · </span><span class="content-kind-scope">non-binding</span></a></p>
+</div>
 <p>The rationale behind the MCU driver contract. This helps implementers get the behavior right;
 it is not itself a requirement. Each entry points to the requirement it explains.</p>
-</div>
 <section id="why-does-mcudrv-have-no-mcuif-interface-layer">
-<h2>Why does McuDrv have no <code class="docutils literal notranslate"><span class="pre">McuIf</span></code> interface layer?<a class="headerlink" href="#why-does-mcudrv-have-no-mcuif-interface-layer" title="Link to this heading"></a></h2>
+<h2>Why Does McuDrv Have No <code class="docutils literal notranslate"><span class="pre">McuIf</span></code> Interface Layer?<a class="headerlink" href="#why-does-mcudrv-have-no-mcuif-interface-layer" title="Link to this heading"></a></h2>
 <p><em>Relates to</em> <a class="reference internal" href="../../01_general/04_requirements.html#CHI-GEN-MUST-15" title="CHI-GEN-MUST-15"><em class="xref need">CHI-GEN-MUST-15</em></a>, <a class="reference internal" href="../../01_general/04_requirements.html#CHI-GEN-MUST-16" title="CHI-GEN-MUST-16"><em class="xref need">CHI-GEN-MUST-16</em></a>.</p>
 <p>There is no standardized interface stack above an MCU driver the way <code class="docutils literal notranslate"><span class="pre">CanIf</span></code> sits above a CAN
 driver, so an <code class="docutils literal notranslate"><span class="pre">McuIf</span></code> layer would have had no implementation and no owner. McuDrv is also the
@@ -141,7 +144,7 @@ needs no change to the cross-module rules.</p>
 do not ship a <code class="docutils literal notranslate"><span class="pre">McuIf.h</span></code>.</p>
 </section>
 <section id="why-is-clock-stabilisation-non-blocking">
-<h2>Why is clock stabilisation non-blocking?<a class="headerlink" href="#why-is-clock-stabilisation-non-blocking" title="Link to this heading"></a></h2>
+<h2>Why Is Clock Stabilisation Non-Blocking?<a class="headerlink" href="#why-is-clock-stabilisation-non-blocking" title="Link to this heading"></a></h2>
 <p><em>Governs</em> <a class="reference internal" href="00_requirements.html#CHI-MCU-MUST-05" title="CHI-MCU-MUST-05"><em class="xref need">CHI-MCU-MUST-05</em></a>, <a class="reference internal" href="00_requirements.html#CHI-MCU-MUST-06" title="CHI-MCU-MUST-06"><em class="xref need">CHI-MCU-MUST-06</em></a>, <a class="reference internal" href="00_requirements.html#CHI-MCU-MUST-07" title="CHI-MCU-MUST-07"><em class="xref need">CHI-MCU-MUST-07</em></a>.</p>
 <p>A PLL or oscillator can take a long, hardware-dependent time to stabilise. Busy-waiting for it
 inside <code class="docutils literal notranslate"><span class="pre">Mcu_InitClock</span></code> would stall the whole system early in boot and hide the wait from any
@@ -152,7 +155,7 @@ the integrator overlap the wait with other startup work and keeps the driver non
 <code class="docutils literal notranslate"><span class="pre">Mcu_PollFunction</span></code> and report readiness via <code class="docutils literal notranslate"><span class="pre">Mcu_IsClockDistributed</span></code>.</p>
 </section>
 <section id="why-capture-the-reset-reason-at-mcu-init-instead-of-reading-it-live">
-<h2>Why capture the reset reason at <code class="docutils literal notranslate"><span class="pre">Mcu_Init</span></code> instead of reading it live?<a class="headerlink" href="#why-capture-the-reset-reason-at-mcu-init-instead-of-reading-it-live" title="Link to this heading"></a></h2>
+<h2>Why Capture the Reset Reason at <code class="docutils literal notranslate"><span class="pre">Mcu_Init</span></code> Instead of Reading It Live?<a class="headerlink" href="#why-capture-the-reset-reason-at-mcu-init-instead-of-reading-it-live" title="Link to this heading"></a></h2>
 <p><em>Governs</em> <a class="reference internal" href="00_requirements.html#CHI-MCU-MUST-03" title="CHI-MCU-MUST-03"><em class="xref need">CHI-MCU-MUST-03</em></a>, <a class="reference internal" href="00_requirements.html#CHI-MCU-MUST-09" title="CHI-MCU-MUST-09"><em class="xref need">CHI-MCU-MUST-09</em></a>.</p>
 <p>Reset-cause registers frequently persist across resets and must be cleared by software so the <em>next</em>
 reset reports cleanly. If callers read the register directly and at different times, they would race
@@ -162,7 +165,7 @@ clearing the hardware) gives every caller a single, stable value through <code c
 serve <code class="docutils literal notranslate"><span class="pre">Mcu_GetResetRawValue</span></code> from the captured copy (<code class="docutils literal notranslate"><span class="pre">0</span></code> before <code class="docutils literal notranslate"><span class="pre">Mcu_Init</span></code>).</p>
 </section>
 <section id="why-does-the-mcu-driver-have-no-de-init-and-no-low-power-modes">
-<h2>Why does the MCU driver have no de-init and no low-power modes?<a class="headerlink" href="#why-does-the-mcu-driver-have-no-de-init-and-no-low-power-modes" title="Link to this heading"></a></h2>
+<h2>Why Does the MCU Driver Have No De-Init and No Low-Power Modes?<a class="headerlink" href="#why-does-the-mcu-driver-have-no-de-init-and-no-low-power-modes" title="Link to this heading"></a></h2>
 <p><em>Relates to</em> <a class="reference internal" href="00_requirements.html#CHI-MCU-MUST-01" title="CHI-MCU-MUST-01"><em class="xref need">CHI-MCU-MUST-01</em></a>.</p>
 <p>The McuDrv establishes the clock tree and core register state the whole system depends on; tearing
 that down at runtime has no meaningful use case on the target class of small MCUs, so there is no
@@ -172,7 +175,7 @@ it is highly device- and application-specific — rather than forcing a lowest-c
 through vendor-specific extensions, not the standard contract.</p>
 </section>
 <section id="why-does-mcu-init-take-only-null-ptr">
-<h2>Why does <code class="docutils literal notranslate"><span class="pre">Mcu_Init</span></code> take only <code class="docutils literal notranslate"><span class="pre">NULL_PTR</span></code>?<a class="headerlink" href="#why-does-mcu-init-take-only-null-ptr" title="Link to this heading"></a></h2>
+<h2>Why Does <code class="docutils literal notranslate"><span class="pre">Mcu_Init</span></code> Take Only <code class="docutils literal notranslate"><span class="pre">NULL_PTR</span></code>?<a class="headerlink" href="#why-does-mcu-init-take-only-null-ptr" title="Link to this heading"></a></h2>
 <p><em>Relates to</em> <a class="reference internal" href="00_requirements.html#CHI-MCU-MUST-02" title="CHI-MCU-MUST-02"><em class="xref need">CHI-MCU-MUST-02</em></a>.</p>
 <p>Configuration variants are selected at build time, not passed at runtime. Requiring
 <code class="docutils literal notranslate"><span class="pre">configPtr</span> <span class="pre">==</span> <span class="pre">NULL_PTR</span></code> keeps the interface stable and avoids implying a runtime variant-selection
@@ -185,7 +188,8 @@ mechanism the driver does not provide.</p>
 
            </div>
           </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+          
+<footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="00_requirements.html" class="btn btn-neutral float-left" title="Mcu — Requirements" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="../Mem/index.html" class="btn btn-neutral float-right" title="Mem" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
@@ -193,7 +197,10 @@ mechanism the driver does not provide.</p>
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2023-2026 by Vector Informatik GmbH and Infineon Technologies AG. Licensed under the Apache License, Version 2.0.</p>
+  
+    <p>&#169; Copyright 2023-2026 by Vector Informatik GmbH and Infineon Technologies AG.</p>
+  <p class="license-notice">Licensed under the Apache License 2.0.</p>
+
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

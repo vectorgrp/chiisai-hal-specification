@@ -20,7 +20,7 @@
       <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/common_css/need_style.css?v=92936fa5" />
       <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/common_css/need_toggle.css?v=5c6620df" />
       <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/modern.css?v=803738c0" />
-      <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=d26aa23c" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=ed454c3b" />
 
   
       <script src="../../../_static/jquery.js?v=5d32c60e"></script>
@@ -466,7 +466,10 @@ window.runMermaid = runMermaid;</script>
           <li class="breadcrumb-item"><a href="../../index.html">Chiisai HAL Driver Modules</a></li>
           <li class="breadcrumb-item"><a href="../index.html">Lin</a></li>
           <li class="breadcrumb-item"><a href="index.html">General</a></li>
-      <li class="breadcrumb-item active">Concepts</li>
+      <li class="breadcrumb-item active">Concepts</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/04_DriverModules/Lin/general/01_concepts.rst.txt" rel="nofollow"> View page source</a>
+      </li>
   </ul>
   <hr/>
 </div>
@@ -475,18 +478,18 @@ window.runMermaid = runMermaid;</script>
              
   <section id="concepts">
 <h1>Concepts<a class="headerlink" href="#concepts" title="Link to this heading"></a></h1>
-<div class="informative admonition">
-<p class="admonition-title">Informative</p>
+<div class="content-kind content-kind-informative docutils container">
+<p><a class="content-kind-label reference internal" href="../../../00_about/01_reading_guide.html#content-kinds" title="Informative: explains usage; does not constrain driver implementations. Click for details."><span class="content-kind-name">Informative</span><span class="content-kind-sep"> · </span><span class="content-kind-scope">non-binding</span></a></p>
+</div>
 <p>The model behind the LIN driver: its per-channel state machine, how a frame transaction is
 processed, and how events are handled. Non-binding; the normative rules live in
 <a class="reference internal" href="../00_requirements.html"><span class="doc">Lin — Requirements</span></a>.</p>
-</div>
 <section id="state-machine">
-<h2>State machine<a class="headerlink" href="#state-machine" title="Link to this heading"></a></h2>
+<h2>State Machine<a class="headerlink" href="#state-machine" title="Link to this heading"></a></h2>
 <p>The driver has a <strong>driver-wide</strong> state and, within the initialized state, a <strong>per-channel</strong> power
 state.</p>
 <section id="driver-state">
-<h3>Driver state<a class="headerlink" href="#driver-state" title="Link to this heading"></a></h3>
+<h3>Driver State<a class="headerlink" href="#driver-state" title="Link to this heading"></a></h3>
 <pre  class="mermaid">
         stateDiagram-v2
    [*] --&gt; LIN_DRV_STATE_UNINIT : Reset
@@ -517,7 +520,7 @@ state.</p>
 </table>
 </section>
 <section id="channel-state">
-<h3>Channel state<a class="headerlink" href="#channel-state" title="Link to this heading"></a></h3>
+<h3>Channel State<a class="headerlink" href="#channel-state" title="Link to this heading"></a></h3>
 <p>After <code class="docutils literal notranslate"><span class="pre">Lin_Init</span></code> every channel starts in <code class="docutils literal notranslate"><span class="pre">SLEEP</span></code>. The upper layer drives the channel between
 <code class="docutils literal notranslate"><span class="pre">SLEEP</span></code> and <code class="docutils literal notranslate"><span class="pre">OPERATIONAL</span></code>; only in <code class="docutils literal notranslate"><span class="pre">OPERATIONAL</span></code> does the channel take part in bus traffic.
 <code class="docutils literal notranslate"><span class="pre">Lin_DeInit</span></code> returns the whole driver (and its channels) to <code class="docutils literal notranslate"><span class="pre">LIN_DRV_STATE_UNINIT</span></code>.</p>
@@ -561,7 +564,7 @@ mode where supported</p></td>
 </section>
 </section>
 <section id="frame-processing">
-<h2>Frame processing<a class="headerlink" href="#frame-processing" title="Link to this heading"></a></h2>
+<h2>Frame Processing<a class="headerlink" href="#frame-processing" title="Link to this heading"></a></h2>
 <p>A LIN frame has two parts. The <strong>header</strong> (break field, sync byte, protected identifier) is sent by
 the commander node; the <strong>response</strong> (data bytes plus checksum) may be sent by any node. As a
 responder, the driver receives every header and then acts on the response according to the upper
@@ -599,7 +602,7 @@ Data bytes are mapped <strong>byte 0 first</strong> (<a class="reference interna
 you need to keep (<a class="reference internal" href="../00_requirements.html#CHI-LIN-MUST-09" title="CHI-LIN-MUST-09"><em class="xref need">CHI-LIN-MUST-09</em></a>).</p>
 </section>
 <section id="event-handling-interrupt-or-polling">
-<h2>Event handling: interrupt or polling<a class="headerlink" href="#event-handling-interrupt-or-polling" title="Link to this heading"></a></h2>
+<h2>Event Handling: Interrupt or Polling<a class="headerlink" href="#event-handling-interrupt-or-polling" title="Link to this heading"></a></h2>
 <p>For each channel, event handling is configured as either <em>interrupt</em> or <em>polling</em>:</p>
 <ul class="simple">
 <li><p><strong>Interrupt</strong> — <code class="docutils literal notranslate"><span class="pre">Lin_Init</span></code> enables the LIN interrupt; <code class="docutils literal notranslate"><span class="pre">Lin_Interrupt</span></code> services it.</p></li>
@@ -609,7 +612,7 @@ you need to keep (<a class="reference internal" href="../00_requirements.html#CH
 <code class="docutils literal notranslate"><span class="pre">LinIf_OnTransmission</span></code>, <code class="docutils literal notranslate"><span class="pre">LinIf_OnError</span></code>, and <code class="docutils literal notranslate"><span class="pre">LinIf_OnWakeup</span></code>.</p>
 </section>
 <section id="state-transition-sequence">
-<h2>State transition sequence<a class="headerlink" href="#state-transition-sequence" title="Link to this heading"></a></h2>
+<h2>State Transition Sequence<a class="headerlink" href="#state-transition-sequence" title="Link to this heading"></a></h2>
 <p>The sequence below shows initialization, the internal and external wakeup paths, and going back to
 sleep. This is the informative view of <a class="reference internal" href="../00_requirements.html#CHI-LIN-MUST-02" title="CHI-LIN-MUST-02"><em class="xref need">CHI-LIN-MUST-02</em></a>, <a class="reference internal" href="../00_requirements.html#CHI-LIN-MUST-03" title="CHI-LIN-MUST-03"><em class="xref need">CHI-LIN-MUST-03</em></a>, and <a class="reference internal" href="../00_requirements.html#CHI-LIN-MUST-11" title="CHI-LIN-MUST-11"><em class="xref need">CHI-LIN-MUST-11</em></a>.</p>
 <pre  class="mermaid">
@@ -724,7 +727,7 @@ sleep. This is the informative view of <a class="reference internal" href="../00
    deactivate UPL
     </pre></section>
 <section id="transaction-sequence">
-<h2>Transaction sequence<a class="headerlink" href="#transaction-sequence" title="Link to this heading"></a></h2>
+<h2>Transaction Sequence<a class="headerlink" href="#transaction-sequence" title="Link to this heading"></a></h2>
 <p>Once a channel is <code class="docutils literal notranslate"><span class="pre">OPERATIONAL</span></code>, each <code class="docutils literal notranslate"><span class="pre">Lin_Interrupt</span></code> (or <code class="docutils literal notranslate"><span class="pre">Lin_PollFunction</span></code> call) fans out by
 event type. This is the informative view of <a class="reference internal" href="../00_requirements.html#CHI-LIN-MUST-12" title="CHI-LIN-MUST-12"><em class="xref need">CHI-LIN-MUST-12</em></a> and <a class="reference internal" href="../00_requirements.html#CHI-LIN-MUST-13" title="CHI-LIN-MUST-13"><em class="xref need">CHI-LIN-MUST-13</em></a>.</p>
 <pre  class="mermaid">
@@ -779,7 +782,7 @@ DRV --&gt;&gt; HW: return from interrupt
 deactivate DRV
     </pre></section>
 <section id="key-terms">
-<h2>Key terms<a class="headerlink" href="#key-terms" title="Link to this heading"></a></h2>
+<h2>Key Terms<a class="headerlink" href="#key-terms" title="Link to this heading"></a></h2>
 <p>For LIN glossary terms — commander/responder node, header, response, protected identifier (PID),
 checksum model, reaction, wakeup pulse — see the glossary in the appendix.</p>
 </section>
@@ -788,7 +791,8 @@ checksum model, reaction, wakeup pulse — see the glossary in the appendix.</p>
 
            </div>
           </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+          
+<footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="00_overview.html" class="btn btn-neutral float-left" title="Overview" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="../guide/index.html" class="btn btn-neutral float-right" title="Guide" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
@@ -796,7 +800,10 @@ checksum model, reaction, wakeup pulse — see the glossary in the appendix.</p>
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2023-2026 by Vector Informatik GmbH and Infineon Technologies AG. Licensed under the Apache License, Version 2.0.</p>
+  
+    <p>&#169; Copyright 2023-2026 by Vector Informatik GmbH and Infineon Technologies AG.</p>
+  <p class="license-notice">Licensed under the Apache License 2.0.</p>
+
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

@@ -20,7 +20,7 @@
       <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/common_css/need_style.css?v=92936fa5" />
       <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/common_css/need_toggle.css?v=5c6620df" />
       <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/modern.css?v=803738c0" />
-      <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=d26aa23c" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=ed454c3b" />
 
   
       <script src="../../../_static/jquery.js?v=5d32c60e"></script>
@@ -76,9 +76,9 @@
 <li class="toctree-l3 current"><a class="reference internal" href="index.html">Guide</a><ul class="current">
 <li class="toctree-l4 current"><a class="current reference internal" href="#">Quickstart</a></li>
 <li class="toctree-l4"><a class="reference internal" href="01_configuration.html">Configuration</a></li>
-<li class="toctree-l4"><a class="reference internal" href="02_jobs.html">Read, write, erase, blank-check</a></li>
-<li class="toctree-l4"><a class="reference internal" href="03_suspend_resume.html">Suspend, resume, and hardware services</a></li>
-<li class="toctree-l4"><a class="reference internal" href="04_common_mistakes.html">Common mistakes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="02_jobs.html">Read, Write, Erase, Blank-Check</a></li>
+<li class="toctree-l4"><a class="reference internal" href="03_suspend_resume.html">Suspend, Resume, and Hardware Services</a></li>
+<li class="toctree-l4"><a class="reference internal" href="04_common_mistakes.html">Common Mistakes</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../reference/index.html">Reference</a></li>
@@ -112,7 +112,10 @@
           <li class="breadcrumb-item"><a href="../../index.html">Chiisai HAL Driver Modules</a></li>
           <li class="breadcrumb-item"><a href="../index.html">Mem</a></li>
           <li class="breadcrumb-item"><a href="index.html">Guide</a></li>
-      <li class="breadcrumb-item active">Quickstart</li>
+      <li class="breadcrumb-item active">Quickstart</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/04_DriverModules/Mem/guide/00_quickstart.rst.txt" rel="nofollow"> View page source</a>
+      </li>
   </ul>
   <hr/>
 </div>
@@ -121,19 +124,19 @@
              
   <section id="quickstart">
 <h1>Quickstart<a class="headerlink" href="#quickstart" title="Link to this heading"></a></h1>
-<div class="informative admonition">
-<p class="admonition-title">Informative</p>
+<div class="content-kind content-kind-informative docutils container">
+<p><a class="content-kind-label reference internal" href="../../../00_about/01_reading_guide.html#content-kinds" title="Informative: explains usage; does not constrain driver implementations. Click for details."><span class="content-kind-name">Informative</span><span class="content-kind-sep"> · </span><span class="content-kind-scope">non-binding</span></a></p>
+</div>
 <p>The shortest path to a working write: initialize, start an erase, and drive it to completion.
 Binding rules are in <a class="reference internal" href="../00_requirements.html"><span class="doc">Mem — Requirements</span></a>; signatures in <a class="reference internal" href="../reference/00_api.html"><span class="doc">API Reference</span></a>.</p>
-</div>
 <section id="bring-the-driver-up">
-<h2>Bring the driver up<a class="headerlink" href="#bring-the-driver-up" title="Link to this heading"></a></h2>
+<h2>Bring the Driver Up<a class="headerlink" href="#bring-the-driver-up" title="Link to this heading"></a></h2>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">Mem_Init</span><span class="p">(</span><span class="n">NULL_PTR</span><span class="p">);</span><span class="w">          </span><span class="cm">/* driver becomes initialized; job result MEM_JOB_FINISHED */</span>
 </pre></div>
 </div>
 </section>
 <section id="start-a-job">
-<h2>Start a job<a class="headerlink" href="#start-a-job" title="Link to this heading"></a></h2>
+<h2>Start a Job<a class="headerlink" href="#start-a-job" title="Link to this heading"></a></h2>
 <p>Each operation is asynchronous — the call only <em>starts</em> the job:</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">Std_ReturnType</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Mem_Erase</span><span class="p">(</span><span class="mi">0u</span><span class="w"> </span><span class="cm">/* instanceId */</span><span class="p">,</span><span class="w"> </span><span class="mh">0x8000u</span><span class="w"> </span><span class="cm">/* address */</span><span class="p">,</span><span class="w"> </span><span class="mh">0x1000u</span><span class="w"> </span><span class="cm">/* length */</span><span class="p">);</span>
 <span class="cm">/* r == E_OK: accepted (result now MEM_JOB_PENDING); E_NOT_OK: rejected */</span>
@@ -141,7 +144,7 @@ Binding rules are in <a class="reference internal" href="../00_requirements.html
 </div>
 </section>
 <section id="drive-it-to-completion">
-<h2>Drive it to completion<a class="headerlink" href="#drive-it-to-completion" title="Link to this heading"></a></h2>
+<h2>Drive It to Completion<a class="headerlink" href="#drive-it-to-completion" title="Link to this heading"></a></h2>
 <p>Call <code class="docutils literal notranslate"><span class="pre">Mem_PollFunction</span></code> cyclically and check the result:</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(;;)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="n">Mem_PollFunction</span><span class="p">();</span>
@@ -153,7 +156,7 @@ Binding rules are in <a class="reference internal" href="../00_requirements.html
 </pre></div>
 </div>
 <p>That is a complete job. Writing and reading follow the same pattern with <code class="docutils literal notranslate"><span class="pre">Mem_Write</span></code> /
-<code class="docutils literal notranslate"><span class="pre">Mem_Read</span></code> — see <a class="reference internal" href="02_jobs.html"><span class="doc">Read, write, erase, blank-check</span></a>. Remember: addresses and lengths <strong>must be aligned</strong> to the device’s
+<code class="docutils literal notranslate"><span class="pre">Mem_Read</span></code> — see <a class="reference internal" href="02_jobs.html"><span class="doc">Read, Write, Erase, Blank-Check</span></a>. Remember: addresses and lengths <strong>must be aligned</strong> to the device’s
 write page / sector; the driver does not align for you.</p>
 </section>
 </section>
@@ -161,7 +164,8 @@ write page / sector; the driver does not align for you.</p>
 
            </div>
           </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+          
+<footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="index.html" class="btn btn-neutral float-left" title="Guide" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="01_configuration.html" class="btn btn-neutral float-right" title="Configuration" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
@@ -169,7 +173,10 @@ write page / sector; the driver does not align for you.</p>
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2023-2026 by Vector Informatik GmbH and Infineon Technologies AG. Licensed under the Apache License, Version 2.0.</p>
+  
+    <p>&#169; Copyright 2023-2026 by Vector Informatik GmbH and Infineon Technologies AG.</p>
+  <p class="license-notice">Licensed under the Apache License 2.0.</p>
+
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
