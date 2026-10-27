@@ -20,7 +20,7 @@
       <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/common_css/need_style.css?v=92936fa5" />
       <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/common_css/need_toggle.css?v=5c6620df" />
       <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/modern.css?v=803738c0" />
-      <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=d26aa23c" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=ed454c3b" />
 
   
       <script src="../../../_static/jquery.js?v=5d32c60e"></script>
@@ -466,7 +466,10 @@ window.runMermaid = runMermaid;</script>
           <li class="breadcrumb-item"><a href="../../index.html">Chiisai HAL Driver Modules</a></li>
           <li class="breadcrumb-item"><a href="../index.html">Port</a></li>
           <li class="breadcrumb-item"><a href="index.html">General</a></li>
-      <li class="breadcrumb-item active">Concepts</li>
+      <li class="breadcrumb-item active">Concepts</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/04_DriverModules/Port/general/01_concepts.rst.txt" rel="nofollow"> View page source</a>
+      </li>
   </ul>
   <hr/>
 </div>
@@ -475,14 +478,14 @@ window.runMermaid = runMermaid;</script>
              
   <section id="concepts">
 <h1>Concepts<a class="headerlink" href="#concepts" title="Link to this heading"></a></h1>
-<div class="informative admonition">
-<p class="admonition-title">Informative</p>
+<div class="content-kind content-kind-informative docutils container">
+<p><a class="content-kind-label reference internal" href="../../../00_about/01_reading_guide.html#content-kinds" title="Informative: explains usage; does not constrain driver implementations. Click for details."><span class="content-kind-name">Informative</span><span class="content-kind-sep"> · </span><span class="content-kind-scope">non-binding</span></a></p>
+</div>
 <p>The model behind the Port driver: its driver state machine, how pins and ports are addressed, the
 value model, masked port writes, and how pin edges are detected and reported. Non-binding; the
 normative rules live in <a class="reference internal" href="../00_requirements.html"><span class="doc">Port — Requirements</span></a>.</p>
-</div>
 <section id="state-machine">
-<h2>State machine<a class="headerlink" href="#state-machine" title="Link to this heading"></a></h2>
+<h2>State Machine<a class="headerlink" href="#state-machine" title="Link to this heading"></a></h2>
 <p>The PortDrv has a single driver-wide state — there are no channels and no de-init.</p>
 <pre  class="mermaid">
         stateDiagram-v2
@@ -513,7 +516,7 @@ normative rules live in <a class="reference internal" href="../00_requirements.h
 </table>
 </section>
 <section id="addressing-pins-and-ports">
-<h2>Addressing pins and ports<a class="headerlink" href="#addressing-pins-and-ports" title="Link to this heading"></a></h2>
+<h2>Addressing Pins and Ports<a class="headerlink" href="#addressing-pins-and-ports" title="Link to this heading"></a></h2>
 <p>A <strong>port</strong> is a group of pins in hardware; a <strong>pin</strong> is one line within a port.</p>
 <ul class="simple">
 <li><p>A <strong>pin id</strong> is a <code class="docutils literal notranslate"><span class="pre">uint16</span></code> where the upper 8 bits are the port id and the lower 8 bits are the
@@ -527,7 +530,7 @@ plus an alias <code class="docutils literal notranslate"><span class="pre">PORT_
 <p>Always address pins and ports through these generated symbols rather than raw numbers.</p>
 </section>
 <section id="value-model">
-<h2>Value model<a class="headerlink" href="#value-model" title="Link to this heading"></a></h2>
+<h2>Value Model<a class="headerlink" href="#value-model" title="Link to this heading"></a></h2>
 <p>A pin value is <code class="docutils literal notranslate"><span class="pre">Port_PinValueType</span></code> with two values: <code class="docutils literal notranslate"><span class="pre">PORT_PIN_VALUE_LOW</span></code> (0) and
 <code class="docutils literal notranslate"><span class="pre">PORT_PIN_VALUE_HIGH</span></code> (1). A whole-port value is a <code class="docutils literal notranslate"><span class="pre">uint32</span></code> where <strong>bit n</strong> is the value of pin
 index <em>n</em>; bits for undefined pins read as <code class="docutils literal notranslate"><span class="pre">PORT_PIN_VALUE_LOW</span></code>.</p>
@@ -541,14 +544,14 @@ protection mechanism. Writing an <em>input</em> pin is implementation-defined (s
 </ul>
 </section>
 <section id="masked-port-writes">
-<h2>Masked port writes<a class="headerlink" href="#masked-port-writes" title="Link to this heading"></a></h2>
+<h2>Masked Port Writes<a class="headerlink" href="#masked-port-writes" title="Link to this heading"></a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">Port_SetMaskedPortValue(portId,</span> <span class="pre">value,</span> <span class="pre">mask)</span></code> writes <code class="docutils literal notranslate"><span class="pre">value</span></code> to only the pins selected by
 <code class="docutils literal notranslate"><span class="pre">mask</span></code> (it applies <code class="docutils literal notranslate"><span class="pre">value</span> <span class="pre">&amp;</span> <span class="pre">mask</span></code>), leaving the other pins untouched — and, where the hardware
 allows, updates all selected pins <strong>simultaneously</strong> (even a mix of LOW→HIGH and HIGH→LOW). Use the
 <code class="docutils literal notranslate"><span class="pre">PORT_PIN_MASK_ALL</span></code> symbol as the mask to update every pin in the port.</p>
 </section>
 <section id="edge-detection-and-event-handling">
-<h2>Edge detection and event handling<a class="headerlink" href="#edge-detection-and-event-handling" title="Link to this heading"></a></h2>
+<h2>Edge Detection and Event Handling<a class="headerlink" href="#edge-detection-and-event-handling" title="Link to this heading"></a></h2>
 <p>Edge detection is the one attribute set at runtime. <code class="docutils literal notranslate"><span class="pre">Port_SetEdgeDetection(pinId,</span> <span class="pre">edgeConfig)</span></code>
 selects none / rising / falling / both (<code class="docutils literal notranslate"><span class="pre">Port_EdgeConfigType</span></code>); <code class="docutils literal notranslate"><span class="pre">Port_Init</span></code> disables detection
 on every pin to start. When a configured edge occurs, the driver reports it via
@@ -559,7 +562,7 @@ on every pin to start. When a configured edge occurs, the driver reports it via
 </ul>
 </section>
 <section id="pin-manipulation-sequence">
-<h2>Pin manipulation sequence<a class="headerlink" href="#pin-manipulation-sequence" title="Link to this heading"></a></h2>
+<h2>Pin Manipulation Sequence<a class="headerlink" href="#pin-manipulation-sequence" title="Link to this heading"></a></h2>
 <p>The informative view of typical PortDrv use — bring pins up, manipulate them, then detect an edge
 (<a class="reference internal" href="../00_requirements.html#CHI-PORT-MUST-02" title="CHI-PORT-MUST-02"><em class="xref need">CHI-PORT-MUST-02</em></a>, <a class="reference internal" href="../00_requirements.html#CHI-PORT-MUST-05" title="CHI-PORT-MUST-05"><em class="xref need">CHI-PORT-MUST-05</em></a>…<a class="reference internal" href="../00_requirements.html#CHI-PORT-MUST-09" title="CHI-PORT-MUST-09"><em class="xref need">CHI-PORT-MUST-09</em></a>):</p>
 <pre  class="mermaid">
@@ -591,7 +594,7 @@ on every pin to start. When a configured edge occurs, the driver reports it via
    deactivate DRV
     </pre></section>
 <section id="key-terms">
-<h2>Key terms<a class="headerlink" href="#key-terms" title="Link to this heading"></a></h2>
+<h2>Key Terms<a class="headerlink" href="#key-terms" title="Link to this heading"></a></h2>
 <p>For Port terms — port, pin, edge detection, masked write — see the glossary in the appendix and the
 shared foundation in <a class="reference internal" href="../../../01_general/index.html"><span class="doc">General</span></a>.</p>
 </section>
@@ -600,7 +603,8 @@ shared foundation in <a class="reference internal" href="../../../01_general/ind
 
            </div>
           </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+          
+<footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="00_overview.html" class="btn btn-neutral float-left" title="Overview" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="../guide/index.html" class="btn btn-neutral float-right" title="Guide" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
@@ -608,7 +612,10 @@ shared foundation in <a class="reference internal" href="../../../01_general/ind
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2023-2026 by Vector Informatik GmbH and Infineon Technologies AG. Licensed under the Apache License, Version 2.0.</p>
+  
+    <p>&#169; Copyright 2023-2026 by Vector Informatik GmbH and Infineon Technologies AG.</p>
+  <p class="license-notice">Licensed under the Apache License 2.0.</p>
+
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

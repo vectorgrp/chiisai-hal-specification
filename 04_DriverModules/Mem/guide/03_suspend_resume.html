@@ -7,7 +7,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Suspend, resume, and hardware services &mdash; Chiisai HAL Specification released documentation</title>
+  <title>Suspend, Resume, and Hardware Services &mdash; Chiisai HAL Specification released documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=9edc463e" />
       <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css?v=4ae1632d" />
@@ -20,7 +20,7 @@
       <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/common_css/need_style.css?v=92936fa5" />
       <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/common_css/need_toggle.css?v=5c6620df" />
       <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/modern.css?v=803738c0" />
-      <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=d26aa23c" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=ed454c3b" />
 
   
       <script src="../../../_static/jquery.js?v=5d32c60e"></script>
@@ -37,8 +37,8 @@
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="Common mistakes" href="04_common_mistakes.html" />
-    <link rel="prev" title="Read, write, erase, blank-check" href="02_jobs.html" /> 
+    <link rel="next" title="Common Mistakes" href="04_common_mistakes.html" />
+    <link rel="prev" title="Read, Write, Erase, Blank-Check" href="02_jobs.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -76,9 +76,9 @@
 <li class="toctree-l3 current"><a class="reference internal" href="index.html">Guide</a><ul class="current">
 <li class="toctree-l4"><a class="reference internal" href="00_quickstart.html">Quickstart</a></li>
 <li class="toctree-l4"><a class="reference internal" href="01_configuration.html">Configuration</a></li>
-<li class="toctree-l4"><a class="reference internal" href="02_jobs.html">Read, write, erase, blank-check</a></li>
-<li class="toctree-l4 current"><a class="current reference internal" href="#">Suspend, resume, and hardware services</a></li>
-<li class="toctree-l4"><a class="reference internal" href="04_common_mistakes.html">Common mistakes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="02_jobs.html">Read, Write, Erase, Blank-Check</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Suspend, Resume, and Hardware Services</a></li>
+<li class="toctree-l4"><a class="reference internal" href="04_common_mistakes.html">Common Mistakes</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../reference/index.html">Reference</a></li>
@@ -112,7 +112,10 @@
           <li class="breadcrumb-item"><a href="../../index.html">Chiisai HAL Driver Modules</a></li>
           <li class="breadcrumb-item"><a href="../index.html">Mem</a></li>
           <li class="breadcrumb-item"><a href="index.html">Guide</a></li>
-      <li class="breadcrumb-item active">Suspend, resume, and hardware services</li>
+      <li class="breadcrumb-item active">Suspend, Resume, and Hardware Services</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/04_DriverModules/Mem/guide/03_suspend_resume.rst.txt" rel="nofollow"> View page source</a>
+      </li>
   </ul>
   <hr/>
 </div>
@@ -120,14 +123,14 @@
            <div itemprop="articleBody">
              
   <section id="suspend-resume-and-hardware-services">
-<h1>Suspend, resume, and hardware services<a class="headerlink" href="#suspend-resume-and-hardware-services" title="Link to this heading"></a></h1>
-<div class="informative admonition">
-<p class="admonition-title">Informative</p>
+<h1>Suspend, Resume, and Hardware Services<a class="headerlink" href="#suspend-resume-and-hardware-services" title="Link to this heading"></a></h1>
+<div class="content-kind content-kind-informative docutils container">
+<p><a class="content-kind-label reference internal" href="../../../00_about/01_reading_guide.html#content-kinds" title="Informative: explains usage; does not constrain driver implementations. Click for details."><span class="content-kind-name">Informative</span><span class="content-kind-sep"> · </span><span class="content-kind-scope">non-binding</span></a></p>
+</div>
 <p>How to suspend and resume a long-running job and reach device-specific services. Binding rules:
 <a class="reference internal" href="../00_requirements.html#CHI-MEM-MUST-11" title="CHI-MEM-MUST-11"><em class="xref need">CHI-MEM-MUST-11</em></a> and <a class="reference internal" href="../00_requirements.html#CHI-MEM-MUST-12" title="CHI-MEM-MUST-12"><em class="xref need">CHI-MEM-MUST-12</em></a> in <a class="reference internal" href="../00_requirements.html"><span class="doc">Mem — Requirements</span></a>.</p>
-</div>
 <section id="suspend-and-resume">
-<h2>Suspend and resume<a class="headerlink" href="#suspend-and-resume" title="Link to this heading"></a></h2>
+<h2>Suspend and Resume<a class="headerlink" href="#suspend-and-resume" title="Link to this heading"></a></h2>
 <p>A long erase or write can be paused so a more urgent access can proceed, then resumed:</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">Mem_SuspendJob</span><span class="p">(</span><span class="mi">0u</span><span class="p">);</span><span class="w">          </span><span class="cm">/* pause the active job on instance 0 (hardware-based) */</span>
 <span class="cm">/* ... a higher-priority read on another instance, etc. ... */</span>
@@ -140,7 +143,7 @@ Suspending when nothing is suspendable, or resuming when nothing is suspended, i
 development error (see <a class="reference internal" href="../reference/02_errors.html"><span class="doc">Errors</span></a>).</p>
 </section>
 <section id="hardware-specific-services">
-<h2>Hardware-specific services<a class="headerlink" href="#hardware-specific-services" title="Link to this heading"></a></h2>
+<h2>Hardware-Specific Services<a class="headerlink" href="#hardware-specific-services" title="Link to this heading"></a></h2>
 <p>Device features outside the standard read/write/erase set are reached through one dispatcher:</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">Mem_HwSpecificService</span><span class="p">(</span><span class="mi">0u</span><span class="p">,</span><span class="w"> </span><span class="n">hwServiceId</span><span class="p">,</span><span class="w"> </span><span class="n">dataPtr</span><span class="p">,</span><span class="w"> </span><span class="n">lengthPtr</span><span class="p">);</span>
 </pre></div>
@@ -153,15 +156,19 @@ unsupported id returns <code class="docutils literal notranslate"><span class="p
 
            </div>
           </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="02_jobs.html" class="btn btn-neutral float-left" title="Read, write, erase, blank-check" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="04_common_mistakes.html" class="btn btn-neutral float-right" title="Common mistakes" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+          
+<footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="02_jobs.html" class="btn btn-neutral float-left" title="Read, Write, Erase, Blank-Check" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="04_common_mistakes.html" class="btn btn-neutral float-right" title="Common Mistakes" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2023-2026 by Vector Informatik GmbH and Infineon Technologies AG. Licensed under the Apache License, Version 2.0.</p>
+  
+    <p>&#169; Copyright 2023-2026 by Vector Informatik GmbH and Infineon Technologies AG.</p>
+  <p class="license-notice">Licensed under the Apache License 2.0.</p>
+
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

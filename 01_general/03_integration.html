@@ -20,7 +20,7 @@
       <link rel="stylesheet" type="text/css" href="../_static/sphinx-needs/common_css/need_style.css?v=92936fa5" />
       <link rel="stylesheet" type="text/css" href="../_static/sphinx-needs/common_css/need_toggle.css?v=5c6620df" />
       <link rel="stylesheet" type="text/css" href="../_static/sphinx-needs/modern.css?v=803738c0" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=d26aa23c" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=ed454c3b" />
 
   
       <script src="../_static/jquery.js?v=5d32c60e"></script>
@@ -427,12 +427,12 @@ window.runMermaid = runMermaid;</script>
 <li class="toctree-l2"><a class="reference internal" href="01_architecture.html">Architecture and Layering</a></li>
 <li class="toctree-l2"><a class="reference internal" href="02_conventions.html">Naming Conventions</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Integration Guidelines</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#package-layout">Package layout</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#modules-with-and-without-an-upper-layer-stack">Modules with and without an upper-layer stack</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#connecting-your-components-via-the-callout-file">Connecting your components via the callout file</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#dependency-management">Dependency management</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#configuration-and-build-flow">Configuration and build flow</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#interrupts-and-critical-sections">Interrupts and critical sections</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#package-layout">Package Layout</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#modules-with-and-without-an-upper-layer-stack">Modules With and Without an Upper-Layer Stack</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#connecting-your-components-via-the-callout-file">Connecting Your Components via the Callout File</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dependency-management">Dependency Management</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configuration-and-build-flow">Configuration and Build Flow</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#interrupts-and-critical-sections">Interrupts and Critical Sections</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="guide/index.html">Guide</a></li>
@@ -460,7 +460,10 @@ window.runMermaid = runMermaid;</script>
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="index.html">General</a></li>
-      <li class="breadcrumb-item active">Integration Guidelines</li>
+      <li class="breadcrumb-item active">Integration Guidelines</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/01_general/03_integration.rst.txt" rel="nofollow"> View page source</a>
+      </li>
   </ul>
   <hr/>
 </div>
@@ -469,13 +472,13 @@ window.runMermaid = runMermaid;</script>
              
   <section id="integration-guidelines">
 <h1>Integration Guidelines<a class="headerlink" href="#integration-guidelines" title="Link to this heading"></a></h1>
-<div class="informative admonition">
-<p class="admonition-title">Informative</p>
+<div class="content-kind content-kind-informative docutils container">
+<p><a class="content-kind-label reference internal" href="../00_about/01_reading_guide.html#content-kinds" title="Informative: explains usage; does not constrain driver implementations. Click for details."><span class="content-kind-name">Informative</span><span class="content-kind-sep"> · </span><span class="content-kind-scope">non-binding</span></a></p>
+</div>
 <p>How a Chiisai HAL driver is packaged, configured, and wired into a project — the integrator’s
 view. The binding rules behind these guidelines live in the <a class="reference internal" href="04_requirements.html"><span class="doc">Requirements</span></a>.</p>
-</div>
 <section id="package-layout">
-<h2>Package layout<a class="headerlink" href="#package-layout" title="Link to this heading"></a></h2>
+<h2>Package Layout<a class="headerlink" href="#package-layout" title="Link to this heading"></a></h2>
 <p>Each module package follows a common directory structure.
 Only the <code class="docutils literal notranslate"><span class="pre">&lt;Mip&gt;</span></code> folder may be extended
 with further sub-folders (next to the three standard ones);</p>
@@ -490,7 +493,7 @@ with further sub-folders (next to the three standard ones);</p>
 <p><em>Normative:</em> <a class="reference internal" href="04_requirements.html#CHI-GEN-MUST-06" title="CHI-GEN-MUST-06"><em class="xref need">CHI-GEN-MUST-06</em></a>.</p>
 </section>
 <section id="modules-with-and-without-an-upper-layer-stack">
-<h2>Modules with and without an upper-layer stack<a class="headerlink" href="#modules-with-and-without-an-upper-layer-stack" title="Link to this heading"></a></h2>
+<h2>Modules With and Without an Upper-Layer Stack<a class="headerlink" href="#modules-with-and-without-an-upper-layer-stack" title="Link to this heading"></a></h2>
 <p>Whether a module has an upper-layer interface stack is fixed by its specification, and it determines
 both where the driver’s general types header comes from and who implements the functions the driver
 reports events through (the layering view is in <a class="reference internal" href="01_architecture.html"><span class="doc">Architecture and Layering</span></a>):</p>
@@ -550,7 +553,7 @@ reports events through (the layering view is in <a class="reference internal" hr
 </figure>
 </section>
 <section id="connecting-your-components-via-the-callout-file">
-<h2>Connecting your components via the callout file<a class="headerlink" href="#connecting-your-components-via-the-callout-file" title="Link to this heading"></a></h2>
+<h2>Connecting Your Components via the Callout File<a class="headerlink" href="#connecting-your-components-via-the-callout-file" title="Link to this heading"></a></h2>
 <p>For a module without an upper-layer stack, the module generator emits
 <code class="docutils literal notranslate"><span class="pre">&lt;Mip&gt;_Callout_Stubs.c</span></code>: one default, empty implementation of every callout the active
 configuration enables. This is the file an integrator edits — it is the seam between the driver and
@@ -575,7 +578,7 @@ callouts and their exact contract are listed in that module’s API reference.</
 <p><em>Normative:</em> <a class="reference internal" href="04_requirements.html#CHI-GEN-MUST-14" title="CHI-GEN-MUST-14"><em class="xref need">CHI-GEN-MUST-14</em></a>, <a class="reference internal" href="04_requirements.html#CHI-GEN-MUST-15" title="CHI-GEN-MUST-15"><em class="xref need">CHI-GEN-MUST-15</em></a>, <a class="reference internal" href="04_requirements.html#CHI-GEN-MUST-16" title="CHI-GEN-MUST-16"><em class="xref need">CHI-GEN-MUST-16</em></a>.</p>
 </section>
 <section id="dependency-management">
-<h2>Dependency management<a class="headerlink" href="#dependency-management" title="Link to this heading"></a></h2>
+<h2>Dependency Management<a class="headerlink" href="#dependency-management" title="Link to this heading"></a></h2>
 <ul class="simple">
 <li><p>A driver imports only the headers required for its functionality and exports only what other
 modules need — keep the coupling surface small.</p></li>
@@ -585,7 +588,7 @@ carries a guard named after the file.</p></li>
 </ul>
 </section>
 <section id="configuration-and-build-flow">
-<h2>Configuration and build flow<a class="headerlink" href="#configuration-and-build-flow" title="Link to this heading"></a></h2>
+<h2>Configuration and Build Flow<a class="headerlink" href="#configuration-and-build-flow" title="Link to this heading"></a></h2>
 <p>A driver is configured through a <strong>configuration model</strong>, not by hand-editing generated code. Each
 module ships:</p>
 <ul class="simple">
@@ -602,7 +605,7 @@ per-module property tables are in each module’s configuration reference (for t
 <p><em>Normative:</em> <a class="reference internal" href="04_requirements.html#CHI-GEN-MUST-12" title="CHI-GEN-MUST-12"><em class="xref need">CHI-GEN-MUST-12</em></a>.</p>
 </section>
 <section id="interrupts-and-critical-sections">
-<h2>Interrupts and critical sections<a class="headerlink" href="#interrupts-and-critical-sections" title="Link to this heading"></a></h2>
+<h2>Interrupts and Critical Sections<a class="headerlink" href="#interrupts-and-critical-sections" title="Link to this heading"></a></h2>
 <ul class="simple">
 <li><p><strong>Interrupt handlers</strong> are defined with the common <code class="docutils literal notranslate"><span class="pre">ISR()</span></code> macro rather than a raw,
 compiler-specific handler signature, so handler definitions stay portable across toolchains.</p></li>
@@ -620,7 +623,8 @@ and referenced from each module.</p>
 
            </div>
           </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+          
+<footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="02_conventions.html" class="btn btn-neutral float-left" title="Naming Conventions" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="guide/index.html" class="btn btn-neutral float-right" title="Guide" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
@@ -628,7 +632,10 @@ and referenced from each module.</p>
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2023-2026 by Vector Informatik GmbH and Infineon Technologies AG. Licensed under the Apache License, Version 2.0.</p>
+  
+    <p>&#169; Copyright 2023-2026 by Vector Informatik GmbH and Infineon Technologies AG.</p>
+  <p class="license-notice">Licensed under the Apache License 2.0.</p>
+
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

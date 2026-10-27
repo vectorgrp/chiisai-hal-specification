@@ -20,7 +20,7 @@
       <link rel="stylesheet" type="text/css" href="../../_static/sphinx-needs/common_css/need_style.css?v=92936fa5" />
       <link rel="stylesheet" type="text/css" href="../../_static/sphinx-needs/common_css/need_toggle.css?v=5c6620df" />
       <link rel="stylesheet" type="text/css" href="../../_static/sphinx-needs/modern.css?v=803738c0" />
-      <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=d26aa23c" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=ed454c3b" />
 
   
       <script src="../../_static/jquery.js?v=5d32c60e"></script>
@@ -72,8 +72,8 @@
 <li class="toctree-l2"><a class="reference internal" href="../03_integration.html">Integration Guidelines</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="index.html">Guide</a><ul class="current">
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Using the Shared Contract</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#a-driver-source-file-end-to-end">A driver source file, end to end</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#what-each-piece-does">What each piece does</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#a-driver-source-file-end-to-end">A Driver Source File, End To End</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#what-each-piece-does">What Each Piece Does</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="01_header_examples.html">Foundation Header Examples</a></li>
@@ -105,7 +105,10 @@
       <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../index.html">General</a></li>
           <li class="breadcrumb-item"><a href="index.html">Guide</a></li>
-      <li class="breadcrumb-item active">Using the Shared Contract</li>
+      <li class="breadcrumb-item active">Using the Shared Contract</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/01_general/guide/00_using_the_contract.rst.txt" rel="nofollow"> View page source</a>
+      </li>
   </ul>
   <hr/>
 </div>
@@ -114,14 +117,14 @@
              
   <section id="using-the-shared-contract">
 <h1>Using the Shared Contract<a class="headerlink" href="#using-the-shared-contract" title="Link to this heading"></a></h1>
-<div class="informative admonition">
-<p class="admonition-title">Informative</p>
+<div class="content-kind content-kind-informative docutils container">
+<p><a class="content-kind-label reference internal" href="../../00_about/01_reading_guide.html#content-kinds" title="Informative: explains usage; does not constrain driver implementations. Click for details."><span class="content-kind-name">Informative</span><span class="content-kind-sep"> · </span><span class="content-kind-scope">non-binding</span></a></p>
+</div>
 <p>How the shared types, compiler-abstraction macros, memory mapping, logging, and the <code class="docutils literal notranslate"><span class="pre">ISR()</span></code>
 macro come together in a driver source file. In the examples, <code class="docutils literal notranslate"><span class="pre">Mip</span></code> / <code class="docutils literal notranslate"><span class="pre">MIP</span></code> stands in for a
 concrete module implementation prefix (e.g. <code class="docutils literal notranslate"><span class="pre">Can</span></code>, <code class="docutils literal notranslate"><span class="pre">Mem</span></code>) — substitute your own.</p>
-</div>
 <section id="a-driver-source-file-end-to-end">
-<h2>A driver source file, end to end<a class="headerlink" href="#a-driver-source-file-end-to-end" title="Link to this heading"></a></h2>
+<h2>A Driver Source File, End To End<a class="headerlink" href="#a-driver-source-file-end-to-end" title="Link to this heading"></a></h2>
 <p>The skeleton below wires up the pieces a typical driver uses: it includes its own header, declares a
 variable and code in named memory sections, uses the type system and declaration macros, reports a
 development error through the Log Manager, and defines an interrupt handler with the <code class="docutils literal notranslate"><span class="pre">ISR()</span></code> macro.</p>
@@ -169,7 +172,7 @@ development error through the Log Manager, and defines an interrupt handler with
 </div>
 </section>
 <section id="what-each-piece-does">
-<h2>What each piece does<a class="headerlink" href="#what-each-piece-does" title="Link to this heading"></a></h2>
+<h2>What Each Piece Does<a class="headerlink" href="#what-each-piece-does" title="Link to this heading"></a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 34.0%" />
@@ -221,7 +224,8 @@ sections expand to anything, are target- and compiler-specific — see the gener
 
            </div>
           </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+          
+<footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="index.html" class="btn btn-neutral float-left" title="Guide" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="01_header_examples.html" class="btn btn-neutral float-right" title="Foundation Header Examples" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
@@ -229,7 +233,10 @@ sections expand to anything, are target- and compiler-specific — see the gener
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2023-2026 by Vector Informatik GmbH and Infineon Technologies AG. Licensed under the Apache License, Version 2.0.</p>
+  
+    <p>&#169; Copyright 2023-2026 by Vector Informatik GmbH and Infineon Technologies AG.</p>
+  <p class="license-notice">Licensed under the Apache License 2.0.</p>
+
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

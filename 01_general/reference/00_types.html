@@ -20,7 +20,7 @@
       <link rel="stylesheet" type="text/css" href="../../_static/sphinx-needs/common_css/need_style.css?v=92936fa5" />
       <link rel="stylesheet" type="text/css" href="../../_static/sphinx-needs/common_css/need_toggle.css?v=5c6620df" />
       <link rel="stylesheet" type="text/css" href="../../_static/sphinx-needs/modern.css?v=803738c0" />
-      <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=d26aa23c" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=ed454c3b" />
 
   
       <script src="../../_static/jquery.js?v=5d32c60e"></script>
@@ -73,10 +73,10 @@
 <li class="toctree-l2"><a class="reference internal" href="../guide/index.html">Guide</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="index.html">Reference</a><ul class="current">
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Standard Types and Constants</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#standard-types">Standard types</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#platform-types">Platform types</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#communication-stack-types">Communication-stack types</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#module-identifiers">Module identifiers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#standard-types">Standard Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#platform-types">Platform Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#communication-stack-types">Communication-Stack Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-identifiers">Module Identifiers</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="01_compiler.html">Compiler Abstraction</a></li>
@@ -107,7 +107,10 @@
       <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../index.html">General</a></li>
           <li class="breadcrumb-item"><a href="index.html">Reference</a></li>
-      <li class="breadcrumb-item active">Standard Types and Constants</li>
+      <li class="breadcrumb-item active">Standard Types and Constants</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/01_general/reference/00_types.rst.txt" rel="nofollow"> View page source</a>
+      </li>
   </ul>
   <hr/>
 </div>
@@ -116,15 +119,15 @@
              
   <section id="standard-types-and-constants">
 <h1>Standard Types and Constants<a class="headerlink" href="#standard-types-and-constants" title="Link to this heading"></a></h1>
-<div class="normative admonition">
-<p class="admonition-title">Normative</p>
+<div class="content-kind content-kind-normative docutils container">
+<p><a class="content-kind-label reference internal" href="../../00_about/01_reading_guide.html#content-kinds" title="Normative: defines what a conformant driver MUST do. Click for details."><span class="content-kind-name">Normative</span><span class="content-kind-sep"> · </span><span class="content-kind-scope">binding</span></a></p>
+</div>
 <p>The root types, constants, and identifiers every Chiisai HAL driver uses. Standard types
 available via <code class="docutils literal notranslate"><span class="pre">Std_Types.h</span></code> <strong>MUST</strong> always be used instead of native C types, and read-only
 variables and never-modified pointer parameters <strong>MUST</strong> be <code class="docutils literal notranslate"><span class="pre">const</span></code>-qualified. Keywords per
 <a class="reference internal" href="../../00_about/02_keywords.html"><span class="doc">Requirement Keywords</span></a>.</p>
-</div>
 <section id="standard-types">
-<span id="gen-ref-standard-types"></span><h2>Standard types<a class="headerlink" href="#standard-types" title="Link to this heading"></a></h2>
+<span id="gen-ref-standard-types"></span><h2>Standard Types<a class="headerlink" href="#standard-types" title="Link to this heading"></a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 22.0%" />
@@ -156,7 +159,7 @@ variables and never-modified pointer parameters <strong>MUST</strong> be <code c
 <p><em>Available via</em> <code class="docutils literal notranslate"><span class="pre">Std_Types.h</span></code>.</p>
 </section>
 <section id="platform-types">
-<span id="gen-ref-platform-types"></span><h2>Platform types<a class="headerlink" href="#platform-types" title="Link to this heading"></a></h2>
+<span id="gen-ref-platform-types"></span><h2>Platform Types<a class="headerlink" href="#platform-types" title="Link to this heading"></a></h2>
 <p>Available via <code class="docutils literal notranslate"><span class="pre">Platform_Types.h</span></code>.</p>
 <table class="docutils align-default">
 <colgroup>
@@ -221,7 +224,7 @@ variables and never-modified pointer parameters <strong>MUST</strong> be <code c
 </table>
 </section>
 <section id="communication-stack-types">
-<span id="gen-ref-comstack-types"></span><h2>Communication-stack types<a class="headerlink" href="#communication-stack-types" title="Link to this heading"></a></h2>
+<span id="gen-ref-comstack-types"></span><h2>Communication-Stack Types<a class="headerlink" href="#communication-stack-types" title="Link to this heading"></a></h2>
 <p>Available via <code class="docutils literal notranslate"><span class="pre">ComStack_Types.h</span></code>. Used by the communication drivers (CAN, LIN, …) to exchange
 protocol data units with the upper layer.</p>
 <table class="docutils align-default">
@@ -259,7 +262,7 @@ module-specific types are documented in the module’s own reference.</p>
 </div>
 </section>
 <section id="module-identifiers">
-<span id="gen-ref-module-ids"></span><h2>Module identifiers<a class="headerlink" href="#module-identifiers" title="Link to this heading"></a></h2>
+<span id="gen-ref-module-ids"></span><h2>Module Identifiers<a class="headerlink" href="#module-identifiers" title="Link to this heading"></a></h2>
 <p>Each module has a 16-bit id <code class="docutils literal notranslate"><span class="pre">0x&lt;8-bit</span> <span class="pre">component</span> <span class="pre">id&gt;&lt;8-bit</span> <span class="pre">module</span> <span class="pre">id&gt;</span></code> used mainly for error
 reporting via <a class="reference internal" href="02_services.html#gen-ref-logm"><span class="std std-ref">LogM_Report</span></a>. The component id for Chiisai HAL is <code class="docutils literal notranslate"><span class="pre">0x01</span></code>.</p>
 <table class="docutils align-default">
@@ -311,7 +314,8 @@ reporting via <a class="reference internal" href="02_services.html#gen-ref-logm"
 
            </div>
           </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+          
+<footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="index.html" class="btn btn-neutral float-left" title="Reference" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="01_compiler.html" class="btn btn-neutral float-right" title="Compiler Abstraction" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
@@ -319,7 +323,10 @@ reporting via <a class="reference internal" href="02_services.html#gen-ref-logm"
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2023-2026 by Vector Informatik GmbH and Infineon Technologies AG. Licensed under the Apache License, Version 2.0.</p>
+  
+    <p>&#169; Copyright 2023-2026 by Vector Informatik GmbH and Infineon Technologies AG.</p>
+  <p class="license-notice">Licensed under the Apache License 2.0.</p>
+
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

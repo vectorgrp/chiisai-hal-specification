@@ -20,7 +20,7 @@
       <link rel="stylesheet" type="text/css" href="../../_static/sphinx-needs/common_css/need_style.css?v=92936fa5" />
       <link rel="stylesheet" type="text/css" href="../../_static/sphinx-needs/common_css/need_toggle.css?v=5c6620df" />
       <link rel="stylesheet" type="text/css" href="../../_static/sphinx-needs/modern.css?v=803738c0" />
-      <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=d26aa23c" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=ed454c3b" />
 
   
       <script src="../../_static/jquery.js?v=5d32c60e"></script>
@@ -76,9 +76,9 @@
 <li class="toctree-l3"><a class="reference internal" href="01_compiler.html">Compiler Abstraction</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Services and Utilities</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#logging-log-manager">Logging (Log Manager)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#critical-sections">Critical sections</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#interrupt-definition-isr-macro">Interrupt definition (ISR macro)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#standard-memory-utilities">Standard memory utilities</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#critical-sections">Critical Sections</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#interrupt-definition-isr-macro">Interrupt Definition (ISR Macro)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#standard-memory-utilities">Standard Memory Utilities</a></li>
 </ul>
 </li>
 </ul>
@@ -107,7 +107,10 @@
       <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../index.html">General</a></li>
           <li class="breadcrumb-item"><a href="index.html">Reference</a></li>
-      <li class="breadcrumb-item active">Services and Utilities</li>
+      <li class="breadcrumb-item active">Services and Utilities</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/01_general/reference/02_services.rst.txt" rel="nofollow"> View page source</a>
+      </li>
   </ul>
   <hr/>
 </div>
@@ -116,13 +119,13 @@
              
   <section id="services-and-utilities">
 <h1>Services and Utilities<a class="headerlink" href="#services-and-utilities" title="Link to this heading"></a></h1>
-<div class="normative admonition">
-<p class="admonition-title">Normative</p>
+<div class="content-kind content-kind-normative docutils container">
+<p><a class="content-kind-label reference internal" href="../../00_about/01_reading_guide.html#content-kinds" title="Normative: defines what a conformant driver MUST do. Click for details."><span class="content-kind-name">Normative</span><span class="content-kind-sep"> · </span><span class="content-kind-scope">binding</span></a></p>
+</div>
 <p>The shared services a driver reports through and relies on: logging, critical sections, the
 interrupt-definition macro, and the standard memory utilities. These are the services the module
 pages forward-reference (for the CAN example, the <em>Expected interfaces</em> group in
 <a class="reference internal" href="../../04_DriverModules/Can/reference/00_api.html"><span class="doc">API Reference</span></a>). Keywords per <a class="reference internal" href="../../00_about/02_keywords.html"><span class="doc">Requirement Keywords</span></a>.</p>
-</div>
 <section id="logging-log-manager">
 <span id="gen-ref-logm"></span><h2>Logging (Log Manager)<a class="headerlink" href="#logging-log-manager" title="Link to this heading"></a></h2>
 <p>Drivers report development and runtime errors — and informational events — through the Log Manager.</p>
@@ -196,7 +199,7 @@ pages forward-reference (for the CAN example, the <em>Expected interfaces</em> g
 optimized backend, as long as the external signature is unchanged.</p>
 </section>
 <section id="critical-sections">
-<span id="gen-ref-critical-section"></span><h2>Critical sections<a class="headerlink" href="#critical-sections" title="Link to this heading"></a></h2>
+<span id="gen-ref-critical-section"></span><h2>Critical Sections<a class="headerlink" href="#critical-sections" title="Link to this heading"></a></h2>
 <p>Available via <code class="docutils literal notranslate"><span class="pre">SchM_&lt;Mip&gt;.h</span></code>. A driver brackets a region needing exclusive access; the integrator
 supplies the implementation. Both are synchronous and reentrant.</p>
 <table class="docutils align-default">
@@ -222,7 +225,7 @@ supplies the implementation. Both are synchronous and reentrant.</p>
 time-critical operations.</p>
 </section>
 <section id="interrupt-definition-isr-macro">
-<span id="gen-ref-isr"></span><h2>Interrupt definition (ISR macro)<a class="headerlink" href="#interrupt-definition-isr-macro" title="Link to this heading"></a></h2>
+<span id="gen-ref-isr"></span><h2>Interrupt Definition (ISR Macro)<a class="headerlink" href="#interrupt-definition-isr-macro" title="Link to this heading"></a></h2>
 <p>Available via <code class="docutils literal notranslate"><span class="pre">Os.h</span></code>. Interrupt service routines <strong>MUST</strong> be defined with the <code class="docutils literal notranslate"><span class="pre">ISR()</span></code> macro,
 which hides the compiler/OS-specific handler keyword:</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Os.h&quot;</span>
@@ -235,7 +238,7 @@ which hides the compiler/OS-specific handler keyword:</p>
 </div>
 </section>
 <section id="standard-memory-utilities">
-<span id="gen-ref-stdlib"></span><h2>Standard memory utilities<a class="headerlink" href="#standard-memory-utilities" title="Link to this heading"></a></h2>
+<span id="gen-ref-stdlib"></span><h2>Standard Memory Utilities<a class="headerlink" href="#standard-memory-utilities" title="Link to this heading"></a></h2>
 <p>Available via <code class="docutils literal notranslate"><span class="pre">Std_Lib.h</span></code>. Common buffer helpers shared across modules. They may access the buffer
 in several access sizes (byte/2-byte/4-byte) for performance, so they <strong>MUST NOT</strong> be used on buffers
 with access-size restrictions (e.g. some HW peripheral buffers). <code class="docutils literal notranslate"><span class="pre">Std_MemCmp</span></code> / <code class="docutils literal notranslate"><span class="pre">Std_MemCheck</span></code>
@@ -276,7 +279,8 @@ mapping <code class="docutils literal notranslate"><span class="pre">Std_MemSet<
 
            </div>
           </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+          
+<footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="01_compiler.html" class="btn btn-neutral float-left" title="Compiler Abstraction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="../04_requirements.html" class="btn btn-neutral float-right" title="Requirements" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
@@ -284,7 +288,10 @@ mapping <code class="docutils literal notranslate"><span class="pre">Std_MemSet<
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2023-2026 by Vector Informatik GmbH and Infineon Technologies AG. Licensed under the Apache License, Version 2.0.</p>
+  
+    <p>&#169; Copyright 2023-2026 by Vector Informatik GmbH and Infineon Technologies AG.</p>
+  <p class="license-notice">Licensed under the Apache License 2.0.</p>
+
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

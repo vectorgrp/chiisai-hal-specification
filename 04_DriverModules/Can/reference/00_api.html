@@ -20,7 +20,7 @@
       <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/common_css/need_style.css?v=92936fa5" />
       <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/common_css/need_toggle.css?v=5c6620df" />
       <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/modern.css?v=803738c0" />
-      <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=d26aa23c" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=ed454c3b" />
 
   
       <script src="../../../_static/jquery.js?v=5d32c60e"></script>
@@ -110,7 +110,10 @@
           <li class="breadcrumb-item"><a href="../../index.html">Chiisai HAL Driver Modules</a></li>
           <li class="breadcrumb-item"><a href="../index.html">Can</a></li>
           <li class="breadcrumb-item"><a href="index.html">Reference</a></li>
-      <li class="breadcrumb-item active">API Reference</li>
+      <li class="breadcrumb-item active">API Reference</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/04_DriverModules/Can/reference/00_api.rst.txt" rel="nofollow"> View page source</a>
+      </li>
   </ul>
   <hr/>
 </div>
@@ -119,14 +122,14 @@
              
   <section id="api-reference">
 <h1>API Reference<a class="headerlink" href="#api-reference" title="Link to this heading"></a></h1>
-<div class="normative admonition">
-<p class="admonition-title">Normative</p>
+<div class="content-kind content-kind-normative docutils container">
+<p><a class="content-kind-label reference internal" href="../../../00_about/01_reading_guide.html#content-kinds" title="Normative: defines what a conformant driver MUST do. Click for details."><span class="content-kind-name">Normative</span><span class="content-kind-sep"> · </span><span class="content-kind-scope">binding</span></a></p>
+</div>
 <p>The CAN driver API contract. A conformant driver <strong>MUST</strong> provide these types and functions
 with the behavior described. Signatures and member documentation are extracted from the driver
 headers with Doxygen/Breathe, so code and specification stay in sync. Expand a group below.
 Keywords per <a class="reference internal" href="../../../00_about/02_keywords.html"><span class="doc">Requirement Keywords</span></a>; behavioral rules in <a class="reference internal" href="../00_requirements.html"><span class="doc">Can — Requirements</span></a>; error
 codes in <a class="reference internal" href="02_errors.html"><span class="doc">Errors</span></a>.</p>
-</div>
 <p class="rubric">Data types at a glance</p>
 <table class="docutils align-default">
 <colgroup>
@@ -627,7 +630,7 @@ completes. <em>Available via:</em> <code class="docutils literal notranslate"><s
 Can_GetChannelState</div>
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv419Can_GetChannelState5uint8">
-<span id="_CPPv319Can_GetChannelState5uint8"></span><span id="_CPPv219Can_GetChannelState5uint8"></span><span id="Can_GetChannelState__uint8"></span><span class="target" id="_can_8h_1a97834fafca52bb3dfcbaf8ebe4dd4075"></span><span class="n"><span class="pre">n_ChannelStateType</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Can_GetChannelState</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint8</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">channelId</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv419Can_GetChannelState5uint8" title="Link to this definition"></a><br /></dt>
+<span id="_CPPv319Can_GetChannelState5uint8"></span><span id="_CPPv219Can_GetChannelState5uint8"></span><span id="Can_GetChannelState__uint8"></span><span class="target" id="_can_8h_1abe4a353061e97b042c3798135746135d"></span><a class="reference internal" href="#_CPPv420Can_ChannelStateType" title="Can_ChannelStateType"><span class="n"><span class="pre">Can_ChannelStateType</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Can_GetChannelState</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint8</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">channelId</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv419Can_GetChannelState5uint8" title="Link to this definition"></a><br /></dt>
 <dd><p class="sd-card-text">This service reports about the current state of the requested <a class="reference internal" href="../../../appendix.html#term-Bus-Channel"><span class="xref std std-term">CAN channel</span></a>. </p>
 <p class="sd-card-text"><dl class="simple">
 <dt><strong>Sync/Async:</strong></dt><dd><p class="sd-card-text">Synchronous </p>
@@ -962,7 +965,8 @@ CanIf_OnError</div>
 
            </div>
           </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+          
+<footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="index.html" class="btn btn-neutral float-left" title="Reference" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="01_configuration.html" class="btn btn-neutral float-right" title="Configuration Reference" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
@@ -970,7 +974,10 @@ CanIf_OnError</div>
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2023-2026 by Vector Informatik GmbH and Infineon Technologies AG. Licensed under the Apache License, Version 2.0.</p>
+  
+    <p>&#169; Copyright 2023-2026 by Vector Informatik GmbH and Infineon Technologies AG.</p>
+  <p class="license-notice">Licensed under the Apache License 2.0.</p>
+
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

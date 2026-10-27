@@ -20,7 +20,7 @@
       <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/common_css/need_style.css?v=92936fa5" />
       <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/common_css/need_toggle.css?v=5c6620df" />
       <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/modern.css?v=803738c0" />
-      <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=d26aa23c" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=ed454c3b" />
 
   
       <script src="../../../_static/jquery.js?v=5d32c60e"></script>
@@ -466,7 +466,10 @@ window.runMermaid = runMermaid;</script>
           <li class="breadcrumb-item"><a href="../../index.html">Chiisai HAL Driver Modules</a></li>
           <li class="breadcrumb-item"><a href="../index.html">Mcu</a></li>
           <li class="breadcrumb-item"><a href="index.html">General</a></li>
-      <li class="breadcrumb-item active">Concepts</li>
+      <li class="breadcrumb-item active">Concepts</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/04_DriverModules/Mcu/general/01_concepts.rst.txt" rel="nofollow"> View page source</a>
+      </li>
   </ul>
   <hr/>
 </div>
@@ -475,14 +478,14 @@ window.runMermaid = runMermaid;</script>
              
   <section id="concepts">
 <h1>Concepts<a class="headerlink" href="#concepts" title="Link to this heading"></a></h1>
-<div class="informative admonition">
-<p class="admonition-title">Informative</p>
+<div class="content-kind content-kind-informative docutils container">
+<p><a class="content-kind-label reference internal" href="../../../00_about/01_reading_guide.html#content-kinds" title="Informative: explains usage; does not constrain driver implementations. Click for details."><span class="content-kind-name">Informative</span><span class="content-kind-sep"> · </span><span class="content-kind-scope">non-binding</span></a></p>
+</div>
 <p>The model behind the MCU driver: its driver state machine, the non-blocking clock-setup lifecycle,
 the reset-reason model, and the periodic poll. Non-binding; the normative rules live in
 <a class="reference internal" href="../00_requirements.html"><span class="doc">Mcu — Requirements</span></a>.</p>
-</div>
 <section id="state-machine">
-<h2>State machine<a class="headerlink" href="#state-machine" title="Link to this heading"></a></h2>
+<h2>State Machine<a class="headerlink" href="#state-machine" title="Link to this heading"></a></h2>
 <p>The McuDrv has a single driver-wide state — there are no channels and no de-init.</p>
 <pre  class="mermaid">
         stateDiagram-v2
@@ -513,7 +516,7 @@ the reset-reason model, and the periodic poll. Non-binding; the normative rules 
 </table>
 </section>
 <section id="clock-setup-lifecycle">
-<h2>Clock-setup lifecycle<a class="headerlink" href="#clock-setup-lifecycle" title="Link to this heading"></a></h2>
+<h2>Clock-Setup Lifecycle<a class="headerlink" href="#clock-setup-lifecycle" title="Link to this heading"></a></h2>
 <p>Setting up the clock tree is a <strong>non-blocking</strong> sequence — a PLL or oscillator may need time to
 stabilise, and the driver never busy-waits for it:</p>
 <pre  class="mermaid">
@@ -542,7 +545,7 @@ software-based FLL; a detected clock failure is reported through <code class="do
 <code class="docutils literal notranslate"><span class="pre">MCU_RTERR_CLOCK</span></code> (<a class="reference internal" href="../00_requirements.html#CHI-MCU-MUST-08" title="CHI-MCU-MUST-08"><em class="xref need">CHI-MCU-MUST-08</em></a>).</p>
 </section>
 <section id="reset-reason-model">
-<h2>Reset-reason model<a class="headerlink" href="#reset-reason-model" title="Link to this heading"></a></h2>
+<h2>Reset-Reason Model<a class="headerlink" href="#reset-reason-model" title="Link to this heading"></a></h2>
 <p>The reset cause is <strong>captured once, at initialization</strong>. <code class="docutils literal notranslate"><span class="pre">Mcu_Init</span></code> reads the reason from the
 hardware, holds it in an internal variable, and clears it from the hardware (reset-cause registers
 often persist across resets and must be cleared by software). <code class="docutils literal notranslate"><span class="pre">Mcu_GetResetRawValue</span></code> then returns
@@ -556,7 +559,7 @@ vendor-specific reasons).</p>
 </ul>
 </section>
 <section id="boot-sequence">
-<h2>Boot sequence<a class="headerlink" href="#boot-sequence" title="Link to this heading"></a></h2>
+<h2>Boot Sequence<a class="headerlink" href="#boot-sequence" title="Link to this heading"></a></h2>
 <p>The informative view of a typical boot: initialize, read the reset cause, set up and wait for the
 clock, then run (<a class="reference internal" href="../00_requirements.html#CHI-MCU-MUST-02" title="CHI-MCU-MUST-02"><em class="xref need">CHI-MCU-MUST-02</em></a>, <a class="reference internal" href="../00_requirements.html#CHI-MCU-MUST-04" title="CHI-MCU-MUST-04"><em class="xref need">CHI-MCU-MUST-04</em></a>…<a class="reference internal" href="../00_requirements.html#CHI-MCU-MUST-07" title="CHI-MCU-MUST-07"><em class="xref need">CHI-MCU-MUST-07</em></a>):</p>
 <pre  class="mermaid">
@@ -591,7 +594,7 @@ clock, then run (<a class="reference internal" href="../00_requirements.html#CHI
    end
     </pre></section>
 <section id="key-terms">
-<h2>Key terms<a class="headerlink" href="#key-terms" title="Link to this heading"></a></h2>
+<h2>Key Terms<a class="headerlink" href="#key-terms" title="Link to this heading"></a></h2>
 <p>For MCU terms — reset reason, clock distribution, clock supervision — see the glossary in the
 appendix and the shared foundation in <a class="reference internal" href="../../../01_general/index.html"><span class="doc">General</span></a>.</p>
 </section>
@@ -600,7 +603,8 @@ appendix and the shared foundation in <a class="reference internal" href="../../
 
            </div>
           </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+          
+<footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="00_overview.html" class="btn btn-neutral float-left" title="Overview" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="../guide/index.html" class="btn btn-neutral float-right" title="Guide" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
@@ -608,7 +612,10 @@ appendix and the shared foundation in <a class="reference internal" href="../../
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2023-2026 by Vector Informatik GmbH and Infineon Technologies AG. Licensed under the Apache License, Version 2.0.</p>
+  
+    <p>&#169; Copyright 2023-2026 by Vector Informatik GmbH and Infineon Technologies AG.</p>
+  <p class="license-notice">Licensed under the Apache License 2.0.</p>
+
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

@@ -20,7 +20,7 @@
       <link rel="stylesheet" type="text/css" href="../../_static/sphinx-needs/common_css/need_style.css?v=92936fa5" />
       <link rel="stylesheet" type="text/css" href="../../_static/sphinx-needs/common_css/need_toggle.css?v=5c6620df" />
       <link rel="stylesheet" type="text/css" href="../../_static/sphinx-needs/modern.css?v=803738c0" />
-      <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=d26aa23c" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=ed454c3b" />
 
   
       <script src="../../_static/jquery.js?v=5d32c60e"></script>
@@ -104,7 +104,10 @@
       <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../index.html">Chiisai HAL Driver Modules</a></li>
           <li class="breadcrumb-item"><a href="index.html">I2c</a></li>
-      <li class="breadcrumb-item active">I2c — Requirements</li>
+      <li class="breadcrumb-item active">I2c — Requirements</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/04_DriverModules/I2c/00_requirements.rst.txt" rel="nofollow"> View page source</a>
+      </li>
   </ul>
   <hr/>
 </div>
@@ -113,15 +116,15 @@
              
   <section id="i2c-requirements">
 <h1>I2c — Requirements<a class="headerlink" href="#i2c-requirements" title="Link to this heading"></a></h1>
-<div class="normative admonition">
-<p class="admonition-title">Normative</p>
+<div class="content-kind content-kind-normative docutils container">
+<p><a class="content-kind-label reference internal" href="../../00_about/01_reading_guide.html#content-kinds" title="Normative: defines what a conformant driver MUST do. Click for details."><span class="content-kind-name">Normative</span><span class="content-kind-sep"> · </span><span class="content-kind-scope">binding</span></a></p>
+</div>
 <p>Defines what a conformant I2C driver <strong>MUST</strong> do. Keywords per <a class="reference internal" href="../../00_about/02_keywords.html"><span class="doc">Requirement Keywords</span></a>;
 conformance per <a class="reference internal" href="../../00_about/03_conformance.html"><span class="doc">Conformance</span></a>. Requirements do not carry individual status —
 the set-level status applies to all of them. Signatures, error codes, and configuration
 properties are in the <a class="reference internal" href="reference/00_api.html"><span class="doc">API Reference</span></a>, <a class="reference internal" href="reference/02_errors.html"><span class="doc">Errors</span></a>, and
 <a class="reference internal" href="reference/01_configuration.html"><span class="doc">Configuration Reference</span></a> pages. Cross-module rules (types, error model, naming, memory mapping) are in
 <a class="reference internal" href="../../01_general/index.html"><span class="doc">General</span></a>.</p>
-</div>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
 <summary class="sd-summary-title sd-card-header sd-bg-warning sd-bg-text-warning">
 <span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-alert" viewBox="0 0 16 16" aria-hidden="true"><path d="M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"></path></svg></span><span class="sd-summary-text">Mandatory (MUST) - 23 Requirements</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
@@ -130,7 +133,7 @@ properties are in the <a class="reference internal" href="reference/00_api.html"
 <div class="sd-card-body docutils">
 <div class="sd-card-title sd-font-weight-bold docutils">
 Modes and event handling</div>
-<div class="need_container docutils container" id="SNCB-03f75919">
+<div class="need_container docutils container" id="SNCB-c2413214">
 <table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-I2C-MUST-01">
 <tbody>
 <tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
@@ -146,7 +149,7 @@ read transactions to a 7-bit-addressed device.</p></td>
 </tbody>
 </table>
 </div>
-<div class="need_container docutils container" id="SNCB-938b1719">
+<div class="need_container docutils container" id="SNCB-910ebd32">
 <table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-I2C-MUST-02">
 <tbody>
 <tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
@@ -162,7 +165,7 @@ controller that addresses it with the channel’s configured address.</p></td>
 </tbody>
 </table>
 </div>
-<div class="need_container docutils container" id="SNCB-e645cb92">
+<div class="need_container docutils container" id="SNCB-55fea87f">
 <table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-I2C-MUST-03">
 <tbody>
 <tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
@@ -185,7 +188,7 @@ it; in polling mode the interrupt MUST be disabled and <code class="docutils lit
 <div class="sd-card-body docutils">
 <div class="sd-card-title sd-font-weight-bold docutils">
 State machine</div>
-<div class="need_container docutils container" id="SNCB-d129db5d">
+<div class="need_container docutils container" id="SNCB-79e0429b">
 <table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-I2C-MUST-04">
 <tbody>
 <tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
@@ -201,7 +204,7 @@ State machine</div>
 </tbody>
 </table>
 </div>
-<div class="need_container docutils container" id="SNCB-321238f3">
+<div class="need_container docutils container" id="SNCB-45c2ea4e">
 <table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-I2C-MUST-05">
 <tbody>
 <tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
@@ -217,7 +220,7 @@ State machine</div>
 </tbody>
 </table>
 </div>
-<div class="need_container docutils container" id="SNCB-d9509c3a">
+<div class="need_container docutils container" id="SNCB-784789ca">
 <table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-I2C-MUST-06">
 <tbody>
 <tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
@@ -233,7 +236,7 @@ State machine</div>
 </tbody>
 </table>
 </div>
-<div class="need_container docutils container" id="SNCB-b0f0d08a">
+<div class="need_container docutils container" id="SNCB-ddeb4698">
 <table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-I2C-MUST-07">
 <tbody>
 <tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
@@ -251,7 +254,7 @@ STOP; <code class="docutils literal notranslate"><span class="pre">BUSY</span></
 </tbody>
 </table>
 </div>
-<div class="need_container docutils container" id="SNCB-5eebdc2c">
+<div class="need_container docutils container" id="SNCB-4a92552f">
 <table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-I2C-MUST-08">
 <tbody>
 <tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
@@ -274,7 +277,7 @@ address match; <code class="docutils literal notranslate"><span class="pre">READ
 <div class="sd-card-body docutils">
 <div class="sd-card-title sd-font-weight-bold docutils">
 Initialization and shutdown</div>
-<div class="need_container docutils container" id="SNCB-f0e68a3d">
+<div class="need_container docutils container" id="SNCB-8d3f1f28">
 <table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-I2C-MUST-09">
 <tbody>
 <tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
@@ -291,7 +294,7 @@ address.</p></td>
 </tbody>
 </table>
 </div>
-<div class="need_container docutils container" id="SNCB-4c9b278b">
+<div class="need_container docutils container" id="SNCB-fe68b1a5">
 <table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-I2C-MUST-10">
 <tbody>
 <tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
@@ -312,7 +315,7 @@ address.</p></td>
 <div class="sd-card-body docutils">
 <div class="sd-card-title sd-font-weight-bold docutils">
 Transactions</div>
-<div class="need_container docutils container" id="SNCB-a2589031">
+<div class="need_container docutils container" id="SNCB-1a5f855e">
 <table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-I2C-MUST-11">
 <tbody>
 <tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
@@ -329,7 +332,7 @@ START when a new transaction is started from within a completion callout before 
 </tbody>
 </table>
 </div>
-<div class="need_container docutils container" id="SNCB-3363d302">
+<div class="need_container docutils container" id="SNCB-af749657">
 <table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-I2C-MUST-12">
 <tbody>
 <tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
@@ -345,7 +348,7 @@ channel it MUST stage the receive buffer. It MUST support a repeated START as ab
 </tbody>
 </table>
 </div>
-<div class="need_container docutils container" id="SNCB-aa848459">
+<div class="need_container docutils container" id="SNCB-0ab5f2ff">
 <table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-I2C-MUST-13">
 <tbody>
 <tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
@@ -362,7 +365,7 @@ completion callout fires; the driver MUST NOT rely on it afterwards.</p></td>
 </tbody>
 </table>
 </div>
-<div class="need_container docutils container" id="SNCB-9c28f11b">
+<div class="need_container docutils container" id="SNCB-93659b01">
 <table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-I2C-MUST-14">
 <tbody>
 <tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
@@ -386,7 +389,7 @@ MUST issue a repeated START.</p></td>
 <div class="sd-card-body docutils">
 <div class="sd-card-title sd-font-weight-bold docutils">
 Target-mode handling</div>
-<div class="need_container docutils container" id="SNCB-a48e8066">
+<div class="need_container docutils container" id="SNCB-6155d19d">
 <table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-I2C-MUST-15">
 <tbody>
 <tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
@@ -403,7 +406,7 @@ direction, and on completion it MUST call <code class="docutils literal notransl
 </tbody>
 </table>
 </div>
-<div class="need_container docutils container" id="SNCB-ea603ffc">
+<div class="need_container docutils container" id="SNCB-795106fe">
 <table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-I2C-MUST-16">
 <tbody>
 <tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
@@ -426,7 +429,7 @@ and discard the bytes on a controller write.</p></td>
 <div class="sd-card-body docutils">
 <div class="sd-card-title sd-font-weight-bold docutils">
 Errors, status, and scheduling</div>
-<div class="need_container docutils container" id="SNCB-0fe9e089">
+<div class="need_container docutils container" id="SNCB-1e151bf7">
 <table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-I2C-MUST-17">
 <tbody>
 <tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
@@ -443,7 +446,7 @@ a bus or arbitration failure it MUST report the corresponding runtime error via
 </tbody>
 </table>
 </div>
-<div class="need_container docutils container" id="SNCB-b44f3aa2">
+<div class="need_container docutils container" id="SNCB-5ee59155">
 <table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-I2C-MUST-18">
 <tbody>
 <tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
@@ -460,7 +463,7 @@ MAY be empty when all channels are interrupt-driven).</p></td>
 </tbody>
 </table>
 </div>
-<div class="need_container docutils container" id="SNCB-7abdd69d">
+<div class="need_container docutils container" id="SNCB-73b0aec1">
 <table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-I2C-MUST-19">
 <tbody>
 <tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
@@ -475,7 +478,7 @@ MAY be empty when all channels are interrupt-driven).</p></td>
 </tbody>
 </table>
 </div>
-<div class="need_container docutils container" id="SNCB-13b9e16c">
+<div class="need_container docutils container" id="SNCB-54596d0c">
 <table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-I2C-MUST-20">
 <tbody>
 <tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
@@ -497,7 +500,7 @@ MAY be empty when all channels are interrupt-driven).</p></td>
 <div class="sd-card-body docutils">
 <div class="sd-card-title sd-font-weight-bold docutils">
 Types, callouts, and configuration</div>
-<div class="need_container docutils container" id="SNCB-4d5d9626">
+<div class="need_container docutils container" id="SNCB-89bd20b4">
 <table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-I2C-MUST-21">
 <tbody>
 <tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
@@ -514,7 +517,7 @@ Types, callouts, and configuration</div>
 </tbody>
 </table>
 </div>
-<div class="need_container docutils container" id="SNCB-d98ec009">
+<div class="need_container docutils container" id="SNCB-072e7632">
 <table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-I2C-MUST-22">
 <tbody>
 <tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
@@ -532,7 +535,7 @@ and <code class="docutils literal notranslate"><span class="pre">I2C_ADDR_UNSPEC
 </tbody>
 </table>
 </div>
-<div class="need_container docutils container" id="SNCB-fc20551c">
+<div class="need_container docutils container" id="SNCB-99e4a430">
 <table class="need needs_grid_simple needs_layout_chiisai_spec needs_style_none needs_type_spec docutils align-default" role="presentation" id="CHI-I2C-MUST-23">
 <tbody>
 <tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
@@ -557,7 +560,8 @@ entries — following the common model in <a class="reference internal" href="..
 
            </div>
           </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+          
+<footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="reference/02_errors.html" class="btn btn-neutral float-left" title="Errors" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="01_design_decisions.html" class="btn btn-neutral float-right" title="Design Decisions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
@@ -565,7 +569,10 @@ entries — following the common model in <a class="reference internal" href="..
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2023-2026 by Vector Informatik GmbH and Infineon Technologies AG. Licensed under the Apache License, Version 2.0.</p>
+  
+    <p>&#169; Copyright 2023-2026 by Vector Informatik GmbH and Infineon Technologies AG.</p>
+  <p class="license-notice">Licensed under the Apache License 2.0.</p>
+
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

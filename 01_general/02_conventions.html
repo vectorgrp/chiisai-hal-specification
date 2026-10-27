@@ -20,7 +20,7 @@
       <link rel="stylesheet" type="text/css" href="../_static/sphinx-needs/common_css/need_style.css?v=92936fa5" />
       <link rel="stylesheet" type="text/css" href="../_static/sphinx-needs/common_css/need_toggle.css?v=5c6620df" />
       <link rel="stylesheet" type="text/css" href="../_static/sphinx-needs/modern.css?v=803738c0" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=d26aa23c" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=ed454c3b" />
 
   
       <script src="../_static/jquery.js?v=5d32c60e"></script>
@@ -427,12 +427,12 @@ window.runMermaid = runMermaid;</script>
 <li class="toctree-l2"><a class="reference internal" href="01_architecture.html">Architecture and Layering</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Naming Conventions</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#notation">Notation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#module-implementation-prefix">Module implementation prefix</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#symbol-naming">Symbol naming</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#callout-function-naming">Callout function naming</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#file-naming">File naming</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#source-files-at-a-glance">Source files at a glance</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#include-discipline">Include discipline</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-implementation-prefix">Module Implementation Prefix</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#symbol-naming">Symbol Naming</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#callout-function-naming">Callout Function Naming</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#file-naming">File Naming</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#source-files-at-a-glance">Source Files at a Glance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#include-discipline">Include Discipline</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="03_integration.html">Integration Guidelines</a></li>
@@ -461,7 +461,10 @@ window.runMermaid = runMermaid;</script>
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="index.html">General</a></li>
-      <li class="breadcrumb-item active">Naming Conventions</li>
+      <li class="breadcrumb-item active">Naming Conventions</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/01_general/02_conventions.rst.txt" rel="nofollow"> View page source</a>
+      </li>
   </ul>
   <hr/>
 </div>
@@ -470,12 +473,12 @@ window.runMermaid = runMermaid;</script>
              
   <section id="naming-conventions">
 <h1>Naming Conventions<a class="headerlink" href="#naming-conventions" title="Link to this heading"></a></h1>
-<div class="informative admonition">
-<p class="admonition-title">Informative</p>
+<div class="content-kind content-kind-informative docutils container">
+<p><a class="content-kind-label reference internal" href="../00_about/01_reading_guide.html#content-kinds" title="Informative: explains usage; does not constrain driver implementations. Click for details."><span class="content-kind-name">Informative</span><span class="content-kind-sep"> · </span><span class="content-kind-scope">non-binding</span></a></p>
+</div>
 <p>The naming scheme and file layout every Chiisai HAL driver follows, so that modules from
 different vendors look and integrate consistently. These conventions are stated normatively in the
 <a class="reference internal" href="04_requirements.html"><span class="doc">Requirements</span></a>; this page explains and illustrates them.</p>
-</div>
 <section id="notation">
 <h2>Notation<a class="headerlink" href="#notation" title="Link to this heading"></a></h2>
 <p>Placeholders used throughout the specification:</p>
@@ -513,7 +516,7 @@ target such as <code class="docutils literal notranslate"><span class="pre">Code
 </table>
 </section>
 <section id="module-implementation-prefix">
-<h2>Module implementation prefix<a class="headerlink" href="#module-implementation-prefix" title="Link to this heading"></a></h2>
+<h2>Module Implementation Prefix<a class="headerlink" href="#module-implementation-prefix" title="Link to this heading"></a></h2>
 <p>Every implementation-specific symbol is built from a <strong>module implementation prefix</strong>:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>&lt;Mip&gt; = &lt;Ma&gt;[_&lt;Vi&gt;][_&lt;Ci&gt;]
 
@@ -527,7 +530,7 @@ driver’s functionality.</p>
 <p><em>Normative:</em> <a class="reference internal" href="04_requirements.html#CHI-GEN-MUST-01" title="CHI-GEN-MUST-01"><em class="xref need">CHI-GEN-MUST-01</em></a>, <a class="reference internal" href="04_requirements.html#CHI-GEN-SHOULD-02" title="CHI-GEN-SHOULD-02"><em class="xref need">CHI-GEN-SHOULD-02</em></a>.</p>
 </section>
 <section id="symbol-naming">
-<h2>Symbol naming<a class="headerlink" href="#symbol-naming" title="Link to this heading"></a></h2>
+<h2>Symbol Naming<a class="headerlink" href="#symbol-naming" title="Link to this heading"></a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 34.0%" />
@@ -573,10 +576,22 @@ driver’s functionality.</p>
 </table>
 <p>(<code class="docutils literal notranslate"><span class="pre">&lt;SN&gt;</span></code> specific name, <code class="docutils literal notranslate"><span class="pre">&lt;EN&gt;</span></code> error name, <code class="docutils literal notranslate"><span class="pre">&lt;Vn&gt;</span></code> variable name, <code class="docutils literal notranslate"><span class="pre">&lt;Fn&gt;</span></code> function name,
 <code class="docutils literal notranslate"><span class="pre">&lt;Tn&gt;</span></code> type name.)</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Not every type is prefixed with <code class="docutils literal notranslate"><span class="pre">&lt;Mip&gt;</span></code>. The patterns above name <strong>implementation-specific</strong>
+symbols — the ones a driver’s implementation adds — all built from <code class="docutils literal notranslate"><span class="pre">&lt;Mip&gt;</span></code>. The types the
+<strong>specification itself</strong> defines are different: they are standardized across every implementation
+of a module and are named with the module abbreviation, <code class="docutils literal notranslate"><span class="pre">&lt;Ma&gt;_&lt;Tn&gt;Type</span></code> (for example
+<code class="docutils literal notranslate"><span class="pre">Can_FrameIdType</span></code>). Each module lists them in its API reference, and they are delivered through
+the general types header <code class="docutils literal notranslate"><span class="pre">&lt;Ma&gt;[If]_DriverTypes.h</span></code> (see <a class="reference internal" href="#gen-conv-file-naming"><span class="std std-ref">File naming</span></a>
+below).
+Implementation-specific types and error extensions are <strong>not</strong> put in that header; they belong in
+<code class="docutils literal notranslate"><span class="pre">&lt;Mip&gt;.h</span></code>.</p>
+</div>
 <p><em>Normative:</em> <a class="reference internal" href="04_requirements.html#CHI-GEN-MUST-02" title="CHI-GEN-MUST-02"><em class="xref need">CHI-GEN-MUST-02</em></a>.</p>
 </section>
 <section id="callout-function-naming">
-<h2>Callout function naming<a class="headerlink" href="#callout-function-naming" title="Link to this heading"></a></h2>
+<h2>Callout Function Naming<a class="headerlink" href="#callout-function-naming" title="Link to this heading"></a></h2>
 <p>A driver reports events back to its user through functions that <strong>the driver calls and its user
 implements</strong>. Where those functions live, and how they are named, depends on whether the module is
 delivered with an upper-layer interface stack:</p>
@@ -649,8 +664,10 @@ vocabulary is shared</strong>:</p>
 </table>
 <p>Not every callout notifies an event. A callout by which the driver <strong>requests an action</strong> of the
 integration code is named <code class="docutils literal notranslate"><span class="pre">&lt;Mip&gt;_Callout_&lt;Action&gt;</span></code> — for example <code class="docutils literal notranslate"><span class="pre">Spi_Callout_CsControl</span></code>, with
-which the SPI driver asks the integration code to assert or release a GPIO chip select. Keeping
-<code class="docutils literal notranslate"><span class="pre">On&lt;Event&gt;</span></code> for notifications means the name shows which way the obligation runs.</p>
+which the SPI driver asks the integration code to assert or release a GPIO chip select. Reserving
+<code class="docutils literal notranslate"><span class="pre">On&lt;Event&gt;</span></code> for notifications — and a plain <code class="docutils literal notranslate"><span class="pre">&lt;Action&gt;</span></code> name for requests — lets the name alone
+say what is expected of the integration code: an <code class="docutils literal notranslate"><span class="pre">On</span></code> name <strong>reports</strong> an event that has happened,
+while a name without <code class="docutils literal notranslate"><span class="pre">On</span></code> <strong>asks</strong> the integration code to <strong>perform an action</strong>.</p>
 <p>The event list is open — a module names further events by keeping the <code class="docutils literal notranslate"><span class="pre">On&lt;Event&gt;</span></code> shape (e.g.
 <code class="docutils literal notranslate"><span class="pre">LinIf_OnHeader</span></code>, <code class="docutils literal notranslate"><span class="pre">I2c_Callout_OnAddress</span></code>, <code class="docutils literal notranslate"><span class="pre">Spi_Callout_OnTransactionEnd</span></code>). A worked callout file is in
 <a class="reference internal" href="guide/02_callout_file.html"><span class="doc">The Callout Stub File</span></a>.</p>
@@ -666,7 +683,7 @@ callouts. The infix is what tells the two apart.</p>
 <p><em>Normative:</em> <a class="reference internal" href="04_requirements.html#CHI-GEN-MUST-15" title="CHI-GEN-MUST-15"><em class="xref need">CHI-GEN-MUST-15</em></a>.</p>
 </section>
 <section id="file-naming">
-<h2>File naming<a class="headerlink" href="#file-naming" title="Link to this heading"></a></h2>
+<span id="gen-conv-file-naming"></span><h2>File Naming<a class="headerlink" href="#file-naming" title="Link to this heading"></a></h2>
 <ul class="simple">
 <li><p>File names are <strong>case-sensitive</strong> and <strong>unambiguous</strong> (two names must differ by more than letter
 case alone).</p></li>
@@ -674,21 +691,28 @@ case alone).</p></li>
 driver-internal files (e.g. the CAN ISR implementation lives in <code class="docutils literal notranslate"><span class="pre">Can_Irq.c</span></code>).</p></li>
 <li><p>Each driver header — other than the general types header — carries an include guard named after
 the file (e.g. <code class="docutils literal notranslate"><span class="pre">MEM_VENDOR_CODE_H</span></code> for <code class="docutils literal notranslate"><span class="pre">Mem_Vendor_Code.h</span></code>).</p></li>
-<li><p>The general types header contains only the types and definitions the respective driver
-specification defines. It is named <code class="docutils literal notranslate"><span class="pre">&lt;Ma&gt;If_DriverTypes.h</span></code> for a module delivered with an
-upper-layer interface stack, and <code class="docutils literal notranslate"><span class="pre">&lt;Ma&gt;_DriverTypes.h</span></code> for a module without one.</p></li>
+<li><p>The general types header contains only the <strong>standardized</strong> types and definitions the respective
+driver specification defines — named <code class="docutils literal notranslate"><span class="pre">&lt;Ma&gt;_&lt;Tn&gt;Type</span></code> (e.g. <code class="docutils literal notranslate"><span class="pre">Can_FrameIdType</span></code>), the same for
+every implementation of the module; implementation-specific types and error extensions go in
+<code class="docutils literal notranslate"><span class="pre">&lt;Mip&gt;.h</span></code> instead. It is named <code class="docutils literal notranslate"><span class="pre">&lt;Ma&gt;If_DriverTypes.h</span></code> for a module delivered with an
+upper-layer interface stack, and <code class="docutils literal notranslate"><span class="pre">&lt;Ma&gt;_DriverTypes.h</span></code> for a module without one — keyed to
+<code class="docutils literal notranslate"><span class="pre">&lt;Ma&gt;</span></code> (not <code class="docutils literal notranslate"><span class="pre">&lt;Mip&gt;</span></code>) so vendor-neutral upper-layer software can include it without knowing
+which implementation is present (see <a class="reference internal" href="05_design_decisions.html"><span class="doc">Design Decisions</span></a>).</p></li>
 <li><p>A module that defines callouts ships their generated default implementations in
 <code class="docutils literal notranslate"><span class="pre">&lt;Mip&gt;_Callout_Stubs.c</span></code> — the file the integrator edits (see <a class="reference internal" href="guide/02_callout_file.html"><span class="doc">The Callout Stub File</span></a>).</p></li>
 </ul>
 <p><em>Normative:</em> <a class="reference internal" href="04_requirements.html#CHI-GEN-MUST-03" title="CHI-GEN-MUST-03"><em class="xref need">CHI-GEN-MUST-03</em></a>, <a class="reference internal" href="04_requirements.html#CHI-GEN-MUST-04" title="CHI-GEN-MUST-04"><em class="xref need">CHI-GEN-MUST-04</em></a>, <a class="reference internal" href="04_requirements.html#CHI-GEN-MUST-16" title="CHI-GEN-MUST-16"><em class="xref need">CHI-GEN-MUST-16</em></a>.</p>
 </section>
 <section id="source-files-at-a-glance">
-<h2>Source files at a glance<a class="headerlink" href="#source-files-at-a-glance" title="Link to this heading"></a></h2>
-<p>The driver files are the same either way; what differs is where the general types header comes from
-and who implements the functions the driver reports through.</p>
+<h2>Source Files at a Glance<a class="headerlink" href="#source-files-at-a-glance" title="Link to this heading"></a></h2>
+<p>Whether a module ships <strong>with</strong> an upper-layer interface stack (<code class="docutils literal notranslate"><span class="pre">Can</span></code>, <code class="docutils literal notranslate"><span class="pre">Lin</span></code>, <code class="docutils literal notranslate"><span class="pre">Mem</span></code>, <code class="docutils literal notranslate"><span class="pre">Wdg</span></code>)
+or <strong>without</strong> one (<code class="docutils literal notranslate"><span class="pre">I2c</span></code>, <code class="docutils literal notranslate"><span class="pre">Mcu</span></code>, <code class="docutils literal notranslate"><span class="pre">Port</span></code>, <code class="docutils literal notranslate"><span class="pre">Spi</span></code>, <code class="docutils literal notranslate"><span class="pre">Uart</span></code>), the driver’s own files are the
+same; what differs is where its general types header comes from and who implements the functions the
+driver reports through.</p>
 <figure class="align-default" id="id1">
 <pre  class="mermaid">
-        flowchart BT
+        %%{init: {&quot;flowchart&quot;: {&quot;wrappingWidth&quot;: 400}}}%%
+flowchart BT
     subgraph driver[&quot;Driver — &amp;lt;Mip&amp;gt;&quot;]
         MipC[&quot;&amp;lt;Mip&amp;gt;.c — implementation&quot;]
         MipH[&quot;&amp;lt;Mip&amp;gt;.h — public header (API + callout prototypes)&quot;]
@@ -696,13 +720,13 @@ and who implements the functions the driver reports through.</p>
         CfgH[&quot;&amp;lt;Mip&amp;gt;_Cfg.h — generated config header&quot;]
         Ie[&quot;&amp;lt;Mip&amp;gt;_&amp;lt;Ie&amp;gt;.c / .h — optional internal files&quot;]
     end
-    subgraph iface[&quot;With an upper-layer interface stack — &amp;lt;Ma&amp;gt;If&quot;]
+    subgraph iface[&quot;With an upper-layer&quot;]
         direction LR
         IfTypes[&quot;&amp;lt;Ma&amp;gt;If_DriverTypes.h — general types (spec only)&quot;]
         IfH[&quot;&amp;lt;Ma&amp;gt;If.h — callback prototypes (&amp;lt;Ma&amp;gt;If_On*)&quot;]
         IfC[&quot;&amp;lt;Ma&amp;gt;If.c — interface implementation&quot;]
     end
-    subgraph nostack[&quot;Without an upper-layer interface stack&quot;]
+    subgraph nostack[&quot;Without an upper-layer&quot;]
         direction LR
         MaTypes[&quot;&amp;lt;Ma&amp;gt;_DriverTypes.h — general types (spec only)&quot;]
         Stubs[&quot;&amp;lt;Mip&amp;gt;_Callout_Stubs.c — generated; integrator fills the user code blocks&quot;]
@@ -712,17 +736,21 @@ and who implements the functions the driver reports through.</p>
     MipH --&gt; CfgH
     CfgC --&gt; CfgH
     CfgC --&gt; MipH
-    MipC -.-&gt;|&quot;with a stack&quot;| IfTypes
+    MipC -.-&gt;|&quot;with an upper-layer&quot;| IfTypes
     MipC -.-&gt;|&quot;if callbacks used&quot;| IfH
-    MipC -.-&gt;|&quot;without a stack&quot;| MaTypes
+    MipC -.-&gt;|&quot;without an upper-layer&quot;| MaTypes
     Stubs -.-&gt;|&quot;implements the callouts declared in&quot;| MipH
+    CfgH ~~~ IfTypes
+    CfgH ~~~ IfH
+    CfgH ~~~ MaTypes
+    CfgH ~~~ Stubs
     </pre><figcaption>
 <p><span class="caption-text">Source files of a driver and how they include one another (solid = always, dashed = only for that kind of module). Generated config files come from the module generator. A module with an upper-layer stack takes its general types from &lt;Ma&gt;If_DriverTypes.h and reports through &lt;Ma&gt;If.h; a module without one takes them from &lt;Ma&gt;_DriverTypes.h and declares its callouts in &lt;Mip&gt;.h, which the integrator implements in the generated &lt;Mip&gt;_Callout_Stubs.c. A driver may add &lt;Mip&gt;_&lt;Ie&gt; internal files (e.g. Can_Irq.c).</span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 </section>
 <section id="include-discipline">
-<h2>Include discipline<a class="headerlink" href="#include-discipline" title="Link to this heading"></a></h2>
+<h2>Include Discipline<a class="headerlink" href="#include-discipline" title="Link to this heading"></a></h2>
 <ul class="simple">
 <li><p>A driver imports <strong>only</strong> the headers it needs to realise its functionality, and exports <strong>only</strong>
 the information other modules need to use it.</p></li>
@@ -736,7 +764,8 @@ the information other modules need to use it.</p></li>
 
            </div>
           </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+          
+<footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="01_architecture.html" class="btn btn-neutral float-left" title="Architecture and Layering" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="03_integration.html" class="btn btn-neutral float-right" title="Integration Guidelines" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
@@ -744,7 +773,10 @@ the information other modules need to use it.</p></li>
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2023-2026 by Vector Informatik GmbH and Infineon Technologies AG. Licensed under the Apache License, Version 2.0.</p>
+  
+    <p>&#169; Copyright 2023-2026 by Vector Informatik GmbH and Infineon Technologies AG.</p>
+  <p class="license-notice">Licensed under the Apache License 2.0.</p>
+
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

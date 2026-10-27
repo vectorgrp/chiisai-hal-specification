@@ -20,7 +20,7 @@
       <link rel="stylesheet" type="text/css" href="../../_static/sphinx-needs/common_css/need_style.css?v=92936fa5" />
       <link rel="stylesheet" type="text/css" href="../../_static/sphinx-needs/common_css/need_toggle.css?v=5c6620df" />
       <link rel="stylesheet" type="text/css" href="../../_static/sphinx-needs/modern.css?v=803738c0" />
-      <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=d26aa23c" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=ed454c3b" />
 
   
       <script src="../../_static/jquery.js?v=5d32c60e"></script>
@@ -74,11 +74,11 @@
 <li class="toctree-l3"><a class="reference internal" href="reference/index.html">Reference</a></li>
 <li class="toctree-l3"><a class="reference internal" href="00_requirements.html">I2c — Requirements</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Design Decisions</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#why-does-i2cdrv-have-no-i2cif-interface-layer">Why does I2cDrv have no <code class="docutils literal notranslate"><span class="pre">I2cIf</span></code> interface layer?</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#why-7-bit-addressing-only">Why 7-bit addressing only?</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#why-report-nack-as-a-callout-but-bus-arbitration-failure-as-a-runtime-error">Why report NACK as a callout but bus/arbitration failure as a runtime error?</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#why-does-the-target-stage-its-response-in-a-callout">Why does the target stage its response in a callout?</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#why-does-i2c-init-take-only-null-ptr">Why does <code class="docutils literal notranslate"><span class="pre">I2c_Init</span></code> take only <code class="docutils literal notranslate"><span class="pre">NULL_PTR</span></code>?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#why-does-i2cdrv-have-no-i2cif-interface-layer">Why Does I2cDrv Have No <code class="docutils literal notranslate"><span class="pre">I2cIf</span></code> Interface Layer?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#why-7-bit-addressing-only">Why 7-Bit Addressing Only?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#why-report-nack-as-a-callout-but-bus-arbitration-failure-as-a-runtime-error">Why Report NACK as a Callout but Bus/Arbitration Failure as a Runtime Error?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#why-does-the-target-stage-its-response-in-a-callout">Why Does the Target Stage Its Response in a Callout?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#why-does-i2c-init-take-only-null-ptr">Why Does <code class="docutils literal notranslate"><span class="pre">I2c_Init</span></code> Take Only <code class="docutils literal notranslate"><span class="pre">NULL_PTR</span></code>?</a></li>
 </ul>
 </li>
 </ul>
@@ -111,7 +111,10 @@
       <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../index.html">Chiisai HAL Driver Modules</a></li>
           <li class="breadcrumb-item"><a href="index.html">I2c</a></li>
-      <li class="breadcrumb-item active">Design Decisions</li>
+      <li class="breadcrumb-item active">Design Decisions</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/04_DriverModules/I2c/01_design_decisions.rst.txt" rel="nofollow"> View page source</a>
+      </li>
   </ul>
   <hr/>
 </div>
@@ -120,13 +123,13 @@
              
   <section id="design-decisions">
 <h1>Design Decisions<a class="headerlink" href="#design-decisions" title="Link to this heading"></a></h1>
-<div class="informative admonition">
-<p class="admonition-title">Informative</p>
+<div class="content-kind content-kind-informative docutils container">
+<p><a class="content-kind-label reference internal" href="../../00_about/01_reading_guide.html#content-kinds" title="Informative: explains usage; does not constrain driver implementations. Click for details."><span class="content-kind-name">Informative</span><span class="content-kind-sep"> · </span><span class="content-kind-scope">non-binding</span></a></p>
+</div>
 <p>The rationale behind the I2C driver contract. This helps implementers get the behavior right;
 it is not itself a requirement. Each entry points to the requirement it explains.</p>
-</div>
 <section id="why-does-i2cdrv-have-no-i2cif-interface-layer">
-<h2>Why does I2cDrv have no <code class="docutils literal notranslate"><span class="pre">I2cIf</span></code> interface layer?<a class="headerlink" href="#why-does-i2cdrv-have-no-i2cif-interface-layer" title="Link to this heading"></a></h2>
+<h2>Why Does I2cDrv Have No <code class="docutils literal notranslate"><span class="pre">I2cIf</span></code> Interface Layer?<a class="headerlink" href="#why-does-i2cdrv-have-no-i2cif-interface-layer" title="Link to this heading"></a></h2>
 <p><em>Relates to</em> <a class="reference internal" href="../../01_general/04_requirements.html#CHI-GEN-MUST-15" title="CHI-GEN-MUST-15"><em class="xref need">CHI-GEN-MUST-15</em></a>, <a class="reference internal" href="../../01_general/04_requirements.html#CHI-GEN-MUST-16" title="CHI-GEN-MUST-16"><em class="xref need">CHI-GEN-MUST-16</em></a>.</p>
 <p>There is no standardized interface stack above an I2C driver the way <code class="docutils literal notranslate"><span class="pre">CanIf</span></code> sits above a CAN
 driver, so an <code class="docutils literal notranslate"><span class="pre">I2cIf</span></code> layer would have had no implementation and no owner — the integrator would
@@ -138,7 +141,7 @@ their interface layer, is in <a class="reference internal" href="../../01_genera
 callout prototypes in <code class="docutils literal notranslate"><span class="pre">I2c.h</span></code>; do not ship an <code class="docutils literal notranslate"><span class="pre">I2cIf.h</span></code>.</p>
 </section>
 <section id="why-7-bit-addressing-only">
-<h2>Why 7-bit addressing only?<a class="headerlink" href="#why-7-bit-addressing-only" title="Link to this heading"></a></h2>
+<h2>Why 7-Bit Addressing Only?<a class="headerlink" href="#why-7-bit-addressing-only" title="Link to this heading"></a></h2>
 <p><em>Governs</em> <a class="reference internal" href="00_requirements.html#CHI-I2C-MUST-22" title="CHI-I2C-MUST-22"><em class="xref need">CHI-I2C-MUST-22</em></a>.</p>
 <p>The overwhelming majority of I2C devices on small ECUs use 7-bit addresses. Supporting 10-bit
 addressing and the general-call address would enlarge the address handling and filtering logic for a
@@ -148,7 +151,7 @@ simple; a design that needs more can extend it.</p>
 implement 10-bit or general-call handling.</p>
 </section>
 <section id="why-report-nack-as-a-callout-but-bus-arbitration-failure-as-a-runtime-error">
-<h2>Why report NACK as a callout but bus/arbitration failure as a runtime error?<a class="headerlink" href="#why-report-nack-as-a-callout-but-bus-arbitration-failure-as-a-runtime-error" title="Link to this heading"></a></h2>
+<h2>Why Report NACK as a Callout but Bus/Arbitration Failure as a Runtime Error?<a class="headerlink" href="#why-report-nack-as-a-callout-but-bus-arbitration-failure-as-a-runtime-error" title="Link to this heading"></a></h2>
 <p><em>Governs</em> <a class="reference internal" href="00_requirements.html#CHI-I2C-MUST-17" title="CHI-I2C-MUST-17"><em class="xref need">CHI-I2C-MUST-17</em></a>.</p>
 <p>A NACK is a normal, per-transaction outcome (the device is absent or busy) that the integration code
 must handle case by case — so it is delivered through <code class="docutils literal notranslate"><span class="pre">I2c_Callout_OnError</span></code> alongside the
@@ -158,7 +161,7 @@ the common logging service <code class="docutils literal notranslate"><span clas
 faults to <code class="docutils literal notranslate"><span class="pre">LogM_Report</span></code>.</p>
 </section>
 <section id="why-does-the-target-stage-its-response-in-a-callout">
-<h2>Why does the target stage its response in a callout?<a class="headerlink" href="#why-does-the-target-stage-its-response-in-a-callout" title="Link to this heading"></a></h2>
+<h2>Why Does the Target Stage Its Response in a Callout?<a class="headerlink" href="#why-does-the-target-stage-its-response-in-a-callout" title="Link to this heading"></a></h2>
 <p><em>Relates to</em> <a class="reference internal" href="00_requirements.html#CHI-I2C-MUST-15" title="CHI-I2C-MUST-15"><em class="xref need">CHI-I2C-MUST-15</em></a>.</p>
 <p>An I2C target cannot know in advance which frame the controller will address or in which direction.
 Reporting the address match (with direction) and letting the integration code stage the response
@@ -169,7 +172,7 @@ response is staged in time.</p>
 <code class="docutils literal notranslate"><span class="pre">default_data</span></code> when the integration code does not respond.</p>
 </section>
 <section id="why-does-i2c-init-take-only-null-ptr">
-<h2>Why does <code class="docutils literal notranslate"><span class="pre">I2c_Init</span></code> take only <code class="docutils literal notranslate"><span class="pre">NULL_PTR</span></code>?<a class="headerlink" href="#why-does-i2c-init-take-only-null-ptr" title="Link to this heading"></a></h2>
+<h2>Why Does <code class="docutils literal notranslate"><span class="pre">I2c_Init</span></code> Take Only <code class="docutils literal notranslate"><span class="pre">NULL_PTR</span></code>?<a class="headerlink" href="#why-does-i2c-init-take-only-null-ptr" title="Link to this heading"></a></h2>
 <p><em>Relates to</em> <a class="reference internal" href="00_requirements.html#CHI-I2C-MUST-09" title="CHI-I2C-MUST-09"><em class="xref need">CHI-I2C-MUST-09</em></a>.</p>
 <p>Configuration variants are selected at build time, not passed at runtime. Requiring
 <code class="docutils literal notranslate"><span class="pre">configPtr</span> <span class="pre">==</span> <span class="pre">NULL_PTR</span></code> keeps the interface stable and avoids implying a runtime variant-selection
@@ -182,7 +185,8 @@ mechanism the driver does not provide.</p>
 
            </div>
           </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+          
+<footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="00_requirements.html" class="btn btn-neutral float-left" title="I2c — Requirements" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="../Lin/index.html" class="btn btn-neutral float-right" title="Lin" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
@@ -190,7 +194,10 @@ mechanism the driver does not provide.</p>
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2023-2026 by Vector Informatik GmbH and Infineon Technologies AG. Licensed under the Apache License, Version 2.0.</p>
+  
+    <p>&#169; Copyright 2023-2026 by Vector Informatik GmbH and Infineon Technologies AG.</p>
+  <p class="license-notice">Licensed under the Apache License 2.0.</p>
+
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

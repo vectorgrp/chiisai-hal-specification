@@ -20,7 +20,7 @@
       <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/common_css/need_style.css?v=92936fa5" />
       <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/common_css/need_toggle.css?v=5c6620df" />
       <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/modern.css?v=803738c0" />
-      <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=d26aa23c" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=ed454c3b" />
 
   
       <script src="../../../_static/jquery.js?v=5d32c60e"></script>
@@ -466,7 +466,10 @@ window.runMermaid = runMermaid;</script>
           <li class="breadcrumb-item"><a href="../../index.html">Chiisai HAL Driver Modules</a></li>
           <li class="breadcrumb-item"><a href="../index.html">Spi</a></li>
           <li class="breadcrumb-item"><a href="index.html">General</a></li>
-      <li class="breadcrumb-item active">Concepts</li>
+      <li class="breadcrumb-item active">Concepts</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/04_DriverModules/Spi/general/01_concepts.rst.txt" rel="nofollow"> View page source</a>
+      </li>
   </ul>
   <hr/>
 </div>
@@ -475,19 +478,19 @@ window.runMermaid = runMermaid;</script>
              
   <section id="concepts">
 <h1>Concepts<a class="headerlink" href="#concepts" title="Link to this heading"></a></h1>
-<div class="informative admonition">
-<p class="admonition-title">Informative</p>
+<div class="content-kind content-kind-informative docutils container">
+<p><a class="content-kind-label reference internal" href="../../../00_about/01_reading_guide.html#content-kinds" title="Informative: explains usage; does not constrain driver implementations. Click for details."><span class="content-kind-name">Informative</span><span class="content-kind-sep"> · </span><span class="content-kind-scope">non-binding</span></a></p>
+</div>
 <p>The model behind the SPI driver: its driver- and channel-level state machines, the buffer-set
 transfer model, chip-select control, and how transaction events are handled and notified.
 Non-binding; the normative rules live in <a class="reference internal" href="../00_requirements.html"><span class="doc">Spi — Requirements</span></a>.</p>
-</div>
 <section id="state-machine">
-<h2>State machine<a class="headerlink" href="#state-machine" title="Link to this heading"></a></h2>
+<h2>State Machine<a class="headerlink" href="#state-machine" title="Link to this heading"></a></h2>
 <p>The driver has a <strong>driver-wide</strong> state and, within the initialized state, a <strong>per-channel</strong> state.
 A channel is statically configured as a <strong>controller</strong> or a <strong>target</strong>; the two roles share the
 channel states but move through them with different triggers.</p>
 <section id="driver-state">
-<h3>Driver state<a class="headerlink" href="#driver-state" title="Link to this heading"></a></h3>
+<h3>Driver State<a class="headerlink" href="#driver-state" title="Link to this heading"></a></h3>
 <pre  class="mermaid">
         stateDiagram-v2
    [*] --&gt; SPI_DRV_STATE_UNINIT : Reset
@@ -518,7 +521,7 @@ channel states but move through them with different triggers.</p>
 </table>
 </section>
 <section id="channel-state">
-<h3>Channel state<a class="headerlink" href="#channel-state" title="Link to this heading"></a></h3>
+<h3>Channel State<a class="headerlink" href="#channel-state" title="Link to this heading"></a></h3>
 <p>Each channel moves through the states of <code class="docutils literal notranslate"><span class="pre">Spi_ChannelStateType</span></code>. <code class="docutils literal notranslate"><span class="pre">Spi_Init</span></code> leaves every channel
 in <code class="docutils literal notranslate"><span class="pre">IDLE</span></code>; <code class="docutils literal notranslate"><span class="pre">Spi_DeInit</span></code> returns the driver (and its channels) to <code class="docutils literal notranslate"><span class="pre">SPI_DRV_STATE_UNINIT</span></code>.</p>
 <table class="docutils align-default">
@@ -575,7 +578,7 @@ otherwise the state is evaluated from the HW status whenever an API is called.</
 </section>
 </section>
 <section id="transfer-model-buffer-sets">
-<h2>Transfer model: buffer sets<a class="headerlink" href="#transfer-model-buffer-sets" title="Link to this heading"></a></h2>
+<h2>Transfer Model: Buffer Sets<a class="headerlink" href="#transfer-model-buffer-sets" title="Link to this heading"></a></h2>
 <p>A transaction transfers a <strong>buffer set</strong> (<code class="docutils literal notranslate"><span class="pre">Spi_BufferSetType</span></code>) — an array of buffer chunks
 (<code class="docutils literal notranslate"><span class="pre">Spi_BufferType</span></code>) sent within one chip-select sequence. TX and RX buffer sets are supplied
 independently to <code class="docutils literal notranslate"><span class="pre">Spi_StartTransaction</span></code>:</p>
@@ -605,7 +608,7 @@ lengths of the buffers may differ between TX and RX, as long as the total transf
 excess.</p>
 </section>
 <section id="chip-select-control">
-<h2>Chip-select control<a class="headerlink" href="#chip-select-control" title="Link to this heading"></a></h2>
+<h2>Chip-Select Control<a class="headerlink" href="#chip-select-control" title="Link to this heading"></a></h2>
 <p>For a controller channel, the chip select is driven either by the SPI <strong>hardware</strong> or by a
 <strong>GPIO</strong> owned by the integration code (configured per external device as <code class="docutils literal notranslate"><span class="pre">ViaHW</span></code> or <code class="docutils literal notranslate"><span class="pre">ViaGPIO</span></code>):</p>
 <ul class="simple">
@@ -616,7 +619,7 @@ CS line. The driver never touches the GPIO itself.</p></li>
 </ul>
 </section>
 <section id="event-handling-interrupt-or-polling">
-<h2>Event handling: interrupt or polling<a class="headerlink" href="#event-handling-interrupt-or-polling" title="Link to this heading"></a></h2>
+<h2>Event Handling: Interrupt or Polling<a class="headerlink" href="#event-handling-interrupt-or-polling" title="Link to this heading"></a></h2>
 <p>For each channel, event handling is configured as either <em>interrupt</em> or <em>polling</em>:</p>
 <ul class="simple">
 <li><p><strong>Interrupt</strong> — <code class="docutils literal notranslate"><span class="pre">Spi_Init</span></code> enables the SPI interrupt; <code class="docutils literal notranslate"><span class="pre">Spi_Interrupt</span></code> services it.</p></li>
@@ -626,7 +629,7 @@ CS line. The driver never touches the GPIO itself.</p></li>
 (for GPIO chip selects) drives <code class="docutils literal notranslate"><span class="pre">Spi_Callout_CsControl</span></code>. A <strong>target</strong> that cannot detect CS
 deactivation in hardware is notified of it by the integration code through <code class="docutils literal notranslate"><span class="pre">Spi_OnCs</span></code>.</p>
 <section id="event-notification-timing">
-<h3>Event notification timing<a class="headerlink" href="#event-notification-timing" title="Link to this heading"></a></h3>
+<h3>Event Notification Timing<a class="headerlink" href="#event-notification-timing" title="Link to this heading"></a></h3>
 <p>The points at which the driver drives <code class="docutils literal notranslate"><span class="pre">Spi_Callout_CsControl</span></code> and <code class="docutils literal notranslate"><span class="pre">Spi_Callout_OnTransactionEnd</span></code>
 differ between controller and target mode (<a class="reference internal" href="../00_requirements.html#CHI-SPI-MUST-14" title="CHI-SPI-MUST-14"><em class="xref need">CHI-SPI-MUST-14</em></a>, <a class="reference internal" href="../00_requirements.html#CHI-SPI-MUST-15" title="CHI-SPI-MUST-15"><em class="xref need">CHI-SPI-MUST-15</em></a>):</p>
 <figure class="align-default" id="id2">
@@ -644,7 +647,7 @@ differ between controller and target mode (<a class="reference internal" href=".
 </section>
 </section>
 <section id="controller-transaction-sequence">
-<h2>Controller transaction sequence<a class="headerlink" href="#controller-transaction-sequence" title="Link to this heading"></a></h2>
+<h2>Controller Transaction Sequence<a class="headerlink" href="#controller-transaction-sequence" title="Link to this heading"></a></h2>
 <p>The informative view of a controller transfer (<a class="reference internal" href="../00_requirements.html#CHI-SPI-MUST-07" title="CHI-SPI-MUST-07"><em class="xref need">CHI-SPI-MUST-07</em></a>, <a class="reference internal" href="../00_requirements.html#CHI-SPI-MUST-13" title="CHI-SPI-MUST-13"><em class="xref need">CHI-SPI-MUST-13</em></a>,
 <a class="reference internal" href="../00_requirements.html#CHI-SPI-MUST-14" title="CHI-SPI-MUST-14"><em class="xref need">CHI-SPI-MUST-14</em></a>):</p>
 <pre  class="mermaid">
@@ -676,7 +679,7 @@ differ between controller and target mode (<a class="reference internal" href=".
    deactivate DRV
     </pre></section>
 <section id="target-transaction-sequence">
-<h2>Target transaction sequence<a class="headerlink" href="#target-transaction-sequence" title="Link to this heading"></a></h2>
+<h2>Target Transaction Sequence<a class="headerlink" href="#target-transaction-sequence" title="Link to this heading"></a></h2>
 <p>The informative view of a target transfer (<a class="reference internal" href="../00_requirements.html#CHI-SPI-MUST-08" title="CHI-SPI-MUST-08"><em class="xref need">CHI-SPI-MUST-08</em></a>, <a class="reference internal" href="../00_requirements.html#CHI-SPI-MUST-15" title="CHI-SPI-MUST-15"><em class="xref need">CHI-SPI-MUST-15</em></a>,
 <a class="reference internal" href="../00_requirements.html#CHI-SPI-SHOULD-01" title="CHI-SPI-SHOULD-01"><em class="xref need">CHI-SPI-SHOULD-01</em></a>):</p>
 <pre  class="mermaid">
@@ -710,7 +713,7 @@ differ between controller and target mode (<a class="reference internal" href=".
 ignores what it receives, but <code class="docutils literal notranslate"><span class="pre">Spi_Callout_OnTransactionEnd</span></code> is still called (with <code class="docutils literal notranslate"><span class="pre">length</span> <span class="pre">=</span> <span class="pre">0</span></code>).</p>
 </section>
 <section id="key-terms">
-<h2>Key terms<a class="headerlink" href="#key-terms" title="Link to this heading"></a></h2>
+<h2>Key Terms<a class="headerlink" href="#key-terms" title="Link to this heading"></a></h2>
 <p>For SPI glossary terms — SPI device, chip select (CS), controller/target node, buffer set, default
 data — see the glossary in the appendix.</p>
 </section>
@@ -719,7 +722,8 @@ data — see the glossary in the appendix.</p>
 
            </div>
           </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+          
+<footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="00_overview.html" class="btn btn-neutral float-left" title="Overview" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="../guide/index.html" class="btn btn-neutral float-right" title="Guide" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
@@ -727,7 +731,10 @@ data — see the glossary in the appendix.</p>
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2023-2026 by Vector Informatik GmbH and Infineon Technologies AG. Licensed under the Apache License, Version 2.0.</p>
+  
+    <p>&#169; Copyright 2023-2026 by Vector Informatik GmbH and Infineon Technologies AG.</p>
+  <p class="license-notice">Licensed under the Apache License 2.0.</p>
+
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

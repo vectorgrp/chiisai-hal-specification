@@ -20,7 +20,7 @@
       <link rel="stylesheet" type="text/css" href="../../_static/sphinx-needs/common_css/need_style.css?v=92936fa5" />
       <link rel="stylesheet" type="text/css" href="../../_static/sphinx-needs/common_css/need_toggle.css?v=5c6620df" />
       <link rel="stylesheet" type="text/css" href="../../_static/sphinx-needs/modern.css?v=803738c0" />
-      <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=d26aa23c" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=ed454c3b" />
 
   
       <script src="../../_static/jquery.js?v=5d32c60e"></script>
@@ -80,12 +80,12 @@
 <li class="toctree-l3"><a class="reference internal" href="reference/index.html">Reference</a></li>
 <li class="toctree-l3"><a class="reference internal" href="00_requirements.html">Uart — Requirements</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Design Decisions</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#why-does-uartdrv-have-no-uartif-interface-layer">Why does UartDrv have no <code class="docutils literal notranslate"><span class="pre">UartIf</span></code> interface layer?</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#why-two-transmission-notification-styles-hwcompletion-vs-streaming">Why two transmission-notification styles (HwCompletion vs Streaming)?</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#why-doesn-t-reception-stop-when-the-buffer-fills">Why doesn’t reception stop when the buffer fills?</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#why-a-mid-transfer-trigger-additionalrxlentrg">Why a mid-transfer trigger (<code class="docutils literal notranslate"><span class="pre">additionalRxLenTrg</span></code>)?</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#why-no-lin-multi-processor-sub-modes">Why no LIN / multi-processor / sub-modes?</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#why-does-uart-init-take-only-null-ptr">Why does <code class="docutils literal notranslate"><span class="pre">Uart_Init</span></code> take only <code class="docutils literal notranslate"><span class="pre">NULL_PTR</span></code>?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#why-does-uartdrv-have-no-uartif-interface-layer">Why Does UartDrv Have No <code class="docutils literal notranslate"><span class="pre">UartIf</span></code> Interface Layer?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#why-two-transmission-notification-styles-hwcompletion-vs-streaming">Why Two Transmission-Notification Styles (HwCompletion vs Streaming)?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#why-doesn-t-reception-stop-when-the-buffer-fills">Why Doesn’t Reception Stop When the Buffer Fills?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#why-a-mid-transfer-trigger-additionalrxlentrg">Why a Mid-Transfer Trigger (<code class="docutils literal notranslate"><span class="pre">additionalRxLenTrg</span></code>)?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#why-no-lin-multi-processor-sub-modes">Why No LIN / Multi-Processor / Sub-Modes?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#why-does-uart-init-take-only-null-ptr">Why Does <code class="docutils literal notranslate"><span class="pre">Uart_Init</span></code> Take Only <code class="docutils literal notranslate"><span class="pre">NULL_PTR</span></code>?</a></li>
 </ul>
 </li>
 </ul>
@@ -112,7 +112,10 @@
       <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../index.html">Chiisai HAL Driver Modules</a></li>
           <li class="breadcrumb-item"><a href="index.html">Uart</a></li>
-      <li class="breadcrumb-item active">Design Decisions</li>
+      <li class="breadcrumb-item active">Design Decisions</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/04_DriverModules/Uart/01_design_decisions.rst.txt" rel="nofollow"> View page source</a>
+      </li>
   </ul>
   <hr/>
 </div>
@@ -121,13 +124,13 @@
              
   <section id="design-decisions">
 <h1>Design Decisions<a class="headerlink" href="#design-decisions" title="Link to this heading"></a></h1>
-<div class="informative admonition">
-<p class="admonition-title">Informative</p>
+<div class="content-kind content-kind-informative docutils container">
+<p><a class="content-kind-label reference internal" href="../../00_about/01_reading_guide.html#content-kinds" title="Informative: explains usage; does not constrain driver implementations. Click for details."><span class="content-kind-name">Informative</span><span class="content-kind-sep"> · </span><span class="content-kind-scope">non-binding</span></a></p>
+</div>
 <p>The rationale behind the UART driver contract. This helps implementers get the behavior right;
 it is not itself a requirement. Each entry points to the requirement it explains.</p>
-</div>
 <section id="why-does-uartdrv-have-no-uartif-interface-layer">
-<h2>Why does UartDrv have no <code class="docutils literal notranslate"><span class="pre">UartIf</span></code> interface layer?<a class="headerlink" href="#why-does-uartdrv-have-no-uartif-interface-layer" title="Link to this heading"></a></h2>
+<h2>Why Does UartDrv Have No <code class="docutils literal notranslate"><span class="pre">UartIf</span></code> Interface Layer?<a class="headerlink" href="#why-does-uartdrv-have-no-uartif-interface-layer" title="Link to this heading"></a></h2>
 <p><em>Relates to</em> <a class="reference internal" href="../../01_general/04_requirements.html#CHI-GEN-MUST-15" title="CHI-GEN-MUST-15"><em class="xref need">CHI-GEN-MUST-15</em></a>, <a class="reference internal" href="../../01_general/04_requirements.html#CHI-GEN-MUST-16" title="CHI-GEN-MUST-16"><em class="xref need">CHI-GEN-MUST-16</em></a>.</p>
 <p>There is no standardized interface stack above a UART driver the way <code class="docutils literal notranslate"><span class="pre">CanIf</span></code> sits above a CAN
 driver, so a <code class="docutils literal notranslate"><span class="pre">UartIf</span></code> layer would have had no implementation and no owner. UartDrv therefore
@@ -139,7 +142,7 @@ why <code class="docutils literal notranslate"><span class="pre">Can</span></cod
 do not ship a <code class="docutils literal notranslate"><span class="pre">UartIf.h</span></code>.</p>
 </section>
 <section id="why-two-transmission-notification-styles-hwcompletion-vs-streaming">
-<h2>Why two transmission-notification styles (HwCompletion vs Streaming)?<a class="headerlink" href="#why-two-transmission-notification-styles-hwcompletion-vs-streaming" title="Link to this heading"></a></h2>
+<h2>Why Two Transmission-Notification Styles (HwCompletion vs Streaming)?<a class="headerlink" href="#why-two-transmission-notification-styles-hwcompletion-vs-streaming" title="Link to this heading"></a></h2>
 <p><em>Governs</em> <a class="reference internal" href="00_requirements.html#CHI-UART-MUST-10" title="CHI-UART-MUST-10"><em class="xref need">CHI-UART-MUST-10</em></a>, <a class="reference internal" href="00_requirements.html#CHI-UART-MUST-11" title="CHI-UART-MUST-11"><em class="xref need">CHI-UART-MUST-11</em></a>.</p>
 <p>Two use cases pull in opposite directions. Some components need a true “the bytes are on the wire”
 confirmation (e.g. before switching a transceiver direction) — that is
@@ -153,7 +156,7 @@ fire both for one channel; make <code class="docutils literal notranslate"><span
 <code class="docutils literal notranslate"><span class="pre">Uart_Callout_OnStreamingDataRequest</span></code> mean SW-buffer-empty.</p>
 </section>
 <section id="why-doesn-t-reception-stop-when-the-buffer-fills">
-<h2>Why doesn’t reception stop when the buffer fills?<a class="headerlink" href="#why-doesn-t-reception-stop-when-the-buffer-fills" title="Link to this heading"></a></h2>
+<h2>Why Doesn’t Reception Stop When the Buffer Fills?<a class="headerlink" href="#why-doesn-t-reception-stop-when-the-buffer-fills" title="Link to this heading"></a></h2>
 <p><em>Governs</em> <a class="reference internal" href="00_requirements.html#CHI-UART-MUST-13" title="CHI-UART-MUST-13"><em class="xref need">CHI-UART-MUST-13</em></a>, <a class="reference internal" href="00_requirements.html#CHI-UART-MUST-14" title="CHI-UART-MUST-14"><em class="xref need">CHI-UART-MUST-14</em></a>.</p>
 <p>If the driver stopped the hardware the instant a buffer filled, bytes arriving during
 <code class="docutils literal notranslate"><span class="pre">Uart_Callout_OnReception</span></code> would be lost — fatal for back-to-back streaming. Instead the hardware
@@ -164,7 +167,7 @@ gap-free reception the default and an explicit stop (<code class="docutils liter
 if no <code class="docutils literal notranslate"><span class="pre">Uart_StartRxTransaction</span></code> was issued in the callout, or on <code class="docutils literal notranslate"><span class="pre">Uart_CancelRxTransaction</span></code>.</p>
 </section>
 <section id="why-a-mid-transfer-trigger-additionalrxlentrg">
-<h2>Why a mid-transfer trigger (<code class="docutils literal notranslate"><span class="pre">additionalRxLenTrg</span></code>)?<a class="headerlink" href="#why-a-mid-transfer-trigger-additionalrxlentrg" title="Link to this heading"></a></h2>
+<h2>Why a Mid-Transfer Trigger (<code class="docutils literal notranslate"><span class="pre">additionalRxLenTrg</span></code>)?<a class="headerlink" href="#why-a-mid-transfer-trigger-additionalrxlentrg" title="Link to this heading"></a></h2>
 <p><em>Relates to</em> <a class="reference internal" href="00_requirements.html#CHI-UART-MUST-13" title="CHI-UART-MUST-13"><em class="xref need">CHI-UART-MUST-13</em></a>, <a class="reference internal" href="00_requirements.html#CHI-UART-MUST-15" title="CHI-UART-MUST-15"><em class="xref need">CHI-UART-MUST-15</em></a>.</p>
 <p>Message protocols often begin with a fixed-size header that announces the payload length. Notifying
 at a caller-chosen length (not only on buffer-full) lets the integration code read the header, learn
@@ -175,7 +178,7 @@ header-then-body flow natural.</p>
 coincide, notify once; honour a re-armed trigger for the remainder.</p>
 </section>
 <section id="why-no-lin-multi-processor-sub-modes">
-<h2>Why no LIN / multi-processor / sub-modes?<a class="headerlink" href="#why-no-lin-multi-processor-sub-modes" title="Link to this heading"></a></h2>
+<h2>Why No LIN / Multi-Processor / Sub-Modes?<a class="headerlink" href="#why-no-lin-multi-processor-sub-modes" title="Link to this heading"></a></h2>
 <p><em>Relates to</em> <a class="reference internal" href="00_requirements.html#CHI-UART-MUST-01" title="CHI-UART-MUST-01"><em class="xref need">CHI-UART-MUST-01</em></a>.</p>
 <p>These modes carry substantial, device-specific state machines that most small-MCU UART usage never
 needs, and LIN in particular is a separate driver in this HAL. Restricting the UART driver to the
@@ -185,7 +188,7 @@ driver or protocol handler on top.</p>
 layer.</p>
 </section>
 <section id="why-does-uart-init-take-only-null-ptr">
-<h2>Why does <code class="docutils literal notranslate"><span class="pre">Uart_Init</span></code> take only <code class="docutils literal notranslate"><span class="pre">NULL_PTR</span></code>?<a class="headerlink" href="#why-does-uart-init-take-only-null-ptr" title="Link to this heading"></a></h2>
+<h2>Why Does <code class="docutils literal notranslate"><span class="pre">Uart_Init</span></code> Take Only <code class="docutils literal notranslate"><span class="pre">NULL_PTR</span></code>?<a class="headerlink" href="#why-does-uart-init-take-only-null-ptr" title="Link to this heading"></a></h2>
 <p><em>Relates to</em> <a class="reference internal" href="00_requirements.html#CHI-UART-MUST-06" title="CHI-UART-MUST-06"><em class="xref need">CHI-UART-MUST-06</em></a>.</p>
 <p>Configuration variants are selected at build time, not passed at runtime. Requiring
 <code class="docutils literal notranslate"><span class="pre">configPtr</span> <span class="pre">==</span> <span class="pre">NULL_PTR</span></code> keeps the interface stable and avoids implying a runtime variant-selection
@@ -198,7 +201,8 @@ mechanism the driver does not provide.</p>
 
            </div>
           </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+          
+<footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="00_requirements.html" class="btn btn-neutral float-left" title="Uart — Requirements" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="../Wdg/index.html" class="btn btn-neutral float-right" title="Wdg" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
@@ -206,7 +210,10 @@ mechanism the driver does not provide.</p>
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2023-2026 by Vector Informatik GmbH and Infineon Technologies AG. Licensed under the Apache License, Version 2.0.</p>
+  
+    <p>&#169; Copyright 2023-2026 by Vector Informatik GmbH and Infineon Technologies AG.</p>
+  <p class="license-notice">Licensed under the Apache License 2.0.</p>
+
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

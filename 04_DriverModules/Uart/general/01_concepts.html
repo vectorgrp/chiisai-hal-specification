@@ -20,7 +20,7 @@
       <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/common_css/need_style.css?v=92936fa5" />
       <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/common_css/need_toggle.css?v=5c6620df" />
       <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/modern.css?v=803738c0" />
-      <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=d26aa23c" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=ed454c3b" />
 
   
       <script src="../../../_static/jquery.js?v=5d32c60e"></script>
@@ -466,7 +466,10 @@ window.runMermaid = runMermaid;</script>
           <li class="breadcrumb-item"><a href="../../index.html">Chiisai HAL Driver Modules</a></li>
           <li class="breadcrumb-item"><a href="../index.html">Uart</a></li>
           <li class="breadcrumb-item"><a href="index.html">General</a></li>
-      <li class="breadcrumb-item active">Concepts</li>
+      <li class="breadcrumb-item active">Concepts</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/04_DriverModules/Uart/general/01_concepts.rst.txt" rel="nofollow"> View page source</a>
+      </li>
   </ul>
   <hr/>
 </div>
@@ -475,18 +478,18 @@ window.runMermaid = runMermaid;</script>
              
   <section id="concepts">
 <h1>Concepts<a class="headerlink" href="#concepts" title="Link to this heading"></a></h1>
-<div class="informative admonition">
-<p class="admonition-title">Informative</p>
+<div class="content-kind content-kind-informative docutils container">
+<p><a class="content-kind-label reference internal" href="../../../00_about/01_reading_guide.html#content-kinds" title="Informative: explains usage; does not constrain driver implementations. Click for details."><span class="content-kind-name">Informative</span><span class="content-kind-sep"> · </span><span class="content-kind-scope">non-binding</span></a></p>
+</div>
 <p>The model behind the UART driver: its driver- and per-channel TX/RX state machines, the two
 transmission-notification styles, the streaming reception model with a mid-transfer trigger, and
 how events are handled. Non-binding; the normative rules live in <a class="reference internal" href="../00_requirements.html"><span class="doc">Uart — Requirements</span></a>.</p>
-</div>
 <section id="state-machine">
-<h2>State machine<a class="headerlink" href="#state-machine" title="Link to this heading"></a></h2>
+<h2>State Machine<a class="headerlink" href="#state-machine" title="Link to this heading"></a></h2>
 <p>The driver has a <strong>driver-wide</strong> state and, within the initialized state, <strong>independent TX and RX</strong>
 states per channel.</p>
 <section id="driver-state">
-<h3>Driver state<a class="headerlink" href="#driver-state" title="Link to this heading"></a></h3>
+<h3>Driver State<a class="headerlink" href="#driver-state" title="Link to this heading"></a></h3>
 <pre  class="mermaid">
         stateDiagram-v2
    [*] --&gt; UART_DRV_STATE_UNINIT : Reset
@@ -517,7 +520,7 @@ states per channel.</p>
 </table>
 </section>
 <section id="tx-channel-state">
-<h3>TX channel state<a class="headerlink" href="#tx-channel-state" title="Link to this heading"></a></h3>
+<h3>TX Channel State<a class="headerlink" href="#tx-channel-state" title="Link to this heading"></a></h3>
 <p>Each channel has a transmit state (<code class="docutils literal notranslate"><span class="pre">Uart_ChannelTxStateType</span></code>). The <code class="docutils literal notranslate"><span class="pre">BUSY</span></code> → <code class="docutils literal notranslate"><span class="pre">READY</span></code> → <code class="docutils literal notranslate"><span class="pre">IDLE</span></code>
 path applies to <strong>streaming</strong> channels (the software buffer empties before the hardware finishes);
 <strong>HW-completion</strong> channels go straight <code class="docutils literal notranslate"><span class="pre">BUSY</span></code> → <code class="docutils literal notranslate"><span class="pre">IDLE</span></code> when the bus is idle.</p>
@@ -559,7 +562,7 @@ is still ongoing — a new buffer may be staged.</p></td>
 </table>
 </section>
 <section id="rx-channel-state">
-<h3>RX channel state<a class="headerlink" href="#rx-channel-state" title="Link to this heading"></a></h3>
+<h3>RX Channel State<a class="headerlink" href="#rx-channel-state" title="Link to this heading"></a></h3>
 <pre  class="mermaid">
         stateDiagram-v2
    direction LR
@@ -593,7 +596,7 @@ is still ongoing — a new buffer may be staged.</p></td>
 </section>
 </section>
 <section id="transmission-completion-vs-streaming">
-<h2>Transmission: completion vs streaming<a class="headerlink" href="#transmission-completion-vs-streaming" title="Link to this heading"></a></h2>
+<h2>Transmission: Completion vs Streaming<a class="headerlink" href="#transmission-completion-vs-streaming" title="Link to this heading"></a></h2>
 <p>A channel is configured for <strong>one</strong> of two transmission-notification styles
 (<code class="docutils literal notranslate"><span class="pre">transmission_callback_type</span></code>) — the driver does not use both for the same channel:</p>
 <ul class="simple">
@@ -607,7 +610,7 @@ been handed to the hardware (the FIFO/shift register may still be draining). The
 </ul>
 </section>
 <section id="reception-buffer-trigger-and-streaming">
-<h2>Reception: buffer, trigger, and streaming<a class="headerlink" href="#reception-buffer-trigger-and-streaming" title="Link to this heading"></a></h2>
+<h2>Reception: Buffer, Trigger, and Streaming<a class="headerlink" href="#reception-buffer-trigger-and-streaming" title="Link to this heading"></a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">Uart_StartRxTransaction(channelId,</span> <span class="pre">rxDataPtr,</span> <span class="pre">rxDataLength,</span> <span class="pre">additionalRxLenTrg)</span></code> arms reception
 into a buffer. The integration code is notified through <code class="docutils literal notranslate"><span class="pre">Uart_Callout_OnReception(channelId,</span>
 <span class="pre">length)</span></code> at two points:</p>
@@ -626,13 +629,13 @@ buffer fills. Inside <code class="docutils literal notranslate"><span class="pre
 interpreting a command chunk and deciding no more data is needed).</p>
 </section>
 <section id="event-handling-interrupt-or-polling">
-<h2>Event handling: interrupt or polling<a class="headerlink" href="#event-handling-interrupt-or-polling" title="Link to this heading"></a></h2>
+<h2>Event Handling: Interrupt or Polling<a class="headerlink" href="#event-handling-interrupt-or-polling" title="Link to this heading"></a></h2>
 <p>Per channel, event handling is <em>interrupt</em> or <em>polling</em>: <code class="docutils literal notranslate"><span class="pre">Uart_Interrupt</span></code> services interrupt
 channels, <code class="docutils literal notranslate"><span class="pre">Uart_PollFunction</span></code> services polled ones — both do the same work and drive the same
 callouts. Optional <strong>hardware flow control</strong> is enabled per channel where the hardware supports it.</p>
 </section>
 <section id="tx-sequence-streaming">
-<h2>TX sequence (streaming)<a class="headerlink" href="#tx-sequence-streaming" title="Link to this heading"></a></h2>
+<h2>TX Sequence (Streaming)<a class="headerlink" href="#tx-sequence-streaming" title="Link to this heading"></a></h2>
 <p>The informative view of a streaming transmission (<a class="reference internal" href="../00_requirements.html#CHI-UART-MUST-08" title="CHI-UART-MUST-08"><em class="xref need">CHI-UART-MUST-08</em></a>, <a class="reference internal" href="../00_requirements.html#CHI-UART-MUST-11" title="CHI-UART-MUST-11"><em class="xref need">CHI-UART-MUST-11</em></a>):</p>
 <pre  class="mermaid">
         sequenceDiagram
@@ -656,7 +659,7 @@ callouts. Optional <strong>hardware flow control</strong> is enabled per channel
    deactivate DRV
     </pre></section>
 <section id="rx-sequence-chunked">
-<h2>RX sequence (chunked)<a class="headerlink" href="#rx-sequence-chunked" title="Link to this heading"></a></h2>
+<h2>RX Sequence (Chunked)<a class="headerlink" href="#rx-sequence-chunked" title="Link to this heading"></a></h2>
 <p>The informative view of a chunked reception with a mid-transfer trigger (<a class="reference internal" href="../00_requirements.html#CHI-UART-MUST-12" title="CHI-UART-MUST-12"><em class="xref need">CHI-UART-MUST-12</em></a>,
 <a class="reference internal" href="../00_requirements.html#CHI-UART-MUST-13" title="CHI-UART-MUST-13"><em class="xref need">CHI-UART-MUST-13</em></a>, <a class="reference internal" href="../00_requirements.html#CHI-UART-MUST-14" title="CHI-UART-MUST-14"><em class="xref need">CHI-UART-MUST-14</em></a>):</p>
 <pre  class="mermaid">
@@ -686,7 +689,7 @@ callouts. Optional <strong>hardware flow control</strong> is enabled per channel
    deactivate DRV
     </pre></section>
 <section id="key-terms">
-<h2>Key terms<a class="headerlink" href="#key-terms" title="Link to this heading"></a></h2>
+<h2>Key Terms<a class="headerlink" href="#key-terms" title="Link to this heading"></a></h2>
 <p>For UART terms — streaming vs HW-completion, additional RX length trigger, hardware flow control —
 see the glossary in the appendix and the shared foundation in <a class="reference internal" href="../../../01_general/index.html"><span class="doc">General</span></a>.</p>
 </section>
@@ -695,7 +698,8 @@ see the glossary in the appendix and the shared foundation in <a class="referenc
 
            </div>
           </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+          
+<footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="00_overview.html" class="btn btn-neutral float-left" title="Overview" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="../guide/index.html" class="btn btn-neutral float-right" title="Guide" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
@@ -703,7 +707,10 @@ see the glossary in the appendix and the shared foundation in <a class="referenc
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2023-2026 by Vector Informatik GmbH and Infineon Technologies AG. Licensed under the Apache License, Version 2.0.</p>
+  
+    <p>&#169; Copyright 2023-2026 by Vector Informatik GmbH and Infineon Technologies AG.</p>
+  <p class="license-notice">Licensed under the Apache License 2.0.</p>
+
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

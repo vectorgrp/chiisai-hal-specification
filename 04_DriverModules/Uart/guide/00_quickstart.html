@@ -20,7 +20,7 @@
       <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/common_css/need_style.css?v=92936fa5" />
       <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/common_css/need_toggle.css?v=5c6620df" />
       <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/modern.css?v=803738c0" />
-      <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=d26aa23c" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=ed454c3b" />
 
   
       <script src="../../../_static/jquery.js?v=5d32c60e"></script>
@@ -79,10 +79,10 @@
 <li class="toctree-l3 current"><a class="reference internal" href="index.html">Guide</a><ul class="current">
 <li class="toctree-l4 current"><a class="current reference internal" href="#">Quickstart</a></li>
 <li class="toctree-l4"><a class="reference internal" href="01_configuration.html">Configuration</a></li>
-<li class="toctree-l4"><a class="reference internal" href="02_initialise.html">Initialize the driver</a></li>
+<li class="toctree-l4"><a class="reference internal" href="02_initialise.html">Initialize the Driver</a></li>
 <li class="toctree-l4"><a class="reference internal" href="03_transmit.html">Transmit</a></li>
 <li class="toctree-l4"><a class="reference internal" href="04_receive.html">Receive</a></li>
-<li class="toctree-l4"><a class="reference internal" href="05_common_mistakes.html">Common mistakes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="05_common_mistakes.html">Common Mistakes</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../reference/index.html">Reference</a></li>
@@ -113,7 +113,10 @@
           <li class="breadcrumb-item"><a href="../../index.html">Chiisai HAL Driver Modules</a></li>
           <li class="breadcrumb-item"><a href="../index.html">Uart</a></li>
           <li class="breadcrumb-item"><a href="index.html">Guide</a></li>
-      <li class="breadcrumb-item active">Quickstart</li>
+      <li class="breadcrumb-item active">Quickstart</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/04_DriverModules/Uart/guide/00_quickstart.rst.txt" rel="nofollow"> View page source</a>
+      </li>
   </ul>
   <hr/>
 </div>
@@ -122,19 +125,19 @@
              
   <section id="quickstart">
 <h1>Quickstart<a class="headerlink" href="#quickstart" title="Link to this heading"></a></h1>
-<div class="informative admonition">
-<p class="admonition-title">Informative</p>
+<div class="content-kind content-kind-informative docutils container">
+<p><a class="content-kind-label reference internal" href="../../../00_about/01_reading_guide.html#content-kinds" title="Informative: explains usage; does not constrain driver implementations. Click for details."><span class="content-kind-name">Informative</span><span class="content-kind-sep"> · </span><span class="content-kind-scope">non-binding</span></a></p>
+</div>
 <p>The shortest path to a working UART channel: initialize, transmit a buffer, and receive one.
 Binding rules are in <a class="reference internal" href="../00_requirements.html"><span class="doc">Uart — Requirements</span></a>; signatures in <a class="reference internal" href="../reference/00_api.html"><span class="doc">API Reference</span></a>.</p>
-</div>
 <section id="bring-the-driver-up">
-<h2>Bring the driver up<a class="headerlink" href="#bring-the-driver-up" title="Link to this heading"></a></h2>
+<h2>Bring the Driver Up<a class="headerlink" href="#bring-the-driver-up" title="Link to this heading"></a></h2>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">Uart_Init</span><span class="p">(</span><span class="n">NULL_PTR</span><span class="p">);</span><span class="w">          </span><span class="cm">/* driver: UNINIT -&gt; INIT; every channel TX/RX -&gt; IDLE */</span>
 </pre></div>
 </div>
 </section>
 <section id="transmit-a-buffer">
-<h2>Transmit a buffer<a class="headerlink" href="#transmit-a-buffer" title="Link to this heading"></a></h2>
+<h2>Transmit a Buffer<a class="headerlink" href="#transmit-a-buffer" title="Link to this heading"></a></h2>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">static</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">uint8</span><span class="w"> </span><span class="n">msg</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="sc">&#39;H&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;e&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;l&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;l&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;o&#39;</span><span class="w"> </span><span class="p">};</span>
 
 <span class="n">Std_ReturnType</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Uart_StartTxTransaction</span><span class="p">(</span><span class="mi">0u</span><span class="p">,</span><span class="w"> </span><span class="n">msg</span><span class="p">,</span><span class="w"> </span><span class="mi">5u</span><span class="p">);</span><span class="w">   </span><span class="cm">/* channel 0 */</span>
@@ -143,7 +146,7 @@ Binding rules are in <a class="reference internal" href="../00_requirements.html
 </div>
 </section>
 <section id="handle-transmit-completion">
-<h2>Handle transmit completion<a class="headerlink" href="#handle-transmit-completion" title="Link to this heading"></a></h2>
+<h2>Handle Transmit Completion<a class="headerlink" href="#handle-transmit-completion" title="Link to this heading"></a></h2>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cm">/* for an HwCompletion channel: */</span>
 <span class="kt">void</span><span class="w"> </span><span class="nf">Uart_Callout_OnTransmission</span><span class="p">(</span><span class="n">uint8</span><span class="w"> </span><span class="n">channelId</span><span class="p">,</span><span class="w"> </span><span class="n">uint16</span><span class="w"> </span><span class="n">length</span><span class="p">)</span>
 <span class="p">{</span>
@@ -153,7 +156,7 @@ Binding rules are in <a class="reference internal" href="../00_requirements.html
 </div>
 </section>
 <section id="receive-into-a-buffer">
-<h2>Receive into a buffer<a class="headerlink" href="#receive-into-a-buffer" title="Link to this heading"></a></h2>
+<h2>Receive Into a Buffer<a class="headerlink" href="#receive-into-a-buffer" title="Link to this heading"></a></h2>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">static</span><span class="w"> </span><span class="n">uint8</span><span class="w"> </span><span class="n">rxBuf</span><span class="p">[</span><span class="mi">16</span><span class="p">];</span>
 
 <span class="cm">/* start reception; notify only when the buffer is full (no mid-transfer trigger) */</span>
@@ -173,7 +176,8 @@ streaming transmit style and chunked reception, see <a class="reference internal
 
            </div>
           </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+          
+<footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="index.html" class="btn btn-neutral float-left" title="Guide" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="01_configuration.html" class="btn btn-neutral float-right" title="Configuration" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
@@ -181,7 +185,10 @@ streaming transmit style and chunked reception, see <a class="reference internal
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2023-2026 by Vector Informatik GmbH and Infineon Technologies AG. Licensed under the Apache License, Version 2.0.</p>
+  
+    <p>&#169; Copyright 2023-2026 by Vector Informatik GmbH and Infineon Technologies AG.</p>
+  <p class="license-notice">Licensed under the Apache License 2.0.</p>
+
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

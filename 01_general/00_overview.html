@@ -20,7 +20,7 @@
       <link rel="stylesheet" type="text/css" href="../_static/sphinx-needs/common_css/need_style.css?v=92936fa5" />
       <link rel="stylesheet" type="text/css" href="../_static/sphinx-needs/common_css/need_toggle.css?v=5c6620df" />
       <link rel="stylesheet" type="text/css" href="../_static/sphinx-needs/modern.css?v=803738c0" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=d26aa23c" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=ed454c3b" />
 
   
       <script src="../_static/jquery.js?v=5d32c60e"></script>
@@ -67,10 +67,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../00_about/index.html">About This Specification</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">General</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Overview</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#what-the-chiisai-hal-is">What the Chiisai HAL is</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#what-every-driver-provides">What every driver provides</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#what-the-chiisai-hal-is">What the Chiisai HAL Is</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#what-every-driver-provides">What Every Driver Provides</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#scope">Scope</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#out-of-scope">Out of scope</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#out-of-scope">Out of Scope</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="01_architecture.html">Architecture and Layering</a></li>
@@ -101,7 +101,10 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="index.html">General</a></li>
-      <li class="breadcrumb-item active">Overview</li>
+      <li class="breadcrumb-item active">Overview</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/01_general/00_overview.rst.txt" rel="nofollow"> View page source</a>
+      </li>
   </ul>
   <hr/>
 </div>
@@ -110,13 +113,13 @@
              
   <section id="overview">
 <h1>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h1>
-<div class="informative admonition">
-<p class="admonition-title">Informative</p>
-<p>What the Chiisai HAL is, why it exists, and what it deliberately leaves out. For who should read
-the specification and how it is organized, see <a class="reference internal" href="../00_about/01_reading_guide.html"><span class="doc">How to Read This Specification</span></a>.</p>
+<div class="content-kind content-kind-informative docutils container">
+<p><a class="content-kind-label reference internal" href="../00_about/01_reading_guide.html#content-kinds" title="Informative: explains usage; does not constrain driver implementations. Click for details."><span class="content-kind-name">Informative</span><span class="content-kind-sep"> · </span><span class="content-kind-scope">non-binding</span></a></p>
 </div>
+<p>What the Chiisai HAL is, why it exists, and what it deliberately leaves out. For who should read
+the specification and how it is organized, see <a class="reference internal" href="../00_about/01_reading_guide.html"><span class="doc">How To Read This Specification</span></a>.</p>
 <section id="what-the-chiisai-hal-is">
-<h2>What the Chiisai HAL is<a class="headerlink" href="#what-the-chiisai-hal-is" title="Link to this heading"></a></h2>
+<h2>What the Chiisai HAL Is<a class="headerlink" href="#what-the-chiisai-hal-is" title="Link to this heading"></a></h2>
 <p>The Chiisai HAL is a standardized, open, resource-conscious hardware-abstraction layer for small,
 low-power microcontrollers with tight memory budgets — the kind used in cost-sensitive embedded
 systems such as sensors and actuators in automotive E/E architectures.</p>
@@ -127,7 +130,7 @@ hardware-independent API and configuration, giving upper layers a unified interf
 functionality while staying flexible enough to expose platform-specific features.</p>
 </section>
 <section id="what-every-driver-provides">
-<h2>What every driver provides<a class="headerlink" href="#what-every-driver-provides" title="Link to this heading"></a></h2>
+<h2>What Every Driver Provides<a class="headerlink" href="#what-every-driver-provides" title="Link to this heading"></a></h2>
 <p>Across modules, a Chiisai HAL driver typically provides:</p>
 <ul class="simple">
 <li><p>initialization and de-initialization of the underlying hardware;</p></li>
@@ -147,7 +150,7 @@ commonly required by middleware layers — GPIO, memory, and the common communic
 accommodate platform-specific features without imposing rigid constraints.</p>
 </section>
 <section id="out-of-scope">
-<h2>Out of scope<a class="headerlink" href="#out-of-scope" title="Link to this heading"></a></h2>
+<h2>Out of Scope<a class="headerlink" href="#out-of-scope" title="Link to this heading"></a></h2>
 <p>The specification is strictly limited to the HAL layer. It deliberately excludes:</p>
 <ul class="simple">
 <li><p>application logic, operating-system components, and low-level driver internals;</p></li>
@@ -159,7 +162,8 @@ accommodate platform-specific features without imposing rigid constraints.</p>
 
            </div>
           </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+          
+<footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="index.html" class="btn btn-neutral float-left" title="General" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="01_architecture.html" class="btn btn-neutral float-right" title="Architecture and Layering" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
@@ -167,7 +171,10 @@ accommodate platform-specific features without imposing rigid constraints.</p>
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2023-2026 by Vector Informatik GmbH and Infineon Technologies AG. Licensed under the Apache License, Version 2.0.</p>
+  
+    <p>&#169; Copyright 2023-2026 by Vector Informatik GmbH and Infineon Technologies AG.</p>
+  <p class="license-notice">Licensed under the Apache License 2.0.</p>
+
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

@@ -20,7 +20,7 @@
       <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/common_css/need_style.css?v=92936fa5" />
       <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/common_css/need_toggle.css?v=5c6620df" />
       <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/modern.css?v=803738c0" />
-      <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=d26aa23c" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=ed454c3b" />
 
   
       <script src="../../../_static/jquery.js?v=5d32c60e"></script>
@@ -466,7 +466,10 @@ window.runMermaid = runMermaid;</script>
           <li class="breadcrumb-item"><a href="../../index.html">Chiisai HAL Driver Modules</a></li>
           <li class="breadcrumb-item"><a href="../index.html">Wdg</a></li>
           <li class="breadcrumb-item"><a href="index.html">General</a></li>
-      <li class="breadcrumb-item active">Concepts</li>
+      <li class="breadcrumb-item active">Concepts</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/04_DriverModules/Wdg/general/01_concepts.rst.txt" rel="nofollow"> View page source</a>
+      </li>
   </ul>
   <hr/>
 </div>
@@ -475,14 +478,14 @@ window.runMermaid = runMermaid;</script>
              
   <section id="concepts">
 <h1>Concepts<a class="headerlink" href="#concepts" title="Link to this heading"></a></h1>
-<div class="informative admonition">
-<p class="admonition-title">Informative</p>
+<div class="content-kind content-kind-informative docutils container">
+<p><a class="content-kind-label reference internal" href="../../../00_about/01_reading_guide.html#content-kinds" title="Informative: explains usage; does not constrain driver implementations. Click for details."><span class="content-kind-name">Informative</span><span class="content-kind-sep"> · </span><span class="content-kind-scope">non-binding</span></a></p>
+</div>
 <p>The model behind the watchdog driver: the driver state, the watchdog modes, the two timeout
 implementation strategies, the monitoring/timeout model, and internal vs external watchdogs.
 Non-binding; the normative rules live in <a class="reference internal" href="../00_requirements.html"><span class="doc">Wdg — Requirements</span></a>.</p>
-</div>
 <section id="driver-state">
-<h2>Driver state<a class="headerlink" href="#driver-state" title="Link to this heading"></a></h2>
+<h2>Driver State<a class="headerlink" href="#driver-state" title="Link to this heading"></a></h2>
 <p>The WdgDrv is simply <em>uninitialised</em> until <code class="docutils literal notranslate"><span class="pre">Wdg_Init</span></code> runs, after which its service APIs are
 accepted. There is no de-initialization.</p>
 <pre  class="mermaid">
@@ -516,7 +519,7 @@ accepted. There is no de-initialization.</p>
 (<code class="docutils literal notranslate"><span class="pre">WDG_DEVERR_DRIVER_STATE</span></code>).</p>
 </section>
 <section id="watchdog-modes">
-<h2>Watchdog modes<a class="headerlink" href="#watchdog-modes" title="Link to this heading"></a></h2>
+<h2>Watchdog Modes<a class="headerlink" href="#watchdog-modes" title="Link to this heading"></a></h2>
 <p>The watchdog runs in one of three modes (<code class="docutils literal notranslate"><span class="pre">Wdg_ModeType</span></code>), each with its own configured settings and
 default timeout. <code class="docutils literal notranslate"><span class="pre">Wdg_SetMode</span></code> switches between them and resets the timeout to the new mode’s
 default.</p>
@@ -544,7 +547,7 @@ default.</p>
 </table>
 </section>
 <section id="timeout-and-monitoring-model">
-<h2>Timeout and monitoring model<a class="headerlink" href="#timeout-and-monitoring-model" title="Link to this heading"></a></h2>
+<h2>Timeout and Monitoring Model<a class="headerlink" href="#timeout-and-monitoring-model" title="Link to this heading"></a></h2>
 <p>The watchdog enforces a <strong>reset timeout</strong>: if it is not refreshed in time, the hardware resets the
 MCU. The upper layer refreshes it at <em>watchpoints</em> in its control flow by calling
 <code class="docutils literal notranslate"><span class="pre">Wdg_UpdateTimeout(timeout)</span></code> — each call delays the reset until the new timeout elapses. A
@@ -552,7 +555,7 @@ MCU. The upper layer refreshes it at <em>watchpoints</em> in its control flow by
 and is bounded by the configured <code class="docutils literal notranslate"><span class="pre">maximum_timeout</span></code> for the current mode.</p>
 </section>
 <section id="implementation-strategies">
-<h2>Implementation strategies<a class="headerlink" href="#implementation-strategies" title="Link to this heading"></a></h2>
+<h2>Implementation Strategies<a class="headerlink" href="#implementation-strategies" title="Link to this heading"></a></h2>
 <p>Because watchdog hardware varies, the driver may be implemented in one of two ways; which one is used
 is vendor-specific (both are described as a down-counter).</p>
 <p><strong>Direct timeout management</strong> (primary). The timeout value is written straight into the watchdog
@@ -580,7 +583,7 @@ timeout expires.</span><a class="headerlink" href="#id2" title="Link to this ima
 </figure>
 </section>
 <section id="internal-vs-external-watchdog">
-<h2>Internal vs external watchdog<a class="headerlink" href="#internal-vs-external-watchdog" title="Link to this heading"></a></h2>
+<h2>Internal vs External Watchdog<a class="headerlink" href="#internal-vs-external-watchdog" title="Link to this heading"></a></h2>
 <p>A WdgDrv instance controls either an <strong>internal</strong> watchdog — driving the hardware registers directly
 — or an <strong>external</strong> watchdog — driving it through another bus driver such as SPI or I2C. For an
 external watchdog, <code class="docutils literal notranslate"><span class="pre">Wdg_FeedHw</span></code> and <code class="docutils literal notranslate"><span class="pre">Wdg_SetMode</span></code> may issue bus transactions and can therefore
@@ -588,7 +591,7 @@ conflict; resolving that conflict (blocking, state control, …) is the implemen
 responsibility (see <a class="reference internal" href="../01_design_decisions.html"><span class="doc">Design Decisions</span></a>).</p>
 </section>
 <section id="sequence-direct-timeout-management">
-<h2>Sequence: direct timeout management<a class="headerlink" href="#sequence-direct-timeout-management" title="Link to this heading"></a></h2>
+<h2>Sequence: Direct Timeout Management<a class="headerlink" href="#sequence-direct-timeout-management" title="Link to this heading"></a></h2>
 <p>The informative view of the direct strategy (<a class="reference internal" href="../00_requirements.html#CHI-WDG-MUST-01" title="CHI-WDG-MUST-01"><em class="xref need">CHI-WDG-MUST-01</em></a>, <a class="reference internal" href="../00_requirements.html#CHI-WDG-MUST-05" title="CHI-WDG-MUST-05"><em class="xref need">CHI-WDG-MUST-05</em></a>,
 <a class="reference internal" href="../00_requirements.html#CHI-WDG-MUST-06" title="CHI-WDG-MUST-06"><em class="xref need">CHI-WDG-MUST-06</em></a>):</p>
 <pre  class="mermaid">
@@ -613,7 +616,7 @@ responsibility (see <a class="reference internal" href="../01_design_decisions.h
    end
     </pre></section>
 <section id="sequence-logical-timeout-management">
-<h2>Sequence: logical timeout management<a class="headerlink" href="#sequence-logical-timeout-management" title="Link to this heading"></a></h2>
+<h2>Sequence: Logical Timeout Management<a class="headerlink" href="#sequence-logical-timeout-management" title="Link to this heading"></a></h2>
 <p>The informative view of the logical strategy — a timer the <strong>upper layer</strong> owns drives
 <code class="docutils literal notranslate"><span class="pre">Wdg_FeedHw</span></code> (<a class="reference internal" href="../00_requirements.html#CHI-WDG-SHOULD-01" title="CHI-WDG-SHOULD-01"><em class="xref need">CHI-WDG-SHOULD-01</em></a>, <a class="reference internal" href="../00_requirements.html#CHI-WDG-SHOULD-02" title="CHI-WDG-SHOULD-02"><em class="xref need">CHI-WDG-SHOULD-02</em></a>):</p>
 <pre  class="mermaid">
@@ -643,7 +646,7 @@ responsibility (see <a class="reference internal" href="../01_design_decisions.h
    deactivate DRV
     </pre></section>
 <section id="key-terms">
-<h2>Key terms<a class="headerlink" href="#key-terms" title="Link to this heading"></a></h2>
+<h2>Key Terms<a class="headerlink" href="#key-terms" title="Link to this heading"></a></h2>
 <p>For watchdog terms — fault-tolerant time interval (FTTI), direct vs logical timeout management,
 internal vs external watchdog — see the glossary in the appendix and the shared foundation in
 <a class="reference internal" href="../../../01_general/index.html"><span class="doc">General</span></a>.</p>
@@ -653,7 +656,8 @@ internal vs external watchdog — see the glossary in the appendix and the share
 
            </div>
           </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+          
+<footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="00_overview.html" class="btn btn-neutral float-left" title="Overview" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="../guide/index.html" class="btn btn-neutral float-right" title="Guide" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
@@ -661,7 +665,10 @@ internal vs external watchdog — see the glossary in the appendix and the share
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2023-2026 by Vector Informatik GmbH and Infineon Technologies AG. Licensed under the Apache License, Version 2.0.</p>
+  
+    <p>&#169; Copyright 2023-2026 by Vector Informatik GmbH and Infineon Technologies AG.</p>
+  <p class="license-notice">Licensed under the Apache License 2.0.</p>
+
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

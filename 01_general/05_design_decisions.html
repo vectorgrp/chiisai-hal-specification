@@ -20,7 +20,7 @@
       <link rel="stylesheet" type="text/css" href="../_static/sphinx-needs/common_css/need_style.css?v=92936fa5" />
       <link rel="stylesheet" type="text/css" href="../_static/sphinx-needs/common_css/need_toggle.css?v=5c6620df" />
       <link rel="stylesheet" type="text/css" href="../_static/sphinx-needs/modern.css?v=803738c0" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=d26aa23c" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=ed454c3b" />
 
   
       <script src="../_static/jquery.js?v=5d32c60e"></script>
@@ -74,12 +74,13 @@
 <li class="toctree-l2"><a class="reference internal" href="reference/index.html">Reference</a></li>
 <li class="toctree-l2"><a class="reference internal" href="04_requirements.html">Requirements</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Design Decisions</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#why-do-some-modules-have-no-upper-layer-interface-layer">Why do some modules have no upper-layer interface layer?</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#why-keep-the-interface-layer-for-can-lin-mem-and-wdg">Why keep the interface layer for <code class="docutils literal notranslate"><span class="pre">Can</span></code>, <code class="docutils literal notranslate"><span class="pre">Lin</span></code>, <code class="docutils literal notranslate"><span class="pre">Mem</span></code> and <code class="docutils literal notranslate"><span class="pre">Wdg</span></code>?</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#why-are-callouts-named-mip-callout-on-event">Why are callouts named <code class="docutils literal notranslate"><span class="pre">&lt;Mip&gt;_Callout_On&lt;Event&gt;</span></code>?</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#why-is-the-callout-code-generated-into-its-own-file">Why is the callout code generated into its own file?</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#why-do-the-user-code-markers-carry-the-full-callout-name">Why do the user-code markers carry the full callout name?</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#where-the-naming-rule-is-defined">Where the naming rule is defined</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#why-do-some-modules-have-no-upper-layer-interface-layer">Why Do Some Modules Have No Upper-Layer Interface Layer?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#why-keep-the-interface-layer-for-can-lin-mem-and-wdg">Why Keep the Interface Layer for <code class="docutils literal notranslate"><span class="pre">Can</span></code>, <code class="docutils literal notranslate"><span class="pre">Lin</span></code>, <code class="docutils literal notranslate"><span class="pre">Mem</span></code> and <code class="docutils literal notranslate"><span class="pre">Wdg</span></code>?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#why-is-the-general-types-header-named-after-ma-not-mip">Why Is the General Types Header Named After <code class="docutils literal notranslate"><span class="pre">&lt;Ma&gt;</span></code>, Not <code class="docutils literal notranslate"><span class="pre">&lt;Mip&gt;</span></code>?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#why-are-callouts-named-mip-callout-on-event">Why Are Callouts Named <code class="docutils literal notranslate"><span class="pre">&lt;Mip&gt;_Callout_On&lt;Event&gt;</span></code>?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#why-is-the-callout-code-generated-into-its-own-file">Why Is the Callout Code Generated Into Its Own File?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#why-do-the-user-code-markers-carry-the-full-callout-name">Why Do the User-Code Markers Carry the Full Callout Name?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#where-the-naming-rule-is-defined">Where the Naming Rule Is Defined</a></li>
 </ul>
 </li>
 </ul>
@@ -103,7 +104,10 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="index.html">General</a></li>
-      <li class="breadcrumb-item active">Design Decisions</li>
+      <li class="breadcrumb-item active">Design Decisions</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/01_general/05_design_decisions.rst.txt" rel="nofollow"> View page source</a>
+      </li>
   </ul>
   <hr/>
 </div>
@@ -112,15 +116,15 @@
              
   <section id="design-decisions">
 <h1>Design Decisions<a class="headerlink" href="#design-decisions" title="Link to this heading"></a></h1>
-<div class="informative admonition">
-<p class="admonition-title">Informative</p>
+<div class="content-kind content-kind-informative docutils container">
+<p><a class="content-kind-label reference internal" href="../00_about/01_reading_guide.html#content-kinds" title="Informative: explains usage; does not constrain driver implementations. Click for details."><span class="content-kind-name">Informative</span><span class="content-kind-sep"> · </span><span class="content-kind-scope">non-binding</span></a></p>
+</div>
 <p>The rationale behind the cross-module rules in <a class="reference internal" href="04_requirements.html"><span class="doc">Requirements</span></a>. This helps implementers and
 integrators understand <em>why</em> the contract looks the way it does; it is not itself a requirement.
 Each entry points to the requirement it explains. Per-module rationale lives in each module’s own
 design-decision page.</p>
-</div>
 <section id="why-do-some-modules-have-no-upper-layer-interface-layer">
-<h2>Why do some modules have no upper-layer interface layer?<a class="headerlink" href="#why-do-some-modules-have-no-upper-layer-interface-layer" title="Link to this heading"></a></h2>
+<h2>Why Do Some Modules Have No Upper-Layer Interface Layer?<a class="headerlink" href="#why-do-some-modules-have-no-upper-layer-interface-layer" title="Link to this heading"></a></h2>
 <p><em>Governs</em> <a class="reference internal" href="04_requirements.html#CHI-GEN-MUST-04" title="CHI-GEN-MUST-04"><em class="xref need">CHI-GEN-MUST-04</em></a>, <a class="reference internal" href="04_requirements.html#CHI-GEN-MUST-14" title="CHI-GEN-MUST-14"><em class="xref need">CHI-GEN-MUST-14</em></a>.</p>
 <p><code class="docutils literal notranslate"><span class="pre">Can</span></code>, <code class="docutils literal notranslate"><span class="pre">Lin</span></code>, <code class="docutils literal notranslate"><span class="pre">Mem</span></code> and <code class="docutils literal notranslate"><span class="pre">Wdg</span></code> sit below an established interface stack (<code class="docutils literal notranslate"><span class="pre">CanIf</span></code>, <code class="docutils literal notranslate"><span class="pre">LinIf</span></code>,
 <code class="docutils literal notranslate"><span class="pre">MemIf</span></code>, <code class="docutils literal notranslate"><span class="pre">WdgIf</span></code>) that genuinely exists as a separate software component: it multiplexes several
@@ -140,7 +144,7 @@ crosses the same boundary; only the fiction of a stack is gone.</p>
 prototypes in <code class="docutils literal notranslate"><span class="pre">&lt;Mip&gt;.h</span></code> and publish the specification’s types in <code class="docutils literal notranslate"><span class="pre">&lt;Ma&gt;_DriverTypes.h</span></code>.</p>
 </section>
 <section id="why-keep-the-interface-layer-for-can-lin-mem-and-wdg">
-<h2>Why keep the interface layer for <code class="docutils literal notranslate"><span class="pre">Can</span></code>, <code class="docutils literal notranslate"><span class="pre">Lin</span></code>, <code class="docutils literal notranslate"><span class="pre">Mem</span></code> and <code class="docutils literal notranslate"><span class="pre">Wdg</span></code>?<a class="headerlink" href="#why-keep-the-interface-layer-for-can-lin-mem-and-wdg" title="Link to this heading"></a></h2>
+<h2>Why Keep the Interface Layer for <code class="docutils literal notranslate"><span class="pre">Can</span></code>, <code class="docutils literal notranslate"><span class="pre">Lin</span></code>, <code class="docutils literal notranslate"><span class="pre">Mem</span></code> and <code class="docutils literal notranslate"><span class="pre">Wdg</span></code>?<a class="headerlink" href="#why-keep-the-interface-layer-for-can-lin-mem-and-wdg" title="Link to this heading"></a></h2>
 <p><em>Relates to</em> <a class="reference internal" href="04_requirements.html#CHI-GEN-MUST-04" title="CHI-GEN-MUST-04"><em class="xref need">CHI-GEN-MUST-04</em></a>, <a class="reference internal" href="04_requirements.html#CHI-GEN-MUST-15" title="CHI-GEN-MUST-15"><em class="xref need">CHI-GEN-MUST-15</em></a>.</p>
 <p>Because for those modules the layer is not a fiction. The consequence — accepted deliberately — is
 that the specification carries <strong>two</strong> models side by side, and that is a permanent state rather than
@@ -149,8 +153,27 @@ upper-layer interface stack exist for it? Nothing about a project or a delivery 
 <p><strong>Implication for implementers:</strong> read the module’s own specification to learn which model it uses;
 do not infer it from another module.</p>
 </section>
+<section id="why-is-the-general-types-header-named-after-ma-not-mip">
+<h2>Why Is the General Types Header Named After <code class="docutils literal notranslate"><span class="pre">&lt;Ma&gt;</span></code>, Not <code class="docutils literal notranslate"><span class="pre">&lt;Mip&gt;</span></code>?<a class="headerlink" href="#why-is-the-general-types-header-named-after-ma-not-mip" title="Link to this heading"></a></h2>
+<p><em>Governs</em> <a class="reference internal" href="04_requirements.html#CHI-GEN-MUST-04" title="CHI-GEN-MUST-04"><em class="xref need">CHI-GEN-MUST-04</em></a>.</p>
+<p>The general types header carries <strong>only the types the specification itself defines</strong> — the ones
+that are standardized across every implementation of a module, named <code class="docutils literal notranslate"><span class="pre">&lt;Ma&gt;_&lt;Tn&gt;Type</span></code> (for example
+<code class="docutils literal notranslate"><span class="pre">Can_FrameIdType</span></code>). It carries nothing vendor-specific: implementation-specific types and error
+extensions live in <code class="docutils literal notranslate"><span class="pre">&lt;Mip&gt;.h</span></code> instead. Naming the header after the module abbreviation <code class="docutils literal notranslate"><span class="pre">&lt;Ma&gt;</span></code>
+rather than the implementation prefix <code class="docutils literal notranslate"><span class="pre">&lt;Mip&gt;</span></code> follows from that content.</p>
+<p>The alternative — <code class="docutils literal notranslate"><span class="pre">&lt;Mip&gt;_DriverTypes.h</span></code> — was rejected. It would tie the header’s name to one
+implementation, so vendor-neutral upper-layer software could no longer include the standard types
+without first knowing which vendor’s driver is present; it would suggest the standard types are
+vendor-specific; and where several implementations of the same module (different <code class="docutils literal notranslate"><span class="pre">&lt;Mip&gt;</span></code>) coexist,
+it would split one shared set of standard types into a separate copy per implementation. With the
+<code class="docutils literal notranslate"><span class="pre">&lt;Ma&gt;</span></code> name there is a single standard header per module: because its content is fixed by the
+specification, any implementation’s copy is equivalent, so there is nothing to reconcile.</p>
+<p><strong>Implication for implementers:</strong> put only the specification’s <code class="docutils literal notranslate"><span class="pre">&lt;Ma&gt;_&lt;Tn&gt;Type</span></code> types in
+<code class="docutils literal notranslate"><span class="pre">&lt;Ma&gt;[If]_DriverTypes.h</span></code>; put implementation-specific types and error extensions in <code class="docutils literal notranslate"><span class="pre">&lt;Mip&gt;.h</span></code>;
+and do not rename the general types header after <code class="docutils literal notranslate"><span class="pre">&lt;Mip&gt;</span></code>.</p>
+</section>
 <section id="why-are-callouts-named-mip-callout-on-event">
-<h2>Why are callouts named <code class="docutils literal notranslate"><span class="pre">&lt;Mip&gt;_Callout_On&lt;Event&gt;</span></code>?<a class="headerlink" href="#why-are-callouts-named-mip-callout-on-event" title="Link to this heading"></a></h2>
+<h2>Why Are Callouts Named <code class="docutils literal notranslate"><span class="pre">&lt;Mip&gt;_Callout_On&lt;Event&gt;</span></code>?<a class="headerlink" href="#why-are-callouts-named-mip-callout-on-event" title="Link to this heading"></a></h2>
 <p><em>Governs</em> <a class="reference internal" href="04_requirements.html#CHI-GEN-MUST-15" title="CHI-GEN-MUST-15"><em class="xref need">CHI-GEN-MUST-15</em></a>.</p>
 <p>Three properties were wanted at once. A callout is an ordinary global function of the module, so it
 should follow the ordinary function scheme <code class="docutils literal notranslate"><span class="pre">&lt;Mip&gt;_&lt;Fn&gt;</span></code> (<a class="reference internal" href="04_requirements.html#CHI-GEN-MUST-02" title="CHI-GEN-MUST-02"><em class="xref need">CHI-GEN-MUST-02</em></a>) — this also makes
@@ -169,12 +192,12 @@ pointing in the <em>opposite</em> direction to a callout, so the name would have
 <p>Reserving a <code class="docutils literal notranslate"><span class="pre">Callout</span></code> infix resolves all three: <code class="docutils literal notranslate"><span class="pre">&lt;Mip&gt;_Callout_On&lt;Event&gt;</span></code> is recognisably a
 module function, recognisably an <code class="docutils literal notranslate"><span class="pre">On&lt;Event&gt;</span></code> notification, and unmistakably the integrator’s to
 implement. It also settles the inbound services without renaming them — they simply lack the infix.</p>
-<p><strong>Implication for implementers:</strong> put <code class="docutils literal notranslate"><span class="pre">Callout</span></code> directly after the module prefix; keep the event
-half of the name identical to the event name other modules use for the same kind of event; and do
-not give a driver service a name containing <code class="docutils literal notranslate"><span class="pre">_Callout_</span></code>.</p>
+<p><strong>Implication for implementers:</strong> put <code class="docutils literal notranslate"><span class="pre">Callout</span></code> directly after the module prefix; keep the
+<code class="docutils literal notranslate"><span class="pre">On&lt;Event&gt;</span></code> part of the name identical to the event name other modules use for the same kind of
+event; and do not give a driver service a name containing <code class="docutils literal notranslate"><span class="pre">_Callout_</span></code>.</p>
 </section>
 <section id="why-is-the-callout-code-generated-into-its-own-file">
-<h2>Why is the callout code generated into its own file?<a class="headerlink" href="#why-is-the-callout-code-generated-into-its-own-file" title="Link to this heading"></a></h2>
+<h2>Why Is the Callout Code Generated Into Its Own File?<a class="headerlink" href="#why-is-the-callout-code-generated-into-its-own-file" title="Link to this heading"></a></h2>
 <p><em>Governs</em> <a class="reference internal" href="04_requirements.html#CHI-GEN-MUST-16" title="CHI-GEN-MUST-16"><em class="xref need">CHI-GEN-MUST-16</em></a>.</p>
 <p>The integrator needs a definite place to write code, and the generator needs to be able to run again
 without destroying it. A single generated file per module with explicit user-code blocks satisfies
@@ -188,7 +211,7 @@ disabled.</p>
 callouts, including the disabled ones, and never rewrite the contents of a user-code block.</p>
 </section>
 <section id="why-do-the-user-code-markers-carry-the-full-callout-name">
-<h2>Why do the user-code markers carry the full callout name?<a class="headerlink" href="#why-do-the-user-code-markers-carry-the-full-callout-name" title="Link to this heading"></a></h2>
+<h2>Why Do the User-Code Markers Carry the Full Callout Name?<a class="headerlink" href="#why-do-the-user-code-markers-carry-the-full-callout-name" title="Link to this heading"></a></h2>
 <p><em>Relates to</em> <a class="reference internal" href="04_requirements.html#CHI-GEN-MUST-16" title="CHI-GEN-MUST-16"><em class="xref need">CHI-GEN-MUST-16</em></a>.</p>
 <p>The marker has to identify which callout a block of user code belongs to. Naming the callout in full
 matches the convention integrators already know from comparable generated stub files, and it makes
@@ -204,7 +227,7 @@ rename a callout — ship a migration for the stub files in the field, or accept
 alias when reading.</p>
 </section>
 <section id="where-the-naming-rule-is-defined">
-<h2>Where the naming rule is defined<a class="headerlink" href="#where-the-naming-rule-is-defined" title="Link to this heading"></a></h2>
+<h2>Where the Naming Rule Is Defined<a class="headerlink" href="#where-the-naming-rule-is-defined" title="Link to this heading"></a></h2>
 <p><em>Relates to</em> <a class="reference internal" href="04_requirements.html#CHI-GEN-MUST-15" title="CHI-GEN-MUST-15"><em class="xref need">CHI-GEN-MUST-15</em></a>.</p>
 <p>The callout naming scheme is stated in exactly one normative place, <a class="reference internal" href="04_requirements.html#CHI-GEN-MUST-15" title="CHI-GEN-MUST-15"><em class="xref need">CHI-GEN-MUST-15</em></a>, and
 illustrated in exactly one informative place, <a class="reference internal" href="02_conventions.html"><span class="doc">Naming Conventions</span></a>. Module pages cite those rather
@@ -220,7 +243,8 @@ repeating it.</p>
 
            </div>
           </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+          
+<footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="04_requirements.html" class="btn btn-neutral float-left" title="Requirements" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="../04_DriverModules/index.html" class="btn btn-neutral float-right" title="Chiisai HAL Driver Modules" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
@@ -228,7 +252,10 @@ repeating it.</p>
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2023-2026 by Vector Informatik GmbH and Infineon Technologies AG. Licensed under the Apache License, Version 2.0.</p>
+  
+    <p>&#169; Copyright 2023-2026 by Vector Informatik GmbH and Infineon Technologies AG.</p>
+  <p class="license-notice">Licensed under the Apache License 2.0.</p>
+
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

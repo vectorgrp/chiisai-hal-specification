@@ -20,7 +20,7 @@
       <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/common_css/need_style.css?v=92936fa5" />
       <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/common_css/need_toggle.css?v=5c6620df" />
       <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/modern.css?v=803738c0" />
-      <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=d26aa23c" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=ed454c3b" />
 
   
       <script src="../../../_static/jquery.js?v=5d32c60e"></script>
@@ -74,10 +74,10 @@
 <li class="toctree-l3 current"><a class="reference internal" href="index.html">Guide</a><ul class="current">
 <li class="toctree-l4 current"><a class="current reference internal" href="#">Quickstart</a></li>
 <li class="toctree-l4"><a class="reference internal" href="01_configuration.html">Configuration</a></li>
-<li class="toctree-l4"><a class="reference internal" href="02_initialise.html">Initialize the driver</a></li>
-<li class="toctree-l4"><a class="reference internal" href="03_power_state.html">Wakeup and sleep</a></li>
-<li class="toctree-l4"><a class="reference internal" href="04_transaction.html">Handle a transaction</a></li>
-<li class="toctree-l4"><a class="reference internal" href="05_common_mistakes.html">Common mistakes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="02_initialise.html">Initialize the Driver</a></li>
+<li class="toctree-l4"><a class="reference internal" href="03_power_state.html">Wakeup and Sleep</a></li>
+<li class="toctree-l4"><a class="reference internal" href="04_transaction.html">Handle a Transaction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="05_common_mistakes.html">Common Mistakes</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../reference/index.html">Reference</a></li>
@@ -113,7 +113,10 @@
           <li class="breadcrumb-item"><a href="../../index.html">Chiisai HAL Driver Modules</a></li>
           <li class="breadcrumb-item"><a href="../index.html">Lin</a></li>
           <li class="breadcrumb-item"><a href="index.html">Guide</a></li>
-      <li class="breadcrumb-item active">Quickstart</li>
+      <li class="breadcrumb-item active">Quickstart</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/04_DriverModules/Lin/guide/00_quickstart.rst.txt" rel="nofollow"> View page source</a>
+      </li>
   </ul>
   <hr/>
 </div>
@@ -122,13 +125,13 @@
              
   <section id="quickstart">
 <h1>Quickstart<a class="headerlink" href="#quickstart" title="Link to this heading"></a></h1>
-<div class="informative admonition">
-<p class="admonition-title">Informative</p>
+<div class="content-kind content-kind-informative docutils container">
+<p><a class="content-kind-label reference internal" href="../../../00_about/01_reading_guide.html#content-kinds" title="Informative: explains usage; does not constrain driver implementations. Click for details."><span class="content-kind-name">Informative</span><span class="content-kind-sep"> · </span><span class="content-kind-scope">non-binding</span></a></p>
+</div>
 <p>The shortest path to a working LIN responder: initialize, go operational, and answer a header.
 Binding rules are in <a class="reference internal" href="../00_requirements.html"><span class="doc">Lin — Requirements</span></a>; signatures in <a class="reference internal" href="../reference/00_api.html"><span class="doc">API Reference</span></a>.</p>
-</div>
 <section id="bring-the-driver-up-and-go-operational">
-<h2>Bring the driver up and go operational<a class="headerlink" href="#bring-the-driver-up-and-go-operational" title="Link to this heading"></a></h2>
+<h2>Bring the Driver Up and Go Operational<a class="headerlink" href="#bring-the-driver-up-and-go-operational" title="Link to this heading"></a></h2>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">Lin_Init</span><span class="p">(</span><span class="n">NULL_PTR</span><span class="p">);</span><span class="w">                       </span><span class="cm">/* driver: UNINIT -&gt; INIT; channels -&gt; SLEEP */</span>
 <span class="n">Lin_WakeupInternal</span><span class="p">(</span><span class="mi">0u</span><span class="p">);</span><span class="w">                   </span><span class="cm">/* channel 0: SLEEP -&gt; OPERATIONAL (no pulse) */</span>
 </pre></div>
@@ -137,7 +140,7 @@ Binding rules are in <a class="reference internal" href="../00_requirements.html
 <code class="docutils literal notranslate"><span class="pre">OPERATIONAL</span></code> so it takes part in bus traffic.</p>
 </section>
 <section id="answer-a-header">
-<h2>Answer a header<a class="headerlink" href="#answer-a-header" title="Link to this heading"></a></h2>
+<h2>Answer a Header<a class="headerlink" href="#answer-a-header" title="Link to this heading"></a></h2>
 <p>The driver calls back when a header arrives; you decide how to react. To <strong>respond with data</strong>:</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">static</span><span class="w"> </span><span class="n">uint8</span><span class="w"> </span><span class="n">my_response</span><span class="p">[</span><span class="mi">8</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mh">0x11</span><span class="p">,</span><span class="w"> </span><span class="mh">0x22</span><span class="p">,</span><span class="w"> </span><span class="mh">0x33</span><span class="p">,</span><span class="w"> </span><span class="mh">0x44</span><span class="w"> </span><span class="p">};</span>
 
@@ -161,14 +164,15 @@ Binding rules are in <a class="reference internal" href="../00_requirements.html
 </div>
 <p>That is a complete responder: <code class="docutils literal notranslate"><span class="pre">Lin_Interrupt</span></code> (or <code class="docutils literal notranslate"><span class="pre">Lin_PollFunction</span></code>) drives the callbacks; you
 only fill in the reaction. To <strong>receive</strong> a response instead, set <code class="docutils literal notranslate"><span class="pre">reaction</span> <span class="pre">=</span> <span class="pre">LIN_REACTION_RX</span></code> and
-read the data in <a class="reference internal" href="04_transaction.html"><span class="doc">Handle a transaction</span></a> (<code class="docutils literal notranslate"><span class="pre">LinIf_OnReception</span></code>).</p>
+read the data in <a class="reference internal" href="04_transaction.html"><span class="doc">Handle a Transaction</span></a> (<code class="docutils literal notranslate"><span class="pre">LinIf_OnReception</span></code>).</p>
 </section>
 </section>
 
 
            </div>
           </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+          
+<footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="index.html" class="btn btn-neutral float-left" title="Guide" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="01_configuration.html" class="btn btn-neutral float-right" title="Configuration" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
@@ -176,7 +180,10 @@ read the data in <a class="reference internal" href="04_transaction.html"><span 
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2023-2026 by Vector Informatik GmbH and Infineon Technologies AG. Licensed under the Apache License, Version 2.0.</p>
+  
+    <p>&#169; Copyright 2023-2026 by Vector Informatik GmbH and Infineon Technologies AG.</p>
+  <p class="license-notice">Licensed under the Apache License 2.0.</p>
+
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

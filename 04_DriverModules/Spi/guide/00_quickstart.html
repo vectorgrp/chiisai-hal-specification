@@ -20,7 +20,7 @@
       <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/common_css/need_style.css?v=92936fa5" />
       <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/common_css/need_toggle.css?v=5c6620df" />
       <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/modern.css?v=803738c0" />
-      <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=d26aa23c" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=ed454c3b" />
 
   
       <script src="../../../_static/jquery.js?v=5d32c60e"></script>
@@ -78,10 +78,10 @@
 <li class="toctree-l3 current"><a class="reference internal" href="index.html">Guide</a><ul class="current">
 <li class="toctree-l4 current"><a class="current reference internal" href="#">Quickstart</a></li>
 <li class="toctree-l4"><a class="reference internal" href="01_configuration.html">Configuration</a></li>
-<li class="toctree-l4"><a class="reference internal" href="02_initialise.html">Initialize the driver</a></li>
-<li class="toctree-l4"><a class="reference internal" href="03_controller.html">Controller transactions</a></li>
-<li class="toctree-l4"><a class="reference internal" href="04_target.html">Target transactions</a></li>
-<li class="toctree-l4"><a class="reference internal" href="05_common_mistakes.html">Common mistakes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="02_initialise.html">Initialize the Driver</a></li>
+<li class="toctree-l4"><a class="reference internal" href="03_controller.html">Controller Transactions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="04_target.html">Target Transactions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="05_common_mistakes.html">Common Mistakes</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../reference/index.html">Reference</a></li>
@@ -113,7 +113,10 @@
           <li class="breadcrumb-item"><a href="../../index.html">Chiisai HAL Driver Modules</a></li>
           <li class="breadcrumb-item"><a href="../index.html">Spi</a></li>
           <li class="breadcrumb-item"><a href="index.html">Guide</a></li>
-      <li class="breadcrumb-item active">Quickstart</li>
+      <li class="breadcrumb-item active">Quickstart</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/04_DriverModules/Spi/guide/00_quickstart.rst.txt" rel="nofollow"> View page source</a>
+      </li>
   </ul>
   <hr/>
 </div>
@@ -122,19 +125,19 @@
              
   <section id="quickstart">
 <h1>Quickstart<a class="headerlink" href="#quickstart" title="Link to this heading"></a></h1>
-<div class="informative admonition">
-<p class="admonition-title">Informative</p>
+<div class="content-kind content-kind-informative docutils container">
+<p><a class="content-kind-label reference internal" href="../../../00_about/01_reading_guide.html#content-kinds" title="Informative: explains usage; does not constrain driver implementations. Click for details."><span class="content-kind-name">Informative</span><span class="content-kind-sep"> · </span><span class="content-kind-scope">non-binding</span></a></p>
+</div>
 <p>The shortest path to a working SPI controller: initialize and transfer a buffer to a device.
 Binding rules are in <a class="reference internal" href="../00_requirements.html"><span class="doc">Spi — Requirements</span></a>; signatures in <a class="reference internal" href="../reference/00_api.html"><span class="doc">API Reference</span></a>.</p>
-</div>
 <section id="bring-the-driver-up">
-<h2>Bring the driver up<a class="headerlink" href="#bring-the-driver-up" title="Link to this heading"></a></h2>
+<h2>Bring the Driver Up<a class="headerlink" href="#bring-the-driver-up" title="Link to this heading"></a></h2>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">Spi_Init</span><span class="p">(</span><span class="n">NULL_PTR</span><span class="p">);</span><span class="w">          </span><span class="cm">/* driver: UNINIT -&gt; INIT; every channel -&gt; IDLE */</span>
 </pre></div>
 </div>
 </section>
 <section id="transfer-a-buffer-controller-mode">
-<h2>Transfer a buffer (controller mode)<a class="headerlink" href="#transfer-a-buffer-controller-mode" title="Link to this heading"></a></h2>
+<h2>Transfer a Buffer (Controller Mode)<a class="headerlink" href="#transfer-a-buffer-controller-mode" title="Link to this heading"></a></h2>
 <p>A transaction is a <strong>buffer set</strong> — one or more chunks transferred within a chip-select sequence.
 Here a single TX chunk is sent while the received bytes are discarded (null RX pointer):</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">static</span><span class="w"> </span><span class="n">uint8</span><span class="w"> </span><span class="n">txData</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mh">0x10u</span><span class="p">,</span><span class="w"> </span><span class="mh">0x2Au</span><span class="w"> </span><span class="p">};</span>
@@ -153,7 +156,7 @@ Here a single TX chunk is sent while the received bytes are discarded (null RX p
 </div>
 </section>
 <section id="handle-completion">
-<h2>Handle completion<a class="headerlink" href="#handle-completion" title="Link to this heading"></a></h2>
+<h2>Handle Completion<a class="headerlink" href="#handle-completion" title="Link to this heading"></a></h2>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">Spi_Callout_OnTransactionEnd</span><span class="p">(</span><span class="n">uint8</span><span class="w"> </span><span class="n">channelId</span><span class="p">,</span><span class="w"> </span><span class="n">uint8</span><span class="w"> </span><span class="n">csId</span><span class="p">,</span><span class="w"> </span><span class="n">uint16</span><span class="w"> </span><span class="n">length</span><span class="p">)</span>
 <span class="p">{</span>
 <span class="w">    </span><span class="cm">/* the transaction finished; `length` elements were transferred */</span>
@@ -162,14 +165,15 @@ Here a single TX chunk is sent while the received bytes are discarded (null RX p
 </div>
 <p>That is a complete controller transfer: <code class="docutils literal notranslate"><span class="pre">Spi_Interrupt</span></code> (or <code class="docutils literal notranslate"><span class="pre">Spi_PollFunction</span></code>) drives the
 buffer set and fires <code class="docutils literal notranslate"><span class="pre">Spi_Callout_OnTransactionEnd</span></code>. To also <strong>receive</strong>, supply an RX buffer set (see
-<a class="reference internal" href="03_controller.html"><span class="doc">Controller transactions</span></a>). To act as a <strong>target</strong>, see <a class="reference internal" href="04_target.html"><span class="doc">Target transactions</span></a>.</p>
+<a class="reference internal" href="03_controller.html"><span class="doc">Controller Transactions</span></a>). To act as a <strong>target</strong>, see <a class="reference internal" href="04_target.html"><span class="doc">Target Transactions</span></a>.</p>
 </section>
 </section>
 
 
            </div>
           </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+          
+<footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="index.html" class="btn btn-neutral float-left" title="Guide" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="01_configuration.html" class="btn btn-neutral float-right" title="Configuration" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
@@ -177,7 +181,10 @@ buffer set and fires <code class="docutils literal notranslate"><span class="pre
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2023-2026 by Vector Informatik GmbH and Infineon Technologies AG. Licensed under the Apache License, Version 2.0.</p>
+  
+    <p>&#169; Copyright 2023-2026 by Vector Informatik GmbH and Infineon Technologies AG.</p>
+  <p class="license-notice">Licensed under the Apache License 2.0.</p>
+
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

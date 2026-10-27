@@ -7,7 +7,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Target transactions &mdash; Chiisai HAL Specification released documentation</title>
+  <title>Target Transactions &mdash; Chiisai HAL Specification released documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=9edc463e" />
       <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css?v=4ae1632d" />
@@ -20,7 +20,7 @@
       <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/common_css/need_style.css?v=92936fa5" />
       <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/common_css/need_toggle.css?v=5c6620df" />
       <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/modern.css?v=803738c0" />
-      <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=d26aa23c" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=ed454c3b" />
 
   
       <script src="../../../_static/jquery.js?v=5d32c60e"></script>
@@ -37,8 +37,8 @@
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="Common mistakes" href="05_common_mistakes.html" />
-    <link rel="prev" title="Controller transactions" href="03_controller.html" /> 
+    <link rel="next" title="Common Mistakes" href="05_common_mistakes.html" />
+    <link rel="prev" title="Controller Transactions" href="03_controller.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -73,10 +73,10 @@
 <li class="toctree-l3 current"><a class="reference internal" href="index.html">Guide</a><ul class="current">
 <li class="toctree-l4"><a class="reference internal" href="00_quickstart.html">Quickstart</a></li>
 <li class="toctree-l4"><a class="reference internal" href="01_configuration.html">Configuration</a></li>
-<li class="toctree-l4"><a class="reference internal" href="02_initialise.html">Initialize the driver</a></li>
-<li class="toctree-l4"><a class="reference internal" href="03_controller.html">Controller transactions</a></li>
-<li class="toctree-l4 current"><a class="current reference internal" href="#">Target transactions</a></li>
-<li class="toctree-l4"><a class="reference internal" href="05_common_mistakes.html">Common mistakes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="02_initialise.html">Initialize the Driver</a></li>
+<li class="toctree-l4"><a class="reference internal" href="03_controller.html">Controller Transactions</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Target Transactions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="05_common_mistakes.html">Common Mistakes</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../reference/index.html">Reference</a></li>
@@ -113,7 +113,10 @@
           <li class="breadcrumb-item"><a href="../../index.html">Chiisai HAL Driver Modules</a></li>
           <li class="breadcrumb-item"><a href="../index.html">I2c</a></li>
           <li class="breadcrumb-item"><a href="index.html">Guide</a></li>
-      <li class="breadcrumb-item active">Target transactions</li>
+      <li class="breadcrumb-item active">Target Transactions</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/04_DriverModules/I2c/guide/04_target.rst.txt" rel="nofollow"> View page source</a>
+      </li>
   </ul>
   <hr/>
 </div>
@@ -121,14 +124,14 @@
            <div itemprop="articleBody">
              
   <section id="target-transactions">
-<h1>Target transactions<a class="headerlink" href="#target-transactions" title="Link to this heading"></a></h1>
-<div class="informative admonition">
-<p class="admonition-title">Informative</p>
+<h1>Target Transactions<a class="headerlink" href="#target-transactions" title="Link to this heading"></a></h1>
+<div class="content-kind content-kind-informative docutils container">
+<p><a class="content-kind-label reference internal" href="../../../00_about/01_reading_guide.html#content-kinds" title="Informative: explains usage; does not constrain driver implementations. Click for details."><span class="content-kind-name">Informative</span><span class="content-kind-sep"> · </span><span class="content-kind-scope">non-binding</span></a></p>
+</div>
 <p>How a target-mode channel responds to a controller on the bus. Binding rules: <a class="reference internal" href="../00_requirements.html#CHI-I2C-MUST-02" title="CHI-I2C-MUST-02"><em class="xref need">CHI-I2C-MUST-02</em></a>,
 <a class="reference internal" href="../00_requirements.html#CHI-I2C-MUST-08" title="CHI-I2C-MUST-08"><em class="xref need">CHI-I2C-MUST-08</em></a>, <a class="reference internal" href="../00_requirements.html#CHI-I2C-MUST-15" title="CHI-I2C-MUST-15"><em class="xref need">CHI-I2C-MUST-15</em></a>, <a class="reference internal" href="../00_requirements.html#CHI-I2C-MUST-16" title="CHI-I2C-MUST-16"><em class="xref need">CHI-I2C-MUST-16</em></a> in <a class="reference internal" href="../00_requirements.html"><span class="doc">I2c — Requirements</span></a>.</p>
-</div>
 <section id="respond-when-addressed">
-<h2>Respond when addressed<a class="headerlink" href="#respond-when-addressed" title="Link to this heading"></a></h2>
+<h2>Respond When Addressed<a class="headerlink" href="#respond-when-addressed" title="Link to this heading"></a></h2>
 <p>When a controller addresses this target, the driver calls the <code class="docutils literal notranslate"><span class="pre">I2c_Callout_OnAddress</span></code> callout with
 the transfer <strong>direction</strong>; you stage the response by starting a transaction with
 <code class="docutils literal notranslate"><span class="pre">I2C_ADDR_UNSPECIFIED</span></code> (the address is already fixed by configuration). Fill in its user code
@@ -169,15 +172,19 @@ must stay valid until the completion callout fires (<a class="reference internal
 
            </div>
           </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="03_controller.html" class="btn btn-neutral float-left" title="Controller transactions" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="05_common_mistakes.html" class="btn btn-neutral float-right" title="Common mistakes" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+          
+<footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="03_controller.html" class="btn btn-neutral float-left" title="Controller Transactions" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="05_common_mistakes.html" class="btn btn-neutral float-right" title="Common Mistakes" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2023-2026 by Vector Informatik GmbH and Infineon Technologies AG. Licensed under the Apache License, Version 2.0.</p>
+  
+    <p>&#169; Copyright 2023-2026 by Vector Informatik GmbH and Infineon Technologies AG.</p>
+  <p class="license-notice">Licensed under the Apache License 2.0.</p>
+
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

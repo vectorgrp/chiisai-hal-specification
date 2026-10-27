@@ -20,7 +20,7 @@
       <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/common_css/need_style.css?v=92936fa5" />
       <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/common_css/need_toggle.css?v=5c6620df" />
       <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/modern.css?v=803738c0" />
-      <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=d26aa23c" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=ed454c3b" />
 
   
       <script src="../../../_static/jquery.js?v=5d32c60e"></script>
@@ -466,7 +466,10 @@ window.runMermaid = runMermaid;</script>
           <li class="breadcrumb-item"><a href="../../index.html">Chiisai HAL Driver Modules</a></li>
           <li class="breadcrumb-item"><a href="../index.html">Mem</a></li>
           <li class="breadcrumb-item"><a href="index.html">General</a></li>
-      <li class="breadcrumb-item active">Concepts</li>
+      <li class="breadcrumb-item active">Concepts</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/04_DriverModules/Mem/general/01_concepts.rst.txt" rel="nofollow"> View page source</a>
+      </li>
   </ul>
   <hr/>
 </div>
@@ -475,14 +478,14 @@ window.runMermaid = runMermaid;</script>
              
   <section id="concepts">
 <h1>Concepts<a class="headerlink" href="#concepts" title="Link to this heading"></a></h1>
-<div class="informative admonition">
-<p class="admonition-title">Informative</p>
+<div class="content-kind content-kind-informative docutils container">
+<p><a class="content-kind-label reference internal" href="../../../00_about/01_reading_guide.html#content-kinds" title="Informative: explains usage; does not constrain driver implementations. Click for details."><span class="content-kind-name">Informative</span><span class="content-kind-sep"> · </span><span class="content-kind-scope">non-binding</span></a></p>
+</div>
 <p>The model behind the memory driver: its asynchronous job model and job results, memory
 segmentation, multiple instances, and the optional binary-image packaging. Non-binding; the
 normative rules live in <a class="reference internal" href="../00_requirements.html"><span class="doc">Mem — Requirements</span></a>.</p>
-</div>
 <section id="jobs-and-results">
-<h2>Jobs and results<a class="headerlink" href="#jobs-and-results" title="Link to this heading"></a></h2>
+<h2>Jobs and Results<a class="headerlink" href="#jobs-and-results" title="Link to this heading"></a></h2>
 <p>Every operation (read, write, erase, blank-check, …) runs as an <strong>asynchronous job</strong>. A request
 returns immediately: it is <em>accepted</em> (<code class="docutils literal notranslate"><span class="pre">E_OK</span></code>) or <em>rejected</em> (<code class="docutils literal notranslate"><span class="pre">E_NOT_OK</span></code>, e.g. because a job is
 already pending — there is no queue, at most one job at a time per instance). The work then proceeds
@@ -531,13 +534,13 @@ the result of the <strong>most recent</strong> job for that instance (each new j
 </table>
 </section>
 <section id="memory-segmentation">
-<h2>Memory segmentation<a class="headerlink" href="#memory-segmentation" title="Link to this heading"></a></h2>
+<h2>Memory Segmentation<a class="headerlink" href="#memory-segmentation" title="Link to this heading"></a></h2>
 <p>The driver works on <strong>physical segmentation</strong> only. The smallest <strong>erasable</strong> unit is a <em>sector</em>;
 the smallest <strong>writable</strong> unit is a <em>write page</em>. Addresses and lengths passed to the driver MUST be
 aligned to these units — the driver performs no alignment or buffering. See <a class="reference internal" href="#mem-key-terms"><span class="std std-ref">Key terms</span></a> for sector / bank / address-area definitions.</p>
 </section>
 <section id="multiple-instances">
-<h2>Multiple instances<a class="headerlink" href="#multiple-instances" title="Link to this heading"></a></h2>
+<h2>Multiple Instances<a class="headerlink" href="#multiple-instances" title="Link to this heading"></a></h2>
 <p>One driver instance can serve several <strong>memory instances</strong> of the same device, and several driver
 instances can coexist. Each memory instance is addressed by its <code class="docutils literal notranslate"><span class="pre">Mem_InstanceIdType</span></code>.</p>
 <figure class="align-center" id="id1">
@@ -554,7 +557,7 @@ instances can coexist. Each memory instance is addressed by its <code class="doc
 </figure>
 </section>
 <section id="binary-image-format">
-<h2>Binary image format<a class="headerlink" href="#binary-image-format" title="Link to this heading"></a></h2>
+<h2>Binary Image Format<a class="headerlink" href="#binary-image-format" title="Link to this heading"></a></h2>
 <p>A driver MAY be delivered as a self-contained, relocatable <strong>binary image</strong> for dynamic activation
 at runtime. The image begins with a header — a unique id, flags, the header address, and a
 delimiter address — followed by a <strong>service function-pointer table</strong> (one entry per API) and a
@@ -569,13 +572,13 @@ then be invoked <strong>directly</strong> or <strong>indirectly</strong> through
 <p>The normative rules for the header and table are <a class="reference internal" href="../00_requirements.html#CHI-MEM-MUST-22" title="CHI-MEM-MUST-22"><em class="xref need">CHI-MEM-MUST-22</em></a>…<a class="reference internal" href="../00_requirements.html#CHI-MEM-MUST-26" title="CHI-MEM-MUST-26"><em class="xref need">CHI-MEM-MUST-26</em></a>.</p>
 </section>
 <section id="driving-jobs">
-<h2>Driving jobs<a class="headerlink" href="#driving-jobs" title="Link to this heading"></a></h2>
+<h2>Driving Jobs<a class="headerlink" href="#driving-jobs" title="Link to this heading"></a></h2>
 <p>Because jobs are asynchronous, the integrator MUST call <code class="docutils literal notranslate"><span class="pre">Mem_PollFunction</span></code> cyclically while a job
 is pending; it advances the active job and updates the result. <code class="docutils literal notranslate"><span class="pre">Mem_OnError</span></code> is called by the
 system’s ECC handler to report an uncorrectable ECC error, which cancels the current job.</p>
 </section>
 <section id="job-sequence">
-<h2>Job sequence<a class="headerlink" href="#job-sequence" title="Link to this heading"></a></h2>
+<h2>Job Sequence<a class="headerlink" href="#job-sequence" title="Link to this heading"></a></h2>
 <p>The informative view of running a job and handling ECC (<a class="reference internal" href="../00_requirements.html#CHI-MEM-MUST-04" title="CHI-MEM-MUST-04"><em class="xref need">CHI-MEM-MUST-04</em></a>, <a class="reference internal" href="../00_requirements.html#CHI-MEM-MUST-06" title="CHI-MEM-MUST-06"><em class="xref need">CHI-MEM-MUST-06</em></a>,
 <a class="reference internal" href="../00_requirements.html#CHI-MEM-MUST-13" title="CHI-MEM-MUST-13"><em class="xref need">CHI-MEM-MUST-13</em></a>):</p>
 <pre  class="mermaid">
@@ -602,7 +605,7 @@ system’s ECC handler to report an uncorrectable ECC error, which cancels the c
    DRV--&gt;&gt;UPL: result MEM_JOB_ERROR_ECC_UNCORRECTED
     </pre></section>
 <section id="key-terms">
-<span id="mem-key-terms"></span><h2>Key terms<a class="headerlink" href="#key-terms" title="Link to this heading"></a></h2>
+<span id="mem-key-terms"></span><h2>Key Terms<a class="headerlink" href="#key-terms" title="Link to this heading"></a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 24.0%" />
@@ -644,7 +647,8 @@ permitted.</p></td>
 
            </div>
           </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+          
+<footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="00_overview.html" class="btn btn-neutral float-left" title="Overview" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="../guide/index.html" class="btn btn-neutral float-right" title="Guide" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
@@ -652,7 +656,10 @@ permitted.</p></td>
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2023-2026 by Vector Informatik GmbH and Infineon Technologies AG. Licensed under the Apache License, Version 2.0.</p>
+  
+    <p>&#169; Copyright 2023-2026 by Vector Informatik GmbH and Infineon Technologies AG.</p>
+  <p class="license-notice">Licensed under the Apache License 2.0.</p>
+
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

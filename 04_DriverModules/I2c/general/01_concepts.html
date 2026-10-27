@@ -20,7 +20,7 @@
       <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/common_css/need_style.css?v=92936fa5" />
       <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/common_css/need_toggle.css?v=5c6620df" />
       <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/modern.css?v=803738c0" />
-      <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=d26aa23c" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=ed454c3b" />
 
   
       <script src="../../../_static/jquery.js?v=5d32c60e"></script>
@@ -466,7 +466,10 @@ window.runMermaid = runMermaid;</script>
           <li class="breadcrumb-item"><a href="../../index.html">Chiisai HAL Driver Modules</a></li>
           <li class="breadcrumb-item"><a href="../index.html">I2c</a></li>
           <li class="breadcrumb-item"><a href="index.html">General</a></li>
-      <li class="breadcrumb-item active">Concepts</li>
+      <li class="breadcrumb-item active">Concepts</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/04_DriverModules/I2c/general/01_concepts.rst.txt" rel="nofollow"> View page source</a>
+      </li>
   </ul>
   <hr/>
 </div>
@@ -475,19 +478,19 @@ window.runMermaid = runMermaid;</script>
              
   <section id="concepts">
 <h1>Concepts<a class="headerlink" href="#concepts" title="Link to this heading"></a></h1>
-<div class="informative admonition">
-<p class="admonition-title">Informative</p>
+<div class="content-kind content-kind-informative docutils container">
+<p><a class="content-kind-label reference internal" href="../../../00_about/01_reading_guide.html#content-kinds" title="Informative: explains usage; does not constrain driver implementations. Click for details."><span class="content-kind-name">Informative</span><span class="content-kind-sep"> · </span><span class="content-kind-scope">non-binding</span></a></p>
+</div>
 <p>The model behind the I2C driver: its driver- and channel-level state machines, the transfer
 model in controller and target mode, and how events are handled. Non-binding; the normative rules
 live in <a class="reference internal" href="../00_requirements.html"><span class="doc">I2c — Requirements</span></a>.</p>
-</div>
 <section id="state-machine">
-<h2>State machine<a class="headerlink" href="#state-machine" title="Link to this heading"></a></h2>
+<h2>State Machine<a class="headerlink" href="#state-machine" title="Link to this heading"></a></h2>
 <p>The driver has a <strong>driver-wide</strong> state and, within the initialized state, a <strong>per-channel</strong> state.
 A channel is statically configured as a <strong>controller</strong> or a <strong>target</strong>; the two roles move through
 the same channel states with different triggers.</p>
 <section id="driver-state">
-<h3>Driver state<a class="headerlink" href="#driver-state" title="Link to this heading"></a></h3>
+<h3>Driver State<a class="headerlink" href="#driver-state" title="Link to this heading"></a></h3>
 <pre  class="mermaid">
         stateDiagram-v2
    [*] --&gt; I2C_DRV_STATE_UNINIT : Reset
@@ -518,7 +521,7 @@ the same channel states with different triggers.</p>
 </table>
 </section>
 <section id="channel-state">
-<h3>Channel state<a class="headerlink" href="#channel-state" title="Link to this heading"></a></h3>
+<h3>Channel State<a class="headerlink" href="#channel-state" title="Link to this heading"></a></h3>
 <p>Each channel moves through four states (<code class="docutils literal notranslate"><span class="pre">I2c_ChannelStateType</span></code>). <code class="docutils literal notranslate"><span class="pre">I2c_Init</span></code> leaves every channel
 in <code class="docutils literal notranslate"><span class="pre">IDLE</span></code>; <code class="docutils literal notranslate"><span class="pre">I2c_DeInit</span></code> returns the driver (and its channels) to <code class="docutils literal notranslate"><span class="pre">I2C_DRV_STATE_UNINIT</span></code>.</p>
 <table class="docutils align-default">
@@ -569,7 +572,7 @@ ready to set up the transfer.</p></td>
 </section>
 </section>
 <section id="transfer-model">
-<h2>Transfer model<a class="headerlink" href="#transfer-model" title="Link to this heading"></a></h2>
+<h2>Transfer Model<a class="headerlink" href="#transfer-model" title="Link to this heading"></a></h2>
 <p>A transfer has a <strong>direction</strong> (<code class="docutils literal notranslate"><span class="pre">I2c_DirectionType</span></code>): <code class="docutils literal notranslate"><span class="pre">I2C_DIR_CONTROLLER_WRITE</span></code> or
 <code class="docutils literal notranslate"><span class="pre">I2C_DIR_CONTROLLER_READ</span></code> — always named from the controller’s point of view.</p>
 <ul class="simple">
@@ -588,7 +591,7 @@ arbitration failures are runtime errors (see <a class="reference internal" href=
 (<code class="docutils literal notranslate"><span class="pre">I2c_Callout_OnTransmission</span></code> / <code class="docutils literal notranslate"><span class="pre">I2c_Callout_OnReception</span></code>) fires.</p>
 </section>
 <section id="event-handling-interrupt-or-polling">
-<h2>Event handling: interrupt or polling<a class="headerlink" href="#event-handling-interrupt-or-polling" title="Link to this heading"></a></h2>
+<h2>Event Handling: Interrupt or Polling<a class="headerlink" href="#event-handling-interrupt-or-polling" title="Link to this heading"></a></h2>
 <p>For each channel, event handling is configured as either <em>interrupt</em> or <em>polling</em>:</p>
 <ul class="simple">
 <li><p><strong>Interrupt</strong> — <code class="docutils literal notranslate"><span class="pre">I2c_Init</span></code> enables the I2C interrupt; <code class="docutils literal notranslate"><span class="pre">I2c_Interrupt</span></code> services it.</p></li>
@@ -598,7 +601,7 @@ arbitration failures are runtime errors (see <a class="reference internal" href=
 <code class="docutils literal notranslate"><span class="pre">I2c_Callout_OnTransmission</span></code>, <code class="docutils literal notranslate"><span class="pre">I2c_Callout_OnError</span></code>, and (target mode) <code class="docutils literal notranslate"><span class="pre">I2c_Callout_OnAddress</span></code>.</p>
 </section>
 <section id="controller-transaction-sequence">
-<h2>Controller transaction sequence<a class="headerlink" href="#controller-transaction-sequence" title="Link to this heading"></a></h2>
+<h2>Controller Transaction Sequence<a class="headerlink" href="#controller-transaction-sequence" title="Link to this heading"></a></h2>
 <p>The informative view of a controller transfer (<a class="reference internal" href="../00_requirements.html#CHI-I2C-MUST-07" title="CHI-I2C-MUST-07"><em class="xref need">CHI-I2C-MUST-07</em></a>, <a class="reference internal" href="../00_requirements.html#CHI-I2C-MUST-13" title="CHI-I2C-MUST-13"><em class="xref need">CHI-I2C-MUST-13</em></a>,
 <a class="reference internal" href="../00_requirements.html#CHI-I2C-MUST-14" title="CHI-I2C-MUST-14"><em class="xref need">CHI-I2C-MUST-14</em></a>):</p>
 <pre  class="mermaid">
@@ -624,7 +627,7 @@ arbitration failures are runtime errors (see <a class="reference internal" href=
    deactivate DRV
     </pre></section>
 <section id="target-transaction-sequence">
-<h2>Target transaction sequence<a class="headerlink" href="#target-transaction-sequence" title="Link to this heading"></a></h2>
+<h2>Target Transaction Sequence<a class="headerlink" href="#target-transaction-sequence" title="Link to this heading"></a></h2>
 <p>The informative view of a target transfer (<a class="reference internal" href="../00_requirements.html#CHI-I2C-MUST-08" title="CHI-I2C-MUST-08"><em class="xref need">CHI-I2C-MUST-08</em></a>, <a class="reference internal" href="../00_requirements.html#CHI-I2C-MUST-15" title="CHI-I2C-MUST-15"><em class="xref need">CHI-I2C-MUST-15</em></a>,
 <a class="reference internal" href="../00_requirements.html#CHI-I2C-MUST-16" title="CHI-I2C-MUST-16"><em class="xref need">CHI-I2C-MUST-16</em></a>):</p>
 <pre  class="mermaid">
@@ -646,16 +649,17 @@ arbitration failures are runtime errors (see <a class="reference internal" href=
    deactivate DRV
     </pre></section>
 <section id="key-terms">
-<h2>Key terms<a class="headerlink" href="#key-terms" title="Link to this heading"></a></h2>
-<p>For I2C glossary terms — controller/target node, 7-bit address, direction, repeated START, ACK/NACK,
-default data — see the glossary in the appendix.</p>
+<h2>Key Terms<a class="headerlink" href="#key-terms" title="Link to this heading"></a></h2>
+<p>For I2C glossary terms — <a class="reference internal" href="../../../appendix.html#term-Controller-Commander-Node"><span class="xref std std-term">controller</span></a>/<a class="reference internal" href="../../../appendix.html#term-Target-Responder-Node"><span class="xref std std-term">target node</span></a>, 7-bit address, direction, repeated START,
+ACK/NACK, default data — see the glossary in the appendix.</p>
 </section>
 </section>
 
 
            </div>
           </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+          
+<footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="00_overview.html" class="btn btn-neutral float-left" title="Overview" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="../guide/index.html" class="btn btn-neutral float-right" title="Guide" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
@@ -663,7 +667,10 @@ default data — see the glossary in the appendix.</p>
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2023-2026 by Vector Informatik GmbH and Infineon Technologies AG. Licensed under the Apache License, Version 2.0.</p>
+  
+    <p>&#169; Copyright 2023-2026 by Vector Informatik GmbH and Infineon Technologies AG.</p>
+  <p class="license-notice">Licensed under the Apache License 2.0.</p>
+
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
